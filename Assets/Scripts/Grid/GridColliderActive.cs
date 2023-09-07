@@ -5,13 +5,20 @@ using UnityEngine;
 public class GridColliderActive : MonoBehaviour
 {
     private List<Collider> colliders = new List<Collider>();
+    public List<GameObject> bomps;
 
     void Start()
     {
         GameObject[] gridObjects = GameObject.FindGameObjectsWithTag("grid");
+        Collider[] objectColliders;
         foreach (GameObject gridObject in gridObjects)
         {
-            Collider[] objectColliders = gridObject.GetComponentsInChildren<Collider>();
+            objectColliders = gridObject.GetComponentsInChildren<Collider>();
+            colliders.AddRange(objectColliders);
+        }
+        foreach (GameObject item in bomps)
+        {
+            objectColliders = item.GetComponentsInChildren<Collider>();
             colliders.AddRange(objectColliders);
         }
 

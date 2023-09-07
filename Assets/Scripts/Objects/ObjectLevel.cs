@@ -11,7 +11,20 @@ public class ObjectLevel : MonoBehaviour
     {
         objectLevel++;
     }
-
+    public void LevelUp(int level)
+    {
+        objectLevel = level;
+    }
+    public void LevelDown(int level)
+    {
+        objectLevel = level;
+    }
+    private void OnEnable()
+    {
+        objectLevel = 0;
+        SetFalse();
+        SetTrue();
+    }
     public void SetTrue()
     {
         transform.GetChild(objectLevel).gameObject.SetActive(true);
@@ -23,20 +36,10 @@ public class ObjectLevel : MonoBehaviour
 
         foreach (Transform child in children)
         {
-            if (child != transform) // Kendisi hariç
+            if (child != transform)
             {
-                // SetActive özelliðini ayarla
                 child.gameObject.SetActive(false);
             }
         }
-
-        //foreach (Transform child in transform)
-        //{
-        //    if (child != transform) // Kendisi hariç
-        //    {
-        //        child.gameObject.SetActive(false);
-        //    }
-
-        //}
     }
 }
