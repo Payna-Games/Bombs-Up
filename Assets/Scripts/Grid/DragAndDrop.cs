@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-    Vector3 mousePosition;
     private Vector3 thisPos;
 
     public GameObject prevGrid = null;
@@ -19,14 +18,8 @@ public class DragAndDrop : MonoBehaviour
 
     private float mouseElevaiton = 1.5f;
 
-
-    //private Vector3 GetMousePos()
-    //{
-    //    //return Camera.main.WorldToScreenPoint(transform.position);
-    //}
     public Vector3 GetMouseWorldPosition()
     {
-
         Vector3 mousePos = Input.mousePosition;
 
         mousePos.z = mZCoord;
@@ -34,23 +27,19 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        ObjectList.objectList.DragObject = this.gameObject;
+
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
 
         offset = transform.position - GetMouseWorldPosition();
         firstPosition = transform.position;
 
         thisPos = transform.position;
-        //mousePosition = Input.mousePosition - GetMousePos();
     }
 
 
     private void OnMouseDrag()
     {
-        //transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
-
-        //Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePosition);
-        //transform.position = new Vector3(newPosition.x, newPosition.y * 1.15f, newPosition.z);
-
         mouseWorldPos = GetMouseWorldPosition() + offset;
         elevation = (transform.position.z - firstPosition.z) * Mathf.Tan(tiltAngle * Mathf.Deg2Rad);
         mouseWorldPos.y = elevation + firstPosition.y + mouseElevaiton;
@@ -60,12 +49,14 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        //ObjectList.objectList.DragObject = null;
         DragPos();
     }
 
     private void DragPos()
     {
         Collider[] colliders = Physics.OverlapBox(transform.position, transform.localScale / 2);
+
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("grid"))
@@ -73,7 +64,7 @@ public class DragAndDrop : MonoBehaviour
                 IsEmpty(collider.gameObject);
                 break;
             }
-            else if ((collider.CompareTag("B_Head") || collider.CompareTag("B_Body") || collider.CompareTag("B_Engine")) )
+            else if ((collider.CompareTag("B_Head") || collider.CompareTag("B_Body") || collider.CompareTag("B_Engine")))
             {
                 BombObjChange(collider.gameObject);
             }
@@ -83,6 +74,8 @@ public class DragAndDrop : MonoBehaviour
             PrevPos();
         }
     }
+
+
 
     private void BombObjChange(GameObject gameObject)
     {
@@ -129,7 +122,7 @@ public class DragAndDrop : MonoBehaviour
 
                     break;
             }
-            if (levelColliderObj != levelThis)  
+            if (levelColliderObj != levelThis)
                 LowerObjLevel(levelColliderObj);
             else
             {
@@ -187,7 +180,7 @@ public class DragAndDrop : MonoBehaviour
             IsMerge(colliderObj);
         }
     }
-    private void PrevGridNull()
+    public void PrevGridNull()
     {
         prevGrid.GetComponent<GridIsEmpty>().gridObject = null;
         prevGrid = null;

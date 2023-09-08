@@ -10,6 +10,8 @@ public class ObjectList : MonoBehaviour
     public List<GameObject> body;
     public List<GameObject> motor;
 
+    public GameObject DragObject;
+
     private void Awake()
     {
         objectList = objectList == null ? this : objectList;
