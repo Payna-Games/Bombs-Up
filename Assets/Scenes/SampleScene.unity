@@ -2014,6 +2014,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2491773069092447258, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 767208649}
+    - targetCorrespondingSourceObject: {fileID: 2491773069092447258, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767208650}
+    - targetCorrespondingSourceObject: {fileID: 2491773069092447258, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767208651}
     - targetCorrespondingSourceObject: {fileID: 5638413336546084327, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2072033610}
@@ -22510,6 +22516,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 767208650}
+        m_TargetAssemblyTypeName: BompRotation, Assembly-CSharp
+        m_MethodName: BoolTrue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &736332186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23248,8 +23266,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionForce: 250
-  explosionRadius: 20
+  explosionRadius: 200
   crater: {fileID: 4468308329558670429, guid: 40d35a4499888a44c9a50a5b26864c4d, type: 3}
+--- !u!114 &767208650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767208643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30f4ce6299446941a78dabf0578b827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+--- !u!114 &767208651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767208643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2762887f37696743848a87e7119bab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 544609228}
+  newFollowTarget: {fileID: 1934185944}
 --- !u!1 &768383389 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3797564287354626547, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -38131,7 +38176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557781529385533, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 14785414730152955, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38187,7 +38232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118544514524741053, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 134911896328377626, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38311,7 +38356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 336650162067683419, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 339773195719100322, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38335,7 +38380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 361860036515360365, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 373401517735867538, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38399,7 +38444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 533237099419689993, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 547943540965105609, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38459,11 +38504,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 641869954075453065, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 653444835373602880, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 659907593912989678, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38535,7 +38580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 808070273630934248, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 810362970710482695, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38559,7 +38604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 849547385662897817, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 866155884708075560, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38567,7 +38612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 867548984917443324, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 870917994955326782, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38651,7 +38696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1025656236198685274, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1029143611989486783, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38703,7 +38748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1141546376315346982, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1168551095091311673, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38711,7 +38756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174205076951566206, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1198407332974191774, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38723,7 +38768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1229777213195458291, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1244073750477469069, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38755,7 +38800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1314288030350203800, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1337730723698315075, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38935,7 +38980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1843787625252472625, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1847755379151660807, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38959,7 +39004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931534461480062648, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1940200638676928198, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38983,7 +39028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1984854240089971216, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1995027862074516202, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -38991,7 +39036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016950267552376615, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2021932885029440316, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39099,11 +39144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2287233811348549795, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2291617607440001155, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2297262849173108347, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39159,7 +39204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2427355756168480060, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2428914808301534214, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39203,7 +39248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2542903095049332673, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2553696940971492574, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39211,7 +39256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2555274280517551431, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2574486628457296701, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39267,7 +39312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2635032834604963261, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2665586515385958000, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39319,7 +39364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2796447852192405588, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2798391680998751815, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39375,7 +39420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2897204583464686873, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2912959514931598109, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39391,7 +39436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2951543883668594607, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 2960322756484436243, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39419,7 +39464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3057343725309242710, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3083379276428195844, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39427,7 +39472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3092975743603377272, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3101982842092334886, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39603,7 +39648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3441547470365417324, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3456468505971144984, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39643,7 +39688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3551180485620437724, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3552415353329769571, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39723,7 +39768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715401645996432692, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3719541739345803335, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39735,7 +39780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3741634065920740176, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3761326022327572880, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39755,7 +39800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3797564287354626547, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3798924924273064892, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39767,7 +39812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3817896420680529119, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3849565810744494539, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39775,7 +39820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3852744815211287918, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3862800377961666436, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39827,7 +39872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3950638017526410618, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 3968344574500453664, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39843,7 +39888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4006909013103002286, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4016196883780538845, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39851,7 +39896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4031288129474756715, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4062748610629230844, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39903,7 +39948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174737688858084196, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4184506794521074913, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39959,7 +40004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4336090506579110490, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4338631261019933911, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39983,7 +40028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4364312555272555140, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4371725433852504427, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -39991,7 +40036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394015200367957985, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4409207916101210947, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40007,7 +40052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4430584989554132557, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4435925663306354277, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40035,7 +40080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4498308804208245049, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4498601395078465503, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40071,7 +40116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4633495515006659179, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4650649019165463042, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40119,7 +40164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733008956998233588, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4751102089384488024, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40167,7 +40212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4923875289854731109, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4940555145805853707, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40219,7 +40264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095966009794202019, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5097170591639593908, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40255,11 +40300,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5217861135585287260, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5228380545995349516, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5231779674473195702, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40267,7 +40312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240529664343212031, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5248684629532247019, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40307,7 +40352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5368365655499081949, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5377356645158935985, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40339,7 +40384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508789799457462393, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5519472818250206577, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40459,7 +40504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5912419206208951960, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5921224392380702780, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40555,7 +40600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6241037389044316269, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6253669925397938945, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40595,7 +40640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6342898247670829107, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6359990332125284387, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40639,7 +40684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6442789959113595407, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6444698372351211723, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40675,7 +40720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535020240082754548, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6563899557353032690, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40707,7 +40752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6626102510440809142, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6626219381525669605, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40779,7 +40824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6789865022358717273, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6792144793331284282, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40787,7 +40832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6807491743648565947, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6817050584918353329, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40811,7 +40856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869029099198108079, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6871122486862771099, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40867,7 +40912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997740151871352119, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7001387835901864726, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -40923,7 +40968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7112297516782191924, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7114613587809744017, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41059,7 +41104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471146767537605045, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7477013262473017627, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41095,7 +41140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7545781170096516820, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7547843224577028723, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41163,7 +41208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7739373367265990710, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7746710078219540291, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41203,7 +41248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7838531181597454671, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7842173341416487088, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41215,7 +41260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858205494091921187, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7874691853054384724, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41263,7 +41308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7972606852907514212, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7986390536087768762, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41327,7 +41372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8132960437013422600, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8150013800847204173, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41379,7 +41424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8298668851595862874, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8336661218308033484, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41447,7 +41492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447066680724605611, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8450035864666730322, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -41555,7 +41600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682357842493402544, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
-      value: City
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8708490256583658594, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
       propertyPath: m_TagString
@@ -53790,6 +53835,9 @@ MonoBehaviour:
   - target: {fileID: 767208647}
     weight: 79.4
     radius: 10.72
+  - target: {fileID: 1934185944}
+    weight: 100
+    radius: 100.72
 --- !u!4 &1550677532
 Transform:
   m_ObjectHideFlags: 0
@@ -53798,8 +53846,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550677530}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
-  m_LocalPosition: {x: -1.81, y: 5, z: 25.3}
+  m_LocalRotation: {x: 0, y: 0.6308177, z: 0.11123022, w: 0.7679172}
+  m_LocalPosition: {x: -20.154074, y: -428.8686, z: 64.37581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64670,6 +64718,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!4 &1934185944 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8946199039686569833, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
+  m_PrefabInstance: {fileID: 1310383100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1934954207 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3404836259884076250, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
