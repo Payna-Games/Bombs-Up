@@ -10,9 +10,8 @@ public class BompExplode : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if ( collision.gameObject.CompareTag("Ground"))/*collision.gameObject.CompareTag("City") ||*/
-        {
-            transform.GetComponent<FollwChange>().ChangeFollow();
+        if (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")) 
+        {            
             Explode();
             gameObject.SetActive(false);
         }
@@ -25,7 +24,6 @@ public class BompExplode : MonoBehaviour
         {
             if (col.gameObject.CompareTag("City"))
             {
-                Debug.Log(col.gameObject.name);
                 Rigidbody rb = col.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
@@ -35,7 +33,7 @@ public class BompExplode : MonoBehaviour
                 }
             }
         }
-        Vector3 creadedPos = new Vector3(transform.position.x, transform.position.y , transform.position.z);
+        Vector3 creadedPos = new Vector3(transform.position.x, -802 , transform.position.z);
         GameObject createdCrater = Instantiate(crater,creadedPos,Quaternion.identity);
         createdCrater.transform.localScale = new Vector3(explosionRadius/50, explosionRadius/50, explosionRadius/50);
     }

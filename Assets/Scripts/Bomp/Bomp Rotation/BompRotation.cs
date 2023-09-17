@@ -5,7 +5,9 @@ using UnityEngine;
 public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
-    private float döndürmeHassasiyeti = 0.5f;
+    private float döndürmeHassasiyeti = 0.1f;
+
+
     public bool loop = false;
 
     void Update()
@@ -22,37 +24,41 @@ public class BompRotation : MonoBehaviour
 
     private void RotateAndDown()
     {
-        float döndürmeAçýsý = 0;
+        float rotationAngle = 0;
         if (Input.touchCount > 0)
         {
-            // Ýlk dokunma pozisyonunu kaydedin.
+
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 ilkDokunmaPozisyonu = Input.GetTouch(0).position;
             }
-            // Dokunma devam ediyorsa nesneyi döndürün.
             else if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                // Dokunma noktasýndaki pozisyon deðiþimini hesaplayýn.
                 Vector2 dokunmaDeðiþim = Input.GetTouch(0).position - ilkDokunmaPozisyonu;
 
-                // Nesneyi saða veya sola döndürün.
-                döndürmeAçýsý = dokunmaDeðiþim.x * döndürmeHassasiyeti * Time.deltaTime;
-                transform.Rotate(Vector3.forward, döndürmeAçýsý);
+                rotationAngle = dokunmaDeðiþim.x * döndürmeHassasiyeti * Time.deltaTime;
+                float angleZ = transform.rotation.eulerAngles.z;
+                //Debug.Log("Rotate : " + rotationAngle);
+                //Debug.Log("Angle Z : "+angleZ);
+                if ((angleZ > 200 && rotationAngle < 0) || (angleZ < 160 && rotationAngle > 0) || (angleZ <190 && angleZ > 170))
+                {
+                    transform.Rotate(Vector3.forward, rotationAngle);
+                    
+                }
 
 
-                // Ýlk dokunma pozisyonunu güncelleyin.
                 ilkDokunmaPozisyonu = Input.GetTouch(0).position;
             }
         }
+
         transform.position += Vector3.down;
-        if (döndürmeAçýsý > 0)
+        if (rotationAngle > 0)
         {
-            transform.position += Vector3.right*2;
+            transform.position += Vector3.right * 2;
         }
-        else if (döndürmeAçýsý < 0)
+        else if (rotationAngle < 0)
         {
-            transform.position += Vector3.left*2;
+            transform.position += Vector3.left * 2;
         }
     }
 }

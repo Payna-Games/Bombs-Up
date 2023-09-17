@@ -2,20 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class FollwChange : MonoBehaviour
 {
-    public CinemachineVirtualCamera virtualCamera; // Sanal kamera referansý
-    public Transform newFollowTarget; // Yeni takip hedefi
-
-    void Start()
+    public Transform bomps;
+    public Transform cityGround;
+    Animator animator;
+    bool isFirst = true;
+    private void Start()
     {
-        //newFollowTarget = GameObject.Find("City").transform;
-        virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        animator = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        float rangeY = bomps.position.y - cityGround.position.y;
+        if (rangeY <= 160 && rangeY >= 130 & isFirst)
+        {
+            isFirst = false;
+            CameraChange();
+        }
     }
 
-    public void ChangeFollow()
+    public void CameraChange()
     {
-        //virtualCamera.Follow = newFollowTarget;
+        animator.Play("CityCamera");
     }
 }
