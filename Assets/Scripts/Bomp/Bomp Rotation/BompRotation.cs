@@ -5,8 +5,8 @@ using UnityEngine;
 public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
-    private float döndürmeHassasiyeti = 0.1f;
-
+    private float döndürmeHassasiyeti = 0.05f;
+    float rotationAngle = 0;
 
     public bool loop = false;
 
@@ -24,7 +24,7 @@ public class BompRotation : MonoBehaviour
 
     private void RotateAndDown()
     {
-        float rotationAngle = 0;
+
         if (Input.touchCount > 0)
         {
 
@@ -38,12 +38,12 @@ public class BompRotation : MonoBehaviour
 
                 rotationAngle = dokunmaDeðiþim.x * döndürmeHassasiyeti * Time.deltaTime;
                 float angleZ = transform.rotation.eulerAngles.z;
-                //Debug.Log("Rotate : " + rotationAngle);
-                //Debug.Log("Angle Z : "+angleZ);
-                if ((angleZ > 200 && rotationAngle < 0) || (angleZ < 160 && rotationAngle > 0) || (angleZ <190 && angleZ > 170))
+                Debug.Log("Rotate : " + rotationAngle);
+                Debug.Log("Angle Z : " + angleZ);
+                if ((angleZ > 200 && rotationAngle < 0) || (angleZ < 160 && rotationAngle > 0) || (angleZ < 195 && angleZ > 165))
                 {
                     transform.Rotate(Vector3.forward, rotationAngle);
-                    
+
                 }
 
 
@@ -51,14 +51,14 @@ public class BompRotation : MonoBehaviour
             }
         }
 
-        transform.position += Vector3.down;
+        //transform.position += Vector3.down;
         if (rotationAngle > 0)
         {
-            transform.position += Vector3.right * 2;
+            transform.position += Vector3.right;
         }
         else if (rotationAngle < 0)
         {
-            transform.position += Vector3.left * 2;
+            transform.position += Vector3.left;
         }
     }
 }

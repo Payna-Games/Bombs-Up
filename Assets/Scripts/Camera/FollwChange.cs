@@ -17,10 +17,15 @@ public class FollwChange : MonoBehaviour
     private void Update()
     {
         float rangeY = bomps.position.y - cityGround.position.y;
-        if (rangeY <= 160 && rangeY >= 130 & isFirst)
+        if (rangeY <= 170 && rangeY >= 120 & isFirst)
         {
+            cityGround.gameObject.isStatic = false;
+
+            //UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+
             isFirst = false;
             CameraChange();
+
         }
     }
 
