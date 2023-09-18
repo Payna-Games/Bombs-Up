@@ -9,8 +9,8 @@ public class BompRotation : MonoBehaviour
     float rotationAngle = 0;
 
     public bool loop = false;
-
-    void Update()
+    
+    void FixedUpdate()
     {
         if (loop)
         {

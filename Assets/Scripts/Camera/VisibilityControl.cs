@@ -11,8 +11,7 @@ public class VisibilityControl : MonoBehaviour
         // Get a reference to the main camera as the camera.
         mainCamera = Camera.main;
     }
-
-    void Update()
+    private void FixedUpdate()
     {
         if (mainCamera == null)
         {

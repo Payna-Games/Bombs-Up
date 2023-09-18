@@ -14,7 +14,7 @@ public class FollwChange : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         float rangeY = bomps.position.y - cityGround.position.y;
         if (rangeY <= 170 && rangeY >= 120 & isFirst)
@@ -27,6 +27,10 @@ public class FollwChange : MonoBehaviour
             CameraChange();
 
         }
+    }
+    private void Update()
+    {
+
     }
 
     public void CameraChange()
