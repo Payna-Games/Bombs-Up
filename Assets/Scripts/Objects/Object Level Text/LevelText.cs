@@ -9,13 +9,13 @@ public class LevelText : MonoBehaviour
     private void OnEnable()
     {
         objectLevelScript = transform.parent.parent.GetComponent<ObjectLevel>();
-        textMeshPro = transform.GetComponent<TextMeshPro>();
-
         objectLevelScript.OnLevelUp += ObjLevelText;
+
+        textMeshPro = transform.GetComponent<TextMeshPro>();
     }
     private void OnDisable()
     {
-        objectLevelScript.OnLevelUp -= ObjLevelText;
+        //objectLevelScript.OnLevelUp -= ObjLevelText;
     }
     private void ObjLevelText(int level)
     {

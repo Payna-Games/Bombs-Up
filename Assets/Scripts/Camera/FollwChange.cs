@@ -28,10 +28,6 @@ public class FollwChange : MonoBehaviour
 
         }
     }
-    private void Update()
-    {
-
-    }
 
     public void CameraChange()
     {

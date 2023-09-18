@@ -26,10 +26,12 @@ public class ObjectLevel : MonoBehaviour
         objectLevel = level;
         OnLevelUp?.Invoke(objectLevel);
     }
+
     private void OnEnable()
     {
         createdLevel = 0;
         LevelUp(createdLevel);
+        Debug.Log("OnEnable");
         SetFalse();
         SetTrue();
     }
