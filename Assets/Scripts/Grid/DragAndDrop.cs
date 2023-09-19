@@ -64,10 +64,12 @@ public class DragAndDrop : MonoBehaviour
                 IsEmpty(collider.gameObject);
                 break;
             }
-            else if ((collider.CompareTag("B_Head") || collider.CompareTag("B_Body") || collider.CompareTag("B_Engine")))
+            else if ((collider.CompareTag("B_Head") && gameObject.CompareTag("Head")) || (collider.CompareTag("B_Body") && gameObject.CompareTag("Body")) || (collider.CompareTag("B_Engine") && gameObject.CompareTag("Motor")))
             {
                 BombObjChange(collider.gameObject);
             }
+            else
+                PrevPos();
         }
         if (colliders.Length == 1)
         {
