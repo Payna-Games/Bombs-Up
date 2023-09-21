@@ -44,8 +44,6 @@ public class BompRotation : MonoBehaviour
                 {
                     transform.Rotate(Vector3.forward, rotationAngle);
                 }
-
-
                 ilkDokunmaPozisyonu = Input.GetTouch(0).position;
             }
         }

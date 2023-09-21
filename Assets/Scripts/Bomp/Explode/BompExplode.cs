@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BompExplode : MonoBehaviour
 {
+    public GameObject againButton;
     public float explosionForce = 10000f;
     public float explosionRadius = 100f;
     public GameObject crater;
@@ -36,5 +37,6 @@ public class BompExplode : MonoBehaviour
         Vector3 creadedPos = new Vector3(transform.position.x, -802 , transform.position.z);
         GameObject createdCrater = Instantiate(crater,creadedPos,Quaternion.identity);
         createdCrater.transform.localScale = new Vector3(explosionRadius/50, explosionRadius/50, explosionRadius/50);
+        againButton.SetActive(true);
     }
 }
