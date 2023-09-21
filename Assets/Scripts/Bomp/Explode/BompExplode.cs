@@ -27,7 +27,7 @@ public class BompExplode : MonoBehaviour
                 Rigidbody rb = col.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.constraints = RigidbodyConstraints.None;
+                    rb.isKinematic = false;
                     rb.useGravity = true;
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
-    private float döndürmeHassasiyeti = 0.05f;
+    private float döndürmeHassasiyeti = 0.075f;
     float rotationAngle = 0;
 
     public bool loop = false;
@@ -43,7 +43,6 @@ public class BompRotation : MonoBehaviour
                 if ((angleZ > 200 && rotationAngle < 0) || (angleZ < 160 && rotationAngle > 0) || (angleZ < 195 && angleZ > 165))
                 {
                     transform.Rotate(Vector3.forward, rotationAngle);
-
                 }
 
 
