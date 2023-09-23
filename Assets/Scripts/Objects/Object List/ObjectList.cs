@@ -15,5 +15,18 @@ public class ObjectList : MonoBehaviour
     private void Awake()
     {
         objectList = objectList == null ? this : objectList;
+        
+        foreach (GameObject item in head)
+        {
+            item.SetActive(false);
+        }
+        foreach (GameObject item in body)
+        {
+            item.SetActive(false);
+        }
+        foreach (GameObject item in motor)
+        {
+            item.SetActive(false);
+        }
     }
 }

@@ -8,6 +8,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 thisPos;
 
     public GameObject prevGrid = null;
+    public GameObject nowGrid = null;
 
     private float mZCoord;
     private float elevation;
@@ -45,7 +46,6 @@ public class DragAndDrop : MonoBehaviour
         mouseWorldPos.y = elevation + firstPosition.y + mouseElevaiton;
 
         transform.position = mouseWorldPos;
-
     }
     private void OnMouseUp()
     {
@@ -96,6 +96,8 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
                         gameObject.GetComponent<ObjectLevel>().SetFalse();
                         gameObject.GetComponent<ObjectLevel>().SetTrue();
+                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
+                        PrevGridNull();
                     }
 
                     break;
@@ -108,6 +110,8 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
                         gameObject.GetComponent<ObjectLevel>().SetFalse();
                         gameObject.GetComponent<ObjectLevel>().SetTrue();
+                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
+                        PrevGridNull();
                     }
 
                     break;
@@ -119,7 +123,9 @@ public class DragAndDrop : MonoBehaviour
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
                         gameObject.GetComponent<ObjectLevel>().SetFalse();
-                        gameObject.GetComponent<ObjectLevel>().SetTrue();
+                        gameObject.GetComponent<ObjectLevel>().SetTrue();                        
+                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
+                        PrevGridNull();
                     }
 
                     break;
@@ -150,6 +156,7 @@ public class DragAndDrop : MonoBehaviour
         else if (gridObject.tag == transform.tag && gridObject.GetComponent<ObjectLevel>().objectLevel == transform.GetComponent<ObjectLevel>().objectLevel)
         {
             gridObject.GetComponent<ObjectLevel>().LevelUp();
+            transform.GetComponent<ObjectLevel>().objectLevel =0;
             gridObject.GetComponent<ObjectLevel>().SetFalse();
             gridObject.GetComponent<ObjectLevel>().SetTrue();
             gameObject.SetActive(false);
@@ -169,6 +176,7 @@ public class DragAndDrop : MonoBehaviour
         if (colliderObj.GetComponent<GridIsEmpty>().gridObject == null)
         {
             colliderObj.GetComponent<GridIsEmpty>().gridObject = this.gameObject;
+            colliderObj.GetComponent<GridObjectSave>().SaveGridObj();
             transform.position = colliderObj.transform.position;
 
             if (prevGrid != null)
@@ -184,7 +192,9 @@ public class DragAndDrop : MonoBehaviour
     }
     public void PrevGridNull()
     {
+        
         prevGrid.GetComponent<GridIsEmpty>().gridObject = null;
+        prevGrid.GetComponent<GridObjectSave>().SaveGridObj();                
         prevGrid = null;
     }
 }

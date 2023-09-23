@@ -5,11 +5,11 @@ using UnityEngine;
 public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
-    private float döndürmeHassasiyeti = 0.075f;
+    private float döndürmeHassasiyeti = 0.6f;
     float rotationAngle = 0;
 
     public bool loop = false;
-    
+
     void FixedUpdate()
     {
         if (loop)
@@ -51,11 +51,11 @@ public class BompRotation : MonoBehaviour
         //transform.position += Vector3.down;
         if (rotationAngle > 0)
         {
-            transform.position += Vector3.right;
+            transform.position += Vector3.right * ((rotationAngle / 10) + 2);
         }
         else if (rotationAngle < 0)
         {
-            transform.position += Vector3.left;
+            transform.position += Vector3.left * ((rotationAngle / 10) + 2);
         }
     }
 }

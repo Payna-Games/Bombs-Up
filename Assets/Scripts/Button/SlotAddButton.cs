@@ -11,7 +11,8 @@ public class SlotAddButton : MonoBehaviour
         {
             if (item.GetComponent<GridIsEmpty>().gridObject == null)
             {
-                currentObjectType++;
+                currentObjectType = Random.Range(0, 3);
+                Debug.Log("Oluþan sayý : " + currentObjectType);
                 ObjectType(item);
                 break;
             }
@@ -20,7 +21,7 @@ public class SlotAddButton : MonoBehaviour
 
     private void ObjectType(GameObject item)
     {
-        switch (currentObjectType %= 3)
+        switch (currentObjectType)
         {
             case 1:
                 foreach (GameObject itemType in ObjectList.objectList.head)
@@ -31,6 +32,7 @@ public class SlotAddButton : MonoBehaviour
                         itemType.SetActive(true);
                         itemType.GetComponent<DragAndDrop>().prevGrid = item;
                         itemType.transform.position = item.transform.position;
+                        item.GetComponent<GridObjectSave>().SaveGridObj();
                         break;
                     }
                 }
@@ -44,6 +46,7 @@ public class SlotAddButton : MonoBehaviour
                         itemType.SetActive(true);
                         itemType.GetComponent<DragAndDrop>().prevGrid = item;
                         itemType.transform.position = item.transform.position;
+                        item.GetComponent<GridObjectSave>().SaveGridObj();
                         break;
                     }
                 }
@@ -57,6 +60,7 @@ public class SlotAddButton : MonoBehaviour
                         itemType.SetActive(true);
                         itemType.GetComponent<DragAndDrop>().prevGrid = item;
                         itemType.transform.position = item.transform.position;
+                        item.GetComponent<GridObjectSave>().SaveGridObj();
                         break;
                     }
                 }

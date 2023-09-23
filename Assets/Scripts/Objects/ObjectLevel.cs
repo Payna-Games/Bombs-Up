@@ -15,7 +15,7 @@ public class ObjectLevel : MonoBehaviour
         objectLevel++;
         OnLevelUp?.Invoke(objectLevel);
     }
-    
+
     public void LevelUp(int level)
     {
         objectLevel = level;
@@ -29,11 +29,30 @@ public class ObjectLevel : MonoBehaviour
 
     private void OnEnable()
     {
-        createdLevel = 0;
-        LevelUp(createdLevel);
-        Debug.Log("OnEnable");
+        if (PlayerPrefs.HasKey(transform.name))
+        {
+            createdLevel = PlayerPrefs.GetInt(transform.name);
+        }
+        else
+        {
+            createdLevel = 0;
+        }
+
+        ObjectActive(createdLevel);
+
+    }
+
+    public void ObjectActive(int level)
+    {
+        LevelUp(level);
         SetFalse();
         SetTrue();
+        OnLevelUp?.Invoke(objectLevel);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt(transform.name, objectLevel);
     }
     public void SetTrue()
     {

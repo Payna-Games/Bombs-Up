@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GridIsEmpty : MonoBehaviour
 {
-    public GameObject gridObject = null;
+    public GameObject gridObject;
 }
