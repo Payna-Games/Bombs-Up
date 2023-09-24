@@ -10,6 +10,9 @@ public class DragAndDrop : MonoBehaviour
     public GameObject prevGrid = null;
     public GameObject nowGrid = null;
 
+    public ParticleSystem mergeParticle;
+    public ParticleSystem rocketMergeParticle;
+
     private float mZCoord;
     private float elevation;
     public float tiltAngle;
@@ -94,10 +97,7 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
-                        gameObject.GetComponent<ObjectLevel>().SetFalse();
-                        gameObject.GetComponent<ObjectLevel>().SetTrue();
-                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
-                        PrevGridNull();
+                        ReserObject(gameObject);
                     }
 
                     break;
@@ -108,10 +108,7 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
-                        gameObject.GetComponent<ObjectLevel>().SetFalse();
-                        gameObject.GetComponent<ObjectLevel>().SetTrue();
-                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
-                        PrevGridNull();
+                        ReserObject();
                     }
 
                     break;
@@ -122,10 +119,7 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
-                        gameObject.GetComponent<ObjectLevel>().SetFalse();
-                        gameObject.GetComponent<ObjectLevel>().SetTrue();                        
-                        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
-                        PrevGridNull();
+                        ReserObject();
                     }
 
                     break;
@@ -139,6 +133,16 @@ public class DragAndDrop : MonoBehaviour
             }
         }
         PrevPos();
+    }
+
+    private void ReserObject(GameObject gameObject)
+    {
+        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, gameObject.transform.position, Quaternion.identity);
+        particleRocketMerge.Play();
+        gameObject.GetComponent<ObjectLevel>().SetFalse();
+        gameObject.GetComponent<ObjectLevel>().SetTrue();
+        this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
+        PrevGridNull();
     }
 
     private void LowerObjLevel(int level)
@@ -156,6 +160,8 @@ public class DragAndDrop : MonoBehaviour
         else if (gridObject.tag == transform.tag && gridObject.GetComponent<ObjectLevel>().objectLevel == transform.GetComponent<ObjectLevel>().objectLevel)
         {
             gridObject.GetComponent<ObjectLevel>().LevelUp();
+            ParticleSystem particleMerge = Instantiate(mergeParticle, transform.position, Quaternion.identity);
+            particleMerge.Play();
             transform.GetComponent<ObjectLevel>().objectLevel =0;
             gridObject.GetComponent<ObjectLevel>().SetFalse();
             gridObject.GetComponent<ObjectLevel>().SetTrue();
@@ -191,8 +197,7 @@ public class DragAndDrop : MonoBehaviour
         }
     }
     public void PrevGridNull()
-    {
-        
+    {        
         prevGrid.GetComponent<GridIsEmpty>().gridObject = null;
         prevGrid.GetComponent<GridObjectSave>().SaveGridObj();                
         prevGrid = null;

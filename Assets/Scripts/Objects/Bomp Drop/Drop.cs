@@ -1,13 +1,14 @@
 using UnityEngine;
 using DG.Tweening;
 using Cinemachine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class Drop : MonoBehaviour
 {
     public float rotationDuration = 2f; // Dönme süresi (örneðin, 2 saniye)
 
-    public GameObject arrow;
+    public List<GameObject> arrow;
     private Rigidbody rb;
     private CinemachineVirtualCamera camera;
 
@@ -28,7 +29,8 @@ public class Drop : MonoBehaviour
             transform.DORotate(new Vector3(0f, 0f, 180f), rotationDuration)
                 .OnComplete(() =>
                 {
-                    arrow.SetActive(true);
+                    foreach (GameObject item in arrow)
+                        item.SetActive(true);
                     camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
                     StartCoroutine(MoveCamera());
                 });

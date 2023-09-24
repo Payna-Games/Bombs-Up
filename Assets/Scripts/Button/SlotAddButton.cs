@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlotAddButton : MonoBehaviour
 {
     private int currentObjectType;
+    public ParticleSystem particleSystem;
     public void ObjectLocalize()
     {
         foreach (GameObject item in GridList.gridListManager.gridList)
@@ -19,20 +20,16 @@ public class SlotAddButton : MonoBehaviour
         }
     }
 
-    private void ObjectType(GameObject item)
+    private void ObjectType(GameObject item) //item grid objesini temsil eder
     {
         switch (currentObjectType)
         {
             case 1:
-                foreach (GameObject itemType in ObjectList.objectList.head)
+                foreach (GameObject itemType in ObjectList.objectList.head) //itemType gridde tutulan objeyi göstermektedir
                 {
                     if (!itemType.activeSelf)
                     {
-                        item.GetComponent<GridIsEmpty>().gridObject = itemType;
-                        itemType.SetActive(true);
-                        itemType.GetComponent<DragAndDrop>().prevGrid = item;
-                        itemType.transform.position = item.transform.position;
-                        item.GetComponent<GridObjectSave>().SaveGridObj();
+                        DropItemOntoGrid(item, itemType);
                         break;
                     }
                 }
@@ -42,11 +39,7 @@ public class SlotAddButton : MonoBehaviour
                 {
                     if (!itemType.activeSelf)
                     {
-                        item.GetComponent<GridIsEmpty>().gridObject = itemType;
-                        itemType.SetActive(true);
-                        itemType.GetComponent<DragAndDrop>().prevGrid = item;
-                        itemType.transform.position = item.transform.position;
-                        item.GetComponent<GridObjectSave>().SaveGridObj();
+                        DropItemOntoGrid(item, itemType);
                         break;
                     }
                 }
@@ -56,15 +49,22 @@ public class SlotAddButton : MonoBehaviour
                 {
                     if (!itemType.activeSelf)
                     {
-                        item.GetComponent<GridIsEmpty>().gridObject = itemType;
-                        itemType.SetActive(true);
-                        itemType.GetComponent<DragAndDrop>().prevGrid = item;
-                        itemType.transform.position = item.transform.position;
-                        item.GetComponent<GridObjectSave>().SaveGridObj();
+                        DropItemOntoGrid(item, itemType);
                         break;
                     }
                 }
                 break;
         }
+    }
+
+    void DropItemOntoGrid(GameObject item, GameObject itemType)
+    {
+        item.GetComponent<GridIsEmpty>().gridObject = itemType;
+        ParticleSystem addParticle = Instantiate(particleSystem, item.transform.position, Quaternion.identity);
+        addParticle.Play();
+        itemType.SetActive(true);
+        itemType.GetComponent<DragAndDrop>().prevGrid = item;
+        itemType.transform.position = item.transform.position;
+        item.GetComponent<GridObjectSave>().SaveGridObj();
     }
 }
