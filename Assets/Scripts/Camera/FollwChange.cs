@@ -10,6 +10,9 @@ public class FollwChange : MonoBehaviour
     public Transform cityGround;
     Animator animator;
     bool isFirst = true;
+
+    public event Action changeCamera;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,11 +24,9 @@ public class FollwChange : MonoBehaviour
         {
             cityGround.gameObject.isStatic = false;
 
-            //UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
-
             isFirst = false;
             CameraChange();
-
+            changeCamera?.Invoke();
         }
     }
 
