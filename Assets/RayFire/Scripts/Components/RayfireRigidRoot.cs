@@ -865,7 +865,7 @@ namespace RayFire
             */
 
            // Physics.Simulate (0.01f);
-            Physics.autoSimulation = true;
+            //Physics.autoSimulation = true;
 
             // Physics.autoSyncTransforms = false;
             
