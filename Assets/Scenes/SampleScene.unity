@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &3340378
@@ -3026,7 +3028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.59003425, y: -0.021460881, z: -0.015692178, w: 0.80694044}
+  m_LocalRotation: {x: -0.59003425, y: -0.021460911, z: -0.015692202, w: 0.80694044}
   m_LocalPosition: {x: 5.1498957, y: -581.5635, z: -167.40363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7723,6 +7725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 0}
+  rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &236371060
@@ -8825,6 +8829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 0}
+  rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &283001355
@@ -13164,6 +13170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &415498716
@@ -15457,6 +15465,83 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &477842535
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1019326057566698, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_Name
+      value: WindlinesSpeedy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4681753433549648, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198893393215934218, guid: f683447c6570076418716c53d120168a, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f683447c6570076418716c53d120168a, type: 3}
 --- !u!1 &478050956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7972606852907514212, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -16435,6 +16520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &518496988
@@ -17940,6 +18027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &572181537
@@ -18441,6 +18530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &581864895
@@ -19456,6 +19547,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &629674797
@@ -20031,7 +20124,7 @@ GameObject:
   - component: {fileID: 670989607}
   - component: {fileID: 670989606}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Total Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20052,10 +20145,10 @@ RectTransform:
   - {fileID: 1327058449}
   m_Father: {fileID: 1173069215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8455001, y: 0.8880001}
-  m_AnchorMax: {x: 0.8455001, y: 0.8880001}
-  m_AnchoredPosition: {x: 0.044433594, y: 0.98742676}
-  m_SizeDelta: {x: 290.8626, y: 77.804}
+  m_AnchorMin: {x: 0.9092501, y: 0.8856891}
+  m_AnchorMax: {x: 0.9092501, y: 0.8856891}
+  m_AnchoredPosition: {x: -0.45599365, y: 0.24047852}
+  m_SizeDelta: {x: 189.8635, y: 68.3102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670989606
 MonoBehaviour:
@@ -21672,6 +21765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &721478218
@@ -22238,6 +22333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &749668484
@@ -24068,6 +24165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &811524766
@@ -27087,6 +27186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &947713614
@@ -29194,6 +29295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1010652357
@@ -29538,6 +29641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1026265083
@@ -32413,6 +32518,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1172788785
@@ -35593,6 +35700,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1259300007
@@ -36104,6 +36213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1271490131
@@ -37433,6 +37544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 0}
+  rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &1306038799
@@ -50155,10 +50268,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 670989605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.577, y: 0.49387053}
-  m_AnchorMax: {x: 0.577, y: 0.49387053}
-  m_AnchoredPosition: {x: -0.12290001, y: -0.6170001}
-  m_SizeDelta: {x: 200.9729, y: 73.321}
+  m_AnchorMin: {x: 0.5814289, y: 0.48049754}
+  m_AnchorMax: {x: 0.5814289, y: 0.48049754}
+  m_AnchoredPosition: {x: 0.050800323, y: 0.011399984}
+  m_SizeDelta: {x: 116.2116, y: 54.0197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327058450
 MonoBehaviour:
@@ -50183,7 +50296,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 80
@@ -50193,7 +50306,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 10
 --- !u!222 &1327058451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -54258,6 +54371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1476705888
@@ -57090,6 +57205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1584359269
@@ -60298,6 +60415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1684975465
@@ -61838,6 +61957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1735901094
@@ -63332,6 +63453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1801410384
@@ -64091,6 +64214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &1827905266
@@ -66611,6 +66736,75 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &1919125993
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1372241149341006, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_Name
+      value: LeafExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374065736390184, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: stopAction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: RotationModule.x.minMaxState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+      propertyPath: RotationModule.y.minMaxState
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
 --- !u!1 &1919653298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5256442988175082230, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -69144,6 +69338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &2009818096
@@ -70854,6 +71050,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &2057761022
@@ -71113,6 +71311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
   nowGrid: {fileID: 0}
+  mergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
+  rocketMergeParticle: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
   tiltAngle: 44
   firstPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2064724877 stripped
@@ -73874,6 +74074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab65f567f917874cb5f6e7d012f6fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleSystem: {fileID: 198224152589183610, guid: 73dd52c851c98bc469685251a9046eb5, type: 3}
 --- !u!1 &2147361863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4754250994888723280, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -73945,3 +74146,5 @@ SceneRoots:
   - {fileID: 1550677532}
   - {fileID: 57219605}
   - {fileID: 1152027244}
+  - {fileID: 477842535}
+  - {fileID: 1919125993}

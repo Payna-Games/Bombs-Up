@@ -108,7 +108,7 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
-                        ReserObject();
+                        ReserObject(gameObject);
                     }
 
                     break;
@@ -119,7 +119,7 @@ public class DragAndDrop : MonoBehaviour
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
-                        ReserObject();
+                        ReserObject(gameObject);
                     }
 
                     break;
