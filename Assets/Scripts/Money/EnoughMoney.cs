@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnoughMoney : TextPrint, IButtonPrice
 {
-    private int enough;
+    public int enough;
 
     public bool CanInteract = true;
 

@@ -44,7 +44,7 @@ public class RocketParticleControl : MonoBehaviour
     }
     private IEnumerator StartSmokeCoroutine()
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(3f);
         transform.GetChild(2).gameObject.SetActive(false);
     }
 
