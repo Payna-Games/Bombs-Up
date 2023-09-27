@@ -27,9 +27,9 @@ public class Drop : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         rb.useGravity = true;
         Vector3 targetPosition = transform.position + Vector3.up * 5f;
-        transform.DOMove(targetPosition, .5f).OnComplete(() =>
+        transform.DOMove(targetPosition, 2f).OnComplete(() =>
         {
-            transform.DORotate(new Vector3(0f, 0f, 180f), rotationDuration)
+            transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration)
                 .OnComplete(() =>
                 {
                     windPlay?.Invoke();

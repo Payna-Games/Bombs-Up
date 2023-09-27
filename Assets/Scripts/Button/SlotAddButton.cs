@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class SlotAddButton : MonoBehaviour
 {
     private int currentObjectType;
-    public ParticleSystem particleSystem;
     public void ObjectLocalize()
     {
         foreach (GameObject item in GridList.gridListManager.gridList)
@@ -15,6 +13,19 @@ public class SlotAddButton : MonoBehaviour
                 currentObjectType = Random.Range(0, 3);
                 Debug.Log("Oluþan sayý : " + currentObjectType);
                 ObjectType(item);
+                break;
+            }
+            ButtonActive();
+        }
+    }
+    private void ButtonActive()
+    {
+        foreach (GameObject item in GridList.gridListManager.gridList)
+        {
+            transform.GetComponent<EnoughMoney>().CanInteract = false;
+            if (item.GetComponent<GridIsEmpty>().gridObject == null)
+            {
+                transform.GetComponent<EnoughMoney>().CanInteract = true;
                 break;
             }
         }
@@ -60,9 +71,11 @@ public class SlotAddButton : MonoBehaviour
     void DropItemOntoGrid(GameObject item, GameObject itemType)
     {
         item.GetComponent<GridIsEmpty>().gridObject = itemType;
-        ParticleSystem addParticle = Instantiate(particleSystem, item.transform.position, Quaternion.identity);
-        addParticle.Play();
         itemType.SetActive(true);
+        item.transform.DOScale(new Vector3(0f, 0f, 0f), 0.01f).SetEase(Ease.OutElastic).OnComplete(() =>
+        {
+            item.transform.DOScale(new Vector3(2f, 2f, 2f), 0.2f).SetEase(Ease.OutElastic);
+        });
         itemType.GetComponent<DragAndDrop>().prevGrid = item;
         itemType.transform.position = item.transform.position;
         item.GetComponent<GridObjectSave>().SaveGridObj();

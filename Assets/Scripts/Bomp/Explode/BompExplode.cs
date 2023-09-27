@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BompExplode : MonoBehaviour
 {
+    public event Action<GameObject> explode;
+
     public GameObject againButton;
     public float explosionForce = 10000f;
     public float explosionRadius = 100f;
@@ -12,9 +15,11 @@ public class BompExplode : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")) 
-        {            
+        {  
+            explode?.Invoke(collision.gameObject);
+            
             Explode();
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);            
         }
     }
     private void Explode()
@@ -23,8 +28,10 @@ public class BompExplode : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
+            Debug.Log(col.gameObject.name);
             if (col.gameObject.CompareTag("City"))
             {
+
                 Rigidbody rb = col.GetComponent<Rigidbody>();
                 if (rb != null)
                 {

@@ -137,7 +137,9 @@ public class DragAndDrop : MonoBehaviour
 
     private void ReserObject(GameObject gameObject)
     {
-        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, gameObject.transform.position, Quaternion.identity);
+        Vector3 bompParticPos = new Vector3(gameObject.transform.position.x + 2.29f, gameObject.transform.position.y - 4.38f, gameObject.transform.position.z - 1.5f);
+        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.identity);
+        particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
         particleRocketMerge.Play();
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();
@@ -160,9 +162,12 @@ public class DragAndDrop : MonoBehaviour
         else if (gridObject.tag == transform.tag && gridObject.GetComponent<ObjectLevel>().objectLevel == transform.GetComponent<ObjectLevel>().objectLevel)
         {
             gridObject.GetComponent<ObjectLevel>().LevelUp();
-            ParticleSystem particleMerge = Instantiate(mergeParticle, transform.position, Quaternion.identity);
+            Vector3 mergeParticlePos = new Vector3(gridObject.transform.position.x, gridObject.transform.position.y + 1f, gridObject.transform.position.z);
+            ParticleSystem particleMerge = Instantiate(mergeParticle, gridObject.transform.position, Quaternion.identity);
+            ParticleSystem.MainModule mainModule = particleMerge.main;
+            mainModule.startSize = 3f;
             particleMerge.Play();
-            transform.GetComponent<ObjectLevel>().objectLevel =0;
+            transform.GetComponent<ObjectLevel>().objectLevel = 0;
             gridObject.GetComponent<ObjectLevel>().SetFalse();
             gridObject.GetComponent<ObjectLevel>().SetTrue();
             gameObject.SetActive(false);
@@ -197,9 +202,9 @@ public class DragAndDrop : MonoBehaviour
         }
     }
     public void PrevGridNull()
-    {        
+    {
         prevGrid.GetComponent<GridIsEmpty>().gridObject = null;
-        prevGrid.GetComponent<GridObjectSave>().SaveGridObj();                
+        prevGrid.GetComponent<GridObjectSave>().SaveGridObj();
         prevGrid = null;
     }
 }
