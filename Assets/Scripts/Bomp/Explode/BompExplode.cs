@@ -22,16 +22,18 @@ public class BompExplode : MonoBehaviour
             explode?.Invoke(collision.gameObject);
 
             Explode();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
     private void Explode()
     {
+        Physics.OverlapSphere(transform.position, explosionRadius);
+        StartCoroutine(WaitCollider());
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider col in colliders)
         {
-            if (col.gameObject.CompareTag("City")&&!checkList.Contains(col.gameObject))
+            if (col.gameObject.CompareTag("City") && !checkList.Contains(col.gameObject))
             {
                 checkList.Add(col.gameObject);
                 Debug.Log(col.gameObject.name);
@@ -52,5 +54,9 @@ public class BompExplode : MonoBehaviour
         GameObject createdCrater = Instantiate(crater, creadedPos, Quaternion.identity);
         createdCrater.transform.localScale = new Vector3(explosionRadius / 50, explosionRadius / 50, explosionRadius / 50);
         againButton.SetActive(true);
+    }
+    private IEnumerator WaitCollider()
+    {
+        yield return new WaitForSeconds(0.01f);
     }
 }

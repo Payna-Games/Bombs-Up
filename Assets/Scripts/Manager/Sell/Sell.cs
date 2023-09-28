@@ -14,7 +14,8 @@ public class Sell : MonoBehaviour
 
     public void SellObject()
     {
+        SlotAddButton.slotAddButton.ButtonActive();
         float money = (float)addButton.GetComponent<EnoughMoney>().enough;
-        MoneyManager.moneyManager.InreaseTotalMoney(money);
+        MoneyManager.moneyManager.InreaseTotalMoney(money-(money/10));        
     }
 }

@@ -5,10 +5,18 @@ using UnityEngine;
 public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
+    private FollwChange follwChange;
     private float döndürmeHassasiyeti = 0.6f;
     float rotationAngle = 0;
 
     public bool loop = false;
+
+    public float maxValueX;
+    private void Awake()
+    {
+        follwChange = GameObject.Find("State-Driven Camera").GetComponent<FollwChange>();
+        follwChange.changeCamera += BoolFalse;
+    }
 
     void FixedUpdate()
     {
@@ -21,18 +29,22 @@ public class BompRotation : MonoBehaviour
     {
         loop = true;
     }
+    public void BoolFalse()
+    {
+        loop = false;
+    }
 
     private void RotateAndDown()
     {
 
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 || Input.GetMouseButton(0))
         {
 
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetMouseButtonDown(0))
             {
                 ilkDokunmaPozisyonu = Input.GetTouch(0).position;
             }
-            else if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            else if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetMouseButton(0))
             {
                 Vector2 dokunmaDeðiþim = Input.GetTouch(0).position - ilkDokunmaPozisyonu;
 
@@ -48,12 +60,11 @@ public class BompRotation : MonoBehaviour
             }
         }
 
-        //transform.position += Vector3.down;
-        if (rotationAngle > 0)
+        if (rotationAngle > 0 && Mathf.Abs(transform.position.x) < maxValueX )
         {
             transform.position += Vector3.right * ((rotationAngle / 10) + 2);
         }
-        else if (rotationAngle < 0)
+        else if (rotationAngle < 0 && Mathf.Abs(transform.position.x) < maxValueX)
         {
             transform.position += Vector3.left * ((rotationAngle / 10) + 2);
         }

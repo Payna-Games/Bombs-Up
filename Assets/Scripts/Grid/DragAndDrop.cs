@@ -162,7 +162,6 @@ public class DragAndDrop : MonoBehaviour
         else if (gridObject.tag == transform.tag && gridObject.GetComponent<ObjectLevel>().objectLevel == transform.GetComponent<ObjectLevel>().objectLevel)
         {
             gridObject.GetComponent<ObjectLevel>().LevelUp();
-            Vector3 mergeParticlePos = new Vector3(gridObject.transform.position.x, gridObject.transform.position.y + 1f, gridObject.transform.position.z);
             ParticleSystem particleMerge = Instantiate(mergeParticle, gridObject.transform.position, Quaternion.identity);
             ParticleSystem.MainModule mainModule = particleMerge.main;
             mainModule.startSize = 3f;
@@ -172,6 +171,7 @@ public class DragAndDrop : MonoBehaviour
             gridObject.GetComponent<ObjectLevel>().SetTrue();
             gameObject.SetActive(false);
             PrevGridNull();
+            SlotAddButton.slotAddButton.ButtonActive();
         }
         else
             PrevPos();

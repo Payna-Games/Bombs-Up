@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class SlotAddButton : MonoBehaviour
 {
+    public static SlotAddButton slotAddButton;
+
+    private void Awake()
+    {
+        slotAddButton = slotAddButton == null ? this : slotAddButton;
+    }
+    private void Start()
+    {
+        ButtonActive();
+    }
     private int currentObjectType;
     public void ObjectLocalize()
     {
@@ -15,20 +25,20 @@ public class SlotAddButton : MonoBehaviour
                 ObjectType(item);
                 break;
             }
-            ButtonActive();
         }
+        ButtonActive();
     }
-    private void ButtonActive()
+    public void ButtonActive()
     {
         foreach (GameObject item in GridList.gridListManager.gridList)
         {
-            transform.GetComponent<EnoughMoney>().CanInteract = false;
             if (item.GetComponent<GridIsEmpty>().gridObject == null)
             {
                 transform.GetComponent<EnoughMoney>().CanInteract = true;
-                break;
-            }
+                return;
+            }            
         }
+        transform.GetComponent<EnoughMoney>().CanInteract = false;
     }
 
     private void ObjectType(GameObject item) //item grid objesini temsil eder

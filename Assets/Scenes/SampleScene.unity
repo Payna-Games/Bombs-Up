@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomps: {fileID: 767208647}
-  cityGround: {fileID: 1934185944}
+  cityGround: {fileID: 2101197341}
 --- !u!95 &57219603
 Animator:
   serializedVersion: 5
@@ -3137,7 +3137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6036435, y: -0.021191511, z: -0.016054142, w: 0.796811}
+  m_LocalRotation: {x: -0.6036435, y: -0.021191483, z: -0.016054124, w: 0.796811}
   m_LocalPosition: {x: 5.1498957, y: -657.86346, z: -167.40363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21845,6 +21845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFXR Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 6294508013172393196, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7539286505454239565, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
       propertyPath: m_Range
       value: 10
@@ -24418,6 +24422,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1224607929}
+        m_TargetAssemblyTypeName: RocketParticleControl, Assembly-CSharp
+        m_MethodName: BompFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &736332186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25201,8 +25217,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0436802, y: 8.36, z: 1}
-  m_Center: {x: -0.57430077, y: 1.0088291, z: 0.0000015609743}
+  m_Size: {x: 2.0436802, y: 5.70592, z: 1}
+  m_Center: {x: -0.57430077, y: -0.31821048, z: 0.0000022490722}
 --- !u!114 &767208649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25234,6 +25250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 0
+  maxValueX: 140
 --- !u!1001 &767595922
 PrefabInstance:
   m_ObjectHideFlags: 0

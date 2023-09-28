@@ -30,22 +30,19 @@ public class EnoughMoney : TextPrint, IButtonPrice
     // Update is called once per frame
     void Update()
     {
-        transform.GetComponent<Button>().interactable = MoneyManager.moneyManager.totalMoney >= enough && CanInteract;
-
-        //if (MoneyManager.moneyManager.totalMoney >= enough && CanInteract)
-        //{
-        //    transform.GetComponent<Button>().interactable = true;
-        //}
-        //else
-        //{
-        //    transform.GetComponent<Button>().interactable = true;
-        //}
+        if (MoneyManager.moneyManager.totalMoney >= enough && CanInteract)
+        {
+            transform.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            transform.GetComponent<Button>().interactable = false;
+        }
     }
 
     private void NewPrice()
     {
         enough = CalculatePrice(startPrice, increasePrice, clickCount);
-        string moneyPrint = enough.ToString();
         ButtonPrint(enough);
         clickCount += 1;
     }
@@ -60,12 +57,12 @@ public class EnoughMoney : TextPrint, IButtonPrice
         if (gameObject.name == "Add Button" && clickCount > 4)
         {
             increasePrice = 70;
-            return enough + (int)increasePrice;
+            return (int)(increasePrice * clickCount);
         }
         if (gameObject.name == "Income" && clickCount > 1)
         {
             increasePrice = 200;
-            return enough + (int)increasePrice;
+            return (int)(increasePrice * clickCount);
         }
         return startPrice + (int)(increasePrice * clickCount);
     }

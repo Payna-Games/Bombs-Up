@@ -23,6 +23,12 @@ public class RocketParticleControl : MonoBehaviour
         bompExplode.explode += ExplodeParticle;
     }
 
+    public void BompFire()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+    }
+
     private void Drop_windPlay()
     {
         particleBool = true;

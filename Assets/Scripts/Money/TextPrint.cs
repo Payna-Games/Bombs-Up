@@ -3,11 +3,6 @@ using TMPro;
 
 public class TextPrint : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        //textMesh = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-    }
-
     public virtual void ButtonPrint(long amount)
     {
         if (amount >= 1000000000)
