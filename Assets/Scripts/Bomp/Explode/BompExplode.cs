@@ -44,10 +44,10 @@ public class BompExplode : MonoBehaviour
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                     rb.useGravity = true;
                     rb.drag = 0.5f;
-                }
-                explodeCount?.Invoke(cityCount);
-            }
+                }                
+            }            
         }
+        explodeCount?.Invoke(cityCount);
         Vector3 creadedPos = new Vector3(transform.position.x, -802, transform.position.z);
         GameObject createdCrater = Instantiate(crater, creadedPos, Quaternion.identity);
         createdCrater.transform.localScale = new Vector3(explosionRadius / 50, explosionRadius / 50, explosionRadius / 50);

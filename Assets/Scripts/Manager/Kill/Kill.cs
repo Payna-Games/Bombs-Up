@@ -19,5 +19,8 @@ public class Kill : MonoBehaviour
     {
         cityObjects = GameObject.FindGameObjectsWithTag(targetTag);
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = objCount.ToString() + " / " + cityObjects.Length.ToString();
+
+        ///// burasý baþka bir alana taþýnacak
+        MoneyManager.moneyManager.InreaseTotalMoney((float)750);
     }
 }
