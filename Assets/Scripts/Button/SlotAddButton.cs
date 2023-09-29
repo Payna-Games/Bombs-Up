@@ -9,7 +9,7 @@ public class SlotAddButton : MonoBehaviour
     {
         slotAddButton = slotAddButton == null ? this : slotAddButton;
     }
-    private void Start()
+    private void OnEnable()
     {
         ButtonActive();
     }

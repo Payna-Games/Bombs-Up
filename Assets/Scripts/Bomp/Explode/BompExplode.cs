@@ -3,32 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BompExplode : MonoBehaviour
+public class BompExplode : ExplodeCalculate
 {
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
     public int cityCount = 0;
     public List<GameObject> checkList;
 
+
     public GameObject againButton;
     public float explosionForce = 10000f;
     public float explosionRadius = 100f;
     public GameObject crater;
+    private bool hasCollided = false;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground"))
+        if (!hasCollided && (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")))
         {
             explode?.Invoke(collision.gameObject);
 
             Explode();
-            //gameObject.SetActive(false);
+
+            hasCollided = true;
         }
     }
     private void Explode()
     {
-        Physics.OverlapSphere(transform.position, explosionRadius);
-        StartCoroutine(WaitCollider());
+        explosionRadius = RadiusExplode();
+        explosionForce = ForceExplode();
+        Collider[] explodeObject = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider item in explodeObject)
+        {
+            if (item.gameObject.CompareTag("Explode"))
+            {
+                item.GetComponent<BoxCollider>().isTrigger = false;
+            }
+        }
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider col in colliders)
@@ -36,27 +47,21 @@ public class BompExplode : MonoBehaviour
             if (col.gameObject.CompareTag("City") && !checkList.Contains(col.gameObject))
             {
                 checkList.Add(col.gameObject);
-                Debug.Log(col.gameObject.name);
                 Rigidbody rb = col.GetComponent<Rigidbody>();
 
                 if (rb != null)
                 {
                     cityCount++;
+                    rb.mass = 1;
                     rb.isKinematic = false;
-                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                     rb.useGravity = true;
-                    rb.drag = 0.5f;
+                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);                    
                 }                
             }            
         }
         explodeCount?.Invoke(cityCount);
-        Vector3 creadedPos = new Vector3(transform.position.x, -802, transform.position.z);
-        GameObject createdCrater = Instantiate(crater, creadedPos, Quaternion.identity);
-        createdCrater.transform.localScale = new Vector3(explosionRadius / 50, explosionRadius / 50, explosionRadius / 50);
         againButton.SetActive(true);
     }
-    private IEnumerator WaitCollider()
-    {
-        yield return new WaitForSeconds(0.01f);
-    }
+    
+    
 }
