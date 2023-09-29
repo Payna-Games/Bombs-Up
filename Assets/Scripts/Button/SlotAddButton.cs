@@ -21,7 +21,6 @@ public class SlotAddButton : MonoBehaviour
             if (item.GetComponent<GridIsEmpty>().gridObject == null)
             {
                 currentObjectType = Random.Range(0, 3);
-                Debug.Log("Oluþan sayý : " + currentObjectType);
                 ObjectType(item);
                 break;
             }
