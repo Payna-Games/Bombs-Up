@@ -22,7 +22,7 @@ public class BompExplode : ExplodeCalculate
         if (!hasCollided && (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")))
         {
             explode?.Invoke(collision.gameObject);
-
+            transform.GetComponent<Rigidbody>().drag = 1f;
             Explode();
 
             hasCollided = true;
@@ -40,6 +40,18 @@ public class BompExplode : ExplodeCalculate
                 item.GetComponent<BoxCollider>().isTrigger = false;
             }
         }
+        StartCoroutine(Wait(0.1f));
+
+    }
+    IEnumerator Wait(float sure)
+    {
+        yield return new WaitForSeconds(sure);
+
+        Explode2();
+    }
+
+    private void Explode2()
+    {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider col in colliders)
@@ -55,13 +67,11 @@ public class BompExplode : ExplodeCalculate
                     rb.mass = 1;
                     rb.isKinematic = false;
                     rb.useGravity = true;
-                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);                    
-                }                
-            }            
+                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+                }
+            }
         }
         explodeCount?.Invoke(cityCount);
         againButton.SetActive(true);
     }
-    
-    
 }
