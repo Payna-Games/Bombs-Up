@@ -11,10 +11,9 @@ public class BompExplode : ExplodeCalculate
     public List<GameObject> checkList;
 
 
-    public GameObject againButton;
+    public List<GameObject> ActiveObject;
     public float explosionForce = 10000f;
     public float explosionRadius = 100f;
-    public GameObject crater;
     private bool hasCollided = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -24,10 +23,11 @@ public class BompExplode : ExplodeCalculate
             explode?.Invoke(collision.gameObject);
             transform.GetComponent<Rigidbody>().drag = 1f;
             Explode();
-
             hasCollided = true;
         }
     }
+
+
     private void Explode()
     {
         explosionRadius = RadiusExplode();
@@ -52,6 +52,11 @@ public class BompExplode : ExplodeCalculate
 
     private void Explode2()
     {
+        foreach (GameObject item in ActiveObject)
+        {
+            item.SetActive(true);
+        }
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider col in colliders)
@@ -70,8 +75,8 @@ public class BompExplode : ExplodeCalculate
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                 }
             }
-        }
+        }        
+        
         explodeCount?.Invoke(cityCount);
-        againButton.SetActive(true);
     }
 }
