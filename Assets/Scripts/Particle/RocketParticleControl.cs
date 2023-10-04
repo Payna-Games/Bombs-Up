@@ -8,6 +8,7 @@ public class RocketParticleControl : MonoBehaviour
     private BompExplode bompExplode;
 
     public GameObject particleExplode;
+    public GameObject particleFireWork;
 
     private Drop drop;
     private bool isScreenDown;
@@ -38,8 +39,10 @@ public class RocketParticleControl : MonoBehaviour
 
     private void ExplodeParticle(GameObject particle)
     {
-        GameObject particleExp =  Instantiate(particleExplode, particle.transform.position, Quaternion.identity);
+        GameObject particleExp =  Instantiate(particleExplode, transform.position, Quaternion.identity);
         particleExp.GetComponent<ParticleSystem>().Play();
+        GameObject particleFire =  Instantiate(particleFireWork, transform.position, Quaternion.identity);
+        particleFire.GetComponent<ParticleSystem>().Play();
     }
 
     public void RocketStartSmoke()

@@ -10,6 +10,7 @@ public class BompExplode : ExplodeCalculate
     public int cityCount = 0;
     public List<GameObject> checkList;
 
+    public CameraVibration cameraVibration;
 
     public List<GameObject> ActiveObject;
     public float explosionForce = 10000f;
@@ -24,6 +25,7 @@ public class BompExplode : ExplodeCalculate
             transform.GetComponent<Rigidbody>().drag = 1f;
             Explode();
             hasCollided = true;
+            cameraVibration.StartVibration();
         }
     }
 

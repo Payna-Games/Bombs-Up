@@ -8,7 +8,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 thisPos;
 
     public GameObject prevGrid = null;
-    public GameObject nowGrid = null;
+    //public GameObject nowGrid = null;
 
     public ParticleSystem mergeParticle;
     public ParticleSystem rocketMergeParticle;
@@ -41,7 +41,6 @@ public class DragAndDrop : MonoBehaviour
         thisPos = transform.position;
     }
 
-
     private void OnMouseDrag()
     {
         mouseWorldPos = GetMouseWorldPosition() + offset;
@@ -52,7 +51,6 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        //ObjectList.objectList.DragObject = null;
         DragPos();
     }
 
@@ -74,13 +72,26 @@ public class DragAndDrop : MonoBehaviour
             else
                 PrevPos();
         }
+        if (Sell.sell.IsOnImage)
+        {
+            SellObject();
+        }
         if (colliders.Length == 1)
         {
             PrevPos();
         }
     }
 
+    private void SellObject()
+    {
+        transform.GetComponent<ObjectLevel>().objectLevel = 0;
+        transform.GetComponent<DragAndDrop>().PrevGridNull();
+        gameObject.SetActive(false);
 
+        SlotAddButton.slotAddButton.ButtonActive();
+        float money = (float)SlotAddButton.slotAddButton.gameObject.GetComponent<EnoughMoney>().enough; 
+        MoneyManager.moneyManager.InreaseTotalMoney(money - (money / 10));
+    }
 
     private void BombObjChange(GameObject gameObject)
     {

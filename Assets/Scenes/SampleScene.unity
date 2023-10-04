@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -3111,6 +3110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72404770}
   - component: {fileID: 72404769}
+  - component: {fileID: 72404771}
   m_Layer: 0
   m_Name: Virtual Camera1
   m_TagString: Untagged
@@ -3165,7 +3165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6036435, y: -0.021191483, z: -0.016054124, w: 0.796811}
+  m_LocalRotation: {x: -0.6036435, y: -0.021191483, z: -0.016054122, w: 0.796811}
   m_LocalPosition: {x: 5.1498957, y: -657.86346, z: -167.40363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3173,6 +3173,18 @@ Transform:
   - {fileID: 1448467856}
   m_Father: {fileID: 57219605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &72404771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72404768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34591965b97091f49910e97725a1e597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &74405681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 434082115867962390, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -8549,7 +8561,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 0}
   rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
@@ -8695,15 +8706,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295120672702964596, guid: 67cafc63594de8943a62f71b415b9438, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.89999
+      value: 119.499985
       objectReference: {fileID: 0}
     - target: {fileID: 4295120672702964596, guid: 67cafc63594de8943a62f71b415b9438, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5355225
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4295120672702964596, guid: 67cafc63594de8943a62f71b415b9438, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.242924
+      value: -26.842924
       objectReference: {fileID: 0}
     - target: {fileID: 4295120672702964596, guid: 67cafc63594de8943a62f71b415b9438, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9928,7 +9939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 0}
   rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
@@ -14722,7 +14732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -18154,7 +18163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -19972,7 +19980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -20475,7 +20482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -21644,7 +21650,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -22106,7 +22111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6294508013172393196, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7539286505454239565, guid: 043176b6a68be2b43b073aaaa4782c7d, type: 3}
       propertyPath: m_Range
@@ -24216,7 +24221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -24820,7 +24824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -25492,6 +25495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityCount: 0
   checkList: []
+  cameraVibration: {fileID: 72404771}
   ActiveObject:
   - {fileID: 1012941158}
   - {fileID: 1651363174}
@@ -27538,7 +27542,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -28272,6 +28275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   addButton: {fileID: 2146406761}
+  IsOnImage: 0
+  scaleFactor: 1.3
+  duration: 1
 --- !u!1 &834387119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6444698372351211723, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -31290,7 +31296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -33722,7 +33727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -34142,7 +34146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -34805,9 +34808,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 832810266}
           m_TargetAssemblyTypeName: Sell, Assembly-CSharp
-          m_MethodName: SellObject
+          m_MethodName: OnPointEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -37222,6 +37229,7 @@ GameObject:
   - component: {fileID: 1161463866}
   - component: {fileID: 1161463865}
   - component: {fileID: 1161463868}
+  - component: {fileID: 1161463869}
   m_Layer: 5
   m_Name: Income
   m_TagString: Untagged
@@ -37293,7 +37301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1161463866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1161463869}
+        m_TargetAssemblyTypeName: ButtonScale, Assembly-CSharp
+        m_MethodName: Scale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1161463866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37349,6 +37369,19 @@ MonoBehaviour:
   startPrice: 350
   increasePrice: 5
   clickCount: 0
+--- !u!114 &1161463869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161463863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe95fefdbf39bb64c93500431686dfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wait: 0.01
 --- !u!1 &1167103359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8856726868739922899, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -37669,7 +37702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -39967,6 +39999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleExplode: {fileID: 8721083536024371823, guid: 2290d3e650d0e654eb25f8b7cfd06c15, type: 3}
+  particleFireWork: {fileID: 114134, guid: 5552d0e6b5e91684c9b9b938763192bf, type: 3}
 --- !u!1 &1225892479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1693791744805837627, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -41167,7 +41200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -41680,7 +41712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -43011,7 +43042,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 0}
   rocketMergeParticle: {fileID: 0}
   tiltAngle: 20
@@ -58851,6 +58881,7 @@ GameObject:
   - component: {fileID: 1448467859}
   - component: {fileID: 1448467858}
   - component: {fileID: 1448467857}
+  - component: {fileID: 1448467860}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -58934,6 +58965,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1448467860
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448467855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 90a11b0bd26895e4ab6d8538b8d1e699, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 3
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1448513290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3771491909858483522, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -59877,7 +59925,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -62998,7 +63045,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -66280,7 +66326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -67827,7 +67872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -69376,7 +69420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -70093,7 +70136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -75512,7 +75554,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -77224,7 +77265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -77582,7 +77622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prevGrid: {fileID: 0}
-  nowGrid: {fileID: 0}
   mergeParticle: {fileID: 19855650, guid: fe394d041df1a0547990f49cf653249f, type: 3}
   rocketMergeParticle: {fileID: 931352995315593577, guid: 7894e9ff3a821ea42a692a6a0cda4e5c, type: 3}
   tiltAngle: 44
@@ -80401,6 +80440,7 @@ GameObject:
   - component: {fileID: 2146406764}
   - component: {fileID: 2146406765}
   - component: {fileID: 2146406761}
+  - component: {fileID: 2146406766}
   m_Layer: 5
   m_Name: Add Button
   m_TagString: Untagged
@@ -80484,6 +80524,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2146406766}
+        m_TargetAssemblyTypeName: ButtonScale, Assembly-CSharp
+        m_MethodName: Scale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2146406762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80551,6 +80603,19 @@ MonoBehaviour:
   startPrice: 200
   increasePrice: 5
   clickCount: 0
+--- !u!114 &2146406766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146406759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe95fefdbf39bb64c93500431686dfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wait: 0.01
 --- !u!1 &2147361863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4754250994888723280, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
