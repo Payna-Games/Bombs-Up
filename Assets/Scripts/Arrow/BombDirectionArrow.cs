@@ -24,6 +24,16 @@ public class BombDirectionArrow : MonoBehaviour
     {
         if (loop)
         {
+            //Vector3 direction = target.position - transform.position;
+                        
+            //Vector3 lookDirection = new Vector3(transform.position.x + 90 - direction.x, transform.position.x - 90, 0);
+
+            ////transform.rotation = Quaternion.LookRotation(lookDirection);
+            //float distance = direction.magnitude;
+
+            // Uzaklýðý TextMesh'e yazdýrýn
+            //distanceText.GetComponent<TextMesh>().text = distance.ToString("F1");
+
             float distance = Vector3.Distance(arrow.position, target.position);
 
             arrow.LookAt(target);

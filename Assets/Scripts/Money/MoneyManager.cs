@@ -12,11 +12,12 @@ public class MoneyManager : TextPrint
     }
     private void Start()
     {
+        string i = "100000";
         if (PlayerPrefs.HasKey(transform.name))
         {
-            string i = PlayerPrefs.GetString(transform.name);
-            InreaseTotalMoney(System.Convert.ToInt64(i));
+            i = PlayerPrefs.GetString(transform.name);
         }
+        InreaseTotalMoney(System.Convert.ToInt64(i));
     }
     private void OnDisable()
     {
