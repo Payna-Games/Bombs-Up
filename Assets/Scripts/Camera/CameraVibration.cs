@@ -4,6 +4,7 @@ using System.Collections;
 
 public class CameraVibration : MonoBehaviour
 {
+    public float vibrationTime;
     private CinemachineVirtualCamera virtualCamera;
 
     private void Start()
@@ -20,7 +21,7 @@ public class CameraVibration : MonoBehaviour
     }
     private IEnumerator VibrationCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(vibrationTime);
         virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0f;
         virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0f;
     }

@@ -21,7 +21,14 @@ public class RocketParticleControl : MonoBehaviour
         bompExplode = transform.parent.GetComponent<BompExplode>();
         drop = transform.parent.GetComponent<Drop>();
         drop.windPlay += Drop_windPlay;
+        drop.windPlay += Drop_Effect1;
         bompExplode.explode += ExplodeParticle;
+    }
+
+    private void Drop_Effect1()
+    {
+        transform.GetChild(3).gameObject.SetActive(true);
+        transform.GetChild(3).GetComponent<ParticleSystem>().Play();
     }
 
     public void BompFire()
@@ -37,11 +44,23 @@ public class RocketParticleControl : MonoBehaviour
         transform.GetChild(1).GetComponent<ParticleSystem>().Play();
     }
 
+
     private void ExplodeParticle(GameObject particle)
     {
-        GameObject particleExp =  Instantiate(particleExplode, transform.position, Quaternion.identity);
-        particleExp.GetComponent<ParticleSystem>().Play();
-        GameObject particleFire =  Instantiate(particleFireWork, transform.position, Quaternion.identity);
+        int radius = transform.parent.GetChild(1).GetComponent<ObjectLevel>().objectLevel;
+
+        GameObject particleExp = Instantiate(particleExplode, transform.position, Quaternion.identity);
+
+
+        ParticleSystem particleSystem = particleExp.GetComponent<ParticleSystem>();
+        particleExp.transform.localScale = new Vector3(3 * radius, 3 * radius, 3 * radius);
+        if (particleSystem != null)
+        {
+            ParticleSystem.MainModule mainModule = particleSystem.main;
+            mainModule.startSize = new ParticleSystem.MinMaxCurve(12 * radius, 30 * radius);
+        }
+        particleExp.transform.GetChild(3).GetComponent<ParticleSystem>().Play();
+        GameObject particleFire = Instantiate(particleFireWork, transform.position, Quaternion.identity);
         particleFire.GetComponent<ParticleSystem>().Play();
     }
 

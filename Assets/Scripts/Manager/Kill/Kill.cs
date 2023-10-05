@@ -17,7 +17,7 @@ public class Kill : MonoBehaviour
     {
         cityObjects = GameObject.FindGameObjectsWithTag(targetTag);
         float fillAmount = ((float)objCount / 109.0f) * 10.0f;              //(float)cityObjects.Length) * 10.0f;
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = objCount.ToString() + " / " + 109.ToString();
+        //transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = objCount.ToString() + " / " + 109.ToString();
         transform.GetComponent<Image>().fillAmount = Mathf.Lerp(0, fillAmount, 0.1f);
 
         ////// burasý baþka bir alana taþýnacak

@@ -26,6 +26,7 @@ public class BompExplode : ExplodeCalculate
             Explode();
             hasCollided = true;
             cameraVibration.StartVibration();
+            StartCoroutine(Wait2(0.2f));
         }
     }
 
@@ -50,6 +51,11 @@ public class BompExplode : ExplodeCalculate
         yield return new WaitForSeconds(sure);
 
         Explode2();
+    }
+    IEnumerator Wait2(float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameObject.SetActive(false);
     }
 
     private void Explode2()
