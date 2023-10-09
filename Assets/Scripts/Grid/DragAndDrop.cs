@@ -145,7 +145,6 @@ public class DragAndDrop : MonoBehaviour
         }
         PrevPos();
     }
-
     private void ReserObject(GameObject gameObject)
     {
         Vector3 bompParticPos = new Vector3(gameObject.transform.position.x + 2.29f, gameObject.transform.position.y - 4.38f, gameObject.transform.position.z - 1.5f);
@@ -155,7 +154,6 @@ public class DragAndDrop : MonoBehaviour
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();
         this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
-        PrevGridNull();
     }
 
     private void LowerObjLevel(int level)

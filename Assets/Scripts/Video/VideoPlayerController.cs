@@ -10,8 +10,13 @@ public class VideoPlayerController : MonoBehaviour
     void Start()
     {
         videoPlayer.Play();
-        videoPlayer.loopPointReached += EndReached;
         nextLevel = 1;
+        videoPlayer.loopPointReached += EndReached;
+        if (PlayerPrefs.HasKey("level"))
+        {
+            nextLevel = PlayerPrefs.GetInt("level");
+        }
+        
     }
 
     void EndReached(VideoPlayer vp)
