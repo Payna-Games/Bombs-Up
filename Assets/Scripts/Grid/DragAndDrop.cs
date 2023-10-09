@@ -8,7 +8,8 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 thisPos;
 
     public GameObject prevGrid = null;
-    //public GameObject nowGrid = null;
+    public event Action tutorialMerge;
+    public event Action tutorialBompMerge;
 
     public ParticleSystem mergeParticle;
     public ParticleSystem rocketMergeParticle;
@@ -115,6 +116,7 @@ public class DragAndDrop : MonoBehaviour
                 case "B_Body":
                     if (this.gameObject.CompareTag("Body"))
                     {
+                        tutorialBompMerge?.Invoke();
                         if (levelThis == levelColliderObj)
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
@@ -170,6 +172,7 @@ public class DragAndDrop : MonoBehaviour
             PrevPos();
         else if (gridObject.tag == transform.tag && gridObject.GetComponent<ObjectLevel>().objectLevel == transform.GetComponent<ObjectLevel>().objectLevel)
         {
+            tutorialMerge?.Invoke();
             gridObject.GetComponent<ObjectLevel>().LevelUp();
             ParticleSystem particleMerge = Instantiate(mergeParticle, gridObject.transform.position, Quaternion.identity);
             ParticleSystem.MainModule mainModule = particleMerge.main;

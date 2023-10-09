@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SlotAddButton : MonoBehaviour
 {
@@ -18,7 +19,13 @@ public class SlotAddButton : MonoBehaviour
     {
         foreach (GameObject item in GridList.gridListManager.gridList)
         {
-            if (item.GetComponent<GridIsEmpty>().gridObject == null)
+            if (item.GetComponent<GridIsEmpty>().gridObject == null && SceneManager.GetActiveScene().name == "Tutorial Level" && transform.GetComponent<EnoughMoney>().clickCount <=2)
+            {
+                currentObjectType = 2;
+                ObjectType(item);
+                break;
+            }
+            if (item.GetComponent<GridIsEmpty>().gridObject == null && transform.GetComponent<EnoughMoney>().clickCount > 2)
             {
                 currentObjectType = Random.Range(0, 3);
                 ObjectType(item);
