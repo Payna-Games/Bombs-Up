@@ -7,6 +7,7 @@ public class BompExplode : ExplodeCalculate
 {
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
+    public event Action explodeBefor;
     public int cityCount = 0;
     public List<GameObject> checkList;
 
@@ -58,6 +59,7 @@ public class BompExplode : ExplodeCalculate
         gameObject.SetActive(false);
     }
 
+
     private void Explode2()
     {
         foreach (GameObject item in ActiveObject)
@@ -66,10 +68,10 @@ public class BompExplode : ExplodeCalculate
         }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-
+        explodeBefor?.Invoke();
         foreach (Collider col in colliders)
         {
-            if (col.gameObject.CompareTag("City") && !checkList.Contains(col.gameObject))
+            if (col.gameObject.CompareTag("Pieces") && !checkList.Contains(col.gameObject))
             {
                 checkList.Add(col.gameObject);
                 Rigidbody rb = col.GetComponent<Rigidbody>();
@@ -83,8 +85,18 @@ public class BompExplode : ExplodeCalculate
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                 }
             }
-        }        
-        
+        }
+        StartCoroutine(Wait3(checkList));
+
+
         explodeCount?.Invoke(cityCount);
+    }
+    IEnumerator Wait3(List<GameObject> cityObj)
+    {
+        yield return new WaitForSeconds(0.2f);
+        foreach (GameObject item in checkList)
+        {
+            item.GetComponent<Rigidbody>().isKinematic = true;
+        }
     }
 }

@@ -3586,7 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe78ed497259794a82ad9869aab8059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectLevel: 8
+  objectLevel: 0
 --- !u!4 &71479901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 630522936320604616, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
@@ -3657,7 +3657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5945255, y: -0.0041008606, z: -0.0030321917, w: 0.80406064}
+  m_LocalRotation: {x: -0.5945255, y: -0.004100961, z: -0.0030322657, w: 0.80406064}
   m_LocalPosition: {x: -2.850104, y: -602.86346, z: -167.40363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7321,6 +7321,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &174386784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174386785}
+  - component: {fileID: 174386786}
+  m_Layer: 0
+  m_Name: Kinematic Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &174386785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174386784}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1184767128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174386786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174386784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6e430c9730b914d9fcc3d2c5bdd4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomp: {fileID: 767208647}
 --- !u!1 &176608660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6680797341918983061, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -44261,7 +44306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22349228, y: 0.07930181}
   m_AnchorMax: {x: 0.22349228, y: 0.07930181}
-  m_AnchoredPosition: {x: 13, y: 3.685791}
+  m_AnchoredPosition: {x: 13, y: 3.6860352}
   m_SizeDelta: {x: 275, y: 159.4288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161463865
@@ -45710,6 +45755,7 @@ Transform:
   - {fileID: 832810265}
   - {fileID: 1193219117}
   - {fileID: 80485676}
+  - {fileID: 174386785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185226325 stripped
@@ -80711,6 +80757,10 @@ PrefabInstance:
       value: Explode
       objectReference: {fileID: 0}
     - target: {fileID: 3000926800524852124, guid: c248af2d4a277e64d9bd2a8dae689259, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000926800524852124, guid: c248af2d4a277e64d9bd2a8dae689259, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -81489,6 +81539,10 @@ PrefabInstance:
     - target: {fileID: 8327814327839963412, guid: c248af2d4a277e64d9bd2a8dae689259, type: 3}
       propertyPath: m_TagString
       value: City
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327907913595926098, guid: c248af2d4a277e64d9bd2a8dae689259, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8327907913595926098, guid: c248af2d4a277e64d9bd2a8dae689259, type: 3}
       propertyPath: m_TagString
@@ -94606,7 +94660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe78ed497259794a82ad9869aab8059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectLevel: 8
+  objectLevel: 0
 --- !u!4 &2072033613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4244359344249502221, guid: d95af6d4922c515439b7acaa4fd0a535, type: 3}
