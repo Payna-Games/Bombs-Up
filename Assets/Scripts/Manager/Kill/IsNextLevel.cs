@@ -26,9 +26,10 @@ public class IsNextLevel : MonoBehaviour
     private IEnumerator StartSmokeCoroutine()
     {
         yield return new WaitForSeconds(3f);
+        NextSceneData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    private void OnDisable()
+    private void NextSceneData()
     {
         int incomeButton = saveDataObj[0].GetComponent<EnoughMoney>().clickCount;
         int addButton = saveDataObj[1].GetComponent<EnoughMoney>().clickCount;

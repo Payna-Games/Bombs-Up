@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class TutorialMerge : MonoBehaviour
 {
+    public RectTransform rectTransform;
+    public List<GameObject> masks;
     public float moveDuration = 1.0f;
     public Transform part1;
     public Transform part2;
@@ -21,7 +23,9 @@ public class TutorialMerge : MonoBehaviour
         mergeBomp = false;
         part1.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         part2.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
-        bompBody = new Vector3(0, 15, 9);
+        part1Pos = new Vector3(25, 182, 0);
+        part2Pos = new Vector3(-185, 192, 0);
+        bompBody = new Vector3(-275, 1195, 0);
     }
 
     // Update is called once per frame
@@ -29,30 +33,30 @@ public class TutorialMerge : MonoBehaviour
     {
         if (part2.gameObject.activeSelf && conditionMet && mergePart)
         {
-            part1Pos = new Vector3(part1.position.x - 0.7f, part1.position.y + 6f, part1.position.z + -1.5f);
-            part2Pos = new Vector3(part2.position.x - 0.7f, part2.position.y + 6f, part2.position.z + -1.5f);
-            transform.position = part1Pos;
+            masks[0].SetActive(true);
+
             conditionMet = false;
-            transform.DOMove(part2Pos, moveDuration)
-                .OnComplete(() => transform.DOMove(part1Pos, moveDuration)
+            rectTransform.DOAnchorPos(part2Pos, moveDuration)
+                .OnComplete(() => rectTransform.DOAnchorPos(part1Pos, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
-        if (part1.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
+        else if (part1.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
-            transform.position = part1Pos;
+            masks[0].SetActive(false);
             conditionMet = false;
-            transform.DOMove(bompBody, moveDuration)
-                .OnComplete(() => transform.DOMove(part1Pos, moveDuration)
+            rectTransform.DOAnchorPos(bompBody, moveDuration)
+                .OnComplete(() => rectTransform.DOAnchorPos(part1Pos, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
-        if (part2.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
+        else if (part2.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
-            transform.position = part2Pos;
+            masks[0].SetActive(false);
             conditionMet = false;
-            transform.DOMove(bompBody, moveDuration)
-                .OnComplete(() => transform.DOMove(part2Pos, moveDuration)
+            rectTransform.DOAnchorPos(bompBody, moveDuration)
+                .OnComplete(() => rectTransform.DOAnchorPos(part2Pos, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
+
     }
     private void LoopAnimEnd()
     {

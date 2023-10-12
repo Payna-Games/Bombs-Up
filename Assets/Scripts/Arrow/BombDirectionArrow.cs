@@ -14,7 +14,7 @@ public class BombDirectionArrow : MonoBehaviour
 
     private void Start()
     {
-        bompExplode = transform.parent.GetComponent<BompExplode>();
+        bompExplode = transform.parent.GetChild(0).GetComponent<BompExplode>();
         bompExplode.explode += BoolFalse;
         arrow = transform;
         distanceText = arrow.GetChild(0).GetChild(0);
@@ -24,20 +24,14 @@ public class BombDirectionArrow : MonoBehaviour
     {
         if (loop)
         {
-            //Vector3 direction = target.position - transform.position;
-                        
-            //Vector3 lookDirection = new Vector3(transform.position.x + 90 - direction.x, transform.position.x - 90, 0);
+            var dir = target.position - transform.position;
 
-            ////transform.rotation = Quaternion.LookRotation(lookDirection);
-            //float distance = direction.magnitude;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            // Uzaklýðý TextMesh'e yazdýrýn
-            //distanceText.GetComponent<TextMesh>().text = distance.ToString("F1");
-
+           
             float distance = Vector3.Distance(arrow.position, target.position);
-
-            arrow.LookAt(target);
-            distanceText.GetComponent<TextMesh>().text = distance.ToString("F0"); // Metreyi metin olarak 
+            distanceText.GetComponent<TextMesh>().text = distance.ToString("F0");
         }
     }
 

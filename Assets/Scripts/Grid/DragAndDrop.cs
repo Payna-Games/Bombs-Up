@@ -9,7 +9,7 @@ public class DragAndDrop : MonoBehaviour
 
     public GameObject prevGrid = null;
     public event Action tutorialMerge;
-    public event Action tutorialBompMerge;
+    public event Action<int> tutorialBompMerge;
 
     public ParticleSystem mergeParticle;
     public ParticleSystem rocketMergeParticle;
@@ -115,13 +115,13 @@ public class DragAndDrop : MonoBehaviour
                     break;
                 case "B_Body":
                     if (this.gameObject.CompareTag("Body"))
-                    {
-                        tutorialBompMerge?.Invoke();
+                    {                        
                         if (levelThis == levelColliderObj)
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
                             gameObject.GetComponent<ObjectLevel>().LevelUp(levelThis);
                         ReserObject(gameObject);
+                        tutorialBompMerge?.Invoke(gameObject.GetComponent<ObjectLevel>().objectLevel);
                     }
 
                     break;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialAddButton : MonoBehaviour
 {
+    public RectTransform rectTransform;
+    public GameObject mask;
     public Vector3 targetPosition;
     public Vector3 targetPosition2;
     public float moveDuration = 1.0f;
@@ -13,8 +15,8 @@ public class TutorialAddButton : MonoBehaviour
     {
         conditionMet = true;
         Transform addBottonPos = SlotAddButton.slotAddButton.transform;
-        targetPosition = new Vector3(4, 4,-5);
-        targetPosition2 = new Vector3(4, 4, -6f);
+        targetPosition = new Vector3(-6, -50,0);
+        targetPosition2 = new Vector3(-6, -15, 0);
     }
     private void Update()
     {
@@ -22,9 +24,14 @@ public class TutorialAddButton : MonoBehaviour
         if (SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount <= 2 && conditionMet)
         {
             conditionMet = false;
-            transform.DOMove(targetPosition, moveDuration)
-                .OnComplete(() => transform.DOMove(targetPosition2, moveDuration)
+            mask.SetActive(true);
+            rectTransform.DOAnchorPos(targetPosition, moveDuration)
+                .OnComplete(() => rectTransform.DOAnchorPos(targetPosition2, moveDuration)
                 .OnComplete(()=>conditionMet = true ));            
+        }
+        else if (SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount > 2 && !conditionMet)
+        {
+            mask.SetActive(false);
         }
     }
 }
