@@ -83,6 +83,7 @@ public class BompExplode : ExplodeCalculate
                     rb.isKinematic = false;
                     rb.useGravity = true;
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+                    rb.isKinematic = true;
                 }
             }
         }
