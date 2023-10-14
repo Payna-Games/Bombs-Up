@@ -83,21 +83,21 @@ public class BompExplode : ExplodeCalculate
                     rb.isKinematic = false;
                     rb.useGravity = true;
                     rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
-                    rb.isKinematic = true;
+                    //rb.isKinematic = true;
                 }
             }
         }
-        StartCoroutine(Wait3(checkList));
+        //StartCoroutine(Wait3(checkList));
 
 
         explodeCount?.Invoke(cityCount);
     }
-    IEnumerator Wait3(List<GameObject> cityObj)
-    {
-        yield return new WaitForSeconds(0.2f);
-        foreach (GameObject item in checkList)
-        {
-            item.GetComponent<Rigidbody>().isKinematic = true;
-        }
-    }
+    //IEnumerator Wait3(List<GameObject> cityObj)
+    //{
+    //    yield return new WaitForSeconds(0.2f);
+    //    foreach (GameObject item in checkList)
+    //    {
+    //        item.GetComponent<Rigidbody>().isKinematic = true;
+    //    }
+    //}
 }

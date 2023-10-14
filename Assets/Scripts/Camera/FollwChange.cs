@@ -10,6 +10,8 @@ public class FollwChange : MonoBehaviour
     public Transform cityGround;
     Animator animator;
     bool isFirst = true;
+    public int min = 120;
+    public int max = 170;
 
     public event Action changeCamera;
 
@@ -20,7 +22,7 @@ public class FollwChange : MonoBehaviour
     private void FixedUpdate()
     {
         float rangeY = bomps.position.y - cityGround.position.y;
-        if (rangeY <= 170 && rangeY >= 120 & isFirst)
+        if (rangeY <= max && rangeY >= min & isFirst)
         {
             cityGround.gameObject.isStatic = false;
 
