@@ -44,6 +44,8 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         enough = CalculatePrice(startPrice, increasePrice, clickCount);
         ButtonPrint(enough);
+        //Vibrator.Vibrate();
+        //Vibrator.Vibrate(200);
         clickCount += 1;
     }
 

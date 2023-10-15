@@ -6,6 +6,7 @@ using System.Collections;
 public class IsNextLevel : MonoBehaviour
 {
     private Kill killScript;
+    public GameObject nextLevel;
     public List<GameObject> saveDataObj;
     // Start is called before the first frame update
     void Awake()
@@ -25,9 +26,10 @@ public class IsNextLevel : MonoBehaviour
     }
     private IEnumerator StartSmokeCoroutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         NextSceneData();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //nextLevel.SetActive(true);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void NextSceneData()
     {

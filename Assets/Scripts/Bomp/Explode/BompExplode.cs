@@ -24,7 +24,10 @@ public class BompExplode : ExplodeCalculate
         {
             explode?.Invoke(collision.gameObject);
             transform.GetComponent<Rigidbody>().drag = 1f;
+            //Vibrator.Vibrate();
+            //Vibrator.Vibrate(200);
             Explode();
+            StartCoroutine(Wait3());
             hasCollided = true;
             cameraVibration.StartVibration();
             StartCoroutine(Wait2(0.2f));
@@ -36,23 +39,15 @@ public class BompExplode : ExplodeCalculate
     {
         explosionRadius = RadiusExplode();
         explosionForce = ForceExplode();
-        Collider[] explodeObject = Physics.OverlapSphere(transform.position, explosionRadius);
-        foreach (Collider item in explodeObject)
-        {
-            if (item.gameObject.CompareTag("Explode"))
-            {
-                item.GetComponent<BoxCollider>().isTrigger = false;
-            }
-        }
         StartCoroutine(Wait(0.1f));
-
     }
+
     IEnumerator Wait(float sure)
     {
         yield return new WaitForSeconds(sure);
-
         Explode2();
     }
+
     IEnumerator Wait2(float time)
     {
         yield return new WaitForSeconds(time);
@@ -71,33 +66,40 @@ public class BompExplode : ExplodeCalculate
         explodeBefor?.Invoke();
         foreach (Collider col in colliders)
         {
-            if (col.gameObject.CompareTag("Pieces") && !checkList.Contains(col.gameObject))
+            if (col.gameObject.CompareTag("City") && !checkList.Contains(col.gameObject))
             {
                 checkList.Add(col.gameObject);
                 Rigidbody rb = col.GetComponent<Rigidbody>();
 
                 if (rb != null)
                 {
-                    cityCount++;
-                    rb.mass = 1;
-                    rb.isKinematic = false;
-                    rb.useGravity = true;
-                    rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
-                    //rb.isKinematic = true;
+                    col.gameObject.GetComponent<Renderer>().enabled = false;
+                    Destroy(rb);
+                    col.enabled = false;
+                    col.transform.GetChild(0).gameObject.SetActive(true);
+                    //cityCount++;
+                    //rb.mass = 1;
+                    //rb.isKinematic = false;
+                    //rb.useGravity = true;
+                    //rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
                 }
             }
         }
-        //StartCoroutine(Wait3(checkList));
+        //StartCoroutine(Wait3());
+    }
+    IEnumerator Wait3()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
 
-
+        foreach (GameObject obj in objectsWithTag)
+        {
+            if (obj.GetComponent<Rigidbody>() != null)
+            {
+                cityCount++;
+                obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+            }
+        }
         explodeCount?.Invoke(cityCount);
     }
-    //IEnumerator Wait3(List<GameObject> cityObj)
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-    //    foreach (GameObject item in checkList)
-    //    {
-    //        item.GetComponent<Rigidbody>().isKinematic = true;
-    //    }
-    //}
 }
