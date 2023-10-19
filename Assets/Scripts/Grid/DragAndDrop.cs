@@ -7,6 +7,7 @@ public class DragAndDrop : MonoBehaviour
 {
     private Vector3 thisPos;
 
+    public bool onVibrator = true;
     public GameObject prevGrid = null;
     public event Action tutorialMerge;
     public event Action<int> tutorialBompMerge;
@@ -90,7 +91,7 @@ public class DragAndDrop : MonoBehaviour
         gameObject.SetActive(false);
 
         SlotAddButton.slotAddButton.ButtonActive();
-        float money = (float)SlotAddButton.slotAddButton.gameObject.GetComponent<EnoughMoney>().enough; 
+        float money = (float)SlotAddButton.slotAddButton.gameObject.GetComponent<EnoughMoney>().enough;
         MoneyManager.moneyManager.InreaseTotalMoney(money - (money / 10));
     }
 
@@ -115,7 +116,7 @@ public class DragAndDrop : MonoBehaviour
                     break;
                 case "B_Body":
                     if (this.gameObject.CompareTag("Body"))
-                    {                        
+                    {
                         if (levelThis == levelColliderObj)
                             gameObject.GetComponent<ObjectLevel>().LevelUp();
                         else
@@ -149,8 +150,11 @@ public class DragAndDrop : MonoBehaviour
     }
     private void ReserObject(GameObject gameObject)
     {
-        //Vibrator.Vibrate();
-        //Vibrator.Vibrate(200);
+        if (onVibrator)
+        {
+            Vibrator.Vibrate();
+            Vibrator.Vibrate(200);
+        }
         Vector3 bompParticPos = new Vector3(gameObject.transform.position.x + 2.29f, gameObject.transform.position.y - 4.38f, gameObject.transform.position.z - 1.5f);
         ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.identity);
         particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
@@ -189,6 +193,11 @@ public class DragAndDrop : MonoBehaviour
         }
         else
             PrevPos();
+        if (onVibrator)
+        {
+            Vibrator.Vibrate();
+            Vibrator.Vibrate(200);
+        }
     }
 
     public void PrevPos()

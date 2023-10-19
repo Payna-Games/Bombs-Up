@@ -18,19 +18,24 @@ public class BompExplode : ExplodeCalculate
     public float explosionRadius = 100f;
     private bool hasCollided = false;
 
+    public bool onVibrator = true;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided && (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")))
         {
             explode?.Invoke(collision.gameObject);
             transform.GetComponent<Rigidbody>().drag = 1f;
-            //Vibrator.Vibrate();
-            //Vibrator.Vibrate(200);
             Explode();
             StartCoroutine(Wait3());
             hasCollided = true;
             cameraVibration.StartVibration();
             StartCoroutine(Wait2(0.2f));
+            if (onVibrator)
+            {
+                Vibrator.Vibrate();
+                Vibrator.Vibrate(200);
+            }
         }
     }
 
