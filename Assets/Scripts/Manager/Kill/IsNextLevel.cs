@@ -6,13 +6,10 @@ using System.Collections;
 public class IsNextLevel : MonoBehaviour
 {
     private Kill killScript;
-    public GameObject nextLevel;
     public List<GameObject> saveDataObj;
     // Start is called before the first frame update
     void Awake()
     {
-        //killScript = transform.GetComponent<Kill>();
-        //killScript.killCount += NextLevel;
         killScript = transform.GetComponent<Kill>();
         killScript.killCount += NextLevel;
     }
@@ -28,8 +25,6 @@ public class IsNextLevel : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         NextSceneData();
-        //nextLevel.SetActive(true);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void NextSceneData()
     {

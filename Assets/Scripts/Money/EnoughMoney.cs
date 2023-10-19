@@ -63,7 +63,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
         }
         if (gameObject.name == "Income" && clickCount > 1)
         {
-            increasePrice = 200;
+            increasePrice = 400;
             return (int)(increasePrice * clickCount);
         }
         return startPrice + (int)(increasePrice * clickCount);

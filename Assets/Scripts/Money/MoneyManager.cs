@@ -12,7 +12,7 @@ public class MoneyManager : TextPrint
     }
     private void Start()
     {
-        string i = "100000";
+        string i = "405";
         if (PlayerPrefs.HasKey(transform.name))
         {
             i = PlayerPrefs.GetString(transform.name);

@@ -7,6 +7,7 @@ public class Kill : MonoBehaviour
     public Transform bomp;
     public int maxObj;
 
+    public EnoughMoney IncomeScript;
     public event Action<float> killCount; 
 
     void Awake()
@@ -22,7 +23,7 @@ public class Kill : MonoBehaviour
         Debug.Log("bar yüzdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
 
         killCount?.Invoke(fillAmount);
-
-        MoneyManager.moneyManager.InreaseTotalMoney((float)750);
+        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 4 * fillAmount);
     }
+
 }
