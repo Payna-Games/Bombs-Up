@@ -5,6 +5,7 @@ public class NextLevelButton : MonoBehaviour
 {
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 }
