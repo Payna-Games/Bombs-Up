@@ -257,7 +257,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "C:/Users/suley/OneDrive/Masa\xFCst\xFC/user.keystore"
+  AndroidKeystoreName: '{inproject}: user.keystore'
   AndroidKeyaliasName: user
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
@@ -838,8 +838,9 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: tenjin_applovin_enabled
-    iPhone: tenjin_applovin_enabled
+    Android: YC_IOS14_SUPPORT;tenjin_applovin_enabled
+    Standalone: YC_IOS14_SUPPORT
+    iPhone: YC_IOS14_SUPPORT;tenjin_applovin_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
