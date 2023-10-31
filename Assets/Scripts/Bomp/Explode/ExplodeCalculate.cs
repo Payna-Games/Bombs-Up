@@ -6,7 +6,7 @@ public class ExplodeCalculate : MonoBehaviour
 {
     public float RadiusExplode()
     {
-        return (transform.GetChild(1).GetComponent<ObjectLevel>().objectLevel + 1) * 20;
+        return (transform.GetChild(1).GetComponent<ObjectLevel>().objectLevel + 1) * 26;
     }
 
     public float ForceExplode()

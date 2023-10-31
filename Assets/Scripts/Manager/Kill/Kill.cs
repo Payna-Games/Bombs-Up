@@ -23,7 +23,7 @@ public class Kill : MonoBehaviour
         Debug.Log("bar yüzdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
 
         killCount?.Invoke(fillAmount);
-        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 4 * fillAmount);
+        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 5 * fillAmount);
     }
 
 }
