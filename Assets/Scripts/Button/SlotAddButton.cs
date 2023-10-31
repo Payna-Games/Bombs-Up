@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class SlotAddButton : MonoBehaviour
@@ -88,12 +89,25 @@ public class SlotAddButton : MonoBehaviour
     {
         item.GetComponent<GridIsEmpty>().gridObject = itemType;
         itemType.SetActive(true);
+        
         item.transform.DOScale(new Vector3(0f, 0f, 0f), 0.01f).SetEase(Ease.OutElastic).OnComplete(() =>
         {
             item.transform.DOScale(new Vector3(2f, 2f, 2f), 0.2f).SetEase(Ease.OutElastic);
         });
-        itemType.GetComponent<DragAndDrop>().prevGrid = item;
+        itemType.GetComponent<DragAndDrop>().prevGrid = item;        
         itemType.transform.position = item.transform.position;
         item.GetComponent<GridObjectSave>().SaveGridObj();
+        StartCoroutine(SecondLevel(itemType));
+    }
+
+    IEnumerator SecondLevel(GameObject itemType)
+    {
+        yield return new WaitForSeconds(0.0f);
+        if (SceneManager.GetActiveScene().buildIndex >= 4)
+        {
+            itemType.GetComponent<ObjectLevel>().LevelUp();
+            itemType.GetComponent<ObjectLevel>().SetFalse();
+            itemType.GetComponent<ObjectLevel>().SetTrue();
+        }
     }
 }
