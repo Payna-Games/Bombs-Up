@@ -9,7 +9,7 @@ public class LevelSave : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey(SceneManager.GetActiveScene().name))
         {
-            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(SceneManager.GetActiveScene().buildIndex);
+
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, SceneManager.GetActiveScene().buildIndex);
         }
     }
