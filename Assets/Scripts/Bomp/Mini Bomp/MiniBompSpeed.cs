@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class MiniBompSpeed : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float speed = 5;
     void Update()
     {
-        
+        speed = MiniBompManager.miniBompManager.speed;
+        transform.Translate(-Vector3.down * speed * Time.deltaTime);
     }
 }
