@@ -8,6 +8,8 @@ public class FollwChange : MonoBehaviour
 {
     public Transform bomps;
     public Transform cityGround;
+    
+    
     Animator animator;
     bool isFirst = true;
     public int min = 120;
@@ -18,6 +20,7 @@ public class FollwChange : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
     private void FixedUpdate()
     {
@@ -35,5 +38,21 @@ public class FollwChange : MonoBehaviour
     public void CameraChange()
     {
         animator.Play("CityCamera");
+    }
+    public void SwitchCamera(int newCameraIndex)
+    {
+        StartCoroutine(CameraChangeWaitTime());
+        
+      
+        
+        
+    }
+
+    private IEnumerator CameraChangeWaitTime()
+    {
+        yield return new WaitForSeconds(3);
+        // SwitchCamera(1);
+        animator.Play("BottomCamera");
+
     }
 }
