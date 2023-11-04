@@ -399,7 +399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -353
+      value: -165.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -440,6 +440,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
       propertyPath: m_Name
       value: BombCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 2389538849530911561, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
       propertyPath: m_Enabled
@@ -493,6 +497,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombCount: 0
   bombCountText: {fileID: 1861693567072447269}
+  extraBomb: {fileID: 4946350644127098100, guid: 89ae26a79c5506c4c848723a533e24b9, type: 3}
+  extraBombPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &4968562922568377713
 SphereCollider:
   m_ObjectHideFlags: 0

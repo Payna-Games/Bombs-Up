@@ -7,6 +7,7 @@ public class ObjectLevel : MonoBehaviour
 {
     private int createdLevel;
     public int objectLevel;
+    public int damageLevel;
 
     public event Action<int> OnLevelUp;
 
@@ -70,6 +71,23 @@ public class ObjectLevel : MonoBehaviour
     }
 
     public void SetFalse()
+    {
+        Transform[] children = GetComponentsInChildren<Transform>(true);
+
+        foreach (Transform child in children)
+        {
+            if (child != transform && !child.CompareTag("Text"))
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+    public void SetTrue2()
+    {
+        transform.GetChild(damageLevel).gameObject.SetActive(true);
+    }
+
+    public void SetFalse2()
     {
         Transform[] children = GetComponentsInChildren<Transform>(true);
 

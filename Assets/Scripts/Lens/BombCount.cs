@@ -9,6 +9,8 @@ public class BombCount : MonoBehaviour
 {
     [SerializeField] private int bombCount;
     [SerializeField] private TextMeshProUGUI bombCountText;
+    [SerializeField] private GameObject extraBomb;
+    [SerializeField] private Transform[] extraBombPositions;
     
     // private int addBombCount;
 
@@ -30,7 +32,13 @@ public class BombCount : MonoBehaviour
             bombCount++;
            
             bombCountText.text = bombCount.ToString();
-            Debug.Log("değdi");
+           
+        }
+
+        if (other.CompareTag("Bomb"))
+        {
+            Instantiate(extraBomb, extraBombPositions[0].position, Quaternion.identity);
+            Debug.Log("instantiate");
         }
     }
 }
