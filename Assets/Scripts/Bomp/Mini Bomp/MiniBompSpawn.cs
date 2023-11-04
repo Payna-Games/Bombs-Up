@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniBompSpawn : MonoBehaviour      // kodun new bompsýn headýna at yoksa iþaretli satýr çalýþmaz
+public class MiniBompSpawn : MonoBehaviour      // kodun new bompsï¿½n headï¿½na at yoksa iï¿½aretli satï¿½r ï¿½alï¿½ï¿½maz
 {
     public FollwChange follwChange;
     private Drop dropCs;
     private bool isSpawn;
     private void Start()
     {
-        dropCs = transform.parent.GetComponent<Drop>();     // iþaretli satýr
+        dropCs = transform.parent.GetComponent<Drop>();     // iï¿½aretli satï¿½r
         follwChange.changeCamera += SpawnStop;
         dropCs.windPlay += SpawnStart;
     }
@@ -17,15 +17,16 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bompsýn headýna at 
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.4f);
             MiniBompList.miniBompList.miniBomp[0].SetActive(true);
             MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
             MiniBompList.miniBompList.miniBomp.RemoveAt(0);
+            MiniBompList.miniBompList.miniBomp.Add(gameObject);
             if (!isSpawn)
                 break;
         }
     }
-    private void SpawnStart()
+    public void SpawnStart()
     {
         isSpawn = true;
         StartCoroutine(Spawn());
