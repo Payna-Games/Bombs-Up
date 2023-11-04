@@ -31,14 +31,14 @@ public class Drop : MonoBehaviour
         Vector3 targetPosition = transform.position + Vector3.up * 5f;
         transform.DOMove(targetPosition, 2f).OnComplete(() =>
         {
-            transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration)
-                .OnComplete(() =>
+            transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
                 {
                     windPlay?.Invoke();
                     foreach (GameObject item in arrow)
                         item.SetActive(true);
                     camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
                     StartCoroutine(MoveCamera());
+                    rotateComplete = true;
                     
                 });
         });
@@ -50,7 +50,7 @@ public class Drop : MonoBehaviour
             camera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset += new Vector3(0, 0.08f, 0.042f);
 
             yield return new WaitForSeconds(0.01f);
-            rotateComplete = true;
+            
         }
     }
 
