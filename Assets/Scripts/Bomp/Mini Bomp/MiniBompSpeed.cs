@@ -8,6 +8,6 @@ public class MiniBompSpeed : MonoBehaviour
     void Update()
     {
         speed = MiniBompManager.miniBompManager.speed;
-        transform.Translate(-Vector3.down * speed );
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
 }
