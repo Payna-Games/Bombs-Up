@@ -16,8 +16,9 @@ public class MiniBompRange : MonoBehaviour
     void Update()
     {
         range = MiniBompManager.miniBompManager.range;
-        if (transform.position.y > firstY + range)
+        if (transform.position.y < firstY - range)
         {
+            MiniBompList.miniBompList.miniBomp.Add(gameObject);
             gameObject.SetActive(false);
         }
     }
