@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BombLeftRight: MonoBehaviour
 {
-    [SerializeField] private float speed = 0.1f;
+    [SerializeField] private float swipeSpeed = 0.1f;
     [SerializeField] private float maxDistanceRight;
     [SerializeField] private float maxDistanceLeft;
     [SerializeField] private float bombSpeed = 5f;
@@ -37,7 +37,7 @@ public class BombLeftRight: MonoBehaviour
              {
                  if (touch.phase == TouchPhase.Moved)
                  {
-                     transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * -speed,
+                     transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * -swipeSpeed,
                          transform.position.y, transform.position.z);
 
                      if (transform.position.x <= maxDistanceRight)

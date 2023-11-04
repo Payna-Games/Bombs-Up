@@ -28,7 +28,9 @@ public class BombCount : MonoBehaviour
         if (other.CompareTag("MiniBomb"))
         {
             bombCount++;
+           
             bombCountText.text = bombCount.ToString();
+            Debug.Log("değdi");
         }
     }
 }
