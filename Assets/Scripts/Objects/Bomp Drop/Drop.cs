@@ -7,18 +7,20 @@ using System.Collections;
 
 public class Drop : MonoBehaviour
 {
-    public float rotationDuration = 2f; // Dönme süresi (örneðin, 2 saniye)
+    public float rotationDuration = 2f; // Dï¿½nme sï¿½resi (ï¿½rneï¿½in, 2 saniye)
 
     public event Action windPlay;
 
     public List<GameObject> arrow;
     private Rigidbody rb;
     private CinemachineVirtualCamera camera;
+    public float bombSpeed;
+    public bool rotateComplete = false;
 
     void Start()
     {
         rb = transform.GetComponent<Rigidbody>();
-        rb.useGravity = false; // Use Gravity özelliðini devre dýþý býrak
+        rb.useGravity = false; // Use Gravity ï¿½zelliï¿½ini devre dï¿½ï¿½ï¿½ bï¿½rak
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
     }
 
@@ -37,6 +39,7 @@ public class Drop : MonoBehaviour
                         item.SetActive(true);
                     camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
                     StartCoroutine(MoveCamera());
+                    
                 });
         });
     }
@@ -47,6 +50,9 @@ public class Drop : MonoBehaviour
             camera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset += new Vector3(0, 0.08f, 0.042f);
 
             yield return new WaitForSeconds(0.01f);
+            rotateComplete = true;
         }
     }
+
+    
 }
