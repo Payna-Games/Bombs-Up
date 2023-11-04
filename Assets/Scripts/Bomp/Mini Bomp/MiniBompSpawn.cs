@@ -21,7 +21,6 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
             MiniBompList.miniBompList.miniBomp[0].SetActive(true);
             MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
             MiniBompList.miniBompList.miniBomp.RemoveAt(0);
-            MiniBompList.miniBompList.miniBomp.Add(gameObject);
             if (!isSpawn)
                 break;
         }
