@@ -4,14 +4,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class Damage : MonoBehaviour
 {
-   // [SerializeField] private int addDamage;
+    // [SerializeField] private int addDamage;
     [SerializeField] private TextMeshProUGUI damageText;
     private ObjectLevel headObjectLevel;
     private ObjectLevel bodyObjectLevel;
     private ObjectLevel motorObjectLevel;
+    [SerializeField] private float initialScale = 1f;
+    [SerializeField] private float targetScale = 1.5f;
+    [SerializeField] private float duration = 1f;
+    
 
     private void Awake()
     {
@@ -32,9 +37,8 @@ public class Damage : MonoBehaviour
 
         if ( other.CompareTag("Bomb") )
         {
-            
-            
 
+            
 
                 if (headObjectLevel.damageLevel <7)
                 {
@@ -55,17 +59,30 @@ public class Damage : MonoBehaviour
                     motorObjectLevel.SetTrue2();
                 }
                 StartCoroutine(CloseLensAnim());
-                
-               
-            
-                
-            
-            
-            
+
+
+
+                other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                    .SetEase(Ease.Linear) 
+                    .OnComplete(() =>
+                    {
+
+                        other.transform.DOScale(Vector3.one * initialScale, duration)
+                            .SetEase(Ease.OutBounce);
+
+                    });
+
+
+
+
+
+
         }
 
        
     }
+
+    
     private IEnumerator CloseLensAnim()
     {
         yield return new WaitForSeconds(0.3f); 
