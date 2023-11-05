@@ -6,18 +6,18 @@ using TMPro;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] private int addDamage;
+   // [SerializeField] private int addDamage;
     [SerializeField] private TextMeshProUGUI damageText;
 
      
     
     
 
-    private void Start()
-    {
-        damageText.text = addDamage.ToString();
-        addDamage = 0;
-    }
+    // private void Start()
+    // {
+    //     damageText.text = addDamage.ToString();
+    //     addDamage = 0;
+    // }
 
     
 
@@ -39,13 +39,13 @@ public class Damage : MonoBehaviour
                 ObjectLevel bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
                 ObjectLevel motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
 
-                headObjectLevel.damageLevel += 2;
+                headObjectLevel.damageLevel += 1;
                 headObjectLevel.SetFalse2();
                 headObjectLevel.SetTrue2();
-                bodyObjectLevel.damageLevel += 2;
+                bodyObjectLevel.damageLevel += 1;
                 bodyObjectLevel.SetFalse2();
                 bodyObjectLevel.SetTrue2();
-                motorObjectLevel.damageLevel += 2;
+                motorObjectLevel.damageLevel += 1;
                 motorObjectLevel.SetFalse2();
                 motorObjectLevel.SetTrue2();
             

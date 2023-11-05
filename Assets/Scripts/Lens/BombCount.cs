@@ -16,7 +16,7 @@ public class BombCount : MonoBehaviour
 
     private void Start()
     {
-        bombCountText.text = bombCount.ToString();
+        bombCountText.text = "+" + bombCount.ToString();
     }
 
     public int AddBombCount()

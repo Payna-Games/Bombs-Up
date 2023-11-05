@@ -13,7 +13,7 @@ public class FireRange : MonoBehaviour
 
     private void Start()
     {
-        fireRangeText.text = addFireRange.ToString();
+        fireRangeText.text = "+" + addFireRange.ToString();
     }
 
     
@@ -24,7 +24,7 @@ public class FireRange : MonoBehaviour
         {
             addFireRange++;
            
-            fireRangeText.text = addFireRange.ToString();
+            fireRangeText.text = "+" + addFireRange.ToString();
             Destroy(other.gameObject);
             
         }

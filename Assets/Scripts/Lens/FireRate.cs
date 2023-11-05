@@ -7,13 +7,14 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
+    //[SerializeField] private int fireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
     
     
 
     private void Start()
     {
-        fireRateText.text = addFireRateText.ToString();
+        fireRateText.text = "+" + addFireRateText.ToString();
     }
 
     
@@ -24,7 +25,7 @@ public class FireRate : MonoBehaviour
         {
             addFireRateText++;
            
-            fireRateText.text = addFireRateText.ToString();
+            fireRateText.text = "+" +addFireRateText.ToString();
             Destroy(other.gameObject);
             
         }
