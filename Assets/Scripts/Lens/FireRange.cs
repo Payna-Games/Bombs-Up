@@ -12,6 +12,7 @@ public class FireRange : MonoBehaviour
     [SerializeField] private Transform particleTransform;
     
     
+    
 
     private void Start()
     {

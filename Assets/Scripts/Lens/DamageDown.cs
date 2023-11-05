@@ -9,16 +9,18 @@ public class DamageDown : MonoBehaviour
 {
     
     [SerializeField] private TextMeshProUGUI damageText;
-    private ObjectLevel headObjectLevel;
-    private ObjectLevel bodyObjectLevel;
-    private ObjectLevel motorObjectLevel;
+    private ObjectLevel headObjectLevell;
+    private ObjectLevel bodyObjectLevell;
+    private ObjectLevel motorObjectLevell;
+    
 
-    private void Start()
+    private void Awake()
     {
-         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
-         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
-         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
+        headObjectLevell = GameObject.Find("Head").GetComponent<ObjectLevel>();
+        bodyObjectLevell= GameObject.Find("Body").GetComponent<ObjectLevel>();
+        motorObjectLevell= GameObject.Find("Motor").GetComponent<ObjectLevel>();
     }
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,38 +33,37 @@ public class DamageDown : MonoBehaviour
         if ( other.CompareTag("Bomb") )
         {
             
-           Debug.Log(headObjectLevel.objectLevel);
-           Debug.Log(bodyObjectLevel.damageLevel);
-           Debug.Log(motorObjectLevel.damageLevel);
+          Debug.Log("çalıştı ");
 
-            if (headObjectLevel.objectLevel >1)
+            if (headObjectLevell.damageLevel >0)
             {
-                headObjectLevel.damageLevel -= 1;
-                headObjectLevel.SetFalse2();
-                headObjectLevel.SetTrue2();
+                headObjectLevell.damageLevel -= 1;
+                headObjectLevell.SetFalse2();
+                headObjectLevell.SetTrue2();
             }
-            if (bodyObjectLevel.damageLevel >1)
+            if (bodyObjectLevell.damageLevel >0)
             {
-                bodyObjectLevel.damageLevel -= 1;
-                bodyObjectLevel.SetFalse2();
-                bodyObjectLevel.SetTrue2();
+                bodyObjectLevell.damageLevel -= 1;
+                bodyObjectLevell.SetFalse2();
+                bodyObjectLevell.SetTrue2();
             }
-            if ( motorObjectLevel.damageLevel >1)
+            if ( motorObjectLevell.damageLevel >0)
             {
-                motorObjectLevel.damageLevel -= 1;
-                motorObjectLevel.SetFalse2();
-                motorObjectLevel.SetTrue2();
+                motorObjectLevell.damageLevel -= 1;
+                motorObjectLevell.SetFalse2();
+                motorObjectLevell.SetTrue2();
             }
             StartCoroutine(CloseLensAnim());
 
-            
-            
-            
+
            
             
-            other.transform.localScale *= 0.6f; 
+               
+                
             
             
+
+
         }
 
        

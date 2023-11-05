@@ -8,7 +8,8 @@ public class ObjectLevel : MonoBehaviour
     private int createdLevel;
     public int objectLevel;
     public int damageLevel;
-   
+
+    
 
     public event Action<int> OnLevelUp;
 
@@ -40,6 +41,7 @@ public class ObjectLevel : MonoBehaviour
             createdLevel = 0;
         }
         ObjectActive(createdLevel);
+        damageLevel = objectLevel;
     }
     private void OnEnable()
     {
