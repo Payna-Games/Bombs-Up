@@ -6,18 +6,26 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
 {
     public FollwChange follwChange;
     private Drop dropCs;
+    public Drop dropCs2;
     private bool isSpawn;
     private void Start()
-    {
-        dropCs = transform.parent.GetComponent<Drop>();     // i�aretli sat�r
-        follwChange.changeCamera += SpawnStop;
-        dropCs.windPlay += SpawnStart;
+    {        
+        follwChange.changeCamera += SpawnStop;        
+        if (dropCs2 != null)
+        {
+            dropCs2.windPlay += SpawnStart;
+        }
+        else
+        {
+            dropCs = transform.parent.GetComponent<Drop>();     // i�aretli sat�r
+            dropCs.windPlay += SpawnStart;
+        }
     }
     private IEnumerator Spawn()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
             MiniBompList.miniBompList.miniBomp[0].SetActive(true);
             MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
             MiniBompList.miniBompList.miniBomp.RemoveAt(0);

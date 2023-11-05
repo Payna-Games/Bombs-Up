@@ -7,6 +7,7 @@ public class MiniBompManager : MonoBehaviour
     public static MiniBompManager miniBompManager;
 
     public int speed;
+    public int spawnSpeed;
     public int range;
 
     private void Awake()
