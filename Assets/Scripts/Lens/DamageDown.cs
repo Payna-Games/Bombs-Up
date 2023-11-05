@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class DamageDown : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class DamageDown : MonoBehaviour
     private ObjectLevel headObjectLevell;
     private ObjectLevel bodyObjectLevell;
     private ObjectLevel motorObjectLevell;
+    [SerializeField] private float initialScale = 1f;
+    [SerializeField] private float targetScale = 1.5f;
+    [SerializeField] private float duration = 1f;
     
 
     private void Awake()
@@ -33,7 +37,7 @@ public class DamageDown : MonoBehaviour
         if ( other.CompareTag("Bomb") )
         {
             
-          Debug.Log("çalıştı ");
+          
 
             if (headObjectLevell.damageLevel >0)
             {
@@ -56,7 +60,15 @@ public class DamageDown : MonoBehaviour
             StartCoroutine(CloseLensAnim());
 
 
-           
+            other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                .SetEase(Ease.Linear) 
+                .OnComplete(() =>
+                {
+
+                    other.transform.DOScale(Vector3.one * initialScale, duration)
+                        .SetEase(Ease.OutBounce);
+
+                });
             
                
                 

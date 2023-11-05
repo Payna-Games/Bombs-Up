@@ -103,6 +103,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3833632991005926951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3463373817259182924}
+  m_Layer: 0
+  m_Name: ParticleTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3463373817259182924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833632991005926951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1239415575434717267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4272694242530454094
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,8 +309,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1239415575434717267}
-  - component: {fileID: 1487946428843851817}
   - component: {fileID: 5439114384791300475}
+  - component: {fileID: -185668544896494170}
   m_Layer: 0
   m_Name: FireRangeLens 1
   m_TagString: Untagged
@@ -295,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6741037611129115418}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.1, y: -251, z: 42.9}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
@@ -303,22 +334,9 @@ Transform:
   - {fileID: 604549013946667622}
   - {fileID: 9127256302581587849}
   - {fileID: 7233156471437773140}
+  - {fileID: 3463373817259182924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1487946428843851817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741037611129115418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d150f7a88c07b824985cb75653ee110b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addFireRange: 0
-  fireRangeText: {fileID: 4689004307781069603}
 --- !u!135 &5439114384791300475
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -340,6 +358,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-185668544896494170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6741037611129115418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf7549ee4e71164db733751a88c4eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addFireRange: 0
+  fireRangeText: {fileID: 4689004307781069603}
+  waterParticle: {fileID: 19882516, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
+  particleTransform: {fileID: 3463373817259182924}
+  myRenderer: {fileID: 8460369458873884763}
+  greenMaterial: {fileID: 2100000, guid: 627a741d9662be54caadc1d67b6ba2c4, type: 2}
 --- !u!1 &6850424481447205777
 GameObject:
   m_ObjectHideFlags: 0
