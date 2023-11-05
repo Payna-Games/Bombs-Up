@@ -8,6 +8,7 @@ public class ObjectLevel : MonoBehaviour
     private int createdLevel;
     public int objectLevel;
     public int damageLevel;
+   
 
     public event Action<int> OnLevelUp;
 
@@ -85,6 +86,7 @@ public class ObjectLevel : MonoBehaviour
     public void SetTrue2()
     {
         transform.GetChild(damageLevel).gameObject.SetActive(true);
+       
     }
 
     public void SetFalse2()

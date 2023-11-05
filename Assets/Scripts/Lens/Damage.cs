@@ -30,16 +30,28 @@ public class Damage : MonoBehaviour
             
         }
 
-        if (other.CompareTag("B_Head") || other.CompareTag("B_Engine") ||other.CompareTag("B_Body") )
+        if ( other.CompareTag("Bomb") )
         {
-            
-            ObjectLevel objectlevel =other.GetComponent<ObjectLevel>();
-            objectlevel.damageLevel = objectlevel.objectLevel;
-            objectlevel.damageLevel += addDamage;
-            objectlevel.SetFalse2();
-            objectlevel.SetTrue2();
-            other.transform.localScale *= 1.2f;
+            if (addDamage != 0)
+            {
+                ObjectLevel headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
+                ObjectLevel bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
+                ObjectLevel motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
 
+                headObjectLevel.damageLevel += 2;
+                headObjectLevel.SetFalse2();
+                headObjectLevel.SetTrue2();
+                bodyObjectLevel.damageLevel += 2;
+                bodyObjectLevel.SetFalse2();
+                bodyObjectLevel.SetTrue2();
+                motorObjectLevel.damageLevel += 2;
+                motorObjectLevel.SetFalse2();
+                motorObjectLevel.SetTrue2();
+            
+                other.transform.localScale *= 1.2f; 
+            }
+            
+            //Debug.Log("a");
         }
     }
 }

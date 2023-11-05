@@ -467,7 +467,7 @@ PrefabInstance:
       addedObject: {fileID: 9054262086958239709}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 129697580826452485}
+      addedObject: {fileID: 3820721168760517279}
   m_SourcePrefab: {fileID: 100100000, guid: 1abe90d40045b5d42a67459ce853f2ff, type: 3}
 --- !u!1 &7112615400668564906 stripped
 GameObject:
@@ -488,8 +488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addDamage: 0
   damageText: {fileID: 5433604495818887943}
---- !u!135 &129697580826452485
-SphereCollider:
+--- !u!65 &3820721168760517279
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -507,7 +507,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6
+  m_Size: {x: 10, y: 12, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &7637760448668030736 stripped
 Transform:

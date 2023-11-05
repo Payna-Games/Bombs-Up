@@ -29,7 +29,11 @@ public class FireRate : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
-            MiniBompManager.miniBompManager.speed += addFireRateText;
+            if (addFireRateText != 0)
+            {
+                MiniBompManager.miniBompManager.speed += addFireRateText;
+            }
+            
         }
     }
 }
