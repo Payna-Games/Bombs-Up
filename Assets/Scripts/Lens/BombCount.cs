@@ -32,6 +32,7 @@ public class BombCount : MonoBehaviour
             bombCount++;
            
             bombCountText.text = bombCount.ToString();
+            Destroy(other.gameObject);
            
         }
 

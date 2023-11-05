@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,18 +23,18 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MiniBomb"))
-        {
-            addDamage++;
-           
-            damageText.text = addDamage.ToString();
+         if (other.CompareTag("MiniBomb"))
+         {
+            // addDamage++;
             
-        }
+             //damageText.text = addDamage.ToString();
+             Destroy(other.gameObject);
+         }
 
         if ( other.CompareTag("Bomb") )
         {
-            if (addDamage != 0)
-            {
+            
+                StartCoroutine(CloseLensAnim());
                 ObjectLevel headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
                 ObjectLevel bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
                 ObjectLevel motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
@@ -49,10 +50,18 @@ public class Damage : MonoBehaviour
                 motorObjectLevel.SetTrue2();
             
                 other.transform.localScale *= 1.2f; 
-            }
+            
             
             //Debug.Log("a");
         }
+
+       
+    }
+    private IEnumerator CloseLensAnim()
+    {
+        yield return new WaitForSeconds(0.3f); 
+        gameObject.SetActive(false);
+        
     }
 }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,13 +25,25 @@ public class FireRange : MonoBehaviour
             addFireRange++;
            
             fireRangeText.text = addFireRange.ToString();
+            Destroy(other.gameObject);
             
         }
 
         if (other.CompareTag("Bomb"))
         {
-            MiniBompManager.miniBompManager.range += addFireRange*10;
+            if(addFireRange !=0)
+            {
+                MiniBompManager.miniBompManager.range += addFireRange*10;
+                StartCoroutine(CloseLensAnim());
+            }
+            
         }
+    }
+    private IEnumerator CloseLensAnim()
+    {
+        yield return new WaitForSeconds(0.3f); 
+        gameObject.SetActive(false);
+        
     }
 }
 

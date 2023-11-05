@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class FireRate : MonoBehaviour
             addFireRateText++;
            
             fireRateText.text = addFireRateText.ToString();
+            Destroy(other.gameObject);
             
         }
 
@@ -32,8 +34,15 @@ public class FireRate : MonoBehaviour
             if (addFireRateText != 0)
             {
                 MiniBompManager.miniBompManager.speed += addFireRateText;
+                StartCoroutine(CloseLensAnim());
             }
             
         }
+    }
+    private IEnumerator CloseLensAnim()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        gameObject.SetActive(false);
+        
     }
 }
