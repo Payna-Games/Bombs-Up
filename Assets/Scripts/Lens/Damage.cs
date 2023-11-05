@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,26 +9,22 @@ public class Damage : MonoBehaviour
 {
    // [SerializeField] private int addDamage;
     [SerializeField] private TextMeshProUGUI damageText;
+    private ObjectLevel headObjectLevel;
+    private ObjectLevel bodyObjectLevel;
+    private ObjectLevel motorObjectLevel;
 
-     
-    
-    
+    private void Start()
+    {
+        headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
+        bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
+        motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
+    }
 
-    // private void Start()
-    // {
-    //     damageText.text = addDamage.ToString();
-    //     addDamage = 0;
-    // }
-
-    
 
     private void OnTriggerEnter(Collider other)
     {
          if (other.CompareTag("MiniBomb"))
          {
-            // addDamage++;
-            
-             //damageText.text = addDamage.ToString();
              Destroy(other.gameObject);
          }
 
@@ -35,21 +32,31 @@ public class Damage : MonoBehaviour
         {
             
                 StartCoroutine(CloseLensAnim());
-                ObjectLevel headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
-                ObjectLevel bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
-                ObjectLevel motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
 
-                headObjectLevel.damageLevel += 1;
-                headObjectLevel.SetFalse2();
-                headObjectLevel.SetTrue2();
-                bodyObjectLevel.damageLevel += 1;
-                bodyObjectLevel.SetFalse2();
-                bodyObjectLevel.SetTrue2();
-                motorObjectLevel.damageLevel += 1;
-                motorObjectLevel.SetFalse2();
-                motorObjectLevel.SetTrue2();
+
+                if (headObjectLevel.damageLevel <8)
+                {
+                    headObjectLevel.damageLevel += 1;
+                    headObjectLevel.SetFalse2();
+                    headObjectLevel.SetTrue2();
+                }
+                if ( bodyObjectLevel.damageLevel <8)
+                {
+                    bodyObjectLevel.damageLevel += 1;
+                    bodyObjectLevel.SetFalse2();
+                    bodyObjectLevel.SetTrue2();
+                }
+                if ( motorObjectLevel.damageLevel <8)
+                {
+                    motorObjectLevel.damageLevel += 1;
+                    motorObjectLevel.SetFalse2();
+                    motorObjectLevel.SetTrue2();
+                }
+                
+                
+               
             
-                other.transform.localScale *= 1.2f; 
+                other.transform.localScale *= 1.4f; 
             
             
             //Debug.Log("a");

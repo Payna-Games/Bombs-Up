@@ -22,6 +22,7 @@ public class Drop : MonoBehaviour
         rb = transform.GetComponent<Rigidbody>();
         rb.useGravity = false; // Use Gravity �zelli�ini devre d��� b�rak
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        rotateComplete = false;
     }
 
     public void DropBomb()

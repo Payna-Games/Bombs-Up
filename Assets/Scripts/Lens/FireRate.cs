@@ -14,7 +14,15 @@ public class FireRate : MonoBehaviour
 
     private void Start()
     {
-        fireRateText.text = "+" + addFireRateText.ToString();
+       
+        if (addFireRateText == 0)
+        {
+            fireRateText.text =  addFireRateText.ToString();
+        }
+        else
+        {
+            fireRateText.text = "+" + addFireRateText.ToString();
+        }
     }
 
     
@@ -25,7 +33,14 @@ public class FireRate : MonoBehaviour
         {
             addFireRateText++;
            
-            fireRateText.text = "+" +addFireRateText.ToString();
+            if (addFireRateText == 0)
+            {
+                fireRateText.text =  addFireRateText.ToString();
+            }
+            else
+            {
+                fireRateText.text = "+" + addFireRateText.ToString();
+            }
             Destroy(other.gameObject);
             
         }

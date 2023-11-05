@@ -8,12 +8,21 @@ public class FireRange : MonoBehaviour
 {
     [SerializeField] private int addFireRange;
     [SerializeField] private TextMeshProUGUI fireRangeText;
+    [SerializeField] private ParticleSystem waterParticle;
+    [SerializeField] private Transform particleTransform;
     
     
 
     private void Start()
     {
-        fireRangeText.text = "+" + addFireRange.ToString();
+        if (addFireRange == 0)
+        {
+            fireRangeText.text =  addFireRange.ToString(); 
+        }
+        else
+        {
+            fireRangeText.text = "+" + addFireRange.ToString(); 
+        }
     }
 
     
@@ -23,8 +32,18 @@ public class FireRange : MonoBehaviour
         if (other.CompareTag("MiniBomb"))
         {
             addFireRange++;
-           
-            fireRangeText.text = "+" + addFireRange.ToString();
+            if (addFireRange == 0)
+            {
+                fireRangeText.text =  addFireRange.ToString(); 
+            }
+            else
+            {
+                fireRangeText.text = "+" + addFireRange.ToString(); 
+            }
+            
+            
+            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            waterParticle.Play();
             Destroy(other.gameObject);
             
         }
@@ -33,8 +52,10 @@ public class FireRange : MonoBehaviour
         {
             if(addFireRange !=0)
             {
+                waterParticle.Stop();
                 MiniBompManager.miniBompManager.range += addFireRange*10;
                 StartCoroutine(CloseLensAnim());
+                
             }
             
         }
