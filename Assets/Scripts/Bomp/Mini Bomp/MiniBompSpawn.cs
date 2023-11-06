@@ -14,6 +14,10 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
         if (dropCs2 != null)
         {
             dropCs2.windPlay += SpawnStart;
+            if (dropCs2.rotateComplete)
+            {
+                SpawnStart();
+            }
         }
         else
         {

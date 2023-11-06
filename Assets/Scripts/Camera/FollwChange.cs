@@ -8,10 +8,10 @@ public class FollwChange : MonoBehaviour
 {
     public Transform bomps;
     public Transform cityGround;
-    
-    
+
+
     Animator animator;
-    bool isFirst = true;
+    [HideInInspector] public bool isFirst = true;
     public int min = 120;
     public int max = 170;
 
