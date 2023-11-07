@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BombLeftRight: MonoBehaviour
@@ -9,11 +10,14 @@ public class BombLeftRight: MonoBehaviour
     [SerializeField] private float maxDistanceRight;
     [SerializeField] private float maxDistanceLeft;
     [SerializeField] private float bombSpeed = 5f;
+    
     private Drop drop;
-
+    
     private void Start()
     {
         drop = GetComponent<Drop>();
+       
+        
     }
 
     private Touch touch;

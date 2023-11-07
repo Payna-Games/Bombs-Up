@@ -12,18 +12,24 @@ public class WoodLens : MonoBehaviour
     [SerializeField] private ParticleSystem woodParticle;
     [SerializeField] private float explosionForce = 100.0f; 
     [SerializeField] private float explosionRadius = 0.1f;
+    
+    [SerializeField] private Vector3 forceDirection = -Vector3.forward;
+    [SerializeField] private float forceMagnitude = 10.0f;
+    
     private int i;
     private int d;
     private bool destroy;
+    private bool destroyComplete = false;
     private int groupIndex;
     private int collidersPerGroup;
     void Start()
     {
         i = 0;
-        d = 0;
+        d = -1;
         groupIndex = 0;
         collidersPerGroup = 4;
         EnableNextGroupOfColliders();
+       // rb = woodLens.GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,10 +42,15 @@ public class WoodLens : MonoBehaviour
                 Instantiate(woodParticle, woods[i].transform.position+new Vector3(0f,0.5f,0f) , Quaternion.identity);
                 Explode(i);
                 StartCoroutine(DestroyPieces());
-                i++; 
+                
                 Destroy(other.gameObject);
+                i++; 
             }
             
+        }
+        else if (other.CompareTag("Bomb"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(forceDirection * forceMagnitude,ForceMode.Impulse);
         }
         
     }
@@ -49,6 +60,7 @@ public class WoodLens : MonoBehaviour
     {
         
         destroy = false;
+        
         Vector3 explosionPosition = radius.transform.position;
         //woods[j].transform.position;
         EnableNextGroupOfColliders();
@@ -83,18 +95,27 @@ public class WoodLens : MonoBehaviour
         if (destroy)
         {
             Destroy(woods[d].gameObject);
+            destroyComplete = true;
+            
+            
+
         }
+        
 
         
     }
     private IEnumerator DestroyPieces()
     {
+        
         yield return new WaitForSeconds(1f);
         destroy = true;
-        if (d < 5)
+
+        if (d < 6)
         {
-            d++; 
+            d++;
         }
+        
+        
         
 
 
