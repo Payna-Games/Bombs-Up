@@ -16,61 +16,61 @@ public class Damage : MonoBehaviour
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
-    
+
 
     private void Awake()
     {
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
-        bodyObjectLevel= GameObject.Find("Body").GetComponent<ObjectLevel>();
-        motorObjectLevel= GameObject.Find("Motor").GetComponent<ObjectLevel>();
+        bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
+        motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
     }
 
-    
+
 
 
     private void OnTriggerEnter(Collider other)
     {
-         if (other.CompareTag("MiniBomb"))
-         {
-             Destroy(other.gameObject);
-         }
+        if (other.CompareTag("MiniBomb"))
+        {
+            Destroy(other.gameObject);
+        }
 
-        if ( other.CompareTag("Bomb") )
+        if (other.CompareTag("Bomb"))
         {
 
-            
 
-                if (headObjectLevel.damageLevel <7)
+
+            if (headObjectLevel.damageLevel < 7)
+            {
+                headObjectLevel.damageLevel += 1;
+                headObjectLevel.SetFalse2();
+                headObjectLevel.SetTrue2();
+            }
+            if (bodyObjectLevel.damageLevel < 7)
+            {
+                bodyObjectLevel.damageLevel += 1;
+                bodyObjectLevel.SetFalse2();
+                bodyObjectLevel.SetTrue2();
+            }
+            if (motorObjectLevel.damageLevel < 7)
+            {
+                motorObjectLevel.damageLevel += 1;
+                motorObjectLevel.SetFalse2();
+                motorObjectLevel.SetTrue2();
+            }
+            StartCoroutine(CloseLensAnim());
+            other.GetComponent<KiloTonCalculate>().Calculate();
+
+
+            other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
                 {
-                    headObjectLevel.damageLevel += 1;
-                    headObjectLevel.SetFalse2();
-                    headObjectLevel.SetTrue2();
-                }
-                if ( bodyObjectLevel.damageLevel <7)
-                {
-                    bodyObjectLevel.damageLevel += 1;
-                    bodyObjectLevel.SetFalse2();
-                    bodyObjectLevel.SetTrue2();
-                }
-                if ( motorObjectLevel.damageLevel <7)
-                {
-                    motorObjectLevel.damageLevel += 1;
-                    motorObjectLevel.SetFalse2();
-                    motorObjectLevel.SetTrue2();
-                }
-                StartCoroutine(CloseLensAnim());
 
+                    other.transform.DOScale(Vector3.one * initialScale, duration)
+                        .SetEase(Ease.OutBounce);
 
-
-                other.transform.DOScale(Vector3.one * targetScale, 0.5f)
-                    .SetEase(Ease.Linear) 
-                    .OnComplete(() =>
-                    {
-
-                        other.transform.DOScale(Vector3.one * initialScale, duration)
-                            .SetEase(Ease.OutBounce);
-
-                    });
+                });
 
 
 
@@ -79,15 +79,15 @@ public class Damage : MonoBehaviour
 
         }
 
-       
+
     }
 
-    
+
     private IEnumerator CloseLensAnim()
     {
-        yield return new WaitForSeconds(0.3f); 
+        yield return new WaitForSeconds(0.3f);
         gameObject.SetActive(false);
-        
+
     }
 }
 
