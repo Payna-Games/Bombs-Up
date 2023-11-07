@@ -31,7 +31,7 @@ public class WoodLens : MonoBehaviour
     void Start()
     {
         i = 0;
-        d = -1;
+        d = 0;
         groupIndex = 0;
         collidersPerGroup = 4;
         EnableNextGroupOfColliders();
@@ -142,7 +142,7 @@ public class WoodLens : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         destroy = true;
-
+        yield return new WaitForSeconds(0.2f);
         if (d < 6)
         {
             d++;
