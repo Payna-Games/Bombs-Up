@@ -9,10 +9,16 @@ public class MiniBompLevel : MonoBehaviour
     {
         for (int i = 0; i < transform.parent.childCount; i++)
         {
-            if (transform == transform.parent.GetChild(i).transform)
+            if (transform.tag == transform.parent.GetChild(i).transform.tag)
             {
                 SetFalse();
-                SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel);
+                if (mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel < mainBomp.GetChild(i).GetComponent<ObjectLevel>().damageLevel)
+                {
+                    SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().damageLevel);
+                }
+                else
+                    SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel);
+
             }
         }
     }
