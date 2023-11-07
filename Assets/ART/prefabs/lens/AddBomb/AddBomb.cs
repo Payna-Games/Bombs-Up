@@ -26,12 +26,24 @@ public class AddBomb : MonoBehaviour
             
         }
 
-        if (other.CompareTag("Bomb"))
+        if ((other.CompareTag("Bomb")&& rocketImage.fillAmount ==1 ))
         {
-           
+
+            Debug.Log("yei bomba ekle");
+            for (int i = 0; i < other.transform.GetChild(4).childCount; i++)
+                {
+                    if (!other.transform.GetChild(4).GetChild(i).gameObject.activeSelf)
+                    {
+                        other.transform.GetChild(4).GetChild(i).gameObject.SetActive(true);
+                        break;
+                    }
+                }
                 StartCoroutine(CloseLensAnim());
+        }
+        else if((other.CompareTag("Bomb")&& fillAmountValue !=1 ))
+        {
                 
-            
+            StartCoroutine(CloseLensAnim());
             
         }
     }

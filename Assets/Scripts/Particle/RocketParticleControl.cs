@@ -35,11 +35,11 @@ public class RocketParticleControl : MonoBehaviour
         transform.GetChild(3).GetComponent<ParticleSystem>().Play();
     }
 
-    public void BompFire()
-    {
-        transform.GetChild(0).gameObject.SetActive(true);
-        transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-    }
+    // public void BompFire()
+    // {
+    //     transform.GetChild(0).gameObject.SetActive(true);
+    //     transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+    // }
 
     private void Drop_windPlay()
     {
