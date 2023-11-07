@@ -9,7 +9,11 @@ public class BombLeftRight: MonoBehaviour
     [SerializeField] private float swipeSpeed = 0.1f;
     [SerializeField] private float maxDistanceRight;
     [SerializeField] private float maxDistanceLeft;
-    [SerializeField] private float bombSpeed = 5f;
+    public float bombSpeed = 5f;
+    
+    [SerializeField] private Vector3 forceDirection;
+    [SerializeField] private float forceMagnitude = 10.0f;
+    
     
     private Drop drop;
     
@@ -17,7 +21,7 @@ public class BombLeftRight: MonoBehaviour
     {
         drop = GetComponent<Drop>();
        
-        
+
     }
 
     private Touch touch;
@@ -66,5 +70,7 @@ public class BombLeftRight: MonoBehaviour
              // }
          }
      }
+
+    
 }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class WoodLens : MonoBehaviour
 {
@@ -12,10 +13,15 @@ public class WoodLens : MonoBehaviour
     [SerializeField] private ParticleSystem woodParticle;
     [SerializeField] private float explosionForce = 100.0f; 
     [SerializeField] private float explosionRadius = 0.1f;
-    
-    [SerializeField] private Vector3 forceDirection = -Vector3.forward;
-    [SerializeField] private float forceMagnitude = 10.0f;
-    
+
+    [SerializeField] private float targetPosition;
+
+    private bool hit = false;
+    //[SerializeField] private BombLeftRight bombLeftRight;
+
+    // [SerializeField] private Vector3 forceDirection;
+    // [SerializeField] private float forceMagnitude = 10.0f;
+    // public bool collisions;
     private int i;
     private int d;
     private bool destroy;
@@ -29,6 +35,7 @@ public class WoodLens : MonoBehaviour
         groupIndex = 0;
         collidersPerGroup = 4;
         EnableNextGroupOfColliders();
+        
        // rb = woodLens.GetComponent<Rigidbody>();
     }
 
@@ -36,8 +43,9 @@ public class WoodLens : MonoBehaviour
     {
         if (other.CompareTag("MiniBomb"))
         {
-            if (i < 5)
+            if (i <= 5)
             {
+                Debug.Log("i = " + i);
                 destroy = false;
                 Instantiate(woodParticle, woods[i].transform.position+new Vector3(0f,0.5f,0f) , Quaternion.identity);
                 Explode(i);
@@ -45,15 +53,32 @@ public class WoodLens : MonoBehaviour
                 
                 Destroy(other.gameObject);
                 i++; 
+                
             }
             
         }
-        else if (other.CompareTag("Bomb"))
+        else if (other.CompareTag("Bomb") && !hit)
         {
-            other.GetComponent<Rigidbody>().AddForce(forceDirection * forceMagnitude,ForceMode.Impulse);
+            other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
+            hit = true;
+
         }
         
     }
+
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     // if (collision.gameObject.CompareTag("Bomb") && !collisions)
+    //     // {
+    //     //     collision.rigidbody.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
+    //     //     Debug.Log("geri tepme");
+    //     //     collisions = true;
+    //     // }
+    //     if (collision.gameObject.CompareTag("Bomb"))
+    //     {
+    //         
+    //     }
+    // }
 
 
     private void Explode(int j)
@@ -96,7 +121,12 @@ public class WoodLens : MonoBehaviour
         {
             Destroy(woods[d].gameObject);
             destroyComplete = true;
+            int lastNumber = woods.Length - 1;
             
+            if (d == lastNumber-1)
+            {
+                Destroy(woods[lastNumber]);
+            }
             
 
         }
@@ -104,6 +134,9 @@ public class WoodLens : MonoBehaviour
 
         
     }
+
+   
+
     private IEnumerator DestroyPieces()
     {
         
@@ -113,6 +146,7 @@ public class WoodLens : MonoBehaviour
         if (d < 6)
         {
             d++;
+            Debug.Log("d"+ d);
         }
         
         
