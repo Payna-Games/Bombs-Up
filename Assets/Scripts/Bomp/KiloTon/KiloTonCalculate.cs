@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class KiloTonCalculate : MonoBehaviour
 {
     public int KiloTon;
+    public event Action<int> kTon;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +40,6 @@ public class KiloTonCalculate : MonoBehaviour
                 KiloTon += 100;
             }
         }
+        kTon?.Invoke(KiloTon);
     }
 }
