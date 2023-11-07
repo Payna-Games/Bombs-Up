@@ -159,6 +159,7 @@ public class DragAndDrop : MonoBehaviour
         ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.identity);
         particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
         particleRocketMerge.Play();
+        gameObject.transform.parent.GetComponent<KiloTonCalculate>().Calculate();
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();
         this.transform.GetComponent<ObjectLevel>().objectLevel = 0;

@@ -14,14 +14,10 @@ public class AddBomp : MonoBehaviour
                 if (!other.transform.GetChild(8).GetChild(i).gameObject.activeSelf)
                 {
                     other.transform.GetChild(8).GetChild(i).gameObject.SetActive(true);
+                    other.transform.GetComponent<KiloTonCalculate>().Calculate();
                     break;
                 }
             }
         }
-    }
-
-    private void SetTrue()
-    {
-
     }
 }

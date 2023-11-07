@@ -19,8 +19,20 @@ public class ChangeLevel : MonoBehaviour
     }
     private void ChangeObj(int i)
     {
+        int j = GetChildIndex();
         SetFalse();
-        SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().damageLevel);
+        SetTrue(i);  // mainBomp.GetChild(j).GetChild(i).GetComponent<ObjectLevel>().damageLevel
+    }
+    int GetChildIndex()
+    {
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            if (transform.parent.GetChild(i) == transform)
+            {
+                return i;
+            }
+        }
+        return -1; // Child obje parent objenin altýndaysa bulunamazsa -1 döner.
     }
     public void SetFalse()
     {
