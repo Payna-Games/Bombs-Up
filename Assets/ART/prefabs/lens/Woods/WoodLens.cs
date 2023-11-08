@@ -108,6 +108,7 @@ public class WoodLens : MonoBehaviour
                 if (rb != null)
                 {
                     rb.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, 1.0F);
+                  
                 }
             }
         

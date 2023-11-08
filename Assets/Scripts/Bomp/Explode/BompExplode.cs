@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Vector3 = System.Numerics.Vector3;
 
 public class BompExplode : ExplodeCalculate
 {
@@ -102,7 +103,9 @@ public class BompExplode : ExplodeCalculate
             if (obj.GetComponent<Rigidbody>() != null)
             {
                 cityCount++;
+                Vector3 explodeDirection = new Vector3(0, 1, 0);
                 obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+                
             }
         }
         explodeCount?.Invoke(cityCount);
