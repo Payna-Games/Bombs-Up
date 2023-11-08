@@ -33,9 +33,9 @@ public class KiloTonCalculate : MonoBehaviour
 
         }
 
-        for (int i = 0; i < transform.GetChild(8).childCount; i++)
+        for (int i = 0; i < transform.GetChild(4).childCount; i++)
         {
-            if (transform.GetChild(8).GetChild(i).gameObject.activeSelf)
+            if (transform.GetChild(4).GetChild(i).gameObject.activeSelf)
             {
                 KiloTon += 100;
             }
