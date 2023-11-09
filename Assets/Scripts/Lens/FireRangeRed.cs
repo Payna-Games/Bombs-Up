@@ -20,7 +20,11 @@ public class FireRangeRed : MonoBehaviour
 
     private void Start()
     {
-        if (addFireRange == 0)
+        if (addFireRange < 0)
+        {
+            fireRangeText.text =  addFireRange.ToString(); 
+        }
+        else if (addFireRange == 0)
         {
             fireRangeText.text =  addFireRange.ToString(); 
         }
@@ -39,7 +43,11 @@ public class FireRangeRed : MonoBehaviour
         if (other.CompareTag("MiniBomb"))
         {
             addFireRange++;
-            if (addFireRange == 0)
+            if (addFireRange < 0)
+            {
+                fireRangeText.text =   addFireRange.ToString(); 
+            }
+            else if (addFireRange == 0)
             {
                 fireRangeText.text =  addFireRange.ToString(); 
             }
@@ -65,6 +73,11 @@ public class FireRangeRed : MonoBehaviour
                 MiniBompManager.miniBompManager.range += addFireRange*10;
                 StartCoroutine(CloseLensAnim());
                 
+            }
+            else if (addFireRange== 0)
+            {
+                waterParticle.Stop();
+                StartCoroutine(CloseLensAnim());
             }
             
         }
