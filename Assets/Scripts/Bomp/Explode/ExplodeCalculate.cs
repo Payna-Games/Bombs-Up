@@ -11,6 +11,6 @@ public class ExplodeCalculate : MonoBehaviour
 
     public float ForceExplode()
     {
-        return (transform.GetChild(0).GetComponent<ObjectLevel>().objectLevel +1 ) * 13f;
+        return 13f;
     }
 }
