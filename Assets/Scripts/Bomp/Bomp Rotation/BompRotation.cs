@@ -6,7 +6,7 @@ public class BompRotation : MonoBehaviour
 {
     private Vector2 ilkDokunmaPozisyonu;
     private FollwChange follwChange;
-    private float döndürmeHassasiyeti = 0.6f;
+    private float dondurmeHassasiyeti = 0.6f;
     float rotationAngle = 0;
 
     public bool loop = false;
@@ -46,9 +46,9 @@ public class BompRotation : MonoBehaviour
             }
             else if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetMouseButton(0))
             {
-                Vector2 dokunmaDeðiþim = Input.GetTouch(0).position - ilkDokunmaPozisyonu;
+                Vector2 dokunmaDegisim = Input.GetTouch(0).position - ilkDokunmaPozisyonu;
 
-                rotationAngle = dokunmaDeðiþim.x * döndürmeHassasiyeti * Time.deltaTime;
+                rotationAngle = dokunmaDegisim.x * dondurmeHassasiyeti * Time.deltaTime;
                 float angleZ = transform.rotation.eulerAngles.z;
                 Debug.Log("Rotate : " + rotationAngle);
                 Debug.Log("Angle Z : " + angleZ);

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1458378083063274610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315097541077465969}
+  m_Layer: 0
+  m_Name: ParticleTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315097541077465969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458378083063274610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7259916754901360813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073975640896097869
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +469,7 @@ Transform:
   - {fileID: 3712686393436789835}
   - {fileID: 8799039914746013140}
   - {fileID: 8101017978783840183}
+  - {fileID: 315097541077465969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6281947121025223750
@@ -452,7 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe0f5a71f887ca4bb6f80e54de4d774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addFireRateText: 0
+  addFireRateText: 5
+  waterParticle: {fileID: 19882516, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
+  particleTransform: {fileID: 469294, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
   fireRateText: {fileID: 2705487564001807161}
 --- !u!65 &2084850836480396038
 BoxCollider:
@@ -522,7 +556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1583, y: 1.78}
+  m_AnchoredPosition: {x: 0.1583, y: -0.09}
   m_SizeDelta: {x: 16.4413, y: 13.2424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2889004245058545065
@@ -580,8 +614,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 3
+  m_fontSizeBase: 3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -616,7 +650,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.16015768, z: 0, w: 5.211014}
+  m_margin: {x: 0, y: 0.16015768, z: 0, w: 8.995392}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

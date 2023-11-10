@@ -49,11 +49,12 @@ public class FireRateRed : MonoBehaviour
                 else if ( addFireRate == 0)
                 {
                     fireRateText.text =   addFireRate.ToString(); 
+                    myRenderer.material = greenMaterial;
                 }
                 
                 else if( addFireRate>0)
                 {
-                    myRenderer.material = greenMaterial;
+                    
                     fireRateText.text = "+" +  addFireRate.ToString(); 
                 }
                 
@@ -61,6 +62,7 @@ public class FireRateRed : MonoBehaviour
                 Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
                 waterParticle.Play();
                 Destroy(other.gameObject);
+                TextScaleUpAnim.TextScaleUp(fireRateText);
                 
             }
     

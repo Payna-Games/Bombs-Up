@@ -46,21 +46,24 @@ public class FireRangeRed : MonoBehaviour
             if (addFireRange < 0)
             {
                 fireRangeText.text =   addFireRange.ToString(); 
+                
             }
             else if (addFireRange == 0)
             {
                 fireRangeText.text =  addFireRange.ToString(); 
+                myRenderer.material = greenMaterial;
             }
             
             else if(addFireRange>0)
             {
-                myRenderer.material = greenMaterial;
+                
                 fireRangeText.text = "+" + addFireRange.ToString(); 
             }
             
             
             Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
             waterParticle.Play();
+            TextScaleUpAnim.TextScaleUp(fireRangeText);
             Destroy(other.gameObject);
             
         }

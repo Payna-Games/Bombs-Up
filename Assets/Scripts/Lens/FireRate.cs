@@ -7,6 +7,8 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
+    [SerializeField] private ParticleSystem waterParticle;
+    [SerializeField] private Transform particleTransform;
     //[SerializeField] private int fireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
     
@@ -42,6 +44,9 @@ public class FireRate : MonoBehaviour
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
             Destroy(other.gameObject);
+            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            waterParticle.Play();
+            TextScaleUpAnim.TextScaleUp(fireRateText);
             
         }
 

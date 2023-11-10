@@ -36,10 +36,12 @@ public class FireRange : MonoBehaviour
             if (addFireRange == 0)
             {
                 fireRangeText.text =  addFireRange.ToString(); 
+                TextScaleUpAnim.TextScaleUp(fireRangeText);
             }
             else
             {
                 fireRangeText.text = "+" + addFireRange.ToString(); 
+                TextScaleUpAnim.TextScaleUp(fireRangeText);
             }
             
             
@@ -67,6 +69,7 @@ public class FireRange : MonoBehaviour
         gameObject.SetActive(false);
         
     }
+    
 }
 
 
