@@ -5,11 +5,23 @@ using UnityEngine;
 public class BompRotationY : MonoBehaviour
 {
     public float rotationSpeed = 50.0f;
+    public Drop drop;
 
     private bool isRotate = false;
     private void Start()
     {
-        transform.parent.parent.GetComponent<Drop>().windPlay += RotateActive;
+        if (drop != null)
+        {
+            if (drop.rotateComplete)
+            {
+                isRotate = true;
+            }
+        }
+        else
+        {
+            transform.parent.parent.GetComponent<Drop>().windPlay += RotateActive;
+        }
+
     }
 
     void Update()
