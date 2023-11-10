@@ -52,7 +52,7 @@ public class FollwChange : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         // SwitchCamera(1);
-        animator.Play("BottomCamera");
+        animator.Play("FreeLook");
 
     }
 }
