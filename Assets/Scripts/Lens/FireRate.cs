@@ -7,8 +7,8 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
-    [SerializeField] private ParticleSystem waterParticle;
-    [SerializeField] private Transform particleTransform;
+        [SerializeField] private ParticleSystem waterParticle;
+        [SerializeField] private Transform particleTransform;
     //[SerializeField] private int fireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
     
@@ -54,7 +54,7 @@ public class FireRate : MonoBehaviour
         {
             if (addFireRateText != 0)
             {
-                MiniBompManager.miniBompManager.speed += addFireRateText;
+                MiniBompManager.miniBompManager.spawnSpeed-= addFireRateText/10f;
                 StartCoroutine(CloseLensAnim());
             }
             

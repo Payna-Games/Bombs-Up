@@ -24,7 +24,7 @@ public class WoodLens : MonoBehaviour
     // public bool collisions;
     private int i;
     private int d;
-    private bool destroy;
+    private bool destroy = false;
     private bool destroyComplete = false;
     private int groupIndex;
     private int collidersPerGroup;
@@ -46,7 +46,7 @@ public class WoodLens : MonoBehaviour
             if (i <= 5)
             {
                 Debug.Log("i = " + i);
-                destroy = false;
+                
                 Instantiate(woodParticle, woods[i].transform.position+new Vector3(0f,0.5f,0f) , Quaternion.identity);
                 Explode(i);
                 StartCoroutine(DestroyPieces());
@@ -57,7 +57,7 @@ public class WoodLens : MonoBehaviour
             }
             
         }
-        else if (other.CompareTag("Bomb") && !hit)
+        else if (other.CompareTag("Bomb") && !hit && i<=6)
         {
             other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
             hit = true;
@@ -66,19 +66,7 @@ public class WoodLens : MonoBehaviour
         
     }
 
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     // if (collision.gameObject.CompareTag("Bomb") && !collisions)
-    //     // {
-    //     //     collision.rigidbody.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
-    //     //     Debug.Log("geri tepme");
-    //     //     collisions = true;
-    //     // }
-    //     if (collision.gameObject.CompareTag("Bomb"))
-    //     {
-    //         
-    //     }
-    // }
+    
 
 
     private void Explode(int j)
@@ -118,17 +106,19 @@ public class WoodLens : MonoBehaviour
     void Update()
     {
 
-        if (destroy)
+        if (destroy )
         {
             Destroy(woods[d].gameObject);
-            destroyComplete = true;
+            
             int lastNumber = woods.Length - 1;
             
             if (d == lastNumber-1)
             {
                 Destroy(woods[lastNumber]);
             }
-            
+
+            d++;
+            destroy = false;
 
         }
         
@@ -143,12 +133,9 @@ public class WoodLens : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         destroy = true;
-        yield return new WaitForSeconds(0.2f);
-        if (d < 6)
-        {
-            d++;
+        
             Debug.Log("d"+ d);
-        }
+        
         
         
         
