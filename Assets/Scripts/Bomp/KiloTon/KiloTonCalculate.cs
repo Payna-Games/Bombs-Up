@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class KiloTonCalculate : MonoBehaviour
 {
+    public static KiloTonCalculate kiloTonCalculate;
     public int KiloTon;
     public event Action<int> kTon;
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        kiloTonCalculate = kiloTonCalculate == null ? this : kiloTonCalculate;
+    }
     void Start()
     {
         Calculate();
