@@ -9,14 +9,19 @@ using DG.Tweening;
 public class DamageDown : MonoBehaviour
 {
     
+    public int addKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private ParticleSystem waterParticle;
+    [SerializeField] private Transform particleTransform;
+    [SerializeField] private Renderer myRenderer;
+    [SerializeField] private Material greenMaterial;
     private ObjectLevel headObjectLevell;
     private ObjectLevel bodyObjectLevell;
     private ObjectLevel motorObjectLevell;
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
-    
+    private Damage damage;
 
     private void Awake()
     {
@@ -24,13 +29,40 @@ public class DamageDown : MonoBehaviour
         bodyObjectLevell= GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevell= GameObject.Find("Motor").GetComponent<ObjectLevel>();
     }
-  
+
+    private void Start()
+    {
+        damageText.text =  addKiloTon.ToString();
+        damage = GetComponent<Damage>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("MiniBomb"))
         {
             
+            addKiloTon++;
+            if (addKiloTon < 0)
+            {
+                damageText.text =  addKiloTon.ToString(); 
+            }
+            else if (addKiloTon == 0)
+            {
+                damageText.text =  addKiloTon.ToString(); 
+                
+                myRenderer.material = greenMaterial;
+                
+            }
+            else
+            {
+                damageText.text = "+" + addKiloTon.ToString(); 
+                
+            }
+            
+            TextScaleUpAnim.TextScaleUp(damageText);
+            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            waterParticle.Play();
             Destroy(other.gameObject);
         }
 
@@ -85,6 +117,15 @@ public class DamageDown : MonoBehaviour
         yield return new WaitForSeconds(0.3f); 
         gameObject.SetActive(false);
         
+    }
+    private void Update()
+    {
+        if (addKiloTon == 0)
+        {
+            enabled =false;
+            damage.enabled = true;
+
+        }
     }
 }
 
