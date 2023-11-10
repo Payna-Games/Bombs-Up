@@ -12,7 +12,10 @@ public class ChangeLevel : MonoBehaviour
             if (transform.tag == transform.parent.GetChild(i).transform.tag)
             {
                 SetFalse();
-                SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel);
+                if (mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel < mainBomp.GetChild(i).GetComponent<ObjectLevel>().damageLevel)
+                    SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().damageLevel);
+                else
+                    SetTrue(mainBomp.GetChild(i).GetComponent<ObjectLevel>().objectLevel);
                 mainBomp.GetChild(i).GetComponent<ObjectLevel>().otherBomp += ChangeObj;
             }
         }
