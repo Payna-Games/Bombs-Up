@@ -34,7 +34,7 @@ public class WoodLens : MonoBehaviour
         d = 0;
         groupIndex = 0;
         collidersPerGroup = 4;
-        EnableNextGroupOfColliders();
+        //EnableNextGroupOfColliders();
         
        // rb = woodLens.GetComponent<Rigidbody>();
     }
@@ -57,7 +57,7 @@ public class WoodLens : MonoBehaviour
             }
             
         }
-        else if (other.CompareTag("Bomb") && !hit && i<=6)
+        else if (other.CompareTag("Bomb") && !hit && i<5)
         {
             other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
             hit = true;
