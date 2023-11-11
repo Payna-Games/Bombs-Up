@@ -71,7 +71,8 @@ public class FireRateRed : MonoBehaviour
                 if( addFireRate !=0)
                 {
                     waterParticle.Stop();
-                    MiniBompManager.miniBompManager.range +=  addFireRate*10;
+                    float clampedValue = Mathf.Clamp(1-addFireRate/50f,0.2f,1.5f);
+                    MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
                     StartCoroutine(CloseLensAnim());
                     
                 }
