@@ -12,6 +12,7 @@ public class BompRotationY : MonoBehaviour
     {
         if (drop != null)
         {
+            drop.windPlay += RotateActive;
             if (drop.rotateComplete)
             {
                 isRotate = true;
