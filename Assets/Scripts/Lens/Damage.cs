@@ -64,7 +64,7 @@ public class Damage : MonoBehaviour
         if (other.CompareTag("Bomb"))
         {
 
-            if (addKiloTon > 0)
+            if (addKiloTon >=50)
             {
                 if (headObjectLevel.damageLevel < 7)
                 {
