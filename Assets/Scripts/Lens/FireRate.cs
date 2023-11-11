@@ -54,7 +54,7 @@ public class FireRate : MonoBehaviour
         {
             if (addFireRateText != 0)
             {
-                MiniBompManager.miniBompManager.spawnSpeed-= addFireRateText/10f;
+                MiniBompManager.miniBompManager.spawnSpeed-= addFireRateText/50f;
                 StartCoroutine(CloseLensAnim());
             }
             
