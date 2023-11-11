@@ -12,7 +12,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     
     //açılar
     private float x1 = -180;
-    private float x = -190f;
+    private float x = -182f;
     private float y = 180f;
     private float z = 0f;
     private void Start()
@@ -63,9 +63,9 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
         Quaternion firstRotation = Quaternion.Euler(x1, y, z);
         Quaternion recoil = Quaternion.Euler(x, y, z);
 
-        transform.parent.DORotateQuaternion(recoil, 0.2f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.parent.DORotateQuaternion(recoil, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
         {
-           transform.parent.DORotateQuaternion(firstRotation, 0.2f).SetEase(Ease.Linear);
+           transform.parent.DORotateQuaternion(firstRotation, 0.1f).SetEase(Ease.Linear);
         });
     }
 }
