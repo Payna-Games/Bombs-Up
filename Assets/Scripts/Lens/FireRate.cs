@@ -54,7 +54,7 @@ public class FireRate : MonoBehaviour
         {
             if (addFireRateText != 0)
             {
-                float clampedValue = Mathf.Clamp(1-addFireRateText/50f,0.5f,1.5f);
+                float clampedValue = Mathf.Clamp(1-addFireRateText/50f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
                 StartCoroutine(CloseLensAnim());
             }

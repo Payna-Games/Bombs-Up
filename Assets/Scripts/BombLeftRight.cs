@@ -11,11 +11,12 @@ public class BombLeftRight: MonoBehaviour
     [SerializeField] private float maxDistanceLeft;
     public float bombSpeed = 5f;
     
-    [SerializeField] private Vector3 forceDirection;
-    [SerializeField] private float forceMagnitude = 10.0f;
+   // [SerializeField] private Vector3 forceDirection;
+    //[SerializeField] private float forceMagnitude = 10.0f;
     
-    
+    private Touch touch;
     private Drop drop;
+    [SerializeField] private float damping = 5f;
     
     private void Start()
     {
@@ -24,53 +25,43 @@ public class BombLeftRight: MonoBehaviour
 
     }
 
-    private Touch touch;
-
-     // private void Start()
-     // {
-     //     drop = GetComponent<Drop>();
-     // }
-
-     private void Update()
+    private void Update()
      {
          if (drop.rotateComplete)
          {
-             Vector3 move = new Vector3(0, bombSpeed, 0);
+             Vector3 move = new Vector3(0, bombSpeed*Time.deltaTime, 0);
              transform.Translate(move);
+             
              if (Input.touchCount > 0)
              {
                  touch = Input.GetTouch(0);
                  {
                      if (touch.phase == TouchPhase.Moved)
                      {
-                         transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * -swipeSpeed,
-                             transform.position.y, transform.position.z);
+                         float targetX = transform.position.x + touch.deltaPosition.x * -swipeSpeed;
+                         targetX = Mathf.Clamp(targetX, maxDistanceRight, maxDistanceLeft);
 
-                         if (transform.position.x <= maxDistanceRight)
-                         {
-                             transform.position = new Vector3(maxDistanceRight, transform.position.y, transform.position.z);
-                         }
-                         else if (transform.position.x >= maxDistanceLeft)
-                         {
-                             transform.position = new Vector3(maxDistanceLeft, transform.position.y, transform.position.z);
-                         }
+                         // Damping uygulayarak objeyi hedef konuma hareket ettirin
+                         SmoothMove(targetX);
                      }
                  }
+             }
          }
          
-         // private void Update()
-             // {
-             //     if (rotateComplete)
-             //     {
-             //         Vector3 move = new Vector3(transform.position.x, -bombSpeed * Time.deltaTime,
-             //             transform.position.z);
-             //        transform.Translate(move);
-             //     }
-             //     
-             // }
-         }
+        
+         
      }
+     private void SmoothMove(float targetX)
+{
+    // Mevcut konumu alın
+    Vector3 currentPosition = transform.position;
+
+    // Damping uygulayarak hedef konuma doğru yumuşak bir şekilde hareket ettirin
+    Vector3 smoothedPosition = Vector3.Lerp(currentPosition, new Vector3(targetX, currentPosition.y, currentPosition.z), Time.deltaTime * damping);
+
+    // Yeni konumu ayarlayın
+    transform.position = smoothedPosition;
+}
 
     
 }
-
