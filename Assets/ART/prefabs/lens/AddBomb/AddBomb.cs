@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 public class AddBomb : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class AddBomb : MonoBehaviour
 
     [SerializeField]  private Image rocketImage;
     [SerializeField] private float fillAmountValue;
+    [SerializeField] private float initialScale = 1f;
+    [SerializeField] private float targetScale = 1.5f;
+    [SerializeField] private float duration = 1f;
      private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("MiniBomb"))
@@ -34,8 +39,16 @@ public class AddBomb : MonoBehaviour
                 {
                     if (!other.transform.GetChild(4).GetChild(i).gameObject.activeSelf)
                     {
-                        other.transform.GetChild(4).GetChild(i).gameObject.SetActive(true);
-                        other.transform.GetComponent<KiloTonCalculate>().Calculate();
+                        GameObject clone = other.transform.GetChild(4).GetChild(i).gameObject;
+                        clone.SetActive(true);
+                        other.transform.GetChild(4).GetChild(i).DOScale(Vector3.one*targetScale,0.2f).SetEase(Ease.Linear).OnComplete(() =>
+                        {
+
+                            clone.transform.DOScale(Vector3.one* initialScale, duration)
+                                .SetEase(Ease.InBounce);
+
+                        });
+                        clone.transform.GetComponent<KiloTonCalculate>().Calculate();
                         break;
                     }
                 }
@@ -55,4 +68,6 @@ public class AddBomb : MonoBehaviour
         gameObject.SetActive(false);
         
     }
+
+    
 }
