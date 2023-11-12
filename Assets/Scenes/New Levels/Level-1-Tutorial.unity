@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.278694, g: 0.66667956, b: 0.99766773, a: 1}
+  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3510,7 +3510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6057711, y: 0.097691014, z: 0.075288534, w: 0.78602135}
+  m_LocalRotation: {x: -0.6057711, y: 0.09769112, z: 0.07528862, w: 0.7860213}
   m_LocalPosition: {x: -49.7, y: -700, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18827,6 +18827,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &393049263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1578776963812280514, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+  m_PrefabInstance: {fileID: 2080910159495512435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &395391428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3422727418229548482, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -32420,6 +32425,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1817659351}
+        m_TargetAssemblyTypeName: KilotonPos, Assembly-CSharp
+        m_MethodName: TextPosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &736332186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40884,6 +40901,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &938312104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4667689295055285443, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+  m_PrefabInstance: {fileID: 2080910159495512435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &939377723 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -90282,6 +90304,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7698038029955106877, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
   m_PrefabInstance: {fileID: 2080910159495512435}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1817659351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938312104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b955a936949849168c7ec574b3a3856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kilotonText: {fileID: 393049263}
 --- !u!1001 &1818518839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105441,6 +105476,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4489327218481800724}
     m_Modifications:
+    - target: {fileID: 156479158398783529, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 156479158398783529, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+      propertyPath: m_fontSize
+      value: 12.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 156479158398783529, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4667689295055285443, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
       propertyPath: m_Name
       value: KiloTon
@@ -105493,6 +105540,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4667689295055285443, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1817659351}
     - targetCorrespondingSourceObject: {fileID: 1578776963812280514, guid: dbc775f0e5992a642aa078f7c02f3d03, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
