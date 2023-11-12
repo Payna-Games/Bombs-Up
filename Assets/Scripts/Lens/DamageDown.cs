@@ -89,7 +89,7 @@ public class DamageDown : MonoBehaviour
                 motorObjectLevell.SetFalse2();
                 motorObjectLevell.SetTrue2();
             }
-            StartCoroutine(CloseLensAnim());
+            gameObject.SetActive(false);
 
 
             other.transform.DOScale(Vector3.one * targetScale, 0.5f)
@@ -102,7 +102,7 @@ public class DamageDown : MonoBehaviour
 
                 });
             
-               
+            gameObject.SetActive(false);
                 
             
             
@@ -112,12 +112,12 @@ public class DamageDown : MonoBehaviour
 
        
     }
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.3f); 
-        gameObject.SetActive(false);
-        
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.3f); 
+    //     gameObject.SetActive(false);
+    //     
+    // }
     private void Update()
     {
         if (addKiloTon == 0)

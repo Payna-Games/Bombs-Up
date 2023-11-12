@@ -73,21 +73,21 @@ public class FireRateRed : MonoBehaviour
                     waterParticle.Stop();
                     float clampedValue = Mathf.Clamp(1-addFireRate/50f,0.2f,1.5f);
                     MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
-                    StartCoroutine(CloseLensAnim());
+                    gameObject.SetActive(false);
                     
                 }
                 else if (addFireRate == 0)
                 {
                     waterParticle.Stop();
-                    StartCoroutine(CloseLensAnim());
+                    gameObject.SetActive(false);
                 }
                 
             }
         }
-        private IEnumerator CloseLensAnim()
-        {
-            yield return new WaitForSeconds(0.3f); 
-            gameObject.SetActive(false);
-            
-        }
+        // private IEnumerator CloseLensAnim()
+        // {
+        //     yield return new WaitForSeconds(0.3f); 
+        //     gameObject.SetActive(false);
+        //     
+        // }
 }

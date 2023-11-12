@@ -84,7 +84,7 @@ public class Damage : MonoBehaviour
                     motorObjectLevel.SetFalse2();
                     motorObjectLevel.SetTrue2();
                 }
-                StartCoroutine(CloseLensAnim());
+                gameObject.SetActive(false);
                 other.GetComponent<KiloTonCalculate>().Calculate();
 
 
@@ -107,12 +107,12 @@ public class Damage : MonoBehaviour
     }
 
 
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.3f);
-        gameObject.SetActive(false);
-
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.3f);
+    //     gameObject.SetActive(false);
+    //
+    // }
 
     // private void Update()
     // {

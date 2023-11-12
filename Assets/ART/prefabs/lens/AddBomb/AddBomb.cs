@@ -52,22 +52,22 @@ public class AddBomb : MonoBehaviour
                         break;
                     }
                 }
-                StartCoroutine(CloseLensAnim());
+            gameObject.SetActive(false);
         }
         else if((other.CompareTag("Bomb")&& fillAmountValue !=1 ))
         {
                 
-            StartCoroutine(CloseLensAnim());
+            gameObject.SetActive(false);
             
         }
     }
      
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.3f); 
-        gameObject.SetActive(false);
-        
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.3f); 
+    //     gameObject.SetActive(false);
+    //     
+    // }
 
     
 }

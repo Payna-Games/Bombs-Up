@@ -57,18 +57,18 @@ public class FireRange : MonoBehaviour
             {
                 waterParticle.Stop();
                 MiniBompManager.miniBompManager.range += addFireRange*10;
-                StartCoroutine(CloseLensAnim());
                 
+                gameObject.SetActive(false);
             }
             
         }
     }
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.3f); 
-        gameObject.SetActive(false);
-        
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.3f); 
+    //     gameObject.SetActive(false);
+    //     
+    // }
     
 }
 

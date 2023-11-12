@@ -56,15 +56,15 @@ public class FireRate : MonoBehaviour
             {
                 float clampedValue = Mathf.Clamp(1-addFireRateText/50f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
-                StartCoroutine(CloseLensAnim());
+                gameObject.SetActive(false);
             }
             
         }
     }
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.5f); 
-        gameObject.SetActive(false);
-        
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.5f); 
+    //     gameObject.SetActive(false);
+    //     
+    // }
 }

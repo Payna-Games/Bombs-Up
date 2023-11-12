@@ -74,21 +74,21 @@ public class FireRangeRed : MonoBehaviour
                 waterParticle.Stop();
                 int clampedValue = Mathf.Clamp(70+addFireRange*10,minRange,maxRange);
                 MiniBompManager.miniBompManager.range = clampedValue;
-                StartCoroutine(CloseLensAnim());
+                gameObject.SetActive(false);
                 
             }
             else if (addFireRange== 0)
             {
                 waterParticle.Stop();
-                StartCoroutine(CloseLensAnim());
+                gameObject.SetActive(false);
             }
             
         }
     }
-    private IEnumerator CloseLensAnim()
-    {
-        yield return new WaitForSeconds(0.3f); 
-        gameObject.SetActive(false);
-        
-    }
+    // private IEnumerator CloseLensAnim()
+    // {
+    //     yield return new WaitForSeconds(0.3f); 
+    //     gameObject.SetActive(false);
+    //     
+    // }
 }
