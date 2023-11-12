@@ -16,7 +16,7 @@ public class IsNextLevel : MonoBehaviour
 
     private void NextLevel(float obj)
     {
-        if (obj >= 0.1f)
+        if (obj >= 0.01f)
         { 
             StartCoroutine(StartSmokeCoroutine());
         }
