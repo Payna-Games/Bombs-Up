@@ -8,21 +8,21 @@ public class ExplodeCalculate : MonoBehaviour
     {
         int kTon = KiloTonCalculate.kiloTonCalculate.KiloTon;
         if (kTon == 100)
-            return kTon / 5;
+            return 30f;
         if (kTon > 100 && kTon <= 160)
-            return kTon / 4;
+            return kTon / 3.75f;
         if (kTon > 160 && kTon <= 250)
-            return kTon / 4.16f;
+            return kTon / 3.50f;
         if (kTon > 250 && kTon <= 370)
-            return kTon / 4.625f;
+            return kTon / 3.25f;
         if (kTon > 370 && kTon <= 520)
-            return kTon / 5.2f;
+            return kTon / 3.10f;
         if (kTon > 520 && kTon <= 700)
-            return kTon / 5.83f;
+            return kTon / 3f;
         if (kTon > 700 && kTon <= 910)
-            return kTon / 6.5f;
+            return kTon / 2.80f;
         if (kTon > 910)
-            return kTon / 7.18f;
+            return kTon / 2.70f;
         else
             return 0;
         
