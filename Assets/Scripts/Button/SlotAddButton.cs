@@ -26,7 +26,7 @@ public class SlotAddButton : MonoBehaviour
                 ObjectType(item);
                 break;
             }
-            if (item.GetComponent<GridIsEmpty>().gridObject == null && transform.GetComponent<EnoughMoney>().clickCount > 2)
+            if (item.GetComponent<GridIsEmpty>().gridObject == null )//&& transform.GetComponent<EnoughMoney>().clickCount > 2)
             {
                 currentObjectType = Random.Range(0, 3);
                 ObjectType(item);

@@ -12,7 +12,8 @@ public class KTonText : MonoBehaviour
 
     private void KTonText_kTon(int kTon)
     {
-        GetComponent<TextMeshProUGUI>().text = kTon.ToString();
+        //GetComponent<TextMeshProUGUI>().text = kTon.ToString();
+        GetComponent<TextMeshPro>().text = kTon.ToString();
     }
     private void SetFalse()
     {
