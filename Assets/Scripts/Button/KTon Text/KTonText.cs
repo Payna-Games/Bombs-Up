@@ -4,7 +4,7 @@ using UnityEngine;
 public class KTonText : MonoBehaviour
 {
     public FollwChange follwChange;
-    private void Start()
+    private void OnEnable()
     {
         KiloTonCalculate.kiloTonCalculate.kTon += KTonText_kTon;
         follwChange.changeCamera += SetFalse;
