@@ -27,20 +27,20 @@ public class MotorFireParticle : MonoBehaviour
     //  }
 
 
-    private void Start()
-    {
-
-        ClickCount.FireColor += BombFire;
-    }
-
-    private void BombFire()
-    {
-        transform.GetChild(0).gameObject.SetActive(true);
-        transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-        
-        //
-        Debug.Log("dfdfd");
-    }
+    // private void Start()
+    // {
+    //
+    //     ClickCount.FireColor += BombFire;
+    // }
+    //
+    // private void BombFire()
+    // {
+    //     transform.GetChild(0).gameObject.SetActive(true);
+    //     transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+    //     
+    //     //
+    //     Debug.Log("dfdfd");
+    // }
    
     
 }

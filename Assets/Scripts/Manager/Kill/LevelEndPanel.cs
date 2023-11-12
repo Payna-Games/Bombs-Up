@@ -16,7 +16,7 @@ public class LevelEndPanel : MonoBehaviour
 
     public void NextLevel(float obj)
     {
-        if (obj >= 0.8)
+        if (obj >= 0.1)
         {
             StartCoroutine(Wait(objList[0]));
         }
