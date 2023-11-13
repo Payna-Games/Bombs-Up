@@ -24,8 +24,9 @@ public class FollwChange : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        float rangeY = bomps.position.y - cityGround.position.y;
-        if (rangeY <= max && rangeY >= min & isFirst)
+        // float rangeY = bomps.position.y - cityGround.position.y;
+        // if (rangeY <= max && rangeY >= min & isFirst)
+        if(LastLensAfter.lastLensAfter.lastLensPassed)
         {
             cityGround.gameObject.isStatic = false;
 

@@ -21,7 +21,10 @@ public class BombLeftRight: MonoBehaviour
     private void Start()
     {
         drop = GetComponent<Drop>();
-       
+        swipeSpeed = 0.2f;
+        bombSpeed = 45f;
+        MiniBompManager.miniBompManager.spawnSpeed = 1;
+
 
     }
 
@@ -47,7 +50,17 @@ public class BombLeftRight: MonoBehaviour
                  }
              }
          }
-         
+
+         if (LastLensAfter.lastLensAfter.lastLensPassed)
+         {
+             Transform parentTransform = transform.parent;
+             swipeSpeed = 0f;
+             parentTransform.position = new Vector3(0,0,0);
+             transform.position = new Vector3(0, transform.position.y, 0);
+             bombSpeed = 150f;
+             MiniBompManager.miniBompManager.spawnSpeed = 0;
+             
+         }
         
          
      }
