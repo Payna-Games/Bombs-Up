@@ -18,6 +18,8 @@ public class BombLeftRight: MonoBehaviour
     private Drop drop;
     [SerializeField] private float damping = 5f;
 
+    [SerializeField]  private bool downOpen;
+
     private void Awake()
     {
         transform.parent.position = new Vector3(-1.81f, 5, 25.3f);
@@ -63,8 +65,15 @@ public class BombLeftRight: MonoBehaviour
              swipeSpeed = 0f;
              parentTransform.position = new Vector3(0,0,0);
              transform.position = new Vector3(0, transform.position.y, 0);
-             
-             bombSpeed = 0f;
+
+             if (downOpen)
+             {
+                 bombSpeed = 80f;
+             }
+             else if (!downOpen)
+             {
+                 bombSpeed = 0f;
+             }
              MiniBompManager.miniBompManager.spawnSpeed = 0;
              
          }
