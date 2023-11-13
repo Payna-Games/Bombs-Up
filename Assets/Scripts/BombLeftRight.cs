@@ -63,7 +63,8 @@ public class BombLeftRight: MonoBehaviour
              swipeSpeed = 0f;
              parentTransform.position = new Vector3(0,0,0);
              transform.position = new Vector3(0, transform.position.y, 0);
-             bombSpeed = 150f;
+             
+             bombSpeed = 0f;
              MiniBompManager.miniBompManager.spawnSpeed = 0;
              
          }
