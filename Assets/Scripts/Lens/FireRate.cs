@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -45,7 +46,8 @@ public class FireRate : MonoBehaviour
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
             Destroy(other.gameObject);
-            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            //ParticleSystem newParticle = Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            CreateParticle.Create(transform.position);
             waterParticle.Play();
             TextScaleUpAnim.TextScaleUp(fireRateText);
             
@@ -65,5 +67,9 @@ public class FireRate : MonoBehaviour
             
         }
     }
-   
+
+    private void Update()
+    {
+        waterParticle.transform.position = transform.position;
+    }
 }
