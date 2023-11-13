@@ -17,13 +17,19 @@ public class BombLeftRight: MonoBehaviour
     private Touch touch;
     private Drop drop;
     [SerializeField] private float damping = 5f;
-    
+
+    private void Awake()
+    {
+        transform.parent.position = new Vector3(-1.81f, 5, 25.3f);
+    }
+
     private void Start()
     {
         drop = GetComponent<Drop>();
         swipeSpeed = 0.2f;
         bombSpeed = 45f;
         MiniBompManager.miniBompManager.spawnSpeed = 1;
+        
 
 
     }
