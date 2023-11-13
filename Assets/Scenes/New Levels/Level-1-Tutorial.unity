@@ -4656,6 +4656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 97539763}
+  - component: {fileID: 97539764}
   m_Layer: 0
   m_Name: Lens
   m_TagString: Untagged
@@ -4678,6 +4679,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97539764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97539762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5769eb82de549da86c76bcd5b57081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lensActive: 0
 --- !u!1001 &99799106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21833,6 +21847,10 @@ PrefabInstance:
     - target: {fileID: 8678929089541783037, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
       propertyPath: m_Name
       value: FireRate+ (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678929089541783037, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53362,6 +53380,14 @@ PrefabInstance:
     - target: {fileID: 8678929089541783037, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
       propertyPath: m_Name
       value: FireRate+
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678929089541783037, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679705698974645713, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

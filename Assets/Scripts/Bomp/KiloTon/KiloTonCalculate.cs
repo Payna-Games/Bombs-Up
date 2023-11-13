@@ -4,6 +4,7 @@ using UnityEngine;
 public class KiloTonCalculate : MonoBehaviour
 {
     public static KiloTonCalculate kiloTonCalculate;
+    //[SerializeField] private Damage damage;
     public int KiloTon;
     public event Action<int> kTon;
     private void Awake()
@@ -45,5 +46,15 @@ public class KiloTonCalculate : MonoBehaviour
             }
         }
         kTon?.Invoke(KiloTon);
+        
+        if (Damage.damage.damageLens)
+        {
+            KiloTon += Damage.damage.addKiloTon;
+            kTon?.Invoke(KiloTon);
+            Damage.damage.damageLens = false;
+        }
+       
     }
+
+
 }

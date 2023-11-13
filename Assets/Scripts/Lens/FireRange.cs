@@ -53,22 +53,21 @@ public class FireRange : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
-            if(addFireRange !=0)
+            if(addFireRange !=0 &&  !LensWaitTime.lensW.lensActive)
             {
+                LensWaitTime.lensW.lensActive = true;
                 waterParticle.Stop();
                 MiniBompManager.miniBompManager.range += addFireRange*10;
                 
+                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 gameObject.SetActive(false);
+                
             }
             
         }
     }
-    // private IEnumerator CloseLensAnim()
-    // {
-    //     yield return new WaitForSeconds(0.3f); 
-    //     gameObject.SetActive(false);
-    //     
-    // }
+  
+   
     
 }
 

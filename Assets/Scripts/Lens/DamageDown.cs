@@ -68,41 +68,46 @@ public class DamageDown : MonoBehaviour
 
         if ( other.CompareTag("Bomb") )
         {
+            if (!LensWaitTime.lensW.lensActive)
+            {
+                LensWaitTime.lensW.lensActive= true;
+                if (headObjectLevell.damageLevel >0)
+                {
+                    headObjectLevell.damageLevel -= 1;
+                    headObjectLevell.SetFalse2();
+                    headObjectLevell.SetTrue2();
+                }
+                if (bodyObjectLevell.damageLevel >0)
+                {
+                    bodyObjectLevell.damageLevel -= 1;
+                    bodyObjectLevell.SetFalse2();
+                    bodyObjectLevell.SetTrue2();
+                }
+                if ( motorObjectLevell.damageLevel >0)
+                {
+                    motorObjectLevell.damageLevel -= 1;
+                    motorObjectLevell.SetFalse2();
+                    motorObjectLevell.SetTrue2();
+                }
+                gameObject.SetActive(false);
+
+
+                other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                    .SetEase(Ease.Linear) 
+                    .OnComplete(() =>
+                    {
+
+                        other.transform.DOScale(Vector3.one * initialScale, duration)
+                            .SetEase(Ease.OutBounce);
+
+                    });
             
+                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                gameObject.SetActive(false);
+            }
           
 
-            if (headObjectLevell.damageLevel >0)
-            {
-                headObjectLevell.damageLevel -= 1;
-                headObjectLevell.SetFalse2();
-                headObjectLevell.SetTrue2();
-            }
-            if (bodyObjectLevell.damageLevel >0)
-            {
-                bodyObjectLevell.damageLevel -= 1;
-                bodyObjectLevell.SetFalse2();
-                bodyObjectLevell.SetTrue2();
-            }
-            if ( motorObjectLevell.damageLevel >0)
-            {
-                motorObjectLevell.damageLevel -= 1;
-                motorObjectLevell.SetFalse2();
-                motorObjectLevell.SetTrue2();
-            }
-            gameObject.SetActive(false);
-
-
-            other.transform.DOScale(Vector3.one * targetScale, 0.5f)
-                .SetEase(Ease.Linear) 
-                .OnComplete(() =>
-                {
-
-                    other.transform.DOScale(Vector3.one * initialScale, duration)
-                        .SetEase(Ease.OutBounce);
-
-                });
-            
-            gameObject.SetActive(false);
+           
                 
             
             
@@ -112,12 +117,7 @@ public class DamageDown : MonoBehaviour
 
        
     }
-    // private IEnumerator CloseLensAnim()
-    // {
-    //     yield return new WaitForSeconds(0.3f); 
-    //     gameObject.SetActive(false);
-    //     
-    // }
+   
     private void Update()
     {
         if (addKiloTon == 0)

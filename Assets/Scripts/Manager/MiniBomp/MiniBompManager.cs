@@ -9,7 +9,9 @@ public class MiniBompManager : MonoBehaviour
     public int speed;
     public float spawnSpeed;
     public int range;
+    
 
+   
     private void Awake()
     {
         miniBompManager = miniBompManager == null ? this : miniBompManager;

@@ -8,7 +8,8 @@ using DG.Tweening;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] private int addKiloTon;
+    public static Damage damage;
+    public int addKiloTon;
    // private int downKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private ParticleSystem waterParticle;
@@ -19,6 +20,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
+    public bool damageLens;
 
 
     private void Awake()
@@ -26,6 +28,7 @@ public class Damage : MonoBehaviour
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
+        damage = damage== null ? this : damage;
     }
 
     private void Start()
@@ -64,40 +67,54 @@ public class Damage : MonoBehaviour
         if (other.CompareTag("Bomb"))
         {
 
-            if (addKiloTon >=50)
+            if ( !LensWaitTime.lensW.lensActive)
             {
-                if (headObjectLevel.damageLevel < 7)
-                {
-                    headObjectLevel.damageLevel += 1;
-                    headObjectLevel.SetFalse2();
-                    headObjectLevel.SetTrue2();
-                }
-                if (bodyObjectLevel.damageLevel < 7)
-                {
-                    bodyObjectLevel.damageLevel += 1;
-                    bodyObjectLevel.SetFalse2();
-                    bodyObjectLevel.SetTrue2();
-                }
-                if (motorObjectLevel.damageLevel < 7)
-                {
-                    motorObjectLevel.damageLevel += 1;
-                    motorObjectLevel.SetFalse2();
-                    motorObjectLevel.SetTrue2();
-                }
-                gameObject.SetActive(false);
+                damageLens = true;
+                LensWaitTime.lensW.lensActive= true;
+                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 other.GetComponent<KiloTonCalculate>().Calculate();
+               
+                
+                    Debug.Log("kiloton");
 
-
-                other.transform.DOScale(Vector3.one * targetScale, 0.5f)
-                    .SetEase(Ease.Linear)
-                    .OnComplete(() =>
+                
+                if (addKiloTon >=50 )
+                {
+                    
+                    if (headObjectLevel.damageLevel < 7)
                     {
+                        headObjectLevel.damageLevel += 1;
+                        headObjectLevel.SetFalse2();
+                        headObjectLevel.SetTrue2();
+                    }
+                    if (bodyObjectLevel.damageLevel < 7)
+                    {
+                        bodyObjectLevel.damageLevel += 1;
+                        bodyObjectLevel.SetFalse2();
+                        bodyObjectLevel.SetTrue2();
+                    }
+                    if (motorObjectLevel.damageLevel < 7)
+                    {
+                        motorObjectLevel.damageLevel += 1;
+                        motorObjectLevel.SetFalse2();
+                        motorObjectLevel.SetTrue2();
+                    }
+                    other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() =>
+                        {
 
-                        other.transform.DOScale(Vector3.one * initialScale, duration)
-                            .SetEase(Ease.OutBounce);
+                            other.transform.DOScale(Vector3.one * initialScale, duration)
+                                .SetEase(Ease.OutBounce);
 
-                    });
+                        });
+                }
+
+                
+               
+                gameObject.SetActive(false);
             }
+            
               
 
 
@@ -107,12 +124,7 @@ public class Damage : MonoBehaviour
     }
 
 
-    // private IEnumerator CloseLensAnim()
-    // {
-    //     yield return new WaitForSeconds(0.3f);
-    //     gameObject.SetActive(false);
-    //
-    // }
+   
 
     // private void Update()
     // {
