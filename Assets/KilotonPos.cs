@@ -3,23 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngineInternal;
+using UnityEngine.UI;
 
 public class KilotonPos : MonoBehaviour
 {
-    [SerializeField] private GameObject kilotonText;
+    // private Image kilotonImage;
     private RectTransform kilotonTextRectTransform;
 
     private void Start()
     {
-        kilotonTextRectTransform = kilotonText.GetComponent<RectTransform>();
+        //kilotonImage = GetComponent<Image>();
+        kilotonTextRectTransform = GetComponent<RectTransform>();
+       
     }
 
     public IEnumerator TextRotater()
     {
         yield return new WaitForSeconds(3f);
-        kilotonTextRectTransform.localPosition = Vector3.zero;
-         kilotonTextRectTransform.localRotation =  Quaternion.Euler(-7.93f, 0f, 0f);
-          kilotonTextRectTransform.localPosition = new Vector3(-0.51f, -5.37f, 0f);
+
+        kilotonTextRectTransform.anchoredPosition3D= new Vector3(-0.58f, -5f,0.27f); 
+        kilotonTextRectTransform.localRotation=Quaternion.Euler(-15f,0,0);
+        //  kilotonTextRectTransform.localPosition = new Vector3(-0.51f, -5.37f, 0f);
 
     }
 
