@@ -37,11 +37,15 @@ public class LevelEndPanel : MonoBehaviour
         confet.Play();
         
         panelObjects[1].GetComponent<CanvasGroup>().DOFade(1f ,1f).From(0.2f);
-        panelObjects[2].transform.DOScale(new Vector3(3.5f, 6f, 3.5f), 0.7f).OnComplete(() =>
-        {
-
-            panelObjects[2].transform.DOScale(new Vector3(1f, 1f, 1f), 0.7f);
-        });
+        panelObjects[2].transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.7f).SetEase(Ease.OutBounce);
+            //OnComplete(() =>
+        // {
+        //
+        //     panelObjects[2].transform.DOScale(new Vector3(1f, 1f, 1f), 0.7f);
+        // });
+        
         starCount.StarCountt();
+        yield return new WaitForSeconds(0.5f);
+        
     }
 }
