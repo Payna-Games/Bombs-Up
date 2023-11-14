@@ -44,8 +44,9 @@ public class LevelEndPanel : MonoBehaviour
         //     panelObjects[2].transform.DOScale(new Vector3(1f, 1f, 1f), 0.7f);
         // });
         
-        starCount.StarCountt();
+        
         yield return new WaitForSeconds(0.5f);
+        starCount.StarCountt();
         
     }
 }

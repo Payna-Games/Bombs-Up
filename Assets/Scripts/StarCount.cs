@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class StarCount : MonoBehaviour
 {
     [SerializeField] private StarCalculate starCalculate;
+    [SerializeField] private Image[] stars;
 
     private float starRatee;
   // public event Action<float> killCount; 
@@ -15,6 +16,7 @@ public class StarCount : MonoBehaviour
    {
 
        starRatee = starCalculate.starRate;
+       stars[0].fillAmount = Mathf.Lerp(0, starRatee*3, 1);
        
        if (starRatee <= 0.33f)
        {
