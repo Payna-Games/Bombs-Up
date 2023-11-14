@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelEndPanel : MonoBehaviour
 {
     private Kill killScript;
+    [SerializeField] private StarCount starCount;
     public List<GameObject> objList;
 
     void Awake()
@@ -29,5 +30,6 @@ public class LevelEndPanel : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         activePanel.SetActive(true);
+        starCount.StarCountt();
     }
 }

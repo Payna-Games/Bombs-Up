@@ -1,10 +1,15 @@
+using System;
+using TMPro;
 using UnityEngine;
+
+
 
 public class MoneyManager : TextPrint
 {
     public long totalMoney = 0;
 
     public static MoneyManager moneyManager;
+    [SerializeField] private TextMeshProUGUI nextLevelMoney;
 
     private void Awake()
     {
@@ -27,6 +32,8 @@ public class MoneyManager : TextPrint
     public void InreaseTotalMoney(float otherMoney)
     {
         totalMoney += (long)otherMoney;
+        int roundedNumber = (int)Math.Round(otherMoney);
+        nextLevelMoney.text = "$" + roundedNumber.ToString();
         ButtonPrint(totalMoney);
     }
 

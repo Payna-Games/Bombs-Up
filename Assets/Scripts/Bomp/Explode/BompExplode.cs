@@ -110,4 +110,6 @@ public class BompExplode : ExplodeCalculate
         }
         explodeCount?.Invoke(cityCount);
     }
+
+    
 }
