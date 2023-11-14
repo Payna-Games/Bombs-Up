@@ -10,6 +10,7 @@ public class LevelEndPanel : MonoBehaviour
     [SerializeField] private StarCount starCount;
     public List<GameObject> objList;
     [SerializeField] private Transform[] panelObjects;
+    
 
     void Awake()
     {
@@ -47,6 +48,8 @@ public class LevelEndPanel : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         starCount.StarCountt();
-        
+        yield return new WaitForSeconds(1.5f);
+        panelObjects[3].transform.GetComponent<CanvasGroup>().DOFade(1, 1).From(0);
+
     }
 }
