@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LevelEndPanel : MonoBehaviour
 {
     private Kill killScript;
     [SerializeField] private StarCount starCount;
     public List<GameObject> objList;
+    [SerializeField] private Transform[] panelObjects;
 
     void Awake()
     {
@@ -17,19 +19,29 @@ public class LevelEndPanel : MonoBehaviour
 
     public void NextLevel(float obj)
     {
-        if (obj >= 0.01f)
-        {
-            StartCoroutine(Wait(objList[0]));
-        }
-        else
-        {
-            StartCoroutine(Wait(objList[1]));
-        }
+        // if (obj >= 0.01f)
+        // {
+        //     StartCoroutine(Wait(objList[0]));
+        // }
+        // else
+        // {
+        //     StartCoroutine(Wait(objList[1]));
+        // }
+        StartCoroutine(Wait(objList[0]));
     }
     IEnumerator Wait(GameObject activePanel)
     {
         yield return new WaitForSeconds(5);
         activePanel.SetActive(true);
+        ParticleSystem confet = Instantiate(GameAssets.i.effects[1], panelObjects[0].position, Quaternion.identity);
+        confet.Play();
+        
+        panelObjects[1].GetComponent<CanvasGroup>().DOFade(1f ,1f).From(0.2f);
+        panelObjects[2].transform.DOScale(new Vector3(3.5f, 6f, 3.5f), 0.7f).OnComplete(() =>
+        {
+
+            panelObjects[2].transform.DOScale(new Vector3(1f, 1f, 1f), 0.7f);
+        });
         starCount.StarCountt();
     }
 }

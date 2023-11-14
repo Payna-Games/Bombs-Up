@@ -33,7 +33,7 @@ public class MoneyManager : TextPrint
     {
         totalMoney += (long)otherMoney;
         int roundedNumber = (int)Math.Round(otherMoney);
-        nextLevelMoney.text = "$" + roundedNumber.ToString();
+        nextLevelMoney.text =  roundedNumber.ToString();
         ButtonPrint(totalMoney);
     }
 

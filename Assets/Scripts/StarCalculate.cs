@@ -17,6 +17,6 @@ public class StarCalculate : MonoBehaviour
     private void StarCalculatee( int objCount)
     {
          starRate = (float)objCount / kill.maxObj;
-         Debug.Log("çalıştı" + starRate );
+         
     }
 }
