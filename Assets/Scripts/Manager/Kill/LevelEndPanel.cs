@@ -38,7 +38,7 @@ public class LevelEndPanel : MonoBehaviour
         confet.Play();
         
         panelObjects[1].GetComponent<CanvasGroup>().DOFade(1f ,1f).From(0.2f);
-        panelObjects[2].transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.7f).SetEase(Ease.OutBounce);
+        panelObjects[2].transform.DOScale(new Vector3(0.6f, 0.8f, 0.6f), 0.7f).SetEase(Ease.OutBounce);
             //OnComplete(() =>
         // {
         //
@@ -48,7 +48,7 @@ public class LevelEndPanel : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         starCount.StarCountt();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         panelObjects[3].transform.GetComponent<CanvasGroup>().DOFade(1, 1).From(0);
 
     }

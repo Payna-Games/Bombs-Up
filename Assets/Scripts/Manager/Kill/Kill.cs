@@ -20,7 +20,7 @@ public class Kill : MonoBehaviour
         float fillAmount = ((float)objCount / maxObj);
 
         transform.GetComponent<Image>().fillAmount = Mathf.Lerp(0, fillAmount,1);
-        Debug.Log("bar yüzdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
+        //Debug.Log("bar yï¿½zdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
 
         killCount?.Invoke(fillAmount);
         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 5 * fillAmount);
