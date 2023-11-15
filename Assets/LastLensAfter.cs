@@ -6,6 +6,7 @@ using UnityEngine;
 public class LastLensAfter: MonoBehaviour
 {
     public static LastLensAfter lastLensAfter;
+    
     public bool lastLensPassed = false;
 
     private void Awake()
@@ -18,6 +19,11 @@ public class LastLensAfter: MonoBehaviour
         if(other.CompareTag("Bomb"))
         {
             lastLensPassed = true;
+            
+        }
+        else if (other.CompareTag("MiniBomb"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }

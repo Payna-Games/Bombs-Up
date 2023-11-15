@@ -17,12 +17,13 @@ public class BombLeftRight: MonoBehaviour
     private Touch touch;
     private Drop drop;
     [SerializeField] private float damping = 5f;
-
+     private GameObject kilotonCanvas;
     [SerializeField]  private bool downOpen;
 
     private void Awake()
     {
         transform.parent.position = new Vector3(-1.81f, 5, 25.3f);
+        kilotonCanvas = transform.GetChild(6).gameObject;
     }
 
     private void Start()
@@ -62,6 +63,7 @@ public class BombLeftRight: MonoBehaviour
          if (LastLensAfter.lastLensAfter.lastLensPassed)
          {
              Transform parentTransform = transform.parent;
+             kilotonCanvas.SetActive(false);
              swipeSpeed = 0f;
              parentTransform.position = new Vector3(0,0,0);
              transform.position = new Vector3(0, transform.position.y, 0);
