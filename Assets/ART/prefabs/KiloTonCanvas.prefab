@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5107181861764314544}
   - component: {fileID: 5292402489623780524}
   - component: {fileID: 7357110080513239013}
+  - component: {fileID: 4863579219555724429}
   m_Layer: 0
   m_Name: KiloTonCanvas
   m_TagString: Untagged
@@ -28,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 6391874829258604307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0067276857, y: 0.006727689, z: 0.0067276866}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4139613450885403405}
@@ -48,7 +49,7 @@ Canvas:
   m_GameObject: {fileID: 6391874829258604307}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -84,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7357110080513239013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4863579219555724429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6391874829258604307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b955a936949849168c7ec574b3a3856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8604240228027267543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,11 +205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5628015632923814618, guid: 8595c93e18e664e8ab00139742394d28, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 12.138374
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 5628015632923814618, guid: 8595c93e18e664e8ab00139742394d28, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -61
+      value: -111.4
       objectReference: {fileID: 0}
     - target: {fileID: 5628015632923814618, guid: 8595c93e18e664e8ab00139742394d28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

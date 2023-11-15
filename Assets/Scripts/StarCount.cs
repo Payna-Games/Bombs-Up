@@ -39,9 +39,9 @@ public class StarCount : MonoBehaviour
         {
            fill = Mathf.Lerp(0, starRatee/0.33f,Time.deltaTime*0.7f);
            stars[0].fillAmount += fill;
-           if (stars[0].fillAmount >= star2/0.33f * (1 - tolerance) && stars[0].fillAmount <= star2/0.33f * (1 + tolerance) )
+           if (stars[0].fillAmount >= starRatee/0.33f * (1 - tolerance) && stars[0].fillAmount <=starRatee/0.33f * (1 + tolerance) )
            {
-               fillAmountt2 = false;
+               fillAmountt1 = false;
                stars[3].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
                    .OnComplete(() =>
                    {
@@ -131,9 +131,9 @@ public class StarCount : MonoBehaviour
       
        if(star3 < 0.33f)
        {
-           fill2 = Mathf.Lerp(0, star2/0.33f,Time.deltaTime*0.7f);
+           fill2 = Mathf.Lerp(0, star3/0.33f,Time.deltaTime*0.7f);
            stars[2].fillAmount += fill2;
-           if (stars[2].fillAmount >= star2/0.33f * (1 - tolerance) && stars[2].fillAmount <= star2/0.33f * (1 + tolerance) )
+           if (stars[2].fillAmount >= star3/0.33f * (1 - tolerance) && stars[2].fillAmount <= star3/0.33f * (1 + tolerance) )
            {
                fillAmountt2 = false;
                stars[5].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
@@ -154,11 +154,11 @@ public class StarCount : MonoBehaviour
            stars[2].fillAmount += fill;
            
            
-           if(stars[1].fillAmount == 1)
-               stars[4].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+           if(stars[2].fillAmount == 1)
+               stars[5].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
                    .OnComplete(() =>
                    {
-                       stars[4].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+                       stars[5].transform.DOScale(Vector3.one * 1.9f, 0.5f)
                            .SetEase(Ease.OutBounce);
                        fillAmountt2 = false;
                        fillAmountt3 = true;
