@@ -31,6 +31,10 @@ public class Sell : MonoBehaviour
     public void OnPointEnter()
     {
         IsOnImage = true;
-        //transform.DOScale(normalSize , duration);
+        if (VibratorManager.vibratorManager.mainVibrator)
+        {
+            Vibrator.Vibrate();
+            Vibrator.Vibrate(200);
+        }
     }
 }

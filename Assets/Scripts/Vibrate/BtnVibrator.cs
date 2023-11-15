@@ -13,7 +13,7 @@ public class BtnVibrator : MonoBehaviour
 
     public void ButtonVibrator()
     {
-        if (onVibrator)
+        if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
             Vibrator.Vibrate(200);

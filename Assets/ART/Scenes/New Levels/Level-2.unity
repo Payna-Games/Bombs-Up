@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
+  m_IndirectSpecularColor: {r: 0.278694, g: 0.66667956, b: 0.99766773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3332,11 +3332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201985263599060185, guid: 81d3e0ab71ea3824aa5e4ada835c4215, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.7720032
+      value: -0.77197266
       objectReference: {fileID: 0}
     - target: {fileID: 1201985263599060185, guid: 81d3e0ab71ea3824aa5e4ada835c4215, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.526001
+      value: -1.526123
       objectReference: {fileID: 0}
     - target: {fileID: 1201985263599060185, guid: 81d3e0ab71ea3824aa5e4ada835c4215, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27242,6 +27242,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &619041205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 619041206}
+  - component: {fileID: 619041207}
+  m_Layer: 0
+  m_Name: Vibrator Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &619041206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619041205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1184767128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619041207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619041205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bcb13d3f7d2814ea3653bccf297ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainVibrator: 0
 --- !u!1 &619589174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3170386047693118204, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -28674,6 +28719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMoney: 1000000
+  nextLevelMoney: {fileID: 0}
 --- !u!1001 &671184457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45483,9 +45529,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4939812504e569648a214d75b204f09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starCount: {fileID: 0}
   objList:
   - {fileID: 5181355148614801586}
   - {fileID: 5863046060515298508}
+  panelObjects: []
 --- !u!1 &1055961537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4809244776293662452, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -50996,6 +51044,7 @@ Transform:
   - {fileID: 1193219117}
   - {fileID: 730857726}
   - {fileID: 1320578542}
+  - {fileID: 619041206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185226325 stripped
@@ -105210,7 +105259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 279189407969025711, guid: 93c3e494f42e54aa1acf925ca3faba3b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6243183
+      value: -0.62431824
       objectReference: {fileID: 0}
     - target: {fileID: 279189407969025711, guid: 93c3e494f42e54aa1acf925ca3faba3b, type: 3}
       propertyPath: m_LocalRotation.y

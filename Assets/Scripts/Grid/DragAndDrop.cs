@@ -150,7 +150,7 @@ public class DragAndDrop : MonoBehaviour
     }
     private void ReserObject(GameObject gameObject)
     {
-        if (onVibrator)
+        if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
             Vibrator.Vibrate(200);
@@ -194,7 +194,7 @@ public class DragAndDrop : MonoBehaviour
         }
         else
             PrevPos();
-        if (onVibrator)
+        if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
             Vibrator.Vibrate(200);

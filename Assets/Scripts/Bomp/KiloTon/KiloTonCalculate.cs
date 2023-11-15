@@ -47,7 +47,7 @@ public class KiloTonCalculate : MonoBehaviour
         }
         kTon?.Invoke(KiloTon);
         
-        if (Damage.damage.damageLens)
+        if (Damage.damage != null && Damage.damage.damageLens)
         {
             KiloTon += Damage.damage.addKiloTon;
             kTon?.Invoke(KiloTon);

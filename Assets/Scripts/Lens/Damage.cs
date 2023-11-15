@@ -25,10 +25,13 @@ public class Damage : MonoBehaviour
 
     private void Awake()
     {
+        damage = damage== null ? this : damage;
+        damageLens = false;
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
-        damage = damage== null ? this : damage;
+        
+        
     }
 
     private void Start()
