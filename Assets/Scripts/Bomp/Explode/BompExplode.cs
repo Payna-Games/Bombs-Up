@@ -14,7 +14,6 @@ public class BompExplode : ExplodeCalculate
 
     public CameraVibration cameraVibration;
 
-    public List<GameObject> ActiveObject;
     public float explosionForce = 10000f;
     public float explosionRadius = 100f;
     private bool hasCollided = false;
@@ -63,11 +62,6 @@ public class BompExplode : ExplodeCalculate
 
     private void Explode2()
     {
-        foreach (GameObject item in ActiveObject)
-        {
-            item.SetActive(true);
-        }
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         explodeBefor?.Invoke();
         foreach (Collider col in colliders)
