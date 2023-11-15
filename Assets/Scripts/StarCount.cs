@@ -33,11 +33,151 @@ public class StarCount : MonoBehaviour
 
    }
 
-   private void fillUpdate1()
+   // private void fillUpdate1()
+   // {
+   //      if(starRatee < 0.33f)
+   //      {
+   //         fill = Mathf.Lerp(0, starRatee/0.33f,Time.deltaTime*0.4f);
+   //         stars[0].fillAmount += fill;
+   //         if (stars[0].fillAmount >= starRatee/0.33f * (1 - tolerance) && stars[0].fillAmount <=starRatee/0.33f * (1 + tolerance) )
+   //         {
+   //             fillAmountt1 = false;
+   //             stars[3].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+   //                 .OnComplete(() =>
+   //                 {
+   //                     stars[3].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                         .SetEase(Ease.OutBounce);
+   //                    
+   //                 });
+   //             
+   //             
+   //         }
+   //        
+   //      }
+   //      else if (starRatee >= 0.33f) 
+   //      {
+   //         fill = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
+   //         stars[0].fillAmount += fill;
+   //         star2 = starRatee - 0.33f;
+   //         
+   //         if (stars[0].fillAmount == 1)
+   //         {
+   //             fillAmountt1 = false;
+   //             stars[3].transform.DOScale(Vector3.one * 2.3f, 0.5f)
+   //                 .SetEase(Ease.Linear)
+   //                 .OnComplete(() =>
+   //                 {
+   //                     stars[3].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                         .SetEase(Ease.OutBounce)
+   //                         .OnComplete(() => 
+   //                         {
+   //                             fillAmountt2 = true;
+   //                         });
+   //                 });
+   //            
+   //         }
+   //         
+   //      }
+   //  
+   //
+   //  
+   // }
+   // private void fillUpdate2()
+   // {
+   //     if(star2 < 0.33f)
+   //     {
+   //         fill1 = Mathf.Lerp(0, star2/0.33f,Time.deltaTime*0.4f);
+   //         stars[1].fillAmount += fill1;
+   //         if (stars[1].fillAmount >= star2/0.33f * (1 - tolerance) && stars[1].fillAmount <= star2/0.33f * (1 + tolerance) )
+   //         {
+   //             fillAmountt2 = false;
+   //             stars[4].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+   //                 .OnComplete(() =>
+   //                 {
+   //                     stars[4].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                         .SetEase(Ease.OutBounce);
+   //                    
+   //                 });
+   //             
+   //             
+   //         }
+   //     }
+   //     else if(star2 >= 0.33f)
+   //     {
+   //         fill1 = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
+   //         stars[1].fillAmount += fill;
+   //         star3 = star2 - 0.33f;
+   //         
+   //         if(stars[1].fillAmount == 1)
+   //         stars[4].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+   //             .OnComplete(() =>
+   //             {
+   //                 stars[4].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                     .SetEase(Ease.OutBounce);
+   //                 fillAmountt2 = false;
+   //                 fillAmountt3 = true;
+   //             });
+   //        
+   //     }
+   //         
+   //            
+   //         
+   //     
+   //         
+   //   
+   // }
+   // private void fillUpdate3()
+   // {
+   //    
+   //     if(star3 < 0.33f)
+   //     {
+   //         fill2 = Mathf.Lerp(0, star3/0.33f,Time.deltaTime*0.4f);
+   //         stars[2].fillAmount += fill2;
+   //         if (stars[2].fillAmount >= star3/0.33f * (1 - tolerance) && stars[2].fillAmount <= star3/0.33f * (1 + tolerance) )
+   //         {
+   //             fillAmountt2 = false;
+   //             stars[5].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+   //                 .OnComplete(() =>
+   //                 {
+   //                     stars[5].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                         .SetEase(Ease.OutBounce);
+   //                    
+   //                 });
+   //             
+   //             
+   //         }
+   //        
+   //     }
+   //     if(star3 >=0.33f)
+   //     {
+   //         fill2 = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
+   //         stars[2].fillAmount += fill;
+   //         
+   //         
+   //         if(stars[2].fillAmount == 1)
+   //             stars[5].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+   //                 .OnComplete(() =>
+   //                 {
+   //                     stars[5].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+   //                         .SetEase(Ease.OutBounce);
+   //                     fillAmountt2 = false;
+   //                     fillAmountt3 = true;
+   //                 });
+   //         
+   //     }
+   //     
+   //     
+   //     
+   //    
+   //         
+   //    
+   // }
+
+   private void Update()
    {
-        if(starRatee < 0.33f)
-        {
-           fill = Mathf.Lerp(0, starRatee/0.33f,Time.deltaTime*0.7f);
+       if(starRatee < 0.33f)
+       {
+           fill = Mathf.Lerp(0, starRatee/0.33f,Time.deltaTime*0.4f);
            stars[0].fillAmount += fill;
            if (stars[0].fillAmount >= starRatee/0.33f * (1 - tolerance) && stars[0].fillAmount <=starRatee/0.33f * (1 + tolerance) )
            {
@@ -53,16 +193,16 @@ public class StarCount : MonoBehaviour
                
            }
           
-        }
-        else if (starRatee >= 0.33f) 
-        {
-           fill = Mathf.Lerp(0, 1,Time.deltaTime*0.7f);
+       }
+       else if (starRatee >= 0.33f) 
+       {
+           fill = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
            stars[0].fillAmount += fill;
            star2 = starRatee - 0.33f;
            
            if (stars[0].fillAmount == 1)
            {
-               fillAmountt1 = false;
+               //fillAmountt1 = false;
                stars[3].transform.DOScale(Vector3.one * 2.3f, 0.5f)
                    .SetEase(Ease.Linear)
                    .OnComplete(() =>
@@ -77,16 +217,11 @@ public class StarCount : MonoBehaviour
               
            }
            
-        }
-    
+       }
 
-    
-   }
-   private void fillUpdate2()
-   {
-       if(star2 < 0.33f)
+       if(star2 < 0.33f && fillAmountt2)
        {
-           fill1 = Mathf.Lerp(0, star2/0.33f,Time.deltaTime*0.7f);
+           fill1 = Mathf.Lerp(0, star2/0.33f,Time.deltaTime*0.4f);
            stars[1].fillAmount += fill1;
            if (stars[1].fillAmount >= star2/0.33f * (1 - tolerance) && stars[1].fillAmount <= star2/0.33f * (1 + tolerance) )
            {
@@ -102,36 +237,27 @@ public class StarCount : MonoBehaviour
                
            }
        }
-       else if(star2 >= 0.33f)
+       else if(star2 >= 0.33f&& fillAmountt2)
        {
-           fill1 = Mathf.Lerp(0, 1,Time.deltaTime*0.7f);
+           fill1 = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
            stars[1].fillAmount += fill;
            star3 = star2 - 0.33f;
            
            if(stars[1].fillAmount == 1)
-           stars[4].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
-               .OnComplete(() =>
-               {
-                   stars[4].transform.DOScale(Vector3.one * 1.9f, 0.5f)
-                       .SetEase(Ease.OutBounce);
-                   fillAmountt2 = false;
-                   fillAmountt3 = true;
-               });
+               stars[4].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+                   .OnComplete(() =>
+                   {
+                       stars[4].transform.DOScale(Vector3.one * 1.9f, 0.5f)
+                           .SetEase(Ease.OutBounce).OnComplete(() => 
+                           {
+                               fillAmountt3 = true;
+                           });
+                   });
           
        }
-           
-              
-           
-       
-           
-     
-   }
-   private void fillUpdate3()
-   {
-      
        if(star3 < 0.33f)
        {
-           fill2 = Mathf.Lerp(0, star3/0.33f,Time.deltaTime*0.7f);
+           fill2 = Mathf.Lerp(0, star3/0.33f,Time.deltaTime*0.4f);
            stars[2].fillAmount += fill2;
            if (stars[2].fillAmount >= star3/0.33f * (1 - tolerance) && stars[2].fillAmount <= star3/0.33f * (1 + tolerance) )
            {
@@ -150,48 +276,22 @@ public class StarCount : MonoBehaviour
        }
        if(star3 >=0.33f)
        {
-           fill2 = Mathf.Lerp(0, 1,Time.deltaTime*0.7f);
+           fill2 = Mathf.Lerp(0, 1,Time.deltaTime*0.4f);
            stars[2].fillAmount += fill;
-           
-           
-           if(stars[2].fillAmount == 1)
-               stars[5].transform.DOScale(Vector3.one*2.3f, 0.5f) .SetEase(Ease.Linear)
+
+
+           if (stars[2].fillAmount == 1)
+               stars[5].transform.DOScale(Vector3.one * 2.3f, 0.5f).SetEase(Ease.Linear)
                    .OnComplete(() =>
                    {
-                       stars[5].transform.DOScale(Vector3.one * 1.9f, 0.5f)
-                           .SetEase(Ease.OutBounce);
-                       fillAmountt2 = false;
-                       fillAmountt3 = true;
+                       stars[5].transform.DOScale(Vector3.one * 1.9f, 0.5f).SetEase(Ease.OutBounce);
+
                    });
-           
-       }
-       
-       
-       
-      
-           
-      
-   }
-
-   private void Update()
-   {
-       if (fillAmountt1)
-       {
-           fillUpdate1();
 
        }
 
-       if (fillAmountt2)
-       {
-           fillUpdate2();
-           Debug.Log("2");
-           
-       }
-       if (fillAmountt3)
-       {
-           fillUpdate3();
-         
-       }
+
        
    }
+   
 }
