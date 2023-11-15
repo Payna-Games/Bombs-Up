@@ -70,18 +70,10 @@ public class StarCount : MonoBehaviour
             fill = Mathf.Lerp(0, starRatee / 0.33f, Time.deltaTime * 1f);
             stars[0].fillAmount += fill;
 
-            if (stars[0].fillAmount >= starRatee / 0.33f * (1 - tolerance) &&
-                stars[0].fillAmount <= starRatee / 0.33f * (1 + tolerance))
+            if (stars[0].fillAmount >= starRatee / 0.33f * (1 - tolerance) && stars[0].fillAmount <= starRatee / 0.33f * (1 + tolerance))
             {
-                starAnim = true;
-                if (starBool)
-                {
-                    fillUpdate1 = false;
-
-                    starAnim = false;
-
-                }
-                
+                StarAnim(3);
+                fillUpdate1 = false;
                 
 
             }
@@ -98,26 +90,17 @@ public class StarCount : MonoBehaviour
 
                 if (star2 >= 0.33f)
                 {
-                    starAnim = true;
-                    if (starBool)
-                    {
-                        Debug.Log("1");
-                        starAnim = false;
-                        fullTheAmount2= true;
-                        fullTheAmount1 = false;
-                        
-                        
-                    }
+                    StarAnim(3);
+                    fullTheAmount2 = true;
+                    fullTheAmount1 = false;
+                  
                 }
                 else if(star2 <0.33f)
                 {
-                    starAnim = true;
-                    if (starBool)
-                    {
-                        starAnim = false;
-                    }
-                    
-                    
+                    StarAnim(3);
+                    fillUpdate2 = true;
+                    fullTheAmount1 = false;
+
                 }
 
 
@@ -133,12 +116,8 @@ public class StarCount : MonoBehaviour
             if (stars[1].fillAmount >= star2 / 0.33f * (1 - tolerance) &&
                 stars[1].fillAmount <= star2 / 0.33f * (1 + tolerance))
             {
-                starAnim2 = true;
-                if (starBool)
-                {
-                    starAnim = false;
-                    fillUpdate2 = false;
-                }
+               StarAnim(4);
+               fillUpdate2 = false;
             }
 
         }
@@ -147,35 +126,24 @@ public class StarCount : MonoBehaviour
         {
             fill1 = Mathf.Lerp(0, 1, Time.deltaTime * 1);
             stars[1].fillAmount += fill1;
-            Debug.Log("2");
+           
 
             if (stars[1].fillAmount == 1)
             {
-                Debug.Log("3");
+                
                 
                 if (star3 >= 0.33 )
                 {
-                    Debug.Log("fullTheAmount3");
-                    starAnim2 = true;
-                    if (starBool)
-                    {
-                        starAnim2 = false;
-                        fullTheAmount3 = true;
-                        fullTheAmount2 = false;
-                       
-                    }
+                    StarAnim(4);
+                    fullTheAmount3 = true;
+                    fullTheAmount2 = false;
+                    
                 }
                 else if(star3 <0.33f )
                 {
-                    Debug.Log("fillUpdate3");
-                    starAnim2 = true;
-                    if (starBool)
-                    {
-                        starAnim2 = false;
-                        fillUpdate3 = true;
-                        fullTheAmount2 = false;
-                       
-                    }
+                    StarAnim(4);
+                    fillUpdate3 = true;
+                    fullTheAmount2 = false;
                     
                 }
 
@@ -192,13 +160,8 @@ public class StarCount : MonoBehaviour
                 stars[2].fillAmount <= star3 / 0.33f * (1 + tolerance))
             {
 
-                fillUpdate3 = false;
                 StarAnim(5);
-                if (starBool)
-                {
-                    starAnim3 = false;
-                   
-                }
+                fillUpdate3 = false;
             }
 
         }
@@ -211,43 +174,15 @@ public class StarCount : MonoBehaviour
             if (stars[2].fillAmount == 1)
 
             {
-                starAnim3 = true;
                 StarAnim(5);
-                if (starBool)
-                {
-                    starAnim3 = false;
-                    fullTheAmount3 = false;
-                }
-                
+                fullTheAmount3 = false;
+
 
 
             }
         }
 
-        if (starAnim)
-        {
-            starBool = false;
-            StarAnim(3);
-            
-
-
-
-        }
-        if (starAnim2 )
-        {
-            starBool = false;
-            StarAnim(4);
-            
-            
-        }
-        if (starAnim3 )
-        {
-            starBool = false;
-            StarAnim(5);
-            
-            
-            
-        }
+       
 
     }
     private void StarAnim(int star )
