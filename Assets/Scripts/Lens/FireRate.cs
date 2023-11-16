@@ -8,11 +8,11 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
-        [SerializeField] private ParticleSystem waterParticle;
+        
         [SerializeField] private Transform particleTransform;
     //[SerializeField] private int fireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
-    
+    private bool savedLens = false;
     
 
     private void Start()
@@ -45,12 +45,12 @@ public class FireRate : MonoBehaviour
             {
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
-            Destroy(other.gameObject);
-            //ParticleSystem newParticle = Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            
+            savedLens = true;
             CreateParticle.Create(transform.position);
             
-            waterParticle.Play();
             TextScaleUpAnim.TextScaleUp(fireRateText);
+            Destroy(other.gameObject);
             
         }
 
@@ -62,7 +62,9 @@ public class FireRate : MonoBehaviour
                 float clampedValue = Mathf.Clamp(1-addFireRateText/50f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                savedLens = false;
                 gameObject.SetActive(false);
+                
                 
             }
             
@@ -71,13 +73,22 @@ public class FireRate : MonoBehaviour
 
     private void Update()
     {
-        waterParticle.transform.position = transform.position;
-        CreateParticle.GetLensPosition(transform.position);
+        
+        if (savedLens)
+        {
+            CreateParticle.GetLensPosition(transform.position);
+            StartCoroutine(SavedLens());
+        }
+       
     }
 
-    private Vector3 LensPosition()
+    private IEnumerator SavedLens()
     {
-        return transform.position;
+        yield return new WaitForSeconds(1f);
+        savedLens = false;
+
     }
+
+    
     
 }

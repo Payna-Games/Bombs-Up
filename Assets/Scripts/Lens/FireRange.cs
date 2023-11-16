@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,7 +11,7 @@ public class FireRange : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fireRangeText;
     [SerializeField] private ParticleSystem waterParticle;
     [SerializeField] private Transform particleTransform;
-    
+    private bool savedLens = false;
     
     
 
@@ -43,10 +44,9 @@ public class FireRange : MonoBehaviour
                 fireRangeText.text = "+" + addFireRange.ToString(); 
                 TextScaleUpAnim.TextScaleUp(fireRangeText);
             }
-            
-            
-            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
-            waterParticle.Play();
+
+            savedLens = true;
+            CreateParticle.Create(transform.position);
             Destroy(other.gameObject);
             
         }
@@ -60,15 +60,28 @@ public class FireRange : MonoBehaviour
                 MiniBompManager.miniBompManager.range += addFireRange*10;
                 
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                savedLens = false;
                 gameObject.SetActive(false);
                 
             }
             
         }
     }
-  
-   
-    
+
+    private void Update()
+    {
+        if (savedLens)
+        {
+            CreateParticle.GetLensPosition(transform.position);
+            StartCoroutine(SavedLens());
+        }
+    }
+    private IEnumerator SavedLens()
+    {
+        yield return new WaitForSeconds(1f);
+        savedLens = false;
+
+    }
 }
 
 

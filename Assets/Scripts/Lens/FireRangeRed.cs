@@ -14,28 +14,28 @@ public class FireRangeRed : MonoBehaviour
     [SerializeField] private Material greenMaterial;
     [SerializeField] private int maxRange;
     [SerializeField] private int minRange;
-     
+    private bool savedLens = false;
 
 
     private void Start()
     {
         if (addFireRange < 0)
         {
-            fireRangeText.text =  addFireRange.ToString(); 
+            fireRangeText.text = addFireRange.ToString();
         }
         else if (addFireRange == 0)
         {
-            fireRangeText.text =  addFireRange.ToString(); 
+            fireRangeText.text = addFireRange.ToString();
         }
         else
         {
-            fireRangeText.text = "+" + addFireRange.ToString(); 
+            fireRangeText.text = "+" + addFireRange.ToString();
         }
-        
-        
+
+
     }
 
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,49 +44,67 @@ public class FireRangeRed : MonoBehaviour
             addFireRange++;
             if (addFireRange < 0)
             {
-                fireRangeText.text =   addFireRange.ToString(); 
-                
+                fireRangeText.text = addFireRange.ToString();
+
             }
             else if (addFireRange == 0)
             {
-                fireRangeText.text =  addFireRange.ToString(); 
+                fireRangeText.text = addFireRange.ToString();
                 myRenderer.material = greenMaterial;
             }
-            
-            else if(addFireRange>0)
+
+            else if (addFireRange > 0)
             {
-                
-                fireRangeText.text = "+" + addFireRange.ToString(); 
+
+                fireRangeText.text = "+" + addFireRange.ToString();
             }
-            
-            
-            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+
+
+            CreateParticle.Create(transform.position);
             waterParticle.Play();
             TextScaleUpAnim.TextScaleUp(fireRangeText);
             Destroy(other.gameObject);
-            
+
         }
 
         if (other.CompareTag("Bomb"))
         {
-            if(addFireRange !=0 && !LensWaitTime.lensW.lensActive)
+            if (addFireRange != 0 && !LensWaitTime.lensW.lensActive)
             {
                 LensWaitTime.lensW.lensActive = true;
                 waterParticle.Stop();
-                int clampedValue = Mathf.Clamp(70+addFireRange*10,minRange,maxRange);
+                int clampedValue = Mathf.Clamp(70 + addFireRange * 10, minRange, maxRange);
                 MiniBompManager.miniBompManager.range = clampedValue;
-                
-                
+
+
             }
-            else if (addFireRange== 0)
+            else if (addFireRange == 0)
             {
                 waterParticle.Stop();
-                
+
             }
+
             LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
             gameObject.SetActive(false);
-            
+
         }
     }
-    
+
+    private void Update()
+    {
+
+        if (savedLens)
+        {
+            CreateParticle.GetLensPosition(transform.position);
+            StartCoroutine(SavedLens());
+        }
+
+    }
+
+    private IEnumerator SavedLens()
+    {
+        yield return new WaitForSeconds(1f);
+        savedLens = false;
+
+    }
 }

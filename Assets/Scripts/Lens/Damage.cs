@@ -9,8 +9,10 @@ using DG.Tweening;
 public class Damage : MonoBehaviour
 {
     public static Damage damage;
+
     public int addKiloTon;
-   // private int downKiloTon;
+
+    // private int downKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private ParticleSystem waterParticle;
     [SerializeField] private Transform particleTransform;
@@ -21,23 +23,23 @@ public class Damage : MonoBehaviour
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
     public bool damageLens;
-
+    private bool savedLens = false;
 
     private void Awake()
     {
-        damage = damage== null ? this : damage;
+        damage = damage == null ? this : damage;
         damageLens = false;
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
-        
-        
+
+
     }
 
     private void Start()
     {
-        damageText.text =  addKiloTon.ToString();
-       // downKiloTon = GetComponent<DamageDown>().addKiloTon;
+        damageText.text = addKiloTon.ToString();
+        // downKiloTon = GetComponent<DamageDown>().addKiloTon;
     }
 
 
@@ -50,75 +52,76 @@ public class Damage : MonoBehaviour
                 addKiloTon++;
                 if (addKiloTon == 0)
                 {
-                    damageText.text =  addKiloTon.ToString(); 
-                
+                    damageText.text = addKiloTon.ToString();
+
                 }
                 else
                 {
-                    damageText.text = "+" + addKiloTon.ToString(); 
-                
+                    damageText.text = "+" + addKiloTon.ToString();
+
                 }
-            
+
                 TextScaleUpAnim.TextScaleUp(damageText);
-                Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
-                waterParticle.Play();
+                CreateParticle.Create(transform.position);
+                //waterParticle.Play();
                 Destroy(other.gameObject);
             }
-            
+
         }
 
         if (other.CompareTag("Bomb"))
         {
 
-            if ( !LensWaitTime.lensW.lensActive)
+            if (!LensWaitTime.lensW.lensActive)
             {
                 damageLens = true;
-                LensWaitTime.lensW.lensActive= true;
+                LensWaitTime.lensW.lensActive = true;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 other.GetComponent<KiloTonCalculate>().Calculate();
-               
-                
-                    Debug.Log("kiloton");
 
-                
-                if (addKiloTon >=50 )
+
+                Debug.Log("kiloton");
+
+
+                if (addKiloTon >= 50)
                 {
-                    
+
                     if (headObjectLevel.damageLevel < 7)
                     {
                         headObjectLevel.damageLevel += 1;
                         headObjectLevel.SetFalse2();
                         headObjectLevel.SetTrue2();
                     }
+
                     if (bodyObjectLevel.damageLevel < 7)
                     {
                         bodyObjectLevel.damageLevel += 1;
                         bodyObjectLevel.SetFalse2();
                         bodyObjectLevel.SetTrue2();
                     }
+
                     if (motorObjectLevel.damageLevel < 7)
                     {
                         motorObjectLevel.damageLevel += 1;
                         motorObjectLevel.SetFalse2();
                         motorObjectLevel.SetTrue2();
                     }
+
                     other.transform.DOScale(Vector3.one * targetScale, 0.5f)
                         .SetEase(Ease.Linear)
                         .OnComplete(() =>
                         {
-
                             other.transform.DOScale(Vector3.one * initialScale, duration)
                                 .SetEase(Ease.OutBounce);
-
                         });
                 }
 
-                
-               
+
+
                 gameObject.SetActive(false);
             }
-            
-              
+
+
 
 
         }
@@ -126,16 +129,21 @@ public class Damage : MonoBehaviour
 
     }
 
+    private void Update()
+    {
 
-   
+        if (savedLens)
+        {
+            CreateParticle.GetLensPosition(transform.position);
+            StartCoroutine(SavedLens());
+        }
 
-    // private void Update()
-    // {
-    //     Debug.Log("downkiloTon" + downKiloTon);
-    //     if (downKiloTon ==0)
-    //     {
-    //         enabled = true;
-    //     }
-    // }
+    }
+
+    private IEnumerator SavedLens()
+    {
+        yield return new WaitForSeconds(1f);
+        savedLens = false;
+
+    }
 }
-

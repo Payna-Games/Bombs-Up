@@ -17,6 +17,7 @@ public class CreateParticle : MonoBehaviour
      CreateParticle createParticle = particleTransform.GetComponent<CreateParticle>();
 
      createParticle.particleTransformm = particleTransform.transform;
+     
      return createParticle;
      }
 
@@ -36,7 +37,7 @@ public class CreateParticle : MonoBehaviour
          {
 
 
-             particleTransformm.position = savedLensPosition;
+             particleTransformm.position = CreateParticle.savedLensPosition;
          }
      }
 }

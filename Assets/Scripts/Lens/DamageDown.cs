@@ -22,6 +22,7 @@ public class DamageDown : MonoBehaviour
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
     private Damage damage;
+    private bool savedLens = false;
 
     private void Awake()
     {
@@ -61,7 +62,7 @@ public class DamageDown : MonoBehaviour
             }
             
             TextScaleUpAnim.TextScaleUp(damageText);
-            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
+            CreateParticle.Create(transform.position);
             waterParticle.Play();
             Destroy(other.gameObject);
         }
@@ -119,13 +120,24 @@ public class DamageDown : MonoBehaviour
     }
    
     private void Update()
-    {
+     {
         if (addKiloTon == 0)
-        {
-            enabled =false;
-            damage.enabled = true;
-
+         {
+          enabled =false;
+             damage.enabled = true;
+    
         }
+        if (savedLens)
+        {
+            CreateParticle.GetLensPosition(transform.position);
+            StartCoroutine(SavedLens());
+        }
+     }
+    private IEnumerator SavedLens()
+    {
+        yield return new WaitForSeconds(1f);
+        savedLens = false;
+
     }
 }
 
