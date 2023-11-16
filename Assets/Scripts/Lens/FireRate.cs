@@ -48,6 +48,7 @@ public class FireRate : MonoBehaviour
             Destroy(other.gameObject);
             //ParticleSystem newParticle = Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
             CreateParticle.Create(transform.position);
+            
             waterParticle.Play();
             TextScaleUpAnim.TextScaleUp(fireRateText);
             
@@ -71,5 +72,12 @@ public class FireRate : MonoBehaviour
     private void Update()
     {
         waterParticle.transform.position = transform.position;
+        CreateParticle.GetLensPosition(transform.position);
     }
+
+    private Vector3 LensPosition()
+    {
+        return transform.position;
+    }
+    
 }

@@ -6,6 +6,7 @@ public class CreateParticle : MonoBehaviour
 {
     public static ParticleSystem particlePrefab;
     private Transform particleTransformm;
+    public  static Vector3 savedLensPosition;
 
     
 
@@ -15,14 +16,28 @@ public class CreateParticle : MonoBehaviour
     
      CreateParticle createParticle = particleTransform.GetComponent<CreateParticle>();
 
-     createParticle.particleTransformm.position = lensTransform;
+     createParticle.particleTransformm = particleTransform.transform;
      return createParticle;
      }
 
+
+      public static void GetLensPosition(Vector3 lensTransform)
+      {
+          savedLensPosition = lensTransform;
+          
+      }
+
+      
+
      
-    // void Update()
-    // {
-    //     transform.position = .position;
-    // }
+     void Update()
+     {
+         if (particleTransformm != null)
+         {
+
+
+             particleTransformm.position = savedLensPosition;
+         }
+     }
 }
     
