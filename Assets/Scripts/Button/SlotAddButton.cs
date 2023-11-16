@@ -97,17 +97,17 @@ public class SlotAddButton : MonoBehaviour
         itemType.GetComponent<DragAndDrop>().prevGrid = item;        
         itemType.transform.position = item.transform.position;
         item.GetComponent<GridObjectSave>().SaveGridObj();
-        StartCoroutine(SecondLevel(itemType));
+        //StartCoroutine(SecondLevel(itemType));
     }
 
-    IEnumerator SecondLevel(GameObject itemType)
-    {
-        yield return new WaitForSeconds(0.0f);
-        if (SceneManager.GetActiveScene().buildIndex >= 4)
-        {
-            itemType.GetComponent<ObjectLevel>().LevelUp();
-            itemType.GetComponent<ObjectLevel>().SetFalse();
-            itemType.GetComponent<ObjectLevel>().SetTrue();
-        }
-    }
+    //IEnumerator SecondLevel(GameObject itemType)
+    //{
+    //    yield return new WaitForSeconds(0.0f);
+    //    if (SceneManager.GetActiveScene().buildIndex >= 4)
+    //    {
+    //        itemType.GetComponent<ObjectLevel>().LevelUp();
+    //        itemType.GetComponent<ObjectLevel>().SetFalse();
+    //        itemType.GetComponent<ObjectLevel>().SetTrue();
+    //    }
+    //}
 }
