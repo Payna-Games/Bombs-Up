@@ -70,6 +70,7 @@ public class Damage : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
+            
 
             if (!LensWaitTime.lensW.lensActive)
             {

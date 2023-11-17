@@ -35,7 +35,7 @@ public class ChangeLevel : MonoBehaviour
                 return i;
             }
         }
-        return -1; // Child obje parent objenin altýndaysa bulunamazsa -1 döner.
+        return -1; // Child obje parent objenin altï¿½ndaysa bulunamazsa -1 dï¿½ner.
     }
     public void SetFalse()
     {
@@ -53,5 +53,10 @@ public class ChangeLevel : MonoBehaviour
     public void SetTrue(int objectLevel)
     {
         transform.GetChild(objectLevel).gameObject.SetActive(true);
+        if (transform.GetChild(objectLevel).childCount > 0)
+        {
+            transform.GetChild(objectLevel).GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(objectLevel).GetChild(0).GetChild(0).gameObject.SetActive(true);
+        }
     }
 }

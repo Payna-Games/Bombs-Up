@@ -69,6 +69,7 @@ public class FireRangeRed : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
+           
             if (addFireRange != 0 && !LensWaitTime.lensW.lensActive)
             {
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);

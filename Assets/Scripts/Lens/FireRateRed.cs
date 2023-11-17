@@ -8,7 +8,6 @@ public class FireRateRed : MonoBehaviour
 {
     [SerializeField] private int addFireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
-    [SerializeField] private ParticleSystem waterParticle;
     [SerializeField] private Transform particleTransform;
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;
@@ -69,22 +68,18 @@ public class FireRateRed : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
-            if (addFireRate != 0 && !!LensWaitTime.lensW.lensActive)
+            
+            if (addFireRate != 0 && !LensWaitTime.lensW.lensActive)
             {
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 LensWaitTime.lensW.lensActive = true;
-                waterParticle.Stop();
                 float clampedValue = Mathf.Clamp(1 - addFireRate / 50f, 0.2f, 1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
 
 
 
             }
-            else if (addFireRate == 0)
-            {
-                waterParticle.Stop();
-
-            }
+            
 
             LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
             gameObject.SetActive(false);

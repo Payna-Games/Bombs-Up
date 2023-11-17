@@ -46,7 +46,7 @@ public class FireRate : MonoBehaviour
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
             
-             CreateParticle.Create(transform.position);
+            CreateParticle.Create(transform.position);
             savedLens = true;
            
             
@@ -57,6 +57,7 @@ public class FireRate : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
+           
             if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
             {
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);

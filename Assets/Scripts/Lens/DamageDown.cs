@@ -68,6 +68,7 @@ public class DamageDown : MonoBehaviour
 
         if ( other.CompareTag("Bomb") )
         {
+           
             if (!LensWaitTime.lensW.lensActive)
             {
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);
