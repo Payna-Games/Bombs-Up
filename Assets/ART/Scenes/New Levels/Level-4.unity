@@ -3445,7 +3445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6333403, y: 0.13559619, z: 0.11399935, w: 0.75332457}
+  m_LocalRotation: {x: -0.6333403, y: 0.13559619, z: 0.11399936, w: 0.75332457}
   m_LocalPosition: {x: -45.7, y: -714.84, z: -100.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15690,6 +15690,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &332302051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8727845112246816075, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
+  m_PrefabInstance: {fileID: 3351057980490410394}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &332302056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332302051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfe1ef95aa55774aaa12fdfdb598c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KiloTon: 0
 --- !u!1 &334022728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7923395174449046814, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -49647,9 +49665,9 @@ RectTransform:
   - {fileID: 1161463864}
   - {fileID: 903140099}
   - {fileID: 5863046060515298507}
+  - {fileID: 1341308580}
   - {fileID: 1447902292}
   - {fileID: 478391054}
-  - {fileID: 1341308580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -74799,6 +74817,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1173069215}
     m_Modifications:
+    - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50.041965
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 109.45679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50.041965
+      objectReference: {fileID: 0}
     - target: {fileID: 4528274888424440738, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: starCalculate
       value: 
@@ -105346,6 +105376,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4642522797598380292, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8727845112246816075, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 332302056}
   m_SourcePrefab: {fileID: 100100000, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
 --- !u!114 &3351057980490410395 stripped
 MonoBehaviour:

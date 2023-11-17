@@ -6,26 +6,59 @@ public class CityExplodeParticle : MonoBehaviour
 {
     [SerializeField] private Transform[] cityParticleTransform;
     private int randomPrefab;
+    private int index;
     List<int> availablePositions = new List<int>();
     List<int> availablePref = new List<int>();
+    private bool firstTime;
      
     private void Start()
     {
-        FillAvailablePositions();
+        firstTime = true;
     }
     private void FillAvailablePositions()
     {
-        for (int i = 0; i < 32; i++)
+        for (int i = 0; i < index; i++)
         {
             availablePositions.Add(i);
         }
     }
+   
+    
+    
     public void CreateCityParticle()
     {
         
-        for (int i = 0; i < 9; i++)
+        if (KiloTonCalculate.kiloTonCalculate.KiloTon >= 100 && KiloTonCalculate.kiloTonCalculate.KiloTon < 200)
         {
-            StartCoroutine(ParticleBombTime());
+            index = 8;
+            
+        }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=200 && KiloTonCalculate.kiloTonCalculate.KiloTon < 300)
+        {
+            index = 16;
+            
+        }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=300 && KiloTonCalculate.kiloTonCalculate.KiloTon < 400)
+        {
+            index = 24;
+        }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=400 )
+        {
+            index = 32;
+        }
+        FillAvailablePositions();
+        for (int i = 0; i < index; i++)
+        {
+            if (firstTime)
+            {
+                Inst();
+                firstTime = false;
+            }
+            else if(!firstTime)
+            {
+                StartCoroutine(ParticleBombTime());
+            }
+            
         }
         
 
@@ -56,13 +89,5 @@ public class CityExplodeParticle : MonoBehaviour
     }
 
 
-    // private int RandomPrefab()
-    // {
-    //     for (int i = 0; i < 4; i++)
-    //     {
-    //         availablePref.Add(i);
-    //         int randomPrefab = Random.Range(0, availablePref.Count);
-    //         return randomPrefab;
-    //     }
-    // }
+ 
 }

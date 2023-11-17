@@ -60,7 +60,7 @@ public class FireRate : MonoBehaviour
             if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
             {
                 LensWaitTime.lensW.lensActive = true;
-                float clampedValue = Mathf.Clamp(1-addFireRateText/50f,0.2f,1.5f);
+                float clampedValue = Mathf.Clamp(1-addFireRateText/25f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 savedLens = false;

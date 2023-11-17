@@ -17,6 +17,8 @@ public class AddBomb : MonoBehaviour
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
+
+    public bool addBombLens;
      private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("MiniBomb"))
@@ -48,10 +50,13 @@ public class AddBomb : MonoBehaviour
                                 .SetEase(Ease.InBounce);
 
                         });
-                        clone.transform.GetComponent<KiloTonCalculate>().Calculate();
+                       // clone.transform.GetChild(0).GetComponent<KiloTonCalculate>().Calculate();
+                       addBombLens = true;
                         break;
                     }
                 }
+
+           
             gameObject.SetActive(false);
         }
         else if((other.CompareTag("Bomb")&& fillAmountValue !=1 ))
