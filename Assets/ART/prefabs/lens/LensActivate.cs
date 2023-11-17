@@ -1,0 +1,25 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LensActivate : MonoBehaviour
+{
+    private void Start()
+    {
+        ClickCount.FireColor += LensActive;
+    }
+
+    private void LensActive()
+    {
+        StartCoroutine(LensActiveTime());
+        
+    }
+
+    private IEnumerator LensActiveTime()
+    {
+        yield return new WaitForSeconds(3);
+        transform.GetChild(0).gameObject.SetActive(true);
+        
+    }
+}

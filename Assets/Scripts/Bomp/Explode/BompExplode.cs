@@ -28,7 +28,7 @@ public class BompExplode : ExplodeCalculate
             explode?.Invoke(collision.gameObject);
             transform.GetComponent<Rigidbody>().drag = 1f;
             Explode();
-            cityExplodeParticle.CreateCityParticle();
+            cityExplodeParticle?.CreateCityParticle();
             StartCoroutine(Wait3());
             hasCollided = true;
             cameraVibration.StartVibration();
