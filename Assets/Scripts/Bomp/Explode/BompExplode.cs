@@ -6,6 +6,7 @@ using Vector3 = System.Numerics.Vector3;
 
 public class BompExplode : ExplodeCalculate
 {
+    [SerializeField] private CityExplodeParticle cityExplodeParticle;
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
     public event Action explodeBefor;
@@ -27,6 +28,7 @@ public class BompExplode : ExplodeCalculate
             explode?.Invoke(collision.gameObject);
             transform.GetComponent<Rigidbody>().drag = 1f;
             Explode();
+            cityExplodeParticle.CreateCityParticle();
             StartCoroutine(Wait3());
             hasCollided = true;
             cameraVibration.StartVibration();

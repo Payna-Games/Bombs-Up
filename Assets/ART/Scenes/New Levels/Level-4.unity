@@ -88172,6 +88172,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1778082649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3453600550515393218, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+  m_PrefabInstance: {fileID: 206564966591676859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d904cc68b46fe408cf0088be3f4576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1780590834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4409207916101210947, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -104957,6 +104968,63 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &206564966591676859
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5835639316609508195, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_Name
+      value: CityExplodeParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 135e439ef9e20c541b46939869be99df, type: 3}
 --- !u!1 &505778982267916841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4036191774711741303, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
@@ -105149,6 +105217,10 @@ PrefabInstance:
       propertyPath: cameraVibration
       value: 
       objectReference: {fileID: 72404771}
+    - target: {fileID: 5050254692018465388, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
+      propertyPath: cityExplodeParticle
+      value: 
+      objectReference: {fileID: 1778082649}
     - target: {fileID: 5891232843067025583, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
       propertyPath: m_Range
       value: 10
@@ -105508,3 +105580,4 @@ SceneRoots:
   - {fileID: 1193328010}
   - {fileID: 1324470852}
   - {fileID: 930037671}
+  - {fileID: 206564966591676859}
