@@ -51,7 +51,11 @@ public class CityExplodeParticle : MonoBehaviour
         {
             if (firstTime)
             {
-                Inst();
+                for (int a = 0; a < 4; a++)
+                {
+                    Inst();
+                }
+                
                 firstTime = false;
             }
             else if(!firstTime)
