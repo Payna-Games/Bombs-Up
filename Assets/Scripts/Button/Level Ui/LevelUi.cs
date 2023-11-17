@@ -22,8 +22,7 @@ public class LevelUi : MonoBehaviour
 
         else
         {
-            string[] parts = SceneManager.GetActiveScene().name.Split('-');
-            GetComponent<TextMeshProUGUI>().text = "Lvl " + parts[1];
+            GetComponent<TextMeshProUGUI>().text = "Lvl " + PlayerPrefs.GetInt("LevelCount");
             PlayerPrefs.SetInt(transform.name, SceneManager.GetActiveScene().buildIndex);
         }
     }
