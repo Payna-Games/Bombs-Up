@@ -3445,7 +3445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.60621274, y: 0.09764876, z: 0.07534348, w: 0.7856808}
+  m_LocalRotation: {x: -0.60621274, y: 0.09764864, z: 0.07534339, w: 0.7856808}
   m_LocalPosition: {x: -49.7, y: -700, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5792,6 +5792,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
+--- !u!1001 &130136677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5835639316609508195, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_Name
+      value: CityExplodeParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560680373267434441, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 135e439ef9e20c541b46939869be99df, type: 3}
 --- !u!1 &130161427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -36427,6 +36484,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
+--- !u!114 &808577514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3453600550515393218, guid: 135e439ef9e20c541b46939869be99df, type: 3}
+  m_PrefabInstance: {fileID: 130136677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d904cc68b46fe408cf0088be3f4576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &808780224 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -106837,6 +106905,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 72404771}
     - target: {fileID: 5050254692018465388, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
+      propertyPath: cityExplodeParticle
+      value: 
+      objectReference: {fileID: 808577514}
+    - target: {fileID: 5050254692018465388, guid: 3945317485bf39143a99420db1f2d5f0, type: 3}
       propertyPath: ActiveObject.Array.data[0]
       value: 
       objectReference: {fileID: 676532552}
@@ -107285,3 +107357,4 @@ SceneRoots:
   - {fileID: 360626201}
   - {fileID: 912877063}
   - {fileID: 481081109}
+  - {fileID: 130136677}
