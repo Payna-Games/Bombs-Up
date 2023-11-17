@@ -8,9 +8,7 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
-    [SerializeField] private Transform particles;
-        [SerializeField] private Transform particleTransform;
-    //[SerializeField] private int fireRate;
+    [SerializeField] private Transform particleTransform;
     [SerializeField] private TextMeshProUGUI fireRateText;
     private bool savedLens = false;
     
