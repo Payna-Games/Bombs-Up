@@ -46,8 +46,9 @@ public class FireRate : MonoBehaviour
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
             
-            savedLens = true;
             CreateParticle.Create(transform.position);
+            savedLens = true;
+           
             
             TextScaleUpAnim.TextScaleUp(fireRateText);
             Destroy(other.gameObject);
@@ -74,7 +75,7 @@ public class FireRate : MonoBehaviour
     private void Update()
     {
         
-        if (savedLens)
+        if (savedLens )
         {
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
@@ -84,9 +85,9 @@ public class FireRate : MonoBehaviour
 
     private IEnumerator SavedLens()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
         savedLens = false;
-
+    
     }
 
     
