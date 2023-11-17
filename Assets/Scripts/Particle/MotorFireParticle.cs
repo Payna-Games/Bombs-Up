@@ -30,7 +30,7 @@ public class MotorFireParticle : MonoBehaviour
      private void Start()
      {
     
-         ClickCount.FireColor += BombFire;
+         ClickCount.clickCount.FireColor+= BombFire;
      }
     
      private void BombFire()

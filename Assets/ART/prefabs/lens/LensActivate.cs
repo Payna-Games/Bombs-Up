@@ -7,10 +7,10 @@ public class LensActivate : MonoBehaviour
 {
     private void Start()
     {
-        ClickCount.FireColor += LensActive;
+        ClickCount.clickCount.FireColor += LensActive;
     }
 
-    private void LensActive()
+    public void LensActive()
     {
         StartCoroutine(LensActiveTime());
         

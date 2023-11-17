@@ -71,7 +71,10 @@ public class DamageDown : MonoBehaviour
            
             if (!LensWaitTime.lensW.lensActive)
             {
-                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                if (savedLens)
+                {
+                    CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                }
                 LensWaitTime.lensW.lensActive= true;
                 if (headObjectLevell.damageLevel >0)
                 {

@@ -72,7 +72,10 @@ public class FireRangeRed : MonoBehaviour
            
             if (addFireRange != 0 && !LensWaitTime.lensW.lensActive)
             {
-                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                if (savedLens)
+                {
+                    CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                }
                 LensWaitTime.lensW.lensActive = true;
                 waterParticle.Stop();
                 int clampedValue = Mathf.Clamp(70 + addFireRange * 10, minRange, maxRange);

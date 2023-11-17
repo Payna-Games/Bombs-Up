@@ -74,7 +74,10 @@ public class Damage : MonoBehaviour
 
             if (!LensWaitTime.lensW.lensActive)
             {
-                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                if (savedLens)
+                {
+                    CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                }
                 damageLens = true;
                 LensWaitTime.lensW.lensActive = true;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());

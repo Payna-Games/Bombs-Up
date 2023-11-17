@@ -58,7 +58,11 @@ public class FireRate : MonoBehaviour
            
             if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
             {
-                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                
+                if (savedLens)
+                {
+                    CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                }
                 LensWaitTime.lensW.lensActive = true;
                 float clampedValue = Mathf.Clamp(1-addFireRateText/25f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;

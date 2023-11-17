@@ -36,7 +36,10 @@ public class AddBomb : MonoBehaviour
         if ((other.CompareTag("Bomb") && rocketImage.fillAmount == 1))
         {
 
-            CreateParticle.ParticleTransform.gameObject.SetActive(false);
+            if (savedLens)
+            {
+                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+            }
             for (int i = 0; i < other.transform.GetChild(4).childCount; i++)
             {
                 if (!other.transform.GetChild(4).GetChild(i).gameObject.activeSelf)

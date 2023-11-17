@@ -7,7 +7,7 @@ public class ClickCount : MonoBehaviour
 {
     public static ClickCount clickCount;
     public int goClickCount;
-    public static event Action FireColor;
+    public event Action FireColor;
    
 
     private void Awake()
