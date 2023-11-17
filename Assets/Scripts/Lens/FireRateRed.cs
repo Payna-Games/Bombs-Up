@@ -61,7 +61,7 @@ public class FireRateRed : MonoBehaviour
 
 
             CreateParticle.Create(transform.position);
-            waterParticle.Play();
+            savedLens = true;
             Destroy(other.gameObject);
             TextScaleUpAnim.TextScaleUp(fireRateText);
 
@@ -71,6 +71,7 @@ public class FireRateRed : MonoBehaviour
         {
             if (addFireRate != 0 && !!LensWaitTime.lensW.lensActive)
             {
+                CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 LensWaitTime.lensW.lensActive = true;
                 waterParticle.Stop();
                 float clampedValue = Mathf.Clamp(1 - addFireRate / 50f, 0.2f, 1.5f);

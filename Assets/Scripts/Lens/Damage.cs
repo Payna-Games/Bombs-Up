@@ -61,9 +61,8 @@ public class Damage : MonoBehaviour
 
                 }
 
-                TextScaleUpAnim.TextScaleUp(damageText);
                 CreateParticle.Create(transform.position);
-                //waterParticle.Play();
+                savedLens = true;
                 Destroy(other.gameObject);
             }
 
@@ -74,6 +73,7 @@ public class Damage : MonoBehaviour
 
             if (!LensWaitTime.lensW.lensActive)
             {
+                CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 damageLens = true;
                 LensWaitTime.lensW.lensActive = true;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
@@ -117,7 +117,7 @@ public class Damage : MonoBehaviour
                 }
 
 
-
+                
                 gameObject.SetActive(false);
             }
 

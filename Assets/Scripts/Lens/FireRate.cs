@@ -8,7 +8,7 @@ using TMPro;
 public class FireRate : MonoBehaviour
 {
     [SerializeField] private int addFireRateText;
-        
+    [SerializeField] private Transform particles;
         [SerializeField] private Transform particleTransform;
     //[SerializeField] private int fireRate;
     [SerializeField] private TextMeshProUGUI fireRateText;
@@ -46,7 +46,7 @@ public class FireRate : MonoBehaviour
                 fireRateText.text = "+" + addFireRateText.ToString();
             }
             
-            CreateParticle.Create(transform.position);
+             CreateParticle.Create(transform.position);
             savedLens = true;
            
             
@@ -59,6 +59,7 @@ public class FireRate : MonoBehaviour
         {
             if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
             {
+                CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 LensWaitTime.lensW.lensActive = true;
                 float clampedValue = Mathf.Clamp(1-addFireRateText/25f,0.2f,1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;

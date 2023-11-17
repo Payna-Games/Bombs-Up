@@ -45,8 +45,8 @@ public class FireRange : MonoBehaviour
                 TextScaleUpAnim.TextScaleUp(fireRangeText);
             }
 
-            savedLens = true;
             CreateParticle.Create(transform.position);
+            savedLens = true;
             Destroy(other.gameObject);
             
         }
@@ -55,6 +55,7 @@ public class FireRange : MonoBehaviour
         {
             if(addFireRange !=0 &&  !LensWaitTime.lensW.lensActive)
             {
+                CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 LensWaitTime.lensW.lensActive = true;
                 waterParticle.Stop();
                 MiniBompManager.miniBompManager.range += addFireRange*10;

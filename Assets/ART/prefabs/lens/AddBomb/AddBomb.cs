@@ -17,7 +17,7 @@ public class AddBomb : MonoBehaviour
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
-
+    private bool savedLens = false;
     public bool addBombLens;
      private void OnTriggerEnter(Collider other)
     {
@@ -27,8 +27,8 @@ public class AddBomb : MonoBehaviour
             rocketImage.fillAmount += fillAmountValue;
             
             
-            Instantiate(waterParticle, particleTransform.position, Quaternion.identity);
-            waterParticle.Play();
+            CreateParticle.Create(transform.position);
+            savedLens = true;
             Destroy(other.gameObject);
             
         }
@@ -36,7 +36,7 @@ public class AddBomb : MonoBehaviour
         if ((other.CompareTag("Bomb")&& rocketImage.fillAmount ==1 ))
         {
 
-           
+            CreateParticle.ParticleTransform.gameObject.SetActive(false);
             for (int i = 0; i < other.transform.GetChild(4).childCount; i++)
                 {
                     if (!other.transform.GetChild(4).GetChild(i).gameObject.activeSelf)
@@ -67,12 +67,22 @@ public class AddBomb : MonoBehaviour
         }
     }
      
-    // private IEnumerator CloseLensAnim()
-    // {
-    //     yield return new WaitForSeconds(0.3f); 
-    //     gameObject.SetActive(false);
-    //     
-    // }
+     private void Update()
+     {
+        
+         if (savedLens )
+         {
+             CreateParticle.GetLensPosition(transform.position);
+             StartCoroutine(SavedLens());
+         }
+       
+     }
 
+     private IEnumerator SavedLens()
+     {
+         yield return new WaitForSeconds(2.5f);
+         savedLens = false;
+    
+     }
     
 }

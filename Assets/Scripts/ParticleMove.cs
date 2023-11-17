@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class CreateParticle : MonoBehaviour
 {
-    public static ParticleSystem particlePrefab;
+    public static ParticleSystem ParticleTransform;
     private Transform particleTransformm;
     public  static Vector3 savedLensPosition;
 
     
 
       public static CreateParticle Create(Vector3 lensTransform)
-     {
-     ParticleSystem particleTransform = Instantiate( GameAssets.i.effects[0], lensTransform, Quaternion.identity);
+     { 
+         ParticleTransform = Instantiate( GameAssets.i.effects[0], lensTransform, Quaternion.identity);
     
-     CreateParticle createParticle = particleTransform.GetComponent<CreateParticle>();
+     CreateParticle createParticle =  ParticleTransform.GetComponent<CreateParticle>();
 
-     createParticle.particleTransformm = particleTransform.transform;
+     createParticle.particleTransformm =  ParticleTransform.transform;
      
      return createParticle;
      }
