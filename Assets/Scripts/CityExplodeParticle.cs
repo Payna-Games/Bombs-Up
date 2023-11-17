@@ -58,10 +58,13 @@ public class CityExplodeParticle : MonoBehaviour
                 
                 firstTime = false;
             }
-            else if(!firstTime)
+
+            if (!firstTime)
             {
                 StartCoroutine(ParticleBombTime());
             }
+               
+            
             
         }
         
