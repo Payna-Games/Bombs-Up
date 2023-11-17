@@ -3445,7 +3445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6060476, y: 0.09766454, z: 0.0753229, w: 0.7858082}
+  m_LocalRotation: {x: -0.6060476, y: 0.09766466, z: 0.07532299, w: 0.7858082}
   m_LocalPosition: {x: -49.7, y: -700, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -45073,6 +45073,22 @@ PrefabInstance:
     - target: {fileID: 2637911069184408431, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
       propertyPath: m_Name
       value: SellCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484862121131130945, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 6484862121131130945, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 6484862121131130945, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484862121131130945, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointEnter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
