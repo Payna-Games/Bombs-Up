@@ -11,6 +11,8 @@ public class Drop : MonoBehaviour
 
     public event Action windPlay;
 
+    public List<GameObject> Lens;
+
     public List<GameObject> arrow;
     private Rigidbody rb;
     private CinemachineVirtualCamera camera;
@@ -34,6 +36,7 @@ public class Drop : MonoBehaviour
         {
             transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
                 {
+                    LensActive();
                     windPlay?.Invoke();
                     foreach (GameObject item in arrow)
                         item.SetActive(true);
@@ -44,6 +47,15 @@ public class Drop : MonoBehaviour
                 });
         });
     }
+
+    private void LensActive()
+    {
+        for (int i = 0; i < Lens.Count; i++)
+        {
+            Lens[i].SetActive(true);
+        }
+    }
+
     private IEnumerator MoveCamera()
     {
         for (int i = 0; i < 100; i++)
