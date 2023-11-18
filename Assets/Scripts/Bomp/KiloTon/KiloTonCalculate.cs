@@ -17,6 +17,10 @@ public class KiloTonCalculate : MonoBehaviour
     {
         Calculate();
     }
+    private void OnEnable()
+    {
+        Calculate();
+    }
 
     public void Calculate()
     {

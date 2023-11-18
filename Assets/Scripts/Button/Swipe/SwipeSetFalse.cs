@@ -18,8 +18,13 @@ public class SwipeSetFalse : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
+                KiloTonCalculate.kiloTonCalculate.gameObject.GetComponent<BombLeftRight>().bombSpeed = 35;
                 gameObject.SetActive(false);
             }
+        }
+        else
+        {
+            KiloTonCalculate.kiloTonCalculate.gameObject.GetComponent<BombLeftRight>().bombSpeed = 15;
         }
     }
 }
