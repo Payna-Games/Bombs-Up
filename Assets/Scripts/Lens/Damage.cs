@@ -88,7 +88,7 @@ public class Damage : MonoBehaviour
                 
 
 
-                if (addKiloTon >= 50)
+                if (addKiloTon >= 30)
                 {
 
                     if (headObjectLevel.damageLevel < 7)
