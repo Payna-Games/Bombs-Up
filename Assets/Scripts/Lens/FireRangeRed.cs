@@ -8,7 +8,7 @@ public class FireRangeRed : MonoBehaviour
 {
     [SerializeField] private int addFireRange;
     [SerializeField] private TextMeshProUGUI fireRangeText;
-    [SerializeField] private ParticleSystem waterParticle;
+    
     [SerializeField] private Transform particleTransform;
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;
@@ -77,17 +77,13 @@ public class FireRangeRed : MonoBehaviour
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
                 LensWaitTime.lensW.lensActive = true;
-                waterParticle.Stop();
+                
                 int clampedValue = Mathf.Clamp(70 + addFireRange * 10, minRange, maxRange);
                 MiniBompManager.miniBompManager.range = clampedValue;
 
 
             }
-            else if (addFireRange == 0)
-            {
-                waterParticle.Stop();
-
-            }
+           
 
             LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
             gameObject.SetActive(false);

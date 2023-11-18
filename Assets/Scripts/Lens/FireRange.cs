@@ -9,7 +9,6 @@ public class FireRange : MonoBehaviour
 {
     [SerializeField] private int addFireRange;
     [SerializeField] private TextMeshProUGUI fireRangeText;
-    [SerializeField] private ParticleSystem waterParticle;
     [SerializeField] private Transform particleTransform;
     private bool savedLens = false;
     
@@ -56,9 +55,12 @@ public class FireRange : MonoBehaviour
             
             if(addFireRange !=0 &&  !LensWaitTime.lensW.lensActive)
             {
-                CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                if (savedLens)
+                {
+                    CreateParticle.ParticleTransform.gameObject.SetActive(false);
+                }
                 LensWaitTime.lensW.lensActive = true;
-                waterParticle.Stop();
+               
                 MiniBompManager.miniBompManager.range += addFireRange*10;
                 
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());

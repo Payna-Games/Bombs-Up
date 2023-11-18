@@ -11,7 +11,7 @@ public class DamageDown : MonoBehaviour
     
     public int addKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
-    [SerializeField] private ParticleSystem waterParticle;
+   
     [SerializeField] private Transform particleTransform;
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;

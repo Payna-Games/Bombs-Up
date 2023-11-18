@@ -9,7 +9,7 @@ using DG.Tweening;
 public class AddBomb : MonoBehaviour
 {
 
-    [SerializeField] private ParticleSystem waterParticle;
+    
     [SerializeField] private Transform particleTransform;
 
     [SerializeField] private Image rocketImage;

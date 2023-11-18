@@ -14,8 +14,7 @@ public class Damage : MonoBehaviour
 
     // private int downKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
-    [SerializeField] private ParticleSystem waterParticle;
-    [SerializeField] private Transform particleTransform;
+    
     private ObjectLevel headObjectLevel;
     private ObjectLevel bodyObjectLevel;
     private ObjectLevel motorObjectLevel;
@@ -61,6 +60,7 @@ public class Damage : MonoBehaviour
 
                 }
 
+               TextScaleUpAnim.TextScaleUp(damageText);
                 CreateParticle.Create(transform.position);
                 savedLens = true;
                 Destroy(other.gameObject);
@@ -84,7 +84,7 @@ public class Damage : MonoBehaviour
                 other.GetComponent<KiloTonCalculate>().Calculate();
 
 
-                Debug.Log("kiloton");
+                
 
 
                 if (addKiloTon >= 50)
