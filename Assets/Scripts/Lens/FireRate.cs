@@ -66,11 +66,11 @@ public class FireRate : MonoBehaviour
                 }
                 LensWaitTime.lensW.lensActive = true;
                 
-
-                if (!fireRateStop)
-                {
-                    MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
-                }
+               
+                MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
+                
+               
+                
                  
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 savedLens = false;
@@ -90,11 +90,10 @@ public class FireRate : MonoBehaviour
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
         }
-        if(MiniBompManager.miniBompManager.spawnSpeed <=0.2f || MiniBompManager.miniBompManager.spawnSpeed >=1.5f )
-        {
-            fireRateStop = true;
-        }
-       
+
+        MiniBompManager.miniBompManager.spawnSpeed = Mathf.Clamp(MiniBompManager.miniBompManager.spawnSpeed, 0.2f, 1.5f);
+        
+
     }
 
     private IEnumerator SavedLens()
