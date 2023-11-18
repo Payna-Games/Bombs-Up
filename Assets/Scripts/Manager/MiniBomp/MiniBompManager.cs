@@ -20,7 +20,7 @@ public class MiniBompManager : MonoBehaviour
 
     private void Start()
     {
-        spawnSpeed = 0.75f;
+        spawnSpeed = 0.65f;
         speed = 80;
     }
 }

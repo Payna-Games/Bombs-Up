@@ -10,6 +10,7 @@ public class KTonText : MonoBehaviour
     private void Start()
     {
         KiloTonCalculate.kiloTonCalculate.kTon += KTonText_kTon;
+        
         // follwChange.changeCamera += SetFalse;
     }
 
@@ -21,6 +22,7 @@ public class KTonText : MonoBehaviour
     {
         //GetComponent<TextMeshProUGUI>().text = kTon.ToString();
         text.text = kTon.ToString();
+        TextScaleUpAnim.TextScaleUp(text);
     }
     private void SetFalse()
     {

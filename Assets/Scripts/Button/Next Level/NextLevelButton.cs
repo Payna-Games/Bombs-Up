@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -5,6 +6,13 @@ using UnityEngine;
 public class NextLevelButton : MonoBehaviour
 {
     [SerializeField]  private Transform moneyParticlePosition;
+    private bool clicked;
+
+    private void Start()
+    {
+        clicked = false;
+    }
+
     private IEnumerator NextLevelParticle()
     {
         
@@ -24,9 +32,17 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-        ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity);
-        moneyParticle.Play();
-        StartCoroutine(NextLevelParticle());
+       
+        if (!clicked)
+        {
+            ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity);
+            moneyParticle.Play();
+            clicked = true;
+            transform.GetChild(0).gameObject.SetActive(false);
+        
+            StartCoroutine(NextLevelParticle());
+        }
+        
         
     }
 }

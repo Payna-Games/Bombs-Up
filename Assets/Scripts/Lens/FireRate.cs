@@ -11,7 +11,7 @@ public class FireRate : MonoBehaviour
     [SerializeField] private Transform particleTransform;
     [SerializeField] private TextMeshProUGUI fireRateText;
     private bool savedLens = false;
-    
+    private bool fireRateStop;
 
     private void Start()
     {
@@ -24,7 +24,8 @@ public class FireRate : MonoBehaviour
         {
             fireRateText.text = "+" + addFireRateText.ToString();
         }
-        
+
+        fireRateStop = false;
     }
 
     
@@ -64,8 +65,13 @@ public class FireRate : MonoBehaviour
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
                 LensWaitTime.lensW.lensActive = true;
-                float clampedValue = Mathf.Clamp(1-addFireRateText/25f,0.2f,1.5f);
-                MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
+                
+
+                if (!fireRateStop)
+                {
+                    MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
+                }
+                 
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 savedLens = false;
                 gameObject.SetActive(false);
@@ -83,6 +89,10 @@ public class FireRate : MonoBehaviour
         {
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
+        }
+        if(MiniBompManager.miniBompManager.spawnSpeed <=0.2f || MiniBompManager.miniBompManager.spawnSpeed >=1.5f )
+        {
+            fireRateStop = true;
         }
        
     }
