@@ -7,12 +7,13 @@ public class LensWaitTime : MonoBehaviour
 {
 
     public static LensWaitTime lensW;
-    public bool lensActive = false;
+    public bool lensActive;
 
     private void Awake()
     {
         
         lensW = lensW == null ? this : lensW;
+        lensActive = false;
     }
 
     public  IEnumerator LensActive()

@@ -11,8 +11,7 @@ public class DamageDown : MonoBehaviour
     
     public int addKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
-   
-    [SerializeField] private Transform particleTransform;
+
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;
     private ObjectLevel headObjectLevell;
@@ -76,24 +75,28 @@ public class DamageDown : MonoBehaviour
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
                 LensWaitTime.lensW.lensActive= true;
-                if (headObjectLevell.damageLevel >0)
+                if (addKiloTon <= 10)
                 {
-                    headObjectLevell.damageLevel -= 1;
-                    headObjectLevell.SetFalse2();
-                    headObjectLevell.SetTrue2();
+                    if (headObjectLevell.damageLevel >0)
+                    {
+                        headObjectLevell.damageLevel -= 1;
+                        headObjectLevell.SetFalse2();
+                        headObjectLevell.SetTrue2();
+                    }
+                    if (bodyObjectLevell.damageLevel >0)
+                    {
+                        bodyObjectLevell.damageLevel -= 1;
+                        bodyObjectLevell.SetFalse2();
+                        bodyObjectLevell.SetTrue2();
+                    }
+                    if ( motorObjectLevell.damageLevel >0)
+                    {
+                        motorObjectLevell.damageLevel -= 1;
+                        motorObjectLevell.SetFalse2();
+                        motorObjectLevell.SetTrue2();
+                    }
                 }
-                if (bodyObjectLevell.damageLevel >0)
-                {
-                    bodyObjectLevell.damageLevel -= 1;
-                    bodyObjectLevell.SetFalse2();
-                    bodyObjectLevell.SetTrue2();
-                }
-                if ( motorObjectLevell.damageLevel >0)
-                {
-                    motorObjectLevell.damageLevel -= 1;
-                    motorObjectLevell.SetFalse2();
-                    motorObjectLevell.SetTrue2();
-                }
+               
                 gameObject.SetActive(false);
 
 

@@ -12,6 +12,7 @@ public class FireRate : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fireRateText;
     private bool savedLens = false;
     private bool fireRateStop;
+    public bool bombTagActive;
 
     private void Start()
     {
@@ -26,7 +27,9 @@ public class FireRate : MonoBehaviour
         }
 
         fireRateStop = false;
+        bombTagActive = false;
     }
+    
 
     
 
@@ -59,6 +62,7 @@ public class FireRate : MonoBehaviour
            
             if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
             {
+                bombTagActive = true;
                 
                 if (savedLens)
                 {
@@ -67,14 +71,14 @@ public class FireRate : MonoBehaviour
                 LensWaitTime.lensW.lensActive = true;
                 
                
-                MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
+              
                 
                
                 
                  
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 savedLens = false;
-                gameObject.SetActive(false);
+               
                 
                 
             }
@@ -91,7 +95,16 @@ public class FireRate : MonoBehaviour
             StartCoroutine(SavedLens());
         }
 
-        MiniBompManager.miniBompManager.spawnSpeed = Mathf.Clamp(MiniBompManager.miniBompManager.spawnSpeed, 0.2f, 1.5f);
+        if (bombTagActive)
+        {
+            Debug.Log( "spawnSpeed" + MiniBompManager.miniBompManager.spawnSpeed);
+            MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
+            MiniBompManager.miniBompManager.spawnSpeed = Mathf.Clamp(MiniBompManager.miniBompManager.spawnSpeed, 0.2f, 1.5f);
+            gameObject.SetActive(false);
+            bombTagActive = false;
+
+        }
+        
         
 
     }

@@ -27,7 +27,7 @@ public class Damage : MonoBehaviour
     private void Awake()
     {
         damage = damage == null ? this : damage;
-        damageLens = false;
+       
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
@@ -37,6 +37,7 @@ public class Damage : MonoBehaviour
 
     private void Start()
     {
+        damageLens = false;
         damageText.text = addKiloTon.ToString();
         // downKiloTon = GetComponent<DamageDown>().addKiloTon;
     }
@@ -122,7 +123,7 @@ public class Damage : MonoBehaviour
 
 
                 
-                gameObject.SetActive(false);
+               // gameObject.SetActive(false);
             }
 
 
