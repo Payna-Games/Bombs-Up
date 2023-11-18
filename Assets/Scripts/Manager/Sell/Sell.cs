@@ -31,10 +31,10 @@ public class Sell : MonoBehaviour
     public void OnPointEnter()
     {
         IsOnImage = true;
-        if (VibratorManager.vibratorManager.mainVibrator)
-        {
-            Vibrator.Vibrate();
-            Vibrator.Vibrate(200);
-        }
+        // if (VibratorManager.vibratorManager.mainVibrator)
+        // {
+        //     Vibrator.Vibrate();
+        //     Vibrator.Vibrate(200);
+        // }
     }
 }
