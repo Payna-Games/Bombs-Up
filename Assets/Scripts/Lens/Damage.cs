@@ -82,10 +82,10 @@ public class Damage : MonoBehaviour
                 damageLens = true;
                 LensWaitTime.lensW.lensActive = true;
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                other.GetComponent<KiloTonCalculate>().addKTon += addKiloTon;
                 other.GetComponent<KiloTonCalculate>().Calculate();
 
 
-                
 
 
                 if (addKiloTon >= 30)
@@ -123,7 +123,7 @@ public class Damage : MonoBehaviour
 
 
                 
-               // gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
 
 

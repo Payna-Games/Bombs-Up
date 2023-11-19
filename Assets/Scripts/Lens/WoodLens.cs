@@ -16,7 +16,7 @@ public class WoodLens : MonoBehaviour
 
     [SerializeField] private float targetPosition;
 
-    private bool hit = false;
+    private bool hit;
     //[SerializeField] private BombLeftRight bombLeftRight;
 
     // [SerializeField] private Vector3 forceDirection;
@@ -34,9 +34,7 @@ public class WoodLens : MonoBehaviour
         d = 0;
         groupIndex = 0;
         collidersPerGroup = 4;
-        //EnableNextGroupOfColliders();
-        
-       // rb = woodLens.GetComponent<Rigidbody>();
+        hit = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,18 +55,14 @@ public class WoodLens : MonoBehaviour
             }
             
         }
-        else if (other.CompareTag("Bomb") && !hit && i<5)
+        if (other.CompareTag("Bomb") && !hit && i<5)
         {
             other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
             hit = true;
-
+           Debug.Log("çarpışma");
         }
         
     }
-
-    
-
-
     private void Explode(int j)
     {
         
@@ -99,9 +93,6 @@ public class WoodLens : MonoBehaviour
                   
                 }
             }
-        
-      
-
     }
     void Update()
     {
@@ -115,19 +106,15 @@ public class WoodLens : MonoBehaviour
             if (d == lastNumber-1)
             {
                 Destroy(woods[lastNumber]);
+                Debug.Log("update1");
             }
 
             d++;
             destroy = false;
-
+            Debug.Log("update2");
         }
-        
 
-        
     }
-
-   
-
     private IEnumerator DestroyPieces()
     {
         
@@ -135,11 +122,6 @@ public class WoodLens : MonoBehaviour
         destroy = true;
         
             Debug.Log("d"+ d);
-        
-        
-        
-        
-
 
     }
     void EnableNextGroupOfColliders()
