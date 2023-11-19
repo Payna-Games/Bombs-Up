@@ -150,11 +150,11 @@ public class DragAndDrop : MonoBehaviour
     }
     private void ReserObject(GameObject gameObject)
     {
-        // if (VibratorManager.vibratorManager.mainVibrator)
-        // {
-        //     Vibrator.Vibrate();
-        //     Vibrator.Vibrate(200);
-        // }
+        if (VibratorManager.vibratorManager.mainVibrator)
+        {
+            Vibrator.Vibrate();
+            Vibrator.Vibrate(200);
+        }
         Vector3 bompParticPos = new Vector3(gameObject.transform.position.x + 2.29f, gameObject.transform.position.y - 4.38f, gameObject.transform.position.z - 1.5f);
         ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.identity);
         particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);

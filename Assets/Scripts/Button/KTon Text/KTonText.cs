@@ -10,7 +10,7 @@ public class KTonText : MonoBehaviour
     private void Start()
     {
         KiloTonCalculate.kiloTonCalculate.kTon += KTonText_kTon;
-        
+        KiloTonCalculate.kiloTonCalculate.Calculate();
         // follwChange.changeCamera += SetFalse;
     }
 

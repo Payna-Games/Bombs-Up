@@ -13,6 +13,7 @@ public class FireRange : MonoBehaviour
     private bool savedLens = false;
     
     
+    
 
     private void Start()
     {
@@ -24,6 +25,8 @@ public class FireRange : MonoBehaviour
         {
             fireRangeText.text = "+" + addFireRange.ToString(); 
         }
+
+      
     }
 
     
@@ -79,6 +82,7 @@ public class FireRange : MonoBehaviour
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
         }
+       
     }
     private IEnumerator SavedLens()
     {

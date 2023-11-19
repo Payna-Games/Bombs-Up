@@ -11,12 +11,12 @@ public class BtnVibrator : MonoBehaviour
         btnVibrator = btnVibrator == null ? this : btnVibrator;
     }
 
-    // public void ButtonVibrator()
-    // {
-    //     if (VibratorManager.vibratorManager.mainVibrator)
-    //     {
-    //         Vibrator.Vibrate();
-    //         Vibrator.Vibrate(200);
-    //     }
-    // }
+    public void ButtonVibrator()
+    {
+        if (VibratorManager.vibratorManager.mainVibrator)
+        {
+            Vibrator.Vibrate();
+            Vibrator.Vibrate(200);
+        }
+    }
 }

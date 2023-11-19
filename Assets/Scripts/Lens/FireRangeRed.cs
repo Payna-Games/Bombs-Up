@@ -15,7 +15,7 @@ public class FireRangeRed : MonoBehaviour
     [SerializeField] private int maxRange;
     [SerializeField] private int minRange;
     private bool savedLens = false;
-
+    private bool bombTagActive;
 
     private void Start()
     {
@@ -31,6 +31,7 @@ public class FireRangeRed : MonoBehaviour
         {
             fireRangeText.text = "+" + addFireRange.ToString();
         }
+        bombTagActive = false;
 
 
     }
@@ -72,6 +73,7 @@ public class FireRangeRed : MonoBehaviour
            
             if (addFireRange != 0 && !LensWaitTime.lensW.lensActive)
             {
+                bombTagActive = true;
                 if (savedLens)
                 {
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
@@ -79,7 +81,7 @@ public class FireRangeRed : MonoBehaviour
                 LensWaitTime.lensW.lensActive = true;
                 
                 int clampedValue = Mathf.Clamp(70 + addFireRange * 10, minRange, maxRange);
-                MiniBompManager.miniBompManager.range = clampedValue;
+               
 
 
             }
@@ -98,6 +100,15 @@ public class FireRangeRed : MonoBehaviour
         {
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
+        }
+        if (bombTagActive)
+        {
+            Debug.Log( "spawnSpeed" + MiniBompManager.miniBompManager.spawnSpeed);
+            MiniBompManager.miniBompManager.range -= addFireRange;
+            MiniBompManager.miniBompManager.range = Mathf.Clamp( MiniBompManager.miniBompManager.range, 100, 250);
+            gameObject.SetActive(false);
+            bombTagActive = false;
+
         }
 
     }
