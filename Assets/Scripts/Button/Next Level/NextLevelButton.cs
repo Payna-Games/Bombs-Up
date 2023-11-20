@@ -7,10 +7,11 @@ public class NextLevelButton : MonoBehaviour
 {
     [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
-
+    private EnoughMoney IncomeScript;
     private void Start()
     {
         clicked = false;
+        IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
     }
 
     private IEnumerator NextLevelParticle()
@@ -39,7 +40,7 @@ public class NextLevelButton : MonoBehaviour
             moneyParticle.Play();
             clicked = true;
             transform.GetChild(0).gameObject.SetActive(false);
-        
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); // 6.25 olan sabit 5 idi çeyreði kadar fazlalaþtýrýldý
             StartCoroutine(NextLevelParticle());
         }
         

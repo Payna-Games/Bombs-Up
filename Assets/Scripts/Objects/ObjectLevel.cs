@@ -15,12 +15,16 @@ public class ObjectLevel : MonoBehaviour
     public void LevelUp()
     {
         objectLevel++;
+        if (transform.parent.CompareTag("Bomb"))
+            PlayerPrefs.SetInt(transform.name, objectLevel);
         OnLevelUp?.Invoke(objectLevel);
     }
 
     public void LevelUp(int level)
     {
         objectLevel = level;
+        if (transform.parent.CompareTag("Bomb"))
+            PlayerPrefs.SetInt(transform.name, objectLevel);
         OnLevelUp?.Invoke(objectLevel);
     }
     public void LevelDown(int level)
