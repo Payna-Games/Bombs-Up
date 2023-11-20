@@ -118,7 +118,7 @@ public class WoodLens : MonoBehaviour
     private IEnumerator DestroyPieces()
     {
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
         destroy = true;
         
             Debug.Log("d"+ d);

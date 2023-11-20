@@ -9,17 +9,19 @@ using DG.Tweening;
 public class DamageDown : MonoBehaviour
 {
     
-    public int addKiloTon;
+    
     [SerializeField] private TextMeshProUGUI damageText;
-
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;
-    private ObjectLevel headObjectLevell;
-    private ObjectLevel bodyObjectLevell;
-    private ObjectLevel motorObjectLevell;
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
+    
+    private ObjectLevel headObjectLevell;
+    private ObjectLevel bodyObjectLevell;
+    private ObjectLevel motorObjectLevell;
+    
+    public int addKiloTon;
     private Damage damage;
     private bool savedLens = false;
 
@@ -75,41 +77,42 @@ public class DamageDown : MonoBehaviour
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
                 LensWaitTime.lensW.lensActive= true;
-                if (addKiloTon <= 10)
+                if (addKiloTon <= -30)
                 {
-                    if (headObjectLevell.damageLevel >0)
+                    if (headObjectLevell.damageLevel > 0)
                     {
                         headObjectLevell.damageLevel -= 1;
                         headObjectLevell.SetFalse2();
                         headObjectLevell.SetTrue2();
                     }
-                    if (bodyObjectLevell.damageLevel >0)
+
+                    if (bodyObjectLevell.damageLevel > 0)
                     {
                         bodyObjectLevell.damageLevel -= 1;
                         bodyObjectLevell.SetFalse2();
                         bodyObjectLevell.SetTrue2();
                     }
-                    if ( motorObjectLevell.damageLevel >0)
+
+                    if (motorObjectLevell.damageLevel > 0)
                     {
                         motorObjectLevell.damageLevel -= 1;
                         motorObjectLevell.SetFalse2();
                         motorObjectLevell.SetTrue2();
                     }
+
+
+                    
+
+
+                    other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() =>
+                        {
+                            other.transform.DOScale(Vector3.one * initialScale, duration)
+                                .SetEase(Ease.OutBounce);
+                        });
                 }
-               
-                gameObject.SetActive(false);
-
-
-                other.transform.DOScale(Vector3.one * targetScale, 0.5f)
-                    .SetEase(Ease.Linear) 
-                    .OnComplete(() =>
-                    {
-
-                        other.transform.DOScale(Vector3.one * initialScale, duration)
-                            .SetEase(Ease.OutBounce);
-
-                    });
-            
+                
                 LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 gameObject.SetActive(false);
             }
