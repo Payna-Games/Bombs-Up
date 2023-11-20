@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyParticlePosition: {fileID: 344948560940633780}
+  IncomeScript: {fileID: 0}
 --- !u!1 &3674147825950277625
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +495,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3805491139965570523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1292,8 +1293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 107.93875, y: -45.205215}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 210.46901, y: -6.3691}
+  m_SizeDelta: {x: 319.075, y: 134.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &545925821970437749
 CanvasRenderer:
@@ -1323,7 +1324,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 200000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
   m_sharedMaterial: {fileID: 2872833445011172122, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
@@ -1350,14 +1351,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 90.69
-  m_fontSizeBase: 90.69
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1386,7 +1387,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -86.27813, y: -87.84098, z: -226.80295, w: 0}
+  m_margin: {x: 1.0438539, y: 3.4499264, z: -0.5595855, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
