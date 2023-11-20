@@ -7,11 +7,11 @@ public class NextLevelButton : MonoBehaviour
 {
     [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
-    private EnoughMoney IncomeScript;
+    public EnoughMoney IncomeScript;
     private void Start()
     {
         clicked = false;
-        IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
+        //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
     }
 
     private IEnumerator NextLevelParticle()

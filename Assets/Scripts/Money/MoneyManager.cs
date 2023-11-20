@@ -35,11 +35,13 @@ public class MoneyManager : TextPrint
         int roundedNumber = (int)Math.Round(otherMoney);
         nextLevelMoney.text =  roundedNumber.ToString();
         ButtonPrint(totalMoney);
+        PlayerPrefs.SetString(transform.name, totalMoney.ToString());
     }
 
     public void DecreaseTotalMoney(float otherMoney)
     {
         totalMoney -= (long)otherMoney;
         ButtonPrint(totalMoney);
+        PlayerPrefs.SetString(transform.name, totalMoney.ToString());
     }
 }

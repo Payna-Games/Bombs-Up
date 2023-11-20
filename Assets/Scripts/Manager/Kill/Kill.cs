@@ -14,7 +14,7 @@ public class Kill : MonoBehaviour
     void Awake()
     {
         bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-        kill = kill == null ? kill : this;
+        kill = kill == null ? this : kill;
     }
 
     private void KillCount(int objCount)
