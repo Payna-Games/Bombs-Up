@@ -48,6 +48,7 @@ public class TutorialGoButton : MonoBehaviour
         if (isAnimLoop)
         {
             isAnimLoop = false;
+            ClickCount.clickCount.GetComponent<Button>().interactable = true;
             rectTransform.DOAnchorPos(pos1, moveDuration)
                 .OnComplete(() => rectTransform.DOAnchorPos(pos2, moveDuration)
                 .OnComplete(() => isAnimLoop = true));
