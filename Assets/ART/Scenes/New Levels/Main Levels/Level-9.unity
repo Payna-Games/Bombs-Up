@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.278694, g: 0.66667956, b: 0.99766773, a: 1}
+  m_IndirectSpecularColor: {r: 0.2673257, g: 0.44965416, b: 0.9976651, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2809,8 +2809,6 @@ MonoBehaviour:
   bomps: {fileID: 4489327218481800724}
   cityGround: {fileID: 1535903320}
   isFirst: 1
-  min: 200
-  max: 250
 --- !u!95 &57219603
 Animator:
   serializedVersion: 5
@@ -3445,8 +3443,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6432299, y: -0.002313556, z: -0.0019435971, w: 0.76566714}
-  m_LocalPosition: {x: -3.7, y: -931, z: -150.8}
+  m_LocalRotation: {x: -0.64078975, y: 0.098783724, z: 0.083649375, w: 0.75672525}
+  m_LocalPosition: {x: -49.7, y: -1074, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29223,6 +29221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalMoney: 0
   nextLevelMoney: {fileID: 1838368488}
+  buttonClicked: 0
 --- !u!1001 &671184457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45961,6 +45960,7 @@ MonoBehaviour:
   maxObj: 1186
   fillAmount: 0
   IncomeScript: {fileID: 1161463868}
+  moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80006,7 +80006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 208142269188863601, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 269860276647095100, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
@@ -80017,6 +80017,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 430286592245917108, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 705649185422135715, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -80046,7 +80050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380302325095056305, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700332367863974346, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
@@ -80102,6 +80106,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664961093247059159, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802486238687398264, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3925064564144290841, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
@@ -80109,6 +80117,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4404305540195345378, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495328379324689470, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -80137,6 +80149,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5952998271492341963, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083905871231543938, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -80173,6 +80189,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7159093089037199214, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189439636621186847, guid: b3f8848d40160c446a938ec672fd166d, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
