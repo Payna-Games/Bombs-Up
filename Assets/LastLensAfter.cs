@@ -6,12 +6,13 @@ using UnityEngine;
 public class LastLensAfter: MonoBehaviour
 {
     public static LastLensAfter lastLensAfter;
-    
-    public bool lastLensPassed = false;
+
+    public bool lastLensPassed;
 
     private void Awake()
     {
         lastLensAfter = lastLensAfter== null ? this : lastLensAfter;
+        lastLensPassed = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -12,8 +12,8 @@ public class FollwChange : MonoBehaviour
 
     Animator animator;
     [HideInInspector] public bool isFirst = true;
-    public int min = 120;
-    public int max = 170;
+    // public int min = 120;
+    // public int max = 170;
 
     public event Action changeCamera;
 
@@ -28,11 +28,12 @@ public class FollwChange : MonoBehaviour
         // if (rangeY <= max && rangeY >= min & isFirst)
         if(LastLensAfter.lastLensAfter.lastLensPassed)
         {
+           
+            CameraChange();
+            changeCamera?.Invoke();
             cityGround.gameObject.isStatic = false;
 
             isFirst = false;
-            CameraChange();
-            changeCamera?.Invoke();
         }
     }
 

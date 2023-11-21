@@ -9,6 +9,7 @@ public class Kill : MonoBehaviour
     public int maxObj;
     public float fillAmount;
     public EnoughMoney IncomeScript;
+    public float moneyIncrease;
     public event Action<float> killCount; 
 
     void Awake()
@@ -25,7 +26,7 @@ public class Kill : MonoBehaviour
         //Debug.Log("bar y�zdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
 
         killCount?.Invoke(fillAmount);
-        //MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
+         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
     }
 
 }

@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 
 public class MoneyManager : TextPrint
@@ -10,6 +10,7 @@ public class MoneyManager : TextPrint
 
     public static MoneyManager moneyManager;
     [SerializeField] private TextMeshProUGUI nextLevelMoney;
+    public bool buttonClicked;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class MoneyManager : TextPrint
             i = PlayerPrefs.GetString(transform.name);
         }
         InreaseTotalMoney(System.Convert.ToInt64(i));
+        buttonClicked = false;
     }
     private void OnDisable()
     {
@@ -31,9 +33,16 @@ public class MoneyManager : TextPrint
 
     public void InreaseTotalMoney(float otherMoney)
     {
-        totalMoney += (long)otherMoney;
+       
         int roundedNumber = (int)Math.Round(otherMoney);
+       
         nextLevelMoney.text =  roundedNumber.ToString();
+        
+        if (buttonClicked)
+        {
+            totalMoney += (long)otherMoney;
+           
+        }
         ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());
     }
@@ -43,5 +52,10 @@ public class MoneyManager : TextPrint
         totalMoney -= (long)otherMoney;
         ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());
+    }
+
+    private void Update()
+    {
+        
     }
 }
