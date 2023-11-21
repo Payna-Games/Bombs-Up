@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2673257, g: 0.44965416, b: 0.9976651, a: 1}
+  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2807,7 +2807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomps: {fileID: 4489327218481800724}
-  cityGround: {fileID: 0}
+  cityGround: {fileID: 1566556836}
   isFirst: 1
 --- !u!95 &57219603
 Animator:
@@ -14848,6 +14848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 0}
 --- !u!114 &310541004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18955,7 +18956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1208539877941077538, guid: 0794ade4bd2cb1542a07e1be750d7d0b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1634559955690477519, guid: 0794ade4bd2cb1542a07e1be750d7d0b, type: 3}
       propertyPath: addKiloTon
@@ -38621,6 +38622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 0}
 --- !u!1 &861985287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7477013262473017627, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -81710,6 +81712,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634a6aa896d80924284e871ff0f427d2, type: 3}
+--- !u!4 &1566556836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2305437917746496424, guid: 634a6aa896d80924284e871ff0f427d2, type: 3}
+  m_PrefabInstance: {fileID: 1566556835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1567990940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -100350,6 +100357,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1173069215}
     m_Modifications:
+    - target: {fileID: 2660805107377689821, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
+      propertyPath: IncomeScript
+      value: 
+      objectReference: {fileID: 1161463868}
     - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: m_SizeDelta.x
       value: 302.642
