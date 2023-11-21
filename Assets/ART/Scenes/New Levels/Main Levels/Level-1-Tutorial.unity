@@ -2809,8 +2809,6 @@ MonoBehaviour:
   bomps: {fileID: 4489327218481800724}
   cityGround: {fileID: 657094499}
   isFirst: 1
-  min: 200
-  max: 250
 --- !u!95 &57219603
 Animator:
   serializedVersion: 5
@@ -15036,7 +15034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &310541001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15069,6 +15067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 1888945426}
 --- !u!114 &310541004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15804,7 +15803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7132963, y: 0.22350182}
   m_AnchorMax: {x: 0.7132963, y: 0.22350182}
-  m_AnchoredPosition: {x: 2.086914, y: -1.8068848}
+  m_AnchoredPosition: {x: 2.086914, y: -54.36017}
   m_SizeDelta: {x: 452.8439, y: 231.4251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &320197695
@@ -29528,8 +29527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ceb81d5283fcc24daef8a315d71d8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMoney: 0
+  totalMoney: 500
   nextLevelMoney: {fileID: 6085319741704616808}
+  buttonClicked: 0
 --- !u!1001 &671184457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38354,6 +38354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 0}
 --- !u!1 &861985287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7477013262473017627, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}

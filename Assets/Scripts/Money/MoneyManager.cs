@@ -24,8 +24,8 @@ public class MoneyManager : TextPrint
         {
             i = PlayerPrefs.GetString(transform.name);
         }
+        buttonClicked = true;
         InreaseTotalMoney(System.Convert.ToInt64(i));
-        buttonClicked = false;
     }
     private void OnDisable()
     {
@@ -36,6 +36,7 @@ public class MoneyManager : TextPrint
     {
         if (buttonClicked)
         {
+            buttonClicked = false;
             totalMoney += (long)otherMoney;
         }
         else
