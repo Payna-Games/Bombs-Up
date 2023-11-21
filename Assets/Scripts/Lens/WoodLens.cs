@@ -57,9 +57,14 @@ public class WoodLens : MonoBehaviour
         }
         if (other.CompareTag("Bomb") && !hit && i<5)
         {
-            other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
-            hit = true;
-           Debug.Log("çarpışma");
+            if (!LensWaitTime.lensW.lensActive)
+            {
+                other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
+                hit = true;
+                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+            }
+           
+          
         }
         
     }

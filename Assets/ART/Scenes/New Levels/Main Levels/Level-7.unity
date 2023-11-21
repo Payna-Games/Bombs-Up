@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.278694, g: 0.66667956, b: 0.99766773, a: 1}
+  m_IndirectSpecularColor: {r: 0.32639533, g: 0.43710884, b: 0.94075364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2809,8 +2809,6 @@ MonoBehaviour:
   bomps: {fileID: 4489327218481800724}
   cityGround: {fileID: 1535903320}
   isFirst: 1
-  min: 200
-  max: 250
 --- !u!95 &57219603
 Animator:
   serializedVersion: 5
@@ -3445,7 +3443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6351163, y: 0.09476843, z: 0.07893573, w: 0.76250607}
+  m_LocalRotation: {x: -0.6351163, y: 0.094768435, z: 0.078935735, w: 0.76250607}
   m_LocalPosition: {x: -49.7, y: -1000.5, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29233,6 +29231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalMoney: 0
   nextLevelMoney: {fileID: 1838368488}
+  buttonClicked: 0
 --- !u!1001 &671184457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45845,6 +45844,7 @@ MonoBehaviour:
   maxObj: 1186
   fillAmount: 0
   IncomeScript: {fileID: 1161463868}
+  moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100803,7 +100803,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3129995
+      value: -2.3129973
       objectReference: {fileID: 0}
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -106716,7 +106716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3768368453572726040, guid: 47c0d0178ab80e74bb7f484fba0ed5f6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9008470256652650417, guid: 47c0d0178ab80e74bb7f484fba0ed5f6, type: 3}
       propertyPath: m_LocalPosition.x
