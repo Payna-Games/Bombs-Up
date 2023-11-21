@@ -25,7 +25,7 @@ public class NextLevelButton : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene("Level-1-Tutorial");
+            SceneManager.LoadScene("Level-11");
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
