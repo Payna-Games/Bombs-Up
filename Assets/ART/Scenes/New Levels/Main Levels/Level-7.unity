@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2673257, g: 0.44965416, b: 0.9976651, a: 1}
+  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14707,6 +14707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 0}
 --- !u!114 &310541004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38051,6 +38052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomp: {fileID: 4489327218481800724}
+  masks: {fileID: 0}
 --- !u!1 &861985287 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7477013262473017627, guid: 6a91a31b2ddc3b24d870aec8e3ce74ac, type: 3}
@@ -41844,7 +41846,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &963194228
@@ -100803,11 +100805,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3129969
+      value: -2.312997
       objectReference: {fileID: 0}
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 44.03653
+      value: 60.43653
       objectReference: {fileID: 0}
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100848,6 +100850,10 @@ PrefabInstance:
     - target: {fileID: 6682496115839804843, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_Name
       value: FreeLookBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886572783517470190, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
+      propertyPath: m_FollowOffset.y
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
