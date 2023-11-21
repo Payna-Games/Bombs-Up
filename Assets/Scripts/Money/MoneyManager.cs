@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 
 public class MoneyManager : TextPrint
@@ -33,15 +34,15 @@ public class MoneyManager : TextPrint
 
     public void InreaseTotalMoney(float otherMoney)
     {
-       
-        int roundedNumber = (int)Math.Round(otherMoney);
-       
-        nextLevelMoney.text =  roundedNumber.ToString();
-        
         if (buttonClicked)
         {
             totalMoney += (long)otherMoney;
-           
+        }
+        else
+        {
+            int roundedNumber = (int)Math.Round(otherMoney);
+            nextLevelMoney.text = roundedNumber.ToString();
+            //StartCoroutine(CounterPrint(roundedNumber));
         }
         ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());
@@ -53,9 +54,14 @@ public class MoneyManager : TextPrint
         ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());
     }
-
-    private void Update()
-    {
-        
-    }
+    //IEnumerator CounterPrint(int roundedNumber)
+    //{
+    //    int increaseRate = roundedNumber / 50;// increase rate = artýþ oraný
+    //    for (int i = 0; i <= roundedNumber; i+=increaseRate)
+    //    {
+    //        yield return new WaitForSeconds(0.001f);
+    //        nextLevelMoney.text = i.ToString();
+    //    }
+    //    nextLevelMoney.text = roundedNumber.ToString();
+    //}
 }
