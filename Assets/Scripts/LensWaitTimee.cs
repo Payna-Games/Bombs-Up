@@ -18,7 +18,7 @@ public class LensWaitTime : MonoBehaviour
 
     public  IEnumerator LensActive()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         lensActive = false;
             
     

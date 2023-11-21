@@ -2809,8 +2809,6 @@ MonoBehaviour:
   bomps: {fileID: 4489327218481800724}
   cityGround: {fileID: 1535903320}
   isFirst: 1
-  min: 200
-  max: 250
 --- !u!95 &57219603
 Animator:
   serializedVersion: 5
@@ -29227,6 +29225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalMoney: 0
   nextLevelMoney: {fileID: 1838368488}
+  buttonClicked: 0
 --- !u!1001 &671176990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41468,7 +41467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1208539877941077538, guid: 0794ade4bd2cb1542a07e1be750d7d0b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7693644040650961502, guid: 0794ade4bd2cb1542a07e1be750d7d0b, type: 3}
       propertyPath: fillAmountValue
@@ -46070,6 +46069,7 @@ MonoBehaviour:
   maxObj: 1186
   fillAmount: 0
   IncomeScript: {fileID: 1161463868}
+  moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
   m_ObjectHideFlags: 0
