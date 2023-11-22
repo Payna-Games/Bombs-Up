@@ -40,7 +40,7 @@ public class NextLevelButton : MonoBehaviour
             MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); // 6.25 olan sabit 5 idi �eyre�i kadar fazlala�t�r�ld�
             ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity);
             moneyParticle.Play();
-
+            OnGameFinished(true);
             StartCoroutine(NextLevelParticle());
 
             transform.GetChild(0).gameObject.SetActive(false);
@@ -48,5 +48,9 @@ public class NextLevelButton : MonoBehaviour
         }
         
         
+    }
+    private void OnGameFinished(bool hasWon)
+    {
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(hasWon);
     }
 }
