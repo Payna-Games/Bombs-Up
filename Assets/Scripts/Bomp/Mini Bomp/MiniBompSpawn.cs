@@ -35,20 +35,24 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     }
     private IEnumerator Spawn()
     {
-        while (true)
+        if(!LastLensAfter.lastLensAfter.lastLensPassed)
         {
-            yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
-            MiniBompList.miniBompList.miniBomp[0].SetActive(true);
-            Recoil();
-            MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
-            MiniBompList.miniBompList.miniBomp.RemoveAt(0);
+            while (true)
+            {
+                yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
+                MiniBompList.miniBompList.miniBomp[0].SetActive(true);
+                Recoil();
+                MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
+                MiniBompList.miniBompList.miniBomp.RemoveAt(0);
             
-            if (!isSpawn)
-                break;
-        }
+                if (!isSpawn)
+                    break;
+            }
+        }   
     }
     public void SpawnStart()
     {
+       
         isSpawn = true;
         StartCoroutine(Spawn());
     }
