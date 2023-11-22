@@ -7,22 +7,22 @@ public class ExplodeCalculate : MonoBehaviour
     public float RadiusExplode()
     {
         int kTon = KiloTonCalculate.kiloTonCalculate.KiloTon;
-        if (kTon == 100)
+        if (kTon == 100)                    //1.level
             return 30f;
-        if (kTon > 100 && kTon <= 160)
+        if (kTon > 100 && kTon <= 160)      //2.level
             return kTon / 3.75f;
-        if (kTon > 160 && kTon <= 250)
+        if (kTon > 160 && kTon <= 250)      //3.level
             return kTon / 3.50f;
-        if (kTon > 250 && kTon <= 370)
-            return kTon / 3.25f;
-        if (kTon > 370 && kTon <= 520)
-            return kTon / 3.10f;
-        if (kTon > 520 && kTon <= 700)
-            return kTon / 3f;
-        if (kTon > 700 && kTon <= 910)
-            return kTon / 2.80f;
+        if (kTon > 250 && kTon <= 370)      //4.level
+            return kTon / 3.85f;
+        if (kTon > 370 && kTon <= 520)      //5.level
+            return kTon / 4.33f;
+        if (kTon > 520 && kTon <= 700)      //6.level
+            return kTon / 4.86f;
+        if (kTon > 700 && kTon <= 910)      //7.level
+            return kTon / 5.4f;
         if (kTon > 910)
-            return kTon / 2.70f;
+            return kTon / 5.75f;            //8.level
         else
             return 0;
         
