@@ -51,13 +51,13 @@ public class RocketParticleControl : MonoBehaviour
 
     private void ExplodeParticle(GameObject particle)
     {
-        int radius = transform.parent.GetChild(1).GetComponent<ObjectLevel>().objectLevel;
+        float radius = transform.parent.GetComponent<BompExplode>().explosionRadius / 6.0f;
 
         GameObject particleExp = Instantiate(particleExplode, transform.position, Quaternion.identity);
 
 
         ParticleSystem particleSystem = particleExp.GetComponent<ParticleSystem>();
-        particleExp.transform.localScale = new Vector3(3 * radius, 3 * radius, 3 * radius);
+        particleExp.transform.localScale = new Vector3(radius, radius, radius);
         if (particleSystem != null)
         {
             ParticleSystem.MainModule mainModule = particleSystem.main;
