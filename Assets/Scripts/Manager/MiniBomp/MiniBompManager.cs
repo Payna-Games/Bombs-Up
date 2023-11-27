@@ -32,22 +32,22 @@ public class MiniBompManager : MonoBehaviour
 
        else  if (LoopManagement.Loop.loop  == 1)
         {
-            spawnSpeed = 0.55f;
+            spawnSpeed = 0.40f;
             speed = 80;
             range = 150;
         }
         else if (LoopManagement.Loop.loop  == 2)
         {
-            spawnSpeed = 0.40f;
+            spawnSpeed = 0.30f;
             speed = 80;
-            range = 180;
+            range = 190;
         }
         else
 
         {
-            spawnSpeed = 0.30f;
+            spawnSpeed = 0.25f;
             speed = 80;
-            range = 200; 
+            range = 240; 
         }
     }
 }
