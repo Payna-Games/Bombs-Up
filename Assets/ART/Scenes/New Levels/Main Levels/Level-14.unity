@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
+  m_IndirectSpecularColor: {r: 0.27920514, g: 0.46334845, b: 0.99655837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1694,7 +1694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.64202416, y: 0.11708381, z: 0.10008713, w: 0.75105196}
+  m_LocalRotation: {x: -0.64202416, y: 0.11708382, z: 0.100087136, w: 0.75105196}
   m_LocalPosition: {x: -81, y: -1592, z: -222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -19175,6 +19175,22 @@ PrefabInstance:
     - target: {fileID: 1719195817398087101, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointEnter
       objectReference: {fileID: 0}
     - target: {fileID: 2637911069184408431, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
       propertyPath: m_Name
@@ -43822,7 +43838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1835145478734855551, guid: 426fc11d86b89d4478d76ebfc4d5d223, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4435779782518837412, guid: 426fc11d86b89d4478d76ebfc4d5d223, type: 3}
       propertyPath: m_LocalPosition.x

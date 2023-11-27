@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
+  m_IndirectSpecularColor: {r: 0.27920514, g: 0.46334845, b: 0.99655837, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7772,6 +7772,10 @@ PrefabInstance:
     - target: {fileID: 8723886569742433911, guid: c7066d27ee30dbf4d9ad5325459fcd8c, type: 3}
       propertyPath: m_Name
       value: LensPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723886569742433911, guid: c7066d27ee30dbf4d9ad5325459fcd8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -19572,6 +19576,22 @@ PrefabInstance:
     - target: {fileID: 1719195817398087101, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 832810266}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901084910748521139, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPointEnter
       objectReference: {fileID: 0}
     - target: {fileID: 2637911069184408431, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
       propertyPath: m_Name
@@ -32461,7 +32481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096368606244303454, guid: fde3d25972e01564a9e0ba33ce3c66de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -997
+      value: -970.36
       objectReference: {fileID: 0}
     - target: {fileID: 3096368606244303454, guid: fde3d25972e01564a9e0ba33ce3c66de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39843,7 +39863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1201985263599060185, guid: 81d3e0ab71ea3824aa5e4ada835c4215, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.7720337
+      value: -0.77197266
       objectReference: {fileID: 0}
     - target: {fileID: 1201985263599060185, guid: 81d3e0ab71ea3824aa5e4ada835c4215, type: 3}
       propertyPath: m_AnchoredPosition.y
