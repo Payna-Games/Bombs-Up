@@ -42,9 +42,17 @@ public class CityExplodeParticle : MonoBehaviour
         {
             index = 24;
         }
-        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=400 )
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=400 && KiloTonCalculate.kiloTonCalculate.KiloTon < 500 )
         {
             index = 32;
+        }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=500 && KiloTonCalculate.kiloTonCalculate.KiloTon < 600)
+        {
+            index = 48;
+        }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=600)
+        {
+            index = 64;
         }
         FillAvailablePositions();
         for (int i = 0; i < index; i++)
