@@ -70,13 +70,15 @@ public class DamageDown : MonoBehaviour
         if ( other.CompareTag("Bomb") )
         {
            
-            if (!LensWaitTime.lensW.lensActive)
+            if (!LensWaitTime.LensW.lensActive)
             {
+                LensWaitTime.LensW.lensActive = true;
+                LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
                 if (savedLens)
                 {
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
-                LensWaitTime.lensW.lensActive= true;
+                
                 if (addKiloTon <= -30)
                 {
                     if (headObjectLevell.damageLevel > 0)
@@ -102,7 +104,7 @@ public class DamageDown : MonoBehaviour
 
 
                     
-
+                    
 
                     other.transform.DOScale(Vector3.one * targetScale, 0.5f)
                         .SetEase(Ease.Linear)
@@ -111,10 +113,12 @@ public class DamageDown : MonoBehaviour
                             other.transform.DOScale(Vector3.one * initialScale, duration)
                                 .SetEase(Ease.OutBounce);
                         });
+                    
+                    
                 }
-                
-                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
                 gameObject.SetActive(false);
+                
+                
             }
           
 

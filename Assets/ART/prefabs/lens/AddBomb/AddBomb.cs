@@ -33,9 +33,10 @@ public class AddBomb : MonoBehaviour
 
         }
 
-        if ((other.CompareTag("Bomb") && rocketImage.fillAmount == 1))
+        if (other.CompareTag("Bomb") && rocketImage.fillAmount == 1 && !LensWaitTime.LensW.lensActive)
         {
-
+            LensWaitTime.LensW.lensActive = true;
+            LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
             if (savedLens)
             {
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);
@@ -62,7 +63,7 @@ public class AddBomb : MonoBehaviour
             other.gameObject.GetComponent<KiloTonCalculate>().Calculate();
             gameObject.SetActive(false);
         }
-        else if ((other.CompareTag("Bomb") && fillAmountValue != 1))
+        else if (other.CompareTag("Bomb") && fillAmountValue != 1  && !LensWaitTime.LensW.lensActive )
         {
 
             gameObject.SetActive(false);

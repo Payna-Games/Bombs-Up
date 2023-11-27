@@ -60,15 +60,17 @@ public class FireRate : MonoBehaviour
         if (other.CompareTag("Bomb"))
         {
            
-            if (addFireRateText != 0 && !LensWaitTime.lensW.lensActive )
+            if (addFireRateText != 0 && !LensWaitTime.LensW.lensActive )
             {
+                LensWaitTime.LensW.lensActive = true;
+                LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
                 bombTagActive = true;
                 
                 if (savedLens)
                 {
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
-                LensWaitTime.lensW.lensActive = true;
+                
                 
                
               
@@ -76,7 +78,7 @@ public class FireRate : MonoBehaviour
                
                 
                  
-                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                
                 savedLens = false;
                
                 

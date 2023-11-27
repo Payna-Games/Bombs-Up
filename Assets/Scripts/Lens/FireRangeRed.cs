@@ -71,24 +71,28 @@ public class FireRangeRed : MonoBehaviour
         if (other.CompareTag("Bomb"))
         {
            
-            if (addFireRange != 0 && !LensWaitTime.lensW.lensActive)
+            if (addFireRange != 0 && !LensWaitTime.LensW.lensActive)
             {
+                LensWaitTime.LensW.lensActive = true;
+                LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
+                
                 bombTagActive = true;
                 if (savedLens)
                 {
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
-                LensWaitTime.lensW.lensActive = true;
+                
                 
                 int clampedValue = Mathf.Clamp(70 + addFireRange * 10, minRange, maxRange);
+                
+                gameObject.SetActive(false);
                
 
 
             }
            
 
-            LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
-            gameObject.SetActive(false);
+            
 
         }
     }

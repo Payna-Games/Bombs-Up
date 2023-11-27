@@ -69,20 +69,22 @@ public class FireRateRed : MonoBehaviour
         if (other.CompareTag("Bomb"))
         {
             
-            if (addFireRate != 0 && !LensWaitTime.lensW.lensActive)
+            if (addFireRate != 0 && !LensWaitTime.LensW.lensActive)
             {
+                LensWaitTime.LensW.lensActive = true;
+                LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
                 CreateParticle.ParticleTransform.gameObject.SetActive(false);
-                LensWaitTime.lensW.lensActive = true;
+               
                 float clampedValue = Mathf.Clamp(1 - addFireRate / 50f, 0.2f, 1.5f);
                 MiniBompManager.miniBompManager.spawnSpeed = clampedValue;
 
-
+                
+                gameObject.SetActive(false);
 
             }
             
 
-            LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
-            gameObject.SetActive(false);
+            
 
 
         }

@@ -57,11 +57,12 @@ public class WoodLens : MonoBehaviour
         }
         if (other.CompareTag("Bomb") && !hit && i<5)
         {
-            if (!LensWaitTime.lensW.lensActive)
+            if (!LensWaitTime.LensW.lensActive)
             {
                 other.transform.DOMoveY(other.transform.position.y+targetPosition, 0.5f).SetEase(Ease.InBack);
                 hit = true;
-                LensWaitTime.lensW.StartCoroutine(LensWaitTime.lensW.LensActive());
+                
+                LensWaitTime.LensW.StartCoroutine(LensWaitTime.LensW.LensActive());
             }
            
           
@@ -111,12 +112,12 @@ public class WoodLens : MonoBehaviour
             if (d == lastNumber-1)
             {
                 Destroy(woods[lastNumber]);
-                Debug.Log("update1");
+               // Debug.Log("update1");
             }
 
             d++;
             destroy = false;
-            Debug.Log("update2");
+           // Debug.Log("update2");
         }
 
     }
@@ -126,7 +127,7 @@ public class WoodLens : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         destroy = true;
         
-            Debug.Log("d"+ d);
+           // Debug.Log("d"+ d);
 
     }
     void EnableNextGroupOfColliders()

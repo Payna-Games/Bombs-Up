@@ -6,19 +6,19 @@ using UnityEngine;
 public class LensWaitTime : MonoBehaviour
 {
 
-    public static LensWaitTime lensW;
+    public static LensWaitTime LensW;
     public bool lensActive;
 
     private void Awake()
     {
         
-        lensW = lensW == null ? this : lensW;
+        LensW = LensW == null ? this : LensW;
         lensActive = false;
     }
 
     public  IEnumerator LensActive()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(2f);
         lensActive = false;
             
     

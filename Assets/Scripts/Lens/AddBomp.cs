@@ -9,15 +9,19 @@ public class AddBomp : MonoBehaviour
     {
         if (other.tag == "Bomb")
         {
-            for (int i = 0; i < other.transform.GetChild(8).childCount; i++)
-            {
-                if (!other.transform.GetChild(8).GetChild(i).gameObject.activeSelf)
+            
+              
+                for (int i = 0; i < other.transform.GetChild(8).childCount; i++)
                 {
-                    other.transform.GetChild(8).GetChild(i).gameObject.SetActive(true);
-                    other.transform.GetComponent<KiloTonCalculate>().Calculate();
-                    break;
-                }
-            }
+                    if (!other.transform.GetChild(8).GetChild(i).gameObject.activeSelf)
+                    {
+                        other.transform.GetChild(8).GetChild(i).gameObject.SetActive(true);
+                        other.transform.GetComponent<KiloTonCalculate>().Calculate();
+                        break;
+                    }
+                } 
+            
+            
         }
     }
 }

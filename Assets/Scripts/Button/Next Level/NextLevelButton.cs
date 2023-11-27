@@ -8,10 +8,12 @@ public class NextLevelButton : MonoBehaviour
     [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
     public EnoughMoney IncomeScript;
+    
     private void Start()
     {
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
+        
     }
 
     private IEnumerator NextLevelParticle()
@@ -25,7 +27,11 @@ public class NextLevelButton : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
+            LoopManagement.Loop.loop++;
             SceneManager.LoadScene("Level-11");
+            
+
+
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
