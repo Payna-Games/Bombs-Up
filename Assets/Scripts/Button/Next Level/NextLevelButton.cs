@@ -27,7 +27,7 @@ public class NextLevelButton : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
-            LoopManagement.Loop.loop++;
+            //LoopManagement.Loop.loop++;
             SceneManager.LoadScene("Level-11");
             
 
