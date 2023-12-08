@@ -20,7 +20,7 @@ public class SlotAddButton : MonoBehaviour
     {
         foreach (GameObject item in GridList.gridListManager.gridList)
         {
-            if (item.GetComponent<GridIsEmpty>().gridObject == null && SceneManager.GetActiveScene().name == "Level-1-Tutorial" && transform.GetComponent<EnoughMoney>().clickCount <=2)
+            if (item.GetComponent<GridIsEmpty>().gridObject == null && SceneManager.GetActiveScene().name == "_Level-Tutorial" && transform.GetComponent<EnoughMoney>().clickCount <=2)
             {
                 currentObjectType = 2;
                 ObjectType(item);
