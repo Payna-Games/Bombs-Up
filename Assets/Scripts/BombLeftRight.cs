@@ -29,9 +29,9 @@ public class BombLeftRight: MonoBehaviour
     private void Start()
     {
         drop = GetComponent<Drop>();
-        swipeSpeed = 0.2f;
-        bombSpeed = 35f;
-        MiniBompManager.miniBompManager.spawnSpeed = 1;
+      //  swipeSpeed = 0.2f;
+       // bombSpeed = 35f;
+     //   MiniBompManager.miniBompManager.spawnSpeed = 1;
         
 
 
