@@ -22,7 +22,7 @@ public class MiniBompManager : MonoBehaviour
     private void Start()
     {
         
-            spawnSpeed = 0.65f;
+            spawnSpeed = 0.4f;
             speed = 80;
             range = 120;
             //spawnSpeed = Mathf.Clamp(spawnSpeed, 0.2f, 1.5f);

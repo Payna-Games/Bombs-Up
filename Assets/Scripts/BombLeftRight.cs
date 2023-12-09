@@ -8,7 +8,7 @@ public class BombLeftRight: MonoBehaviour
 {
     [SerializeField] private float swipeSpeed = 0.1f;
     [SerializeField] private float maxDistanceRight;
-    [SerializeField] private float maxDistanceLeft;
+    //[SerializeField] private float maxDistanceLeft;
     public float bombSpeed = 5f;
     
    // [SerializeField] private Vector3 forceDirection;
@@ -31,7 +31,7 @@ public class BombLeftRight: MonoBehaviour
         drop = GetComponent<Drop>();
         swipeSpeed = 0.2f;
         bombSpeed = 35f;
-        MiniBompManager.miniBompManager.spawnSpeed = 1;
+        
         
 
 
@@ -51,7 +51,7 @@ public class BombLeftRight: MonoBehaviour
                      if (touch.phase == TouchPhase.Moved)
                      {
                          float targetX = transform.position.x + touch.deltaPosition.x * -swipeSpeed;
-                         targetX = Mathf.Clamp(targetX, maxDistanceRight, maxDistanceLeft);
+                         targetX = Mathf.Clamp(targetX, maxDistanceRight, 18);
 
                          // Damping uygulayarak objeyi hedef konuma hareket ettirin
                          SmoothMove(targetX);
