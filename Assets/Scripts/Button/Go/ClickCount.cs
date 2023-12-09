@@ -8,7 +8,7 @@ public class ClickCount : MonoBehaviour
     public static ClickCount clickCount;
     public int goClickCount;
     public event Action FireColor;
-   
+
 
     private void Awake()
     {
@@ -18,14 +18,15 @@ public class ClickCount : MonoBehaviour
             goClickCount = PlayerPrefs.GetInt(transform.name);
         }
     }
-    
+
     public void GoClick()
     {
         goClickCount += 1;
         PlayerPrefs.SetInt(transform.name, goClickCount);
-       
+
         FireColor?.Invoke();
     }
 
-  
+
+
 }

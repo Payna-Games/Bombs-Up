@@ -10,11 +10,13 @@ public class Damage : MonoBehaviour
 {
     public static Damage damage;
 
+    public event Action FireColor;
+
     public int addKiloTon;
 
     // private int downKiloTon;
     [SerializeField] private TextMeshProUGUI damageText;
-    
+
     private ObjectLevel headObjectLevel;
     private ObjectLevel bodyObjectLevel;
     private ObjectLevel motorObjectLevel;
@@ -27,7 +29,7 @@ public class Damage : MonoBehaviour
     private void Awake()
     {
         damage = damage == null ? this : damage;
-       
+
         headObjectLevel = GameObject.Find("Head").GetComponent<ObjectLevel>();
         bodyObjectLevel = GameObject.Find("Body").GetComponent<ObjectLevel>();
         motorObjectLevel = GameObject.Find("Motor").GetComponent<ObjectLevel>();
@@ -61,7 +63,7 @@ public class Damage : MonoBehaviour
 
                 }
 
-               TextScaleUpAnim.TextScaleUp(damageText);
+                TextScaleUpAnim.TextScaleUp(damageText);
                 CreateParticle.Create(transform.position);
                 savedLens = true;
                 Destroy(other.gameObject);
@@ -71,7 +73,7 @@ public class Damage : MonoBehaviour
 
         if (other.CompareTag("Bomb"))
         {
-            
+
 
             if (!LensWaitTime.LensW.lensActive)
             {
@@ -82,8 +84,8 @@ public class Damage : MonoBehaviour
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
                 damageLens = true;
-                
-                
+
+
                 other.GetComponent<KiloTonCalculate>().addKTon += addKiloTon;
                 other.GetComponent<KiloTonCalculate>().Calculate();
 
@@ -98,6 +100,7 @@ public class Damage : MonoBehaviour
                         headObjectLevel.damageLevel += 1;
                         headObjectLevel.SetFalse2();
                         headObjectLevel.SetTrue2();
+
                     }
 
                     if (bodyObjectLevel.damageLevel < 7)
@@ -105,13 +108,22 @@ public class Damage : MonoBehaviour
                         bodyObjectLevel.damageLevel += 1;
                         bodyObjectLevel.SetFalse2();
                         bodyObjectLevel.SetTrue2();
+
                     }
 
                     if (motorObjectLevel.damageLevel < 7)
                     {
                         motorObjectLevel.damageLevel += 1;
+
                         motorObjectLevel.SetFalse2();
                         motorObjectLevel.SetTrue2();
+
+                        Transform motorParticle = motorObjectLevel.bombComponent.GetChild(0);
+                        motorParticle.gameObject.SetActive(true);
+                        motorParticle.GetChild(0).gameObject.SetActive(true);
+
+
+
                     }
 
                     other.transform.DOScale(Vector3.one * targetScale, 0.5f)
@@ -124,7 +136,7 @@ public class Damage : MonoBehaviour
                 }
 
 
-                
+                MotorFireParticle.motorFireParticle.BombFire();
                 gameObject.SetActive(false);
             }
 
@@ -153,4 +165,5 @@ public class Damage : MonoBehaviour
         savedLens = false;
 
     }
+
 }

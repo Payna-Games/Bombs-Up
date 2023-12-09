@@ -8,9 +8,11 @@ public class ObjectLevel : MonoBehaviour
     private int createdLevel;
     public int objectLevel;
     public int damageLevel;
+    public Transform bombComponent;
 
     public event Action<int> OnLevelUp;
     public event Action<int> otherBomp;
+
 
     public void LevelUp()
     {
@@ -90,8 +92,19 @@ public class ObjectLevel : MonoBehaviour
     }
     public void SetTrue2()
     {
-        transform.GetChild(damageLevel).gameObject.SetActive(true);
+        bombComponent = transform.GetChild(damageLevel);
+        bombComponent.gameObject.SetActive(true);
+        Debug.Log("damage level" + damageLevel);
+
+
+
+
+
+
+
         otherBomp?.Invoke(damageLevel);
+
+
     }
 
     public void SetFalse2()
