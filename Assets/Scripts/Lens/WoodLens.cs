@@ -43,7 +43,7 @@ public class WoodLens : MonoBehaviour
         {
             if (i <= 5)
             {
-                Debug.Log("i = " + i);
+                
                 
                 Instantiate(woodParticle, woods[i].transform.position+new Vector3(0f,0.5f,0f) , Quaternion.identity);
                 Explode(i);

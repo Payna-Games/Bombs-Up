@@ -23,9 +23,10 @@ public class ClickCount : MonoBehaviour
     {
         goClickCount += 1;
         PlayerPrefs.SetInt(transform.name, goClickCount);
-       
+        
         FireColor?.Invoke();
     }
+    
 
   
 }

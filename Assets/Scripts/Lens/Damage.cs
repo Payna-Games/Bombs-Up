@@ -10,6 +10,8 @@ public class Damage : MonoBehaviour
 {
     public static Damage damage;
 
+    public event Action FireColor;
+
     public int addKiloTon;
 
     // private int downKiloTon;
@@ -98,6 +100,7 @@ public class Damage : MonoBehaviour
                         headObjectLevel.damageLevel += 1;
                         headObjectLevel.SetFalse2();
                         headObjectLevel.SetTrue2();
+                        
                     }
 
                     if (bodyObjectLevel.damageLevel < 7)
@@ -105,13 +108,22 @@ public class Damage : MonoBehaviour
                         bodyObjectLevel.damageLevel += 1;
                         bodyObjectLevel.SetFalse2();
                         bodyObjectLevel.SetTrue2();
+                        
                     }
 
                     if (motorObjectLevel.damageLevel < 7)
                     {
                         motorObjectLevel.damageLevel += 1;
+                        
                         motorObjectLevel.SetFalse2();
                         motorObjectLevel.SetTrue2();
+
+                        Transform motorParticle = motorObjectLevel.bombComponent.GetChild(0);
+                        motorParticle.gameObject.SetActive(true);
+                        motorParticle.GetChild(0).gameObject.SetActive(true);
+
+
+
                     }
 
                     other.transform.DOScale(Vector3.one * targetScale, 0.5f)
@@ -124,7 +136,7 @@ public class Damage : MonoBehaviour
                 }
 
 
-                
+                MotorFireParticle.motorFireParticle.BombFire();
                 gameObject.SetActive(false);
             }
 
@@ -153,4 +165,5 @@ public class Damage : MonoBehaviour
         savedLens = false;
 
     }
+    
 }
