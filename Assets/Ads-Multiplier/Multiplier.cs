@@ -6,16 +6,31 @@ using TMPro;
 public class Multiplier : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rewardToShowText;
-    //[SerializeField] private Kill kill;
+     private Animator handAnim;
+    private float reward;
 
+
+    private void Start()
+    {
+        
+        handAnim = GetComponent<Animator>(); 
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Reward"))
         {
             var multiplier = other.gameObject.name;
 
-            rewardToShowText.text = (MoneyManager.moneyManager.roundedNumber * float.Parse(multiplier)).ToString();
-           // Debug.Log("incomeMoney" + MoneyManager.moneyManager.roundedNumber);
+            reward = (MoneyManager.moneyManager.roundedNumber * float.Parse(multiplier));
+            rewardToShowText.text = reward.ToString();
+           
         }
+    }
+
+    public void StopHandAnim()
+    {
+        rewardToShowText.text = reward.ToString();
+        //handAnim.StopPlayback();
+        handAnim.enabled = false;
     }
 }
