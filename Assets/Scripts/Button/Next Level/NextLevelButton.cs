@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class NextLevelButton : MonoBehaviour
 {
+    public static NextLevelButton nextLevelButton;
+
+
+
     [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
     public EnoughMoney IncomeScript;
-    
+
+
+    private void Awake()
+    {
+        nextLevelButton = nextLevelButton == null ? this : nextLevelButton;
+    }
+
     private void Start()
     {
         clicked = false;
@@ -24,6 +34,7 @@ public class NextLevelButton : MonoBehaviour
             PlayerPrefs.SetInt("LevelCount", 1);
         else
             PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
+        Debug.Log("courutine else");
 
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
@@ -55,4 +66,11 @@ public class NextLevelButton : MonoBehaviour
         
         
     }
+    public void NextLevelReward()
+    {
+        MoneyManager.moneyManager.buttonClicked = true;
+        StartCoroutine(NextLevelParticle());
+        Debug.Log("nextlevelReward");
+    }
+
 }

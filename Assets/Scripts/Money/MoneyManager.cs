@@ -39,12 +39,14 @@ public class MoneyManager : TextPrint
         {
             buttonClicked = false;
             totalMoney += (long)otherMoney;
+            Debug.Log("Increase if");
         }
         else
         {
             roundedNumber = (int)Math.Round(otherMoney);
             nextLevelMoney.text = roundedNumber.ToString();
             //StartCoroutine(CounterPrint(roundedNumber));
+            Debug.Log("Increase else");
         }
         ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());

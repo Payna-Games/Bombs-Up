@@ -33,4 +33,18 @@ public class Multiplier : MonoBehaviour
         //handAnim.StopPlayback();
         handAnim.enabled = false;
     }
+
+    public void GetReward()
+    {
+        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
+((bool ok) => {
+    if (ok)
+    {
+        MoneyManager.moneyManager.buttonClicked = true;
+        MoneyManager.moneyManager.InreaseTotalMoney(reward);
+        NextLevelButton.nextLevelButton.NextLevelReward();
+        Debug.Log("GetReward");
+    }
+});
+    }
 }
