@@ -12,6 +12,7 @@ public class MoneyManager : TextPrint
     public static MoneyManager moneyManager;
     [SerializeField] private TextMeshProUGUI nextLevelMoney;
     public bool buttonClicked;
+    public int roundedNumber;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class MoneyManager : TextPrint
         }
         else
         {
-            int roundedNumber = (int)Math.Round(otherMoney);
+            roundedNumber = (int)Math.Round(otherMoney);
             nextLevelMoney.text = roundedNumber.ToString();
             //StartCoroutine(CounterPrint(roundedNumber));
         }
@@ -57,7 +58,7 @@ public class MoneyManager : TextPrint
     }
     //IEnumerator CounterPrint(int roundedNumber)
     //{
-    //    int increaseRate = roundedNumber / 50;// increase rate = artýþ oraný
+    //    int increaseRate = roundedNumber / 50;// increase rate = art?? oran?
     //    for (int i = 0; i <= roundedNumber; i+=increaseRate)
     //    {
     //        yield return new WaitForSeconds(0.001f);
