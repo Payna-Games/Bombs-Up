@@ -6,6 +6,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
     public int enough;
 
     public bool CanInteract = true;
+    public bool adsClick = true;
 
     Button button;
 
@@ -33,6 +34,12 @@ public class EnoughMoney : TextPrint, IButtonPrice
         if (MoneyManager.moneyManager.totalMoney >= enough && CanInteract)
         {
             transform.GetComponent<Button>().interactable = true;
+        }
+        else if (MoneyManager.moneyManager.totalMoney < enough &&adsClick)
+        {
+            GetComponent<Button>().onClick.RemoveListener(NewPrice);
+            GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
+            GetComponent<Button>().onClick.AddListener(AdsFalse);
         }
         else
         {
@@ -71,5 +78,9 @@ public class EnoughMoney : TextPrint, IButtonPrice
     private void OnDisable()
     {
         PlayerPrefs.SetInt(transform.name, clickCount - 1);
+    }
+    private void AdsFalse()
+    {
+        adsClick = false;  /// Reklam entegre edilecek
     }
 }
