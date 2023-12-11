@@ -28,6 +28,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
         NewPrice();
         button = transform.GetComponent<Button>();
         button.onClick.AddListener(DecreaseMoney);
+        button.onClick.AddListener(SlotAddButton.slotAddButton.ObjectLocalize);
         button.onClick.AddListener(NewPrice);
     }
 
@@ -38,12 +39,13 @@ public class EnoughMoney : TextPrint, IButtonPrice
         {
             transform.GetComponent<Button>().interactable = true;
         }
-        else if (MoneyManager.moneyManager.totalMoney < enough &&adsClick)
+        else if (MoneyManager.moneyManager.totalMoney < enough && adsClick)
         {
             GetComponent<Animator>().enabled = true;
             GetComponent<Image>().sprite = adsImage;
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
+            GetComponent<Button>().onClick.RemoveAllListeners();
             GetComponent<Button>().onClick.AddListener(AdsFalse);
         }
         else
@@ -90,10 +92,20 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         adsClick = false;
         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-((bool ok) => {
+((bool ok) =>
+{
     if (ok)
     {
-        
+        if (transform.name == "Add Button")
+        {
+            SlotAddButton.slotAddButton.ObjectLocalize();
+        }
+        else if (transform.name == "Income")
+        {
+            clickCount += 1;
+        }
+
+        Debug.Log("Button Ads");
     }
 });
     }
