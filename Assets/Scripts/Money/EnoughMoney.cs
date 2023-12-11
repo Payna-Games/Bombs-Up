@@ -28,7 +28,8 @@ public class EnoughMoney : TextPrint, IButtonPrice
         NewPrice();
         button = transform.GetComponent<Button>();
         button.onClick.AddListener(DecreaseMoney);
-        button.onClick.AddListener(SlotAddButton.slotAddButton.ObjectLocalize);
+        //button.onClick.AddListener(SlotAddButton.slotAddButton.ObjectLocalize);
+        button.onClick.AddListener(() => SlotAddButton.slotAddButton.ObjectLocalize());
         button.onClick.AddListener(NewPrice);
     }
 
