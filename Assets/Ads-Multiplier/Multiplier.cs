@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Multiplier : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rewardToShowText;
      private Animator handAnim;
     private float reward;
+    [SerializeField] private Transform moneyParticlePosition;
 
 
     private void Start()
@@ -19,10 +21,23 @@ public class Multiplier : MonoBehaviour
     {
         if (other.CompareTag("Reward"))
         {
-            var multiplier = other.gameObject.name;
+            string multiplier = other.gameObject.name;
 
+            
             reward = (MoneyManager.moneyManager.roundedNumber * float.Parse(multiplier));
-            rewardToShowText.text = reward.ToString();
+            Debug.Log("reward" + reward);
+            if (reward >= 1000)
+            {
+                double roundedText = Math.Round(reward/ 1000, 1);
+                
+                rewardToShowText.text = roundedText.ToString() + "k";
+            }
+            else
+            {
+                rewardToShowText.text = reward.ToString();
+
+            }
+            
            
         }
     }
@@ -42,9 +57,17 @@ public class Multiplier : MonoBehaviour
     {
         MoneyManager.moneyManager.buttonClicked = true;
         MoneyManager.moneyManager.InreaseTotalMoney(reward);
-        NextLevelButton.nextLevelButton.NextLevelReward();
-        Debug.Log("GetReward");
+        
+        //Debug.Log("GetReward");
     }
 });
+        MoneyParticle();
+        NextLevelButton.nextLevelButton.NextLevelReward();
+    }
+
+    public void MoneyParticle()
+    {
+        ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
+        moneyParticle.Play();
     }
 }

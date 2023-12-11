@@ -9,7 +9,7 @@ public class NextLevelButton : MonoBehaviour
 
 
 
-    [SerializeField]  private Transform moneyParticlePosition;
+   // [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
     public EnoughMoney IncomeScript;
 
@@ -57,11 +57,11 @@ public class NextLevelButton : MonoBehaviour
 
             YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
             (() => {
-               // Debug.Log("reklam calıstı");
+               
                 MoneyManager.moneyManager.buttonClicked = true;
                 MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); // 6.25 olan sabit 5 idi �eyre�i kadar fazlala�t�r�ld�
-                ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity);
-               moneyParticle.Play();
+                
+               
                StartCoroutine(NextLevelParticle());
 
                transform.GetChild(0).gameObject.SetActive(false);
@@ -78,11 +78,16 @@ public class NextLevelButton : MonoBehaviour
         OnGameFinished(true);
 
         StartCoroutine(NextLevelParticle());
-        Debug.Log("nextlevelReward");
+       
     }
     private void OnGameFinished(bool hasWon)
     {
         YsoCorp.GameUtils.YCManager.instance.OnGameFinished(hasWon);
     }
+    //public void MoneyParticle()
+    //{
+    //    ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
+    //    moneyParticle.Play();
+    //}
 
 }
