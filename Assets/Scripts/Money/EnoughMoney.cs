@@ -40,7 +40,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
         {
             transform.GetComponent<Button>().interactable = true;
         }
-        else if (MoneyManager.moneyManager.totalMoney < enough && adsClick)
+        else if (MoneyManager.moneyManager.totalMoney < enough)// && adsClick)
         {
             GetComponent<Animator>().enabled = true;
             GetComponent<Image>().sprite = adsImage;
@@ -49,12 +49,12 @@ public class EnoughMoney : TextPrint, IButtonPrice
             GetComponent<Button>().onClick.RemoveAllListeners();
             GetComponent<Button>().onClick.AddListener(AdsFalse);
         }
-        else
-        {
-            transform.GetChild(1).gameObject.SetActive(false);
-            GetComponent<Image>().sprite = oldImage;
-            transform.GetComponent<Button>().interactable = false;
-        }
+        //else
+        //{
+        //    transform.GetChild(1).gameObject.SetActive(false);
+        //    GetComponent<Image>().sprite = oldImage;
+        //    transform.GetComponent<Button>().interactable = false;
+        //}
     }
 
     private void NewPrice()
@@ -91,7 +91,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
     }
     private void AdsFalse()
     {
-        adsClick = false;
+        //adsClick = false;
         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
 ((bool ok) =>
 {
