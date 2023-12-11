@@ -8,6 +8,9 @@ public class EnoughMoney : TextPrint, IButtonPrice
     public bool CanInteract = true;
     public bool adsClick = true;
 
+    public Sprite adsImage;
+    public Sprite oldImage;
+
     Button button;
 
     public int startPrice;
@@ -21,7 +24,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
         {
             clickCount = PlayerPrefs.GetInt(transform.name);
         }
-
+        GetComponent<Animator>().enabled = false;
         NewPrice();
         button = transform.GetComponent<Button>();
         button.onClick.AddListener(DecreaseMoney);
@@ -37,12 +40,16 @@ public class EnoughMoney : TextPrint, IButtonPrice
         }
         else if (MoneyManager.moneyManager.totalMoney < enough &&adsClick)
         {
+            GetComponent<Animator>().enabled = true;
+            GetComponent<Image>().sprite = adsImage;
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
             GetComponent<Button>().onClick.AddListener(AdsFalse);
         }
         else
         {
+            transform.GetChild(1).gameObject.SetActive(false);
+            GetComponent<Image>().sprite = oldImage;
             transform.GetComponent<Button>().interactable = false;
         }
     }
