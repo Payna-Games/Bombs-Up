@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using DG.Tweening;
 
 public class NextLevelButton : MonoBehaviour
 {
     public static NextLevelButton nextLevelButton;
+    [SerializeField] private Transform moneyParticlePosition;
+    private RectTransform rectTransform;
 
 
-
-   // [SerializeField]  private Transform moneyParticlePosition;
+    // [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
     public EnoughMoney IncomeScript;
 
@@ -23,7 +25,8 @@ public class NextLevelButton : MonoBehaviour
     {
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
-        
+        rectTransform = GetComponent<RectTransform>();
+
     }
 
     private IEnumerator NextLevelParticle()
@@ -51,9 +54,17 @@ public class NextLevelButton : MonoBehaviour
     public void NextLevel()
     {
        
+       
+
         if (!clicked)
         {
-           // OnGameFinished(true);
+            // OnGameFinished(true);
+            rectTransform.DOScale(Vector3.one * 4f, 0.4f).SetEase(Ease.OutQuad)
+                       .OnComplete(() =>
+                       {
+                           rectTransform.DOScale(Vector3.one * 3.3f, 0.4f)
+                               .SetEase(Ease.OutBounce);
+                       });
 
             YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
             (() => {
@@ -64,14 +75,16 @@ public class NextLevelButton : MonoBehaviour
                
                StartCoroutine(NextLevelParticle());
 
-               transform.GetChild(0).gameObject.SetActive(false);
+              // transform.GetChild(0).gameObject.SetActive(false);
                clicked = true;
             });
 
-            
+           ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
+            moneyParticle.Play();
+
         }
-        
-        
+
+
     }
     public void NextLevelReward()
     {
