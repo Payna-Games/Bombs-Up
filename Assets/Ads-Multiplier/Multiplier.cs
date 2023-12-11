@@ -8,7 +8,7 @@ public class Multiplier : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rewardToShowText;
      private Animator handAnim;
-    private float reward;
+     float reward;
     [SerializeField] private Transform moneyParticlePosition;
 
 
@@ -25,7 +25,8 @@ public class Multiplier : MonoBehaviour
 
             
             reward = (MoneyManager.moneyManager.roundedNumber * float.Parse(multiplier));
-            Debug.Log("reward" + reward);
+            //int roundedReward = (int)reward;
+           
             if (reward >= 1000)
             {
                 double roundedText = Math.Round(reward/ 1000, 1);

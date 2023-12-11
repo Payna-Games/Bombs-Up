@@ -58,7 +58,7 @@ public class NextLevelButton : MonoBehaviour
 
         if (!clicked)
         {
-            // OnGameFinished(true);
+             OnGameFinished(true);
             rectTransform.DOScale(Vector3.one * 4f, 0.4f).SetEase(Ease.OutQuad)
                        .OnComplete(() =>
                        {
