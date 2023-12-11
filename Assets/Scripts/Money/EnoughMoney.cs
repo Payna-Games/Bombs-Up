@@ -88,6 +88,13 @@ public class EnoughMoney : TextPrint, IButtonPrice
     }
     private void AdsFalse()
     {
-        adsClick = false;  /// Reklam entegre edilecek
+        adsClick = false;
+        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
+((bool ok) => {
+    if (ok)
+    {
+        
+    }
+});
     }
 }

@@ -21,6 +21,7 @@ public class ClickCount : MonoBehaviour
 
     public void GoClick()
     {
+        YsoCorp.GameUtils.YCManager.instance.settingManager.Show();
         goClickCount += 1;
         PlayerPrefs.SetInt(transform.name, goClickCount);
 
