@@ -19373,7 +19373,7 @@ MonoBehaviour:
   bomp: {fileID: 4489327218481800724}
   maxObj: 1186
   fillAmount: 0
-  IncomeScript: {fileID: 0}
+  IncomeScript: {fileID: 1866768635}
   moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
@@ -20477,6 +20477,11 @@ PrefabInstance:
 --- !u!224 &1093281351 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7076423539731115635, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
+  m_PrefabInstance: {fileID: 1093281350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1093281352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5087221169090975310, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
   m_PrefabInstance: {fileID: 1093281350}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1093319919 stripped
@@ -22673,8 +22678,8 @@ MonoBehaviour:
   - {fileID: 3963222737788684539}
   - {fileID: 736332183}
   - {fileID: 1023113210}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1093281352}
+  - {fileID: 1866768636}
 --- !u!1 &1201983590 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 710322854392060571, guid: f4e707d4564242a4aa4de5310fe03fa8, type: 3}
@@ -36269,6 +36274,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5502729744932751152, guid: d80719b62372d443ba220ef3902d7852, type: 3}
   m_PrefabInstance: {fileID: 1866768633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1866768635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 383016068938411686, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 1866768633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866768636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab2572733deec34eb755dda2b0c0ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1866768636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2139551523525019477, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 1866768633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1869540212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -39542,7 +39563,7 @@ PrefabInstance:
     - target: {fileID: 2660805107377689821, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: IncomeScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1866768635}
     - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: m_SizeDelta.x
       value: 308.325

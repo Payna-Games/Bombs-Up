@@ -1695,7 +1695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.62859607, y: 0.09543756, z: 0.07812533, w: 0.7678901}
+  m_LocalRotation: {x: -0.62859607, y: 0.09543753, z: 0.0781253, w: 0.7678901}
   m_LocalPosition: {x: -49.7, y: -912.7, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9492,6 +9492,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7076423539731115635, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
   m_PrefabInstance: {fileID: 518207803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &518207805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5087221169090975310, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
+  m_PrefabInstance: {fileID: 518207803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &518496985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3839757123108134343, guid: 79c199c8932b18b448d445e77da66201, type: 3}
@@ -11092,6 +11097,22 @@ PrefabInstance:
 --- !u!224 &604021520 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5502729744932751152, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 604021519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &604021521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 383016068938411686, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 604021519}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604021522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab2572733deec34eb755dda2b0c0ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &604021522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2139551523525019477, guid: d80719b62372d443ba220ef3902d7852, type: 3}
   m_PrefabInstance: {fileID: 604021519}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &604238355 stripped
@@ -19162,7 +19183,7 @@ MonoBehaviour:
   bomp: {fileID: 4489327218481800724}
   maxObj: 1186
   fillAmount: 0
-  IncomeScript: {fileID: 0}
+  IncomeScript: {fileID: 604021521}
   moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
@@ -22281,8 +22302,8 @@ MonoBehaviour:
   - {fileID: 3963222737788684539}
   - {fileID: 736332183}
   - {fileID: 1023113210}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 518207805}
+  - {fileID: 604021522}
 --- !u!1 &1205987168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
@@ -38749,7 +38770,7 @@ PrefabInstance:
     - target: {fileID: 2660805107377689821, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: IncomeScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 604021521}
     - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: m_SizeDelta.x
       value: 266.423

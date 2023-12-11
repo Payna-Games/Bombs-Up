@@ -53,7 +53,7 @@ public class NextLevelButton : MonoBehaviour
        
         if (!clicked)
         {
-            OnGameFinished(true);
+           // OnGameFinished(true);
 
             YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
             (() => {

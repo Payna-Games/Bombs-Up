@@ -2213,7 +2213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.61171806, y: 0.19293569, z: 0.15717115, w: 0.75091547}
+  m_LocalRotation: {x: -0.611718, y: 0.19293587, z: 0.1571713, w: 0.75091547}
   m_LocalPosition: {x: -112, y: -1078.1, z: -178.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3901,6 +3901,11 @@ PrefabInstance:
 --- !u!224 &140573211 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7076423539731115635, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
+  m_PrefabInstance: {fileID: 140573210}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &140573212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5087221169090975310, guid: bba4a0adbde024ad0bdefe1be8582d5a, type: 3}
   m_PrefabInstance: {fileID: 140573210}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &141574144
@@ -26434,7 +26439,7 @@ MonoBehaviour:
   bomp: {fileID: 4489327218481800724}
   maxObj: 1186
   fillAmount: 0
-  IncomeScript: {fileID: 0}
+  IncomeScript: {fileID: 1178320128}
   moneyIncrease: 0
 --- !u!114 &1055122397
 MonoBehaviour:
@@ -30023,6 +30028,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5502729744932751152, guid: d80719b62372d443ba220ef3902d7852, type: 3}
   m_PrefabInstance: {fileID: 1178320126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1178320128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 383016068938411686, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 1178320126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178320129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab2572733deec34eb755dda2b0c0ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1178320129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2139551523525019477, guid: d80719b62372d443ba220ef3902d7852, type: 3}
+  m_PrefabInstance: {fileID: 1178320126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1178933957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30744,8 +30765,8 @@ MonoBehaviour:
   - {fileID: 3963222737788684539}
   - {fileID: 736332183}
   - {fileID: 1023113210}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 140573212}
+  - {fileID: 1178320129}
 --- !u!1001 &1197233296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53226,7 +53247,7 @@ PrefabInstance:
     - target: {fileID: 2660805107377689821, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: IncomeScript
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1178320128}
     - target: {fileID: 2785176493020513070, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
       propertyPath: m_SizeDelta.x
       value: 302.642
