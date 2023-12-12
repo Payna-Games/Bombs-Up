@@ -11,9 +11,13 @@ public class SlotAddButton : MonoBehaviour
     {
         slotAddButton = slotAddButton == null ? this : slotAddButton;
     }
-    private void OnEnable()
+    private void Start()
     {
         ButtonActive();
+    }
+    private void OnEnable()
+    {
+        
     }
     private int currentObjectType;
     public void ObjectLocalize()
