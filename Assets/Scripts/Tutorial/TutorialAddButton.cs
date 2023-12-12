@@ -19,8 +19,8 @@ public class TutorialAddButton : MonoBehaviour
         ClickCount.clickCount.GetComponent<Button>().interactable = false;
         
         Transform addBottonPos = SlotAddButton.slotAddButton.transform;
-        targetPosition = new Vector3(-6, -50,0);
-        targetPosition2 = new Vector3(-6, -15, 0);
+        targetPosition = new Vector3(-6, 105,0);
+        targetPosition2 = new Vector3(-6, 140, 0);
         
     }
     private void Update()

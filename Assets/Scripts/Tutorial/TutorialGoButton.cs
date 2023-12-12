@@ -26,8 +26,8 @@ public class TutorialGoButton : MonoBehaviour
         isAnimLoop = false;
         part1.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
         part2.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
-        pos1 = new Vector3(-280, -5, 0);
-        pos2 = new Vector3(-280, -40, 0);
+        pos1 = new Vector3(-280, 175, 0);
+        pos2 = new Vector3(-280, 140, 0);
 
     }
 
