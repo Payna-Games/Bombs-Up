@@ -41,7 +41,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
             {
                 yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
                 MiniBompList.miniBompList.miniBomp[0].SetActive(true);
-                Recoil();
+               // Recoil();
                 MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
                 MiniBompList.miniBompList.miniBomp.RemoveAt(0);
             
@@ -61,15 +61,15 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
         isSpawn = false;
     }
 
-    private void Recoil()
+    //private void Recoil()
     
-    {
-        Quaternion firstRotation = Quaternion.Euler(x1, y, z);
-        Quaternion recoil = Quaternion.Euler(x, y, z);
+    //{
+    //    Quaternion firstRotation = Quaternion.Euler(x1, y, );
+    //    Quaternion recoil = Quaternion.Euler(x, y, z);
 
-        transform.parent.DORotateQuaternion(recoil, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
-        {
-           transform.parent.DORotateQuaternion(firstRotation, 0.1f).SetEase(Ease.Linear);
-        });
-    }
+    //    transform.parent.DORotateQuaternion(recoil, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
+    //    {
+    //       transform.parent.DORotateQuaternion(firstRotation, 0.1f).SetEase(Ease.Linear);
+    //    });
+    //}
 }
