@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using DG.Tweening;
+using System.Collections;
 
 public class EnoughMoney : TextPrint, IButtonPrice
 {
@@ -40,14 +43,16 @@ public class EnoughMoney : TextPrint, IButtonPrice
         {
             transform.GetComponent<Button>().interactable = true;
         }
-        else if (MoneyManager.moneyManager.totalMoney < enough)// && adsClick)
-        {
+        else if (MoneyManager.moneyManager.totalMoney < enough && adsClick)
+        {        adsClick = false;
             GetComponent<Animator>().enabled = true;
+            transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "FREE";
             GetComponent<Image>().sprite = adsImage;
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
             GetComponent<Button>().onClick.RemoveAllListeners();
             GetComponent<Button>().onClick.AddListener(AdsFalse);
+            StartCoroutine(RotateContinuously());
         }
         //else
         //{
@@ -91,7 +96,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
     }
     private void AdsFalse()
     {
-        //adsClick = false;
+
         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
 ((bool ok) =>
 {
@@ -109,5 +114,20 @@ public class EnoughMoney : TextPrint, IButtonPrice
         Debug.Log("Button Ads");
     }
 });
+    }
+    IEnumerator RotateContinuously()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(4);
+            transform.DORotate(new Vector3(0, 0, 10), 0.2f);
+
+            yield return new WaitForSeconds(0.1f);
+
+            transform.DORotate(Vector3.zero, 0.2f);
+
+            
+        }
+
     }
 }
