@@ -60,7 +60,7 @@ public class NextLevelButton : MonoBehaviour
         if (!clicked)
         {
              
-            rectTransform.DOScale(Vector3.one * 4f, 0.4f).SetEase(Ease.OutQuad)
+            rectTransform.DOScale(Vector3.one * 2.4f, 0.4f).SetEase(Ease.OutQuad)
                        .OnComplete(() =>
                        {
                            rectTransform.DOScale(Vector3.one * 3.3f, 0.4f)
