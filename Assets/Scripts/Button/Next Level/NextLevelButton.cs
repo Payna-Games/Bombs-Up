@@ -53,12 +53,13 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-       
-       
+        OnGameFinished(true);
+
+
 
         if (!clicked)
         {
-             OnGameFinished(true);
+             
             rectTransform.DOScale(Vector3.one * 4f, 0.4f).SetEase(Ease.OutQuad)
                        .OnComplete(() =>
                        {
@@ -96,6 +97,7 @@ public class NextLevelButton : MonoBehaviour
     private void OnGameFinished(bool hasWon)
     {
         YsoCorp.GameUtils.YCManager.instance.OnGameFinished(hasWon);
+        Debug.Log("OnGameFinished");
     }
     //public void MoneyParticle()
     //{

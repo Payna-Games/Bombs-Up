@@ -15,18 +15,22 @@ public class LevelUi : MonoBehaviour
             //}
             //else
             //    SceneManager.LoadScene(PlayerPrefs.GetInt(transform.name));
-            OnGameStarted(1);
+            //OnGameStarted(1);
+             YsoCorp.GameUtils.YCManager.instance.OnGameStarted(1);
         }
 
         else
         {
             GetComponent<TextMeshProUGUI>().text = "Lvl " + (PlayerPrefs.GetInt("LevelCount"));
             PlayerPrefs.SetInt(transform.parent.name, SceneManager.GetActiveScene().buildIndex);
-            OnGameStarted(PlayerPrefs.GetInt("LevelCount") + 1);
+            //OnGameStarted(PlayerPrefs.GetInt("LevelCount") + 1);
+            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("LevelCount") + 1);
         }      
     } 
-    private void OnGameStarted(int levelNumber)
-        {
-            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(levelNumber);
-        }
+   // private void OnGameStarted(int levelNumber)
+   //     {
+    //        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(levelNumber);
+    //    Debug.Log("OnGameStarted");
+    //    Debug.Log("LevelNumber"+levelNumber);
+    //    }
 }
