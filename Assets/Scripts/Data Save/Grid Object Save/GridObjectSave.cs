@@ -14,6 +14,15 @@ public class GridObjectSave : MonoBehaviour
             {
                 string obj = PlayerPrefs.GetString(transform.name);
                 gridObj = GameObject.Find(obj);
+                Debug.Log("Dotween Güncelle Süleyman bey");
+                if (gridObj  == true)
+                {
+                    Debug.Log("Aktif");
+                }
+                else
+                {
+                    Debug.Log("Degil");
+                }
                 transform.GetComponent<GridIsEmpty>().gridObject = gridObj;
             }
         }
