@@ -11,10 +11,12 @@ public class ObjectList : MonoBehaviour
     public List<GameObject> motor;
 
     public GameObject DragObject;
+    public bool gameObjectsFalse;
 
-    private void Awake()
+    private void Start()
     {
         objectList = objectList == null ? this : objectList;
+
         
         foreach (GameObject item in head)
         {
@@ -28,5 +30,14 @@ public class ObjectList : MonoBehaviour
         {
             item.SetActive(false);
         }
+
+        for(int i=0; i<8; i++)
+        {
+            GridList.gridListManager.gridList[i].GetComponent<SaveObj>().Save();
+        }
+        
+        
     }
+
+    
 }

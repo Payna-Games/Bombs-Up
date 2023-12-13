@@ -6,15 +6,18 @@ using UnityEngine;
 public class GridObjectSave : MonoBehaviour
 {
     public GameObject gridObj;
-    private void OnEnable()
+    private SaveObj saveObj;
+    public List<String> saveObjectList;
+    private void Awake()
     {
+        saveObj = GetComponent<SaveObj>();   
         if (PlayerPrefs.HasKey(transform.name))
         {
-            if (PlayerPrefs.GetString(transform.name) != "")
+            if (PlayerPrefs.GetString(transform.name) != "" )
             {
                 string obj = PlayerPrefs.GetString(transform.name);
                 gridObj = GameObject.Find(obj);
-                Debug.Log("Dotween Güncelle Süleyman bey");
+               // Debug.Log("Dotween Güncelle Süleyman bey");
                 if (gridObj  == true)
                 {
                     Debug.Log("Aktif");
@@ -24,6 +27,8 @@ public class GridObjectSave : MonoBehaviour
                     Debug.Log("Degil");
                 }
                 transform.GetComponent<GridIsEmpty>().gridObject = gridObj;
+                //saveObj.Save();
+
             }
         }
     }
@@ -36,5 +41,7 @@ public class GridObjectSave : MonoBehaviour
         else
             objName = transform.GetComponent<GridIsEmpty>().gridObject.name;
         PlayerPrefs.SetString(transform.name, objName);
+
+
     }
 }
