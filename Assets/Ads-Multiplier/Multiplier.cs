@@ -31,11 +31,11 @@ public class Multiplier : MonoBehaviour
             {
                 double roundedText = Math.Round(reward/ 1000, 1);
                 
-                rewardToShowText.text = roundedText.ToString() + "k";
+                rewardToShowText.text ="$" + roundedText.ToString() + "k";
             }
             else
             {
-                rewardToShowText.text = reward.ToString();
+                rewardToShowText.text = "$" + reward.ToString();
 
             }
             
