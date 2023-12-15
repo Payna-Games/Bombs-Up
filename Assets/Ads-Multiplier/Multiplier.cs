@@ -47,7 +47,17 @@ public class Multiplier : MonoBehaviour
 
     public void StopHandAnim()
     {
-        rewardToShowText.text = reward.ToString();
+        if (reward >= 1000)
+        {
+            double roundedText = Math.Round(reward / 1000, 1);
+
+            rewardToShowText.text = "$" + roundedText.ToString() + "k";
+        }
+        else
+        {
+            rewardToShowText.text = "$" + reward.ToString();
+
+        }
         //handAnim.StopPlayback();
         handAnim.enabled = false;
     }
