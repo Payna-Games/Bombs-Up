@@ -8,14 +8,16 @@ public class Multiplier : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI rewardToShowText;
      private Animator handAnim;
-     float reward;
+     public float reward;
     [SerializeField] private Transform moneyParticlePosition;
+    public bool adsClicked;
 
 
     private void Start()
     {
         
-        handAnim = GetComponent<Animator>(); 
+        handAnim = GetComponent<Animator>();
+        adsClicked = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -57,6 +59,7 @@ public class Multiplier : MonoBehaviour
     if (ok)
     {
         MoneyManager.moneyManager.buttonClicked = true;
+        adsClicked = true;
         MoneyManager.moneyManager.InreaseTotalMoney(reward);
         
         //Debug.Log("GetReward");

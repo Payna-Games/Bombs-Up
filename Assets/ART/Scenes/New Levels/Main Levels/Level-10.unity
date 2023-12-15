@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.27920514, g: 0.46334845, b: 0.99655837, a: 1}
+  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &9092770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &15150170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,6 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &89800755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11677,6 +11680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalMoney: 0
   nextLevelMoney: {fileID: 1838368488}
+  multiplier: {fileID: 1131743707}
   buttonClicked: 0
   roundedNumber: 0
 --- !u!1001 &671184457
@@ -14119,6 +14123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &781919937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20278,6 +20283,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
+--- !u!114 &1131743707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8631607159997205812, guid: 258e88b3462ee475da1e2a9084e88e14, type: 3}
+  m_PrefabInstance: {fileID: 2008921865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e986cabb3fb645e2ad69b8fa7eb86b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136502310
 GameObject:
   m_ObjectHideFlags: 0
@@ -21418,6 +21434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &1174234628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25761,6 +25778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &1349595832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28982,6 +29000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &1499116189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36307,6 +36326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridObj: {fileID: 0}
+  saveObjectList: []
 --- !u!114 &1925919794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41395,6 +41415,7 @@ MonoBehaviour:
   - {fileID: 721478214}
   - {fileID: 1010652354}
   DragObject: {fileID: 0}
+  gameObjectsFalse: 0
 --- !u!1 &2116500007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1172086692747283533, guid: fd38e08054dd25e4d9d198aef7cf57f3, type: 3}
