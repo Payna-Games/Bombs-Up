@@ -71,18 +71,19 @@ public class NextLevelButton : MonoBehaviour
             (() => {
                
                 MoneyManager.moneyManager.buttonClicked = true;
-                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); // 6.25 olan sabit 5 idi �eyre�i kadar fazlala�t�r�ld�
-                
-               
-               StartCoroutine(NextLevelParticle());
+
+                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
+
+                StartCoroutine(NextLevelParticle());
 
               // transform.GetChild(0).gameObject.SetActive(false);
-               clicked = true;
+               
             });
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); 
 
-           ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
+            ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
             moneyParticle.Play();
-
+            clicked = true;
         }
 
 
