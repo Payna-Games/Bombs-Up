@@ -31,7 +31,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
         NewPrice();
         button = transform.GetComponent<Button>();
         button.onClick.AddListener(DecreaseMoney);
-        if (transform.name =="Add Button")
+        if (transform.name == "Add Button")
             button.onClick.AddListener(() => SlotAddButton.slotAddButton.ObjectLocalize());
 
         button.onClick.AddListener(NewPrice);
@@ -40,12 +40,22 @@ public class EnoughMoney : TextPrint, IButtonPrice
     // Update is called once per frame
     void Update()
     {
+        if (!CanInteract && transform.name == "Add Button")
+        {
+            transform.GetComponent<Button>().interactable = false;
+        }
+        if (CanInteract && transform.name == "Add Button")
+        {
+            transform.GetComponent<Button>().interactable = true;
+        }
         if (MoneyManager.moneyManager.totalMoney >= enough && CanInteract)
         {
             transform.GetComponent<Button>().interactable = true;
         }
         else if (MoneyManager.moneyManager.totalMoney < enough && adsClick)
-        {        adsClick = false;
+        {
+            transform.GetComponent<Button>().interactable = true;
+            adsClick = false;
             GetComponent<Animator>().enabled = true;
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(2).gameObject.SetActive(true);
@@ -128,7 +138,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
 
             transform.DORotate(Vector3.zero, 0.2f);
 
-            
+
         }
 
     }
