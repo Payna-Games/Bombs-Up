@@ -7,7 +7,7 @@ public class LevelUi : MonoBehaviour
     private int _levelNumber;
     private void Awake()
     {
-        _levelNumber = PlayerPrefs.GetInt("levelNumber");
+        _levelNumber = PlayerPrefs.GetInt("LevelCount");
         Debug.Log(_levelNumber);
         YsoCorp.GameUtils.YCManager.instance.OnGameStarted(_levelNumber);
 
