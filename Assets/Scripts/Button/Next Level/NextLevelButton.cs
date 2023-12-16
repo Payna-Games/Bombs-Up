@@ -14,7 +14,7 @@ public class NextLevelButton : MonoBehaviour
     // [SerializeField]  private Transform moneyParticlePosition;
     private bool clicked;
     public EnoughMoney IncomeScript;
-
+    private bool _ads = false;
 
     private void Awake()
     {
@@ -26,7 +26,6 @@ public class NextLevelButton : MonoBehaviour
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
         rectTransform = GetComponent<RectTransform>();
-
     }
 
     private IEnumerator NextLevelParticle()
@@ -38,14 +37,10 @@ public class NextLevelButton : MonoBehaviour
         else
             PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
         Debug.Log("courutine else");
-
+        
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
-            
-            SceneManager.LoadScene("Level-11");
-            
-
-
+            SceneManager.LoadScene("Level-10");
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -53,8 +48,12 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+        if (!PlayerPrefs.HasKey("levelNumber"))
+            PlayerPrefs.SetInt("levelNumber", 1);
+        else
+            PlayerPrefs.SetInt("levelNumber", PlayerPrefs.GetInt("levelNumber") + 1);
+        _ads = true;
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
 
         if (!clicked)
         {
@@ -89,8 +88,8 @@ public class NextLevelButton : MonoBehaviour
     }
     public void NextLevelReward()
     {
-
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
+        _ads = true;
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
         StartCoroutine(NextLevelParticle());
        
     }
