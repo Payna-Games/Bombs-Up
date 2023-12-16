@@ -37,7 +37,7 @@ public class NextLevelButton : MonoBehaviour
         else
             PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
         Debug.Log("courutine else");
-        PlayerPrefs.SetInt("levelNumber", PlayerPrefs.GetInt("levelNumber") + 1);
+        
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene("Level-11");
@@ -48,7 +48,7 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-
+        PlayerPrefs.SetInt("levelNumber", PlayerPrefs.GetInt("levelNumber") + 1);
         YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
 
         if (!clicked)
