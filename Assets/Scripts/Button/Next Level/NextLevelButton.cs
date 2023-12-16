@@ -48,10 +48,7 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-        if (!PlayerPrefs.HasKey("levelNumber"))
-            PlayerPrefs.SetInt("levelNumber", 1);
-        else
-            PlayerPrefs.SetInt("levelNumber", PlayerPrefs.GetInt("levelNumber") + 1);
+       
         _ads = true;
         YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
 
