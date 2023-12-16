@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelUi : MonoBehaviour
 {
+    private int _levelNumber;
     private void Awake()
     {
-        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("levelNumber"));
+        _levelNumber = PlayerPrefs.GetInt("levelNumber");
+        Debug.Log(_levelNumber);
+        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(_levelNumber);
 
-        Debug.Log(PlayerPrefs.GetInt("levelNumber"));
 
     }
     void Start()
