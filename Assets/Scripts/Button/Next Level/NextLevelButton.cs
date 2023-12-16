@@ -26,7 +26,6 @@ public class NextLevelButton : MonoBehaviour
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
         rectTransform = GetComponent<RectTransform>();
-
     }
 
     private IEnumerator NextLevelParticle()
@@ -38,14 +37,10 @@ public class NextLevelButton : MonoBehaviour
         else
             PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
         Debug.Log("courutine else");
-
+        PlayerPrefs.SetInt("levelNumber", PlayerPrefs.GetInt("levelNumber") + 1);
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
         {
-            
             SceneManager.LoadScene("Level-11");
-            
-
-
         }
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
