@@ -11,7 +11,7 @@ public class FireRate : MonoBehaviour
     [SerializeField] private Transform particleTransform;
     [SerializeField] private TextMeshProUGUI fireRateText;
     private bool savedLens = false;
-    private bool fireRateStop;
+    
     public bool bombTagActive;
 
     private void Start()
@@ -26,7 +26,7 @@ public class FireRate : MonoBehaviour
             fireRateText.text = "+" + addFireRateText.ToString();
         }
 
-        fireRateStop = false;
+        
         bombTagActive = false;
     }
     

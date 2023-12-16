@@ -25,7 +25,7 @@ public class WoodLens : MonoBehaviour
     private int i;
     private int d;
     private bool destroy = false;
-    private bool destroyComplete = false;
+    
     private int groupIndex;
     private int collidersPerGroup;
     void Start()

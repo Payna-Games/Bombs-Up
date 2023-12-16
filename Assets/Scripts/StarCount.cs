@@ -16,9 +16,7 @@ public class StarCount : MonoBehaviour
     private bool fullTheAmount1;
     private bool fullTheAmount2;
     private bool fullTheAmount3;
-    private bool starAnim = false;
-    private bool starAnim2 = false;
-    private bool starAnim3 = false;
+   
     public bool starBool = false;
     
     private float fill;
