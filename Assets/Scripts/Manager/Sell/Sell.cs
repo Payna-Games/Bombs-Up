@@ -25,8 +25,8 @@ public class Sell : MonoBehaviour
     public void OnPointExit()
     {
         IsOnImage = false;
-        //LeanTween.size(rectTransform, targetSize, duration);
-        //Debug.Log(transform.localScale);
+        MoneyManager.moneyManager.buttonClicked = true;
+        MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
     }
     public void OnPointEnter()
     {

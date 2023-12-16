@@ -51,6 +51,16 @@ public class EnoughMoney : TextPrint, IButtonPrice
         if (MoneyManager.moneyManager.totalMoney >= enough && CanInteract)
         {
             transform.GetComponent<Button>().interactable = true;
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(false);
+            GetComponent<Image>().sprite = oldImage;
+            adsClick = true;
+            GetComponent<Button>().onClick.RemoveAllListeners();
+            transform.GetComponent<Button>().onClick.AddListener(DecreaseMoney);
+            if (transform.name == "Add Button")
+                button.onClick.AddListener(() => SlotAddButton.slotAddButton.ObjectLocalize());
+
+            transform.GetComponent<Button>().onClick.AddListener(NewPrice);
         }
         else if (MoneyManager.moneyManager.totalMoney < enough && adsClick)
         {
