@@ -100,7 +100,7 @@ public class FireRate : MonoBehaviour
         if (bombTagActive)
         {
             
-            MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 40f;
+            MiniBompManager.miniBompManager.spawnSpeed -= addFireRateText / 50f;
             MiniBompManager.miniBompManager.spawnSpeed = Mathf.Clamp(MiniBompManager.miniBompManager.spawnSpeed, 0.2f, 1.5f);
             gameObject.SetActive(false);
             bombTagActive = false;

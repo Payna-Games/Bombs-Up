@@ -10,6 +10,6 @@ public class VibratorManager : MonoBehaviour
     private void Awake()
     {
         vibratorManager = vibratorManager == null ? this : vibratorManager;
-        mainVibrator = false;
+        mainVibrator = true;
     }
 }
