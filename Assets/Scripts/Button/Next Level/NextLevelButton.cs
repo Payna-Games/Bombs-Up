@@ -53,9 +53,8 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-        OnGameFinished(true);
 
-
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
 
         if (!clicked)
         {
@@ -90,16 +89,12 @@ public class NextLevelButton : MonoBehaviour
     }
     public void NextLevelReward()
     {
-        OnGameFinished(true);
 
+        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(true);
         StartCoroutine(NextLevelParticle());
        
     }
-    private void OnGameFinished(bool hasWon)
-    {
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(hasWon);
-        Debug.Log("OnGameFinished");
-    }
+    
     //public void MoneyParticle()
     //{
     //    ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;

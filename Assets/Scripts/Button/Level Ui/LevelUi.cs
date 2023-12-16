@@ -6,6 +6,8 @@ public class LevelUi : MonoBehaviour
 {
     void Start()
     {
+        
+        
         if (SceneManager.GetActiveScene().name.Contains("Tutorial"))
         {
             GetComponent<TextMeshProUGUI>().text = "Tutorial";
@@ -16,15 +18,15 @@ public class LevelUi : MonoBehaviour
             //else
             //    SceneManager.LoadScene(PlayerPrefs.GetInt(transform.name));
             //OnGameStarted(1);
-             YsoCorp.GameUtils.YCManager.instance.OnGameStarted(1);
+             YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("levelNumber"));
         }
 
         else
         {
             GetComponent<TextMeshProUGUI>().text = "Lvl " + (PlayerPrefs.GetInt("LevelCount"));
             PlayerPrefs.SetInt(transform.parent.name, SceneManager.GetActiveScene().buildIndex);
-            //OnGameStarted(PlayerPrefs.GetInt("LevelCount") + 1);
-            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("LevelCount") + 1);
+            YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("levelNumber"));
+
         }      
     } 
    // private void OnGameStarted(int levelNumber)

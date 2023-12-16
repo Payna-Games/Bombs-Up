@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
         if (!PlayerPrefs.HasKey(transform.name))
         {
             PlayerPrefs.SetInt(transform.name, 1);
+            PlayerPrefs.SetInt("levelNumber", 1);
             SceneManager.LoadScene(1);
         }
         else

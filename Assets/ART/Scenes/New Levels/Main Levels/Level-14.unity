@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.27920514, g: 0.46334845, b: 0.99655837, a: 1}
+  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2171,7 +2171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.64202416, y: 0.11708382, z: 0.100087136, w: 0.75105196}
+  m_LocalRotation: {x: -0.64202416, y: 0.11708381, z: 0.10008713, w: 0.75105196}
   m_LocalPosition: {x: -81, y: -1592, z: -222}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4910,7 +4910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 123,4k
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e78a67f2241e1424cb8b23426d025fb3, type: 2}
   m_sharedMaterial: {fileID: -3056784603692441843, guid: e78a67f2241e1424cb8b23426d025fb3, type: 2}
@@ -4943,7 +4943,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 42
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7253,12 +7253,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1173069215}
     m_Modifications:
     - target: {fileID: 1683873309126862067, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_text
+      value: Lvl 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683873309126862067, guid: f21c788c95f28304298a4149b9052e18, type: 3}
       propertyPath: m_fontSize
-      value: 25
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1683873309126862067, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 1683873309126862067, guid: f21c788c95f28304298a4149b9052e18, type: 3}
       propertyPath: m_enableAutoSizing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6809578430666815945, guid: f21c788c95f28304298a4149b9052e18, type: 3}
       propertyPath: m_Pivot.x
@@ -7343,6 +7351,22 @@ PrefabInstance:
     - target: {fileID: 7631484146066726387, guid: f21c788c95f28304298a4149b9052e18, type: 3}
       propertyPath: m_Name
       value: Level Ui
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024715701339191133, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9835886
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024715701339191133, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5992484
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024715701339191133, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7146144
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024715701339191133, guid: f21c788c95f28304298a4149b9052e18, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.3003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
