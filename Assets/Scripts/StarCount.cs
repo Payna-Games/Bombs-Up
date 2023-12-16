@@ -44,9 +44,7 @@ public class StarCount : MonoBehaviour
         star3 = star2 - 0.33f;
 
 
-        Debug.Log("starRate: " + starRatee);
-        Debug.Log("star2: " + star2);
-        Debug.Log("star3: " + star3);
+       
         
         
 
@@ -156,7 +154,7 @@ public class StarCount : MonoBehaviour
             fill2 = Mathf.Lerp(0, star3 / 0.33f, Time.deltaTime * 1);
             stars[2].fillAmount += fill2;
 
-            if (stars[3].fillAmount >= star3 / 0.33f * (1 - tolerance) &&
+            if (stars[2].fillAmount >= star3 / 0.33f * (1 - tolerance) &&
                 stars[2].fillAmount <= star3 / 0.33f * (1 + tolerance))
             {
 

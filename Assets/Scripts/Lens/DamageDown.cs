@@ -8,19 +8,19 @@ using DG.Tweening;
 
 public class DamageDown : MonoBehaviour
 {
-    
-    
+
+
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private Renderer myRenderer;
     [SerializeField] private Material greenMaterial;
     [SerializeField] private float initialScale = 1f;
     [SerializeField] private float targetScale = 1.5f;
     [SerializeField] private float duration = 1f;
-    
+
     private ObjectLevel headObjectLevell;
     private ObjectLevel bodyObjectLevell;
     private ObjectLevel motorObjectLevell;
-    
+
     public int addKiloTon;
     private Damage damage;
     private bool savedLens = false;
@@ -28,13 +28,13 @@ public class DamageDown : MonoBehaviour
     private void Awake()
     {
         headObjectLevell = GameObject.Find("Head").GetComponent<ObjectLevel>();
-        bodyObjectLevell= GameObject.Find("Body").GetComponent<ObjectLevel>();
-        motorObjectLevell= GameObject.Find("Motor").GetComponent<ObjectLevel>();
+        bodyObjectLevell = GameObject.Find("Body").GetComponent<ObjectLevel>();
+        motorObjectLevell = GameObject.Find("Motor").GetComponent<ObjectLevel>();
     }
 
     private void Start()
     {
-        damageText.text =  addKiloTon.ToString();
+        damageText.text = addKiloTon.ToString();
         damage = GetComponent<Damage>();
     }
 
@@ -43,33 +43,33 @@ public class DamageDown : MonoBehaviour
     {
         if (other.CompareTag("MiniBomb"))
         {
-            
+
             addKiloTon++;
             if (addKiloTon < 0)
             {
-                damageText.text =  addKiloTon.ToString(); 
+                damageText.text = addKiloTon.ToString();
             }
             else if (addKiloTon == 0)
             {
-                damageText.text =  addKiloTon.ToString(); 
-                
+                damageText.text = addKiloTon.ToString();
+
                 myRenderer.material = greenMaterial;
-                
+
             }
             else
             {
-                damageText.text = "+" + addKiloTon.ToString(); 
-                
+                damageText.text = "+" + addKiloTon.ToString();
+
             }
-            
+
             CreateParticle.Create(transform.position);
             savedLens = true;
             Destroy(other.gameObject);
         }
 
-        if ( other.CompareTag("Bomb") )
+        if (other.CompareTag("Bomb"))
         {
-           
+
             if (!LensWaitTime.LensW.lensActive)
             {
                 LensWaitTime.LensW.lensActive = true;
@@ -78,7 +78,9 @@ public class DamageDown : MonoBehaviour
                 {
                     CreateParticle.ParticleTransform.gameObject.SetActive(false);
                 }
-                
+                other.GetComponent<KiloTonCalculate>().addKTon += addKiloTon;
+                other.GetComponent<KiloTonCalculate>().Calculate();
+
                 if (addKiloTon <= -30)
                 {
                     if (headObjectLevell.damageLevel > 0)
@@ -103,8 +105,8 @@ public class DamageDown : MonoBehaviour
                     }
 
 
-                    
-                    
+
+
 
                     other.transform.DOScale(Vector3.one * targetScale, 0.5f)
                         .SetEase(Ease.Linear)
@@ -113,40 +115,79 @@ public class DamageDown : MonoBehaviour
                             other.transform.DOScale(Vector3.one * initialScale, duration)
                                 .SetEase(Ease.OutBounce);
                         });
-                    
-                    
-                }
-                gameObject.SetActive(false);
-                
-                
-            }
-          
 
-           
-                
-            
-            
+
+                }
+                else if (addKiloTon >= 30)
+                {
+
+                    if (headObjectLevell.damageLevel < 7)
+                    {
+                        headObjectLevell.damageLevel += 1;
+                        headObjectLevell.SetFalse2();
+                        headObjectLevell.SetTrue2();
+
+                    }
+
+                    if (bodyObjectLevell.damageLevel < 7)
+                    {
+                        bodyObjectLevell.damageLevel += 1;
+                        bodyObjectLevell.SetFalse2();
+                        bodyObjectLevell.SetTrue2();
+
+                    }
+
+                    if (motorObjectLevell.damageLevel < 7)
+                    {
+                        motorObjectLevell.damageLevel += 1;
+
+                        motorObjectLevell.SetFalse2();
+                        motorObjectLevell.SetTrue2();
+
+                        Transform motorParticle = motorObjectLevell.bombComponent.GetChild(0);
+                        motorParticle.gameObject.SetActive(true);
+                        motorParticle.GetChild(0).gameObject.SetActive(true);
+
+
+
+                    }
+                    other.transform.DOScale(Vector3.one * targetScale, 0.5f)
+                        .SetEase(Ease.Linear)
+                        .OnComplete(() =>
+                        {
+                            other.transform.DOScale(Vector3.one * initialScale, duration)
+                                .SetEase(Ease.OutBounce);
+                        });
+
+
+                }
+
+
+                gameObject.SetActive(false);
+
+
+
+
+
+            }
 
 
         }
 
        
+
+
     }
-   
     private void Update()
-     {
-        if (addKiloTon == 0)
-         {
-          enabled =false;
-             damage.enabled = true;
-    
-        }
+    {
         if (savedLens)
         {
             CreateParticle.GetLensPosition(transform.position);
             StartCoroutine(SavedLens());
         }
-     }
+
+
+    }
     private IEnumerator SavedLens()
     {
         yield return new WaitForSeconds(1f);

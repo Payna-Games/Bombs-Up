@@ -104,7 +104,9 @@ public class BompExplode : ExplodeCalculate
                 
             }
         }
+        Debug.Log("objectswithtag: " + objectsWithTag.Length);
         explodeCount?.Invoke(cityCount);
+        Debug.Log("cityCount" + cityCount);
     }
 
     
