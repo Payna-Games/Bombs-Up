@@ -48,7 +48,7 @@ public class NextLevelButton : MonoBehaviour
 
     public void NextLevel()
     {
-       
+
         _ads = true;
         YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
 
