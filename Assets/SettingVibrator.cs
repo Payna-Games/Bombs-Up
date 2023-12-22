@@ -25,6 +25,7 @@ public class SettingVibrator : MonoBehaviour
         _vibratorButtom[2].onClick.AddListener(VibratorOff);
     }
 
+
     public void SettingButton()
     {
         if (_settingPanel.activeSelf)

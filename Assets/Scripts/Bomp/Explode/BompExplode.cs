@@ -36,7 +36,7 @@ public class BompExplode : ExplodeCalculate
             if (VibratorManager.vibratorManager.mainVibrator)
             {
                 Vibrator.Vibrate();
-                Vibrator.Vibrate(200);
+                Vibrator.Vibrate(100);
             }
         }
     }
