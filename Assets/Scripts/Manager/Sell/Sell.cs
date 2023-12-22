@@ -14,7 +14,7 @@ public class Sell : MonoBehaviour
     Vector3 originalScale;
     private RectTransform rectTransform;
     Vector2 targetSize;
-
+    public bool mouseUp;
     private void Awake()
     {
         sell = sell == null ? this : sell;
@@ -26,9 +26,10 @@ public class Sell : MonoBehaviour
 
     public void OnPointExit()
     {
-        if (ObjectList.objectList.DragObjectNow == null && IsOnImage)
+        if (mouseUp)
         {
             IsOnImage = false;
+            ObjectList.objectList.DragObjectNow = null;
             transform.DOScale(originalScale, 1.0f);
             MoneyManager.moneyManager.buttonClicked = true;
             MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
@@ -44,9 +45,8 @@ public class Sell : MonoBehaviour
             if (VibratorManager.vibratorManager.mainVibrator)
             {
                 Vibrator.Vibrate();
-                Vibrator.Vibrate(75);
+                Vibrator.Vibrate(200);
             }
         }
-
     }
 }
