@@ -16,7 +16,7 @@ public class BtnVibrator : MonoBehaviour
         if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
-            Vibrator.Vibrate(100);
+            Vibrator.Vibrate(75);
         }
     }
 }
