@@ -2620,7 +2620,7 @@ GameObject:
   - component: {fileID: 6983538339837197338}
   - component: {fileID: 7197758943480431979}
   - component: {fileID: 1822921727782489976}
-  - component: {fileID: 5355093550516910218}
+  - component: {fileID: 366007777694437611}
   m_Layer: 5
   m_Name: Vibrator
   m_TagString: Untagged
@@ -2687,7 +2687,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5355093550516910218
+--- !u!114 &366007777694437611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2696,17 +2696,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4363793838361068901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc5bc6664bd61240b393a0899de1610, type: 3}
+  m_Script: {fileID: 11500000, guid: 611974afcd5f6a64c8b4cdbd1229bc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingPanel: {fileID: 3693429574810868668}
-  _vibrator:
-  - {fileID: 6281730883669664687}
-  - {fileID: 6226230838911472041}
-  _vibratorButtom:
-  - {fileID: 5345862182654379737}
-  - {fileID: 85987522622855250}
-  - {fileID: 643078917928202617}
 --- !u!1 &4508002435347080862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,7 +3372,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 688116006410097183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 366007777694437611}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: SettingButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5903457091327606099
 GameObject:
   m_ObjectHideFlags: 0

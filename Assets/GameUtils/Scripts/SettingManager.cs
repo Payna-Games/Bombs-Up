@@ -28,7 +28,7 @@ namespace YsoCorp {
 #if UNITY_ANDROID && !UNITY_EDITOR
                 this.bRestorePurchase.gameObject.SetActive(false);
 #endif
-                this.bLang.gameObject.SetActive(false);
+               // this.bLang.gameObject.SetActive(false);
                 this.tVersion.text = "v" + Application.version + "  sdk" + YCConfig.VERSION;
                 if (this.ycManager.abTestingManager.GetPlayerSample() != "") {
                     this.tVersion.text += " (" + this.ycManager.abTestingManager.GetPlayerSample() + ")";
@@ -51,8 +51,9 @@ namespace YsoCorp {
                     });
                 }
                 this.panelBts.gameObject.SetActive(
-                    this.bLang.gameObject.activeSelf
-                );
+                    //this.bLang.gameObject.activeSelf
+                    true
+                ); ;
                 this.bClose.onClick.AddListener(() => {
                     this.content.SetActive(false);
                 });
