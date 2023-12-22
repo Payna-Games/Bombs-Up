@@ -11,12 +11,14 @@ public class Sell : MonoBehaviour
     private Vector3 normalSize;
     public float scaleFactor = 1.3f;
     public float duration = 1.0f;
+    Vector3 originalScale;
     private RectTransform rectTransform;
     Vector2 targetSize;
 
     private void Awake()
     {
         sell = sell == null ? this : sell;
+        originalScale = transform.localScale;
         //rectTransform = GetComponent<RectTransform>();
         //normalSize = transform.localScale;
         //targetSize = rectTransform.sizeDelta * scaleFactor;
@@ -24,17 +26,27 @@ public class Sell : MonoBehaviour
 
     public void OnPointExit()
     {
-        IsOnImage = false;
-        MoneyManager.moneyManager.buttonClicked = true;
-        MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
+        if (ObjectList.objectList.DragObjectNow == null && IsOnImage)
+        {
+            IsOnImage = false;
+            transform.DOScale(originalScale, 1.0f);
+            MoneyManager.moneyManager.buttonClicked = true;
+            MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
+        }
+
     }
     public void OnPointEnter()
     {
-        IsOnImage = true;
-        if (VibratorManager.vibratorManager.mainVibrator)
+        if (ObjectList.objectList.DragObjectNow != null)
         {
-            Vibrator.Vibrate();
-            Vibrator.Vibrate(200);
+            IsOnImage = true;
+            transform.DOScale(originalScale * 0.7f, 1.0f);
+            if (VibratorManager.vibratorManager.mainVibrator)
+            {
+                Vibrator.Vibrate();
+                Vibrator.Vibrate(200);
+            }
         }
+
     }
 }

@@ -11,6 +11,7 @@ public class ObjectList : MonoBehaviour
     public List<GameObject> motor;
 
     public GameObject DragObject;
+    public GameObject DragObjectNow;    // þuanda tuttuðu obje 
     public bool gameObjectsFalse;
 
     private void Start()

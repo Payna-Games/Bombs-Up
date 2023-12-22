@@ -34,6 +34,7 @@ public class DragAndDrop : MonoBehaviour
     private void OnMouseDown()
     {
         ObjectList.objectList.DragObject = this.gameObject;
+        ObjectList.objectList.DragObjectNow = this.gameObject;
 
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
 
@@ -53,6 +54,7 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        ObjectList.objectList.DragObjectNow = null;
         DragPos();
     }
 
