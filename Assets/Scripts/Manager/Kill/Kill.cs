@@ -10,7 +10,8 @@ public class Kill : MonoBehaviour
     public float fillAmount;
     public EnoughMoney IncomeScript;
     public float moneyIncrease;
-    public event Action<float> killCount; 
+    public event Action<float> killCount;
+    public float destroyedObject;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class Kill : MonoBehaviour
 
     private void KillCount(int objCount)
     {
+        destroyedObject = objCount;
         fillAmount = ((float)objCount / maxObj);
 
         transform.GetComponent<Image>().fillAmount = Mathf.Lerp(0, fillAmount,1);

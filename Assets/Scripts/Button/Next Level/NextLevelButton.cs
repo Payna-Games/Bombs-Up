@@ -42,8 +42,15 @@ public class NextLevelButton : MonoBehaviour
         {
             SceneManager.LoadScene(9);
         }
-        else
+        if(Kill.kill.destroyedObject == Kill.kill.maxObj)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if(Kill.kill.destroyedObject != Kill.kill.maxObj)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
+        }
+          
     }
 
     public void NextLevel()
