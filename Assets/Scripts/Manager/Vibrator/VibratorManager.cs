@@ -10,6 +10,17 @@ public class VibratorManager : MonoBehaviour
     private void Awake()
     {
         vibratorManager = vibratorManager == null ? this : vibratorManager;
-        mainVibrator = false;
+        VibratorControl();
+    }
+    public void VibratorControl()
+    {
+        if (PlayerPrefs.GetInt("Vibrator") == 0)
+        {
+            mainVibrator = true;
+        }
+        else
+        {
+            mainVibrator = false;
+        }
     }
 }
