@@ -17,7 +17,7 @@ public class DragAndDrop : MonoBehaviour
 
     private float mZCoord;
     private float elevation;
-    public float tiltAngle;
+    public float tiltAngle = 20;
     public Vector3 firstPosition;
     private Vector3 offset;
     private Vector3 mouseWorldPos;

@@ -917,27 +917,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5183580320645820735, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
   m_PrefabInstance: {fileID: 1723453272}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &731984748
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731984746}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 6, z: 2}
-  m_Center: {x: 0, y: 0.00000023841858, z: 0.00000006953876}
 --- !u!114 &731984749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,7 +1598,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: SellCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2298546943736735956, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
+    - {fileID: 294173003202778040, guid: f937456d29e5c944bba7deb38b015c28, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2845,11 +2826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4704464037350531626, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 4704464037350531626, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 4704464037350531626, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2903,7 +2884,42 @@ PrefabInstance:
       propertyPath: m_TagString
       value: grid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 380624279710660008, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 6417521124524804762, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 7883916802271204002, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 5780492282547969233, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 2673403930018670129, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 6056264237374554143, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 362506733395998045, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 2491653404731713502, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 1500426327764642449, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 2360655494484010936, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 8672843761627798426, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 1782183919130921747, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 5754896797031326906, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 4481080692861238382, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 3070957571974137874, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 8792565457390124067, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 7053592846426007601, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 3764059807682230641, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 1963137463841661783, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 3613854069272324583, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 8662272412805644461, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 6683866934315598318, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 1899447319846502610, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 6060654775243065503, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 6956160843156321742, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 7889638963172652982, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 9153784118950428515, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 3494220282969763022, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 8180332113763357105, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 5498577816656119557, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 2029505717155353632, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 7972030028854465714, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 3646580917365091448, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 4023111357120877587, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+    - {fileID: 432713937374385626, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2964,9 +2980,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5183580320645820735, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 731984749}
-    - targetCorrespondingSourceObject: {fileID: 5183580320645820735, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 731984748}
     - targetCorrespondingSourceObject: {fileID: 1196269644058677585, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1918476129}
