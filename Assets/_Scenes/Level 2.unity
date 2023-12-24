@@ -2786,6 +2786,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 57219602}
     - target: {fileID: 4219513320397372179, guid: 0f143871123a2cb429bd1c7c740be52c, type: 3}
+      propertyPath: explodeBar
+      value: 
+      objectReference: {fileID: 987330581330077749}
+    - target: {fileID: 4219513320397372179, guid: 0f143871123a2cb429bd1c7c740be52c, type: 3}
+      propertyPath: maxKiloton
+      value: 
+      objectReference: {fileID: 4688451978019636326}
+    - target: {fileID: 4219513320397372179, guid: 0f143871123a2cb429bd1c7c740be52c, type: 3}
       propertyPath: cameraVibration
       value: 
       objectReference: {fileID: 72404771}
@@ -13731,10 +13739,6 @@ PrefabInstance:
       propertyPath: gridList.Array.data[7]
       value: 
       objectReference: {fileID: 2952014372777499230}
-    - target: {fileID: 2606370664155499928, guid: e565844d052f1d0459943d3672920b3b, type: 3}
-      propertyPath: maxKiloton
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 2962205589337564438, guid: e565844d052f1d0459943d3672920b3b, type: 3}
       propertyPath: kill
       value: 
@@ -14160,6 +14164,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+--- !u!114 &987330581330077749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 801817158428373704, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+  m_PrefabInstance: {fileID: 987330581330077748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1028183830166708377
 Transform:
   m_ObjectHideFlags: 0
@@ -19931,6 +19946,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: cf9821644aba5874d9465b77a4381009, type: 3}
+--- !u!114 &4688451978019636326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 73312499953893837, guid: e565844d052f1d0459943d3672920b3b, type: 3}
+  m_PrefabInstance: {fileID: 723078176528133061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715fd9520d6459e4590355563c456c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &4757011704219433686
 MeshCollider:
   m_ObjectHideFlags: 0

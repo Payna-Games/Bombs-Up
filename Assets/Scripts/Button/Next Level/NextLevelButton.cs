@@ -49,7 +49,7 @@ public class NextLevelButton : MonoBehaviour
         }
         else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= maxKiloton.maxKiloton)
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(10);
         }
 
         //if(Kill.kill.destroyedObject != Kill.kill.maxObj)
