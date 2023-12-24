@@ -26,7 +26,7 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnEnable()
     {
-        tiltAngle = 20;
+        tiltAngle = 44;
     }
     public Vector3 GetMouseWorldPosition()
     {
