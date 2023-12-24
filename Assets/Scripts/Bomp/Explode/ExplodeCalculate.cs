@@ -29,6 +29,11 @@ public class ExplodeCalculate : MonoBehaviour
         //return (transform.GetChild(1).GetComponent<ObjectLevel>().objectLevel + 1) * 20;
         // 36 olan deger 20 olacak //
     }
+    public float DestroyAllOfThem()
+    {
+
+        return 400.0f;
+    }
 
     public float ForceExplode()
     {
