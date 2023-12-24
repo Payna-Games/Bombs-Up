@@ -24,6 +24,10 @@ public class DragAndDrop : MonoBehaviour
 
     private float mouseElevaiton = 1.5f;
 
+    private void OnEnable()
+    {
+        tiltAngle = 20;
+    }
     public Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePos = Input.mousePosition;
