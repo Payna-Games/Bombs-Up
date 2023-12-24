@@ -95,7 +95,7 @@ public class BompExplode : ExplodeCalculate
     {
         yield return new WaitForSeconds(0.2f);
         Explode2(explosionRadius);
-        Debug.Log("checklist.count1 " + checkList.Count);
+        
 
 
         if (KiloTonCalculate.kiloTonCalculate.KiloTon < maxKiloton.maxKiloton)
@@ -109,7 +109,7 @@ public class BompExplode : ExplodeCalculate
                     cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
                     obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
-                    //obj.tag = "DestroyedPieces";
+                   
 
 
 
@@ -119,17 +119,17 @@ public class BompExplode : ExplodeCalculate
         else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= maxKiloton.maxKiloton)
         {
             Explode2(400);
-            Debug.Log("checklist.count2 " + checkList.Count);
+            
             GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("Pieces");
             foreach (GameObject obj in objectsWithTag2)
             {
                 if (obj.GetComponent<Rigidbody>() != null)
                 {
-                    Debug.Log("büyük patlama");
+                    //Debug.Log("büyük patlama");
                     cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
                     obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,600f, 10, ForceMode.Impulse);
-                   // obj.tag = "DestroyedPieces";
+                   
 
 
 
@@ -143,10 +143,7 @@ public class BompExplode : ExplodeCalculate
     }
      
 
-        //Debug.Log("objectswithtag: " + objectsWithTag.Length);
-        
-       // Debug.Log("cityCount" + cityCount);
-    
+      
 
     
 }
