@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.26736683, g: 0.44967932, b: 0.99766344, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.32639533, g: 0.43710884, b: 0.94075364, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1851,6 +1855,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6986358930039845922, guid: 0ae9ebd9f7473f1438e514d0fd3bfc9d, type: 3}
   m_PrefabInstance: {fileID: 1620827264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1474437684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2635302072526815547, guid: 6bfddf09df4e8324eae3530bd10b50d7, type: 3}
+  m_PrefabInstance: {fileID: 64167218}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1550677530
 GameObject:
@@ -13398,10 +13407,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1172086693514012278}
     - target: {fileID: 1790996516540364514, guid: e565844d052f1d0459943d3672920b3b, type: 3}
-      propertyPath: gridList.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790996516540364514, guid: e565844d052f1d0459943d3672920b3b, type: 3}
       propertyPath: gridList.Array.data[0]
       value: 
       objectReference: {fileID: 64167227}
@@ -13504,7 +13509,7 @@ PrefabInstance:
     - target: {fileID: 5622371936779277809, guid: e565844d052f1d0459943d3672920b3b, type: 3}
       propertyPath: ActiveObj.Array.data[0]
       value: 
-      objectReference: {fileID: 6998920484810181966}
+      objectReference: {fileID: 1474437684}
     - target: {fileID: 5622371936779277809, guid: e565844d052f1d0459943d3672920b3b, type: 3}
       propertyPath: ActiveObj.Array.data[1]
       value: 
@@ -13861,6 +13866,10 @@ PrefabInstance:
       propertyPath: follwChange
       value: 
       objectReference: {fileID: 57219602}
+    - target: {fileID: 6675083577231138311, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8585877739796707383, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: bomp
       value: 
@@ -20010,11 +20019,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 5879dab994257cb49b187ef03e42045e, type: 3}
---- !u!1 &6998920484810181966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2091960778868165502, guid: 03854b303c524aa43b144c470e822970, type: 3}
-  m_PrefabInstance: {fileID: 857885479585778775}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7014207771403997983 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5219930706236969919, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
