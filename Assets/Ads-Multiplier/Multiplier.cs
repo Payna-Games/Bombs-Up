@@ -31,9 +31,9 @@ public class Multiplier : MonoBehaviour
            
             if (reward >= 1000)
             {
-                double roundedText = Math.Round(reward/ 1000, 1);
+                double roundedText = Math.Round(reward/ 1000, 0);
                 
-                rewardToShowText.text ="$" + roundedText.ToString() + "k";
+                rewardToShowText.text ="Claim "+  "\n  $" + roundedText.ToString() + "k";
             }
             else
             {
