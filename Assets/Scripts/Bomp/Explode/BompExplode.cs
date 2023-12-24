@@ -7,6 +7,7 @@ using Vector3 = System.Numerics.Vector3;
 public class BompExplode : ExplodeCalculate
 {
     [SerializeField] private CityExplodeParticle cityExplodeParticle;
+    [SerializeField] private MaxKiloton maxKiloton;
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
     public event Action explodeBefor;
@@ -20,6 +21,7 @@ public class BompExplode : ExplodeCalculate
     private bool hasCollided = false;
 
     public bool onVibrator = true;
+    public List<GameObject> buildigs;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -45,13 +47,8 @@ public class BompExplode : ExplodeCalculate
     private void Explode()
     {
        
-            explosionRadius = RadiusExplode();
+        explosionRadius = RadiusExplode();
         
-        
-            
-        
-        
-       
         explosionForce = ForceExplode();
         StartCoroutine(Wait(0.1f));
     }
@@ -59,7 +56,7 @@ public class BompExplode : ExplodeCalculate
     IEnumerator Wait(float sure)
     {
         yield return new WaitForSeconds(sure);
-        Explode2();
+       // Explode2(explosionRadius);
     }
 
     IEnumerator Wait2(float time)
@@ -69,13 +66,11 @@ public class BompExplode : ExplodeCalculate
     }
 
 
-    private void Explode2()
+    private void Explode2(float explosionRadius)
     {
 
+       Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
        
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
-       
-        
         explodeBefor?.Invoke();
         foreach (Collider col in colliders)
         {
@@ -90,79 +85,68 @@ public class BompExplode : ExplodeCalculate
                     Destroy(rb);
                     col.enabled = false;
                     col.transform.GetChild(0).gameObject.SetActive(true);
-                    //cityCount++;
-                    //rb.mass = 1;
-                    //rb.isKinematic = false;
-                    //rb.useGravity = true;
-                    //rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+                    
                 }
             }
         }
-        //StartCoroutine(Wait3());
+        
     }
     IEnumerator Wait3()
     {
         yield return new WaitForSeconds(0.2f);
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
+        Explode2(explosionRadius);
+        Debug.Log("checklist.count1 " + checkList.Count);
 
-        foreach (GameObject obj in objectsWithTag)
+
+        if (KiloTonCalculate.kiloTonCalculate.KiloTon < maxKiloton.maxKiloton)
         {
-            if (obj.GetComponent<Rigidbody>() != null)
-            {
-                cityCount++;
-                Vector3 explodeDirection = new Vector3(0, 1, 0);
-                obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
-                obj.tag = "DestroyedPieces";
-                
+            GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
 
-                
-            }
-        }
-        Debug.Log("cityCount " + cityCount);
-        if (cityCount >= 1)
-        {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 400);
-            foreach (Collider col in colliders)
-            {
-                if (col.gameObject.CompareTag("City") && !checkList.Contains(col.gameObject))
-                {
-                    checkList.Add(col.gameObject);
-                    Rigidbody rb = col.GetComponent<Rigidbody>();
-
-                    if (rb != null)
-                    {
-                        col.gameObject.GetComponent<Renderer>().enabled = false;
-                        Destroy(rb);
-                        col.enabled = false;
-                        col.transform.GetChild(0).gameObject.SetActive(true);
-                        
-                    }
-                }
-
-
-                objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
             foreach (GameObject obj in objectsWithTag)
             {
                 if (obj.GetComponent<Rigidbody>() != null)
                 {
-                   
-
+                    cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
-                    obj.GetComponent<Rigidbody>().AddExplosionForce(0.1f, transform.position, 400, 10, ForceMode.Impulse);
-                        
-                        
+                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+                    //obj.tag = "DestroyedPieces";
+
 
 
                 }
             }
-           
         }
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= maxKiloton.maxKiloton)
+        {
+            Explode2(400);
+            Debug.Log("checklist.count2 " + checkList.Count);
+            GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("Pieces");
+            foreach (GameObject obj in objectsWithTag2)
+            {
+                if (obj.GetComponent<Rigidbody>() != null)
+                {
+                    Debug.Log("büyük patlama");
+                    cityCount++;
+                    Vector3 explodeDirection = new Vector3(0, 1, 0);
+                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,600f, 10, ForceMode.Impulse);
+                   // obj.tag = "DestroyedPieces";
+
+
+
+                }
+            }
+        }
+
+
+        explodeCount?.Invoke(cityCount);
+
+    }
      
 
         //Debug.Log("objectswithtag: " + objectsWithTag.Length);
-        explodeCount?.Invoke(cityCount);
+        
        // Debug.Log("cityCount" + cityCount);
-    }
+    
 
     
-}}
+}
