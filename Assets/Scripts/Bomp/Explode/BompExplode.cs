@@ -139,7 +139,10 @@ public class BompExplode : ExplodeCalculate
             }
         }
 
-        explodeBar.gameObject.SetActive(true);
+        if (explodeBar != null)
+        {
+            explodeBar.gameObject.SetActive(true);
+        }
         explodeCount?.Invoke(cityCount);
        
         

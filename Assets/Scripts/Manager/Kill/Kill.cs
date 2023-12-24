@@ -52,7 +52,12 @@ public class Kill : MonoBehaviour
     private  IEnumerator CloseBar()
     {
         yield return new WaitForSeconds(3f);
-        barImage.SetActive(false);
+        if(barImage != null)
+        {
+            barImage.SetActive(false);
+
+        }
+        
     }
   
 
