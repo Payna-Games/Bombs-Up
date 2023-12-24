@@ -9,6 +9,7 @@ public class NextLevelButton : MonoBehaviour
     public static NextLevelButton nextLevelButton;
     [SerializeField] private Transform moneyParticlePosition;
     private RectTransform rectTransform;
+    [SerializeField] private MaxKiloton maxKiloton;
 
 
     // [SerializeField]  private Transform moneyParticlePosition;
@@ -42,11 +43,11 @@ public class NextLevelButton : MonoBehaviour
         {
             SceneManager.LoadScene(9);
         }
-        if(KiloTonCalculate.kiloTonCalculate.KiloTon <500)
+        if(KiloTonCalculate.kiloTonCalculate.KiloTon <maxKiloton.maxKiloton)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= 500)
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= maxKiloton.maxKiloton)
         {
             SceneManager.LoadScene(5);
         }

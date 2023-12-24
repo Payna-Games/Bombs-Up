@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using DentedPixel;
+using System.Collections;
 
 public class Kill : MonoBehaviour
 {
@@ -40,10 +41,18 @@ public class Kill : MonoBehaviour
     private void BarCount(int objCount)
     {
         fillAmount2 = ((float)objCount / maxObj );
-        
-        LeanTween.scaleX(barImage, fillAmount2,1);
+        Transform barFilledTransform = barImage.transform.GetChild(0);
+        GameObject barFilledImage = barFilledTransform.gameObject;
+
+        LeanTween.scaleX(barFilledImage, fillAmount2,1.5f);
+        StartCoroutine(CloseBar());
 
 
+    }
+    private  IEnumerator CloseBar()
+    {
+        yield return new WaitForSeconds(3f);
+        barImage.SetActive(false);
     }
   
 
