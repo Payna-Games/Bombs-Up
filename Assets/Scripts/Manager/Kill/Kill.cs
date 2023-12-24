@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using DentedPixel;
 
 public class Kill : MonoBehaviour
 {
@@ -8,14 +9,19 @@ public class Kill : MonoBehaviour
     public Transform bomp;
     public int maxObj;
     public float fillAmount;
+    public float fillAmount2;
     public EnoughMoney IncomeScript;
     public float moneyIncrease;
     public event Action<float> killCount;
     public float destroyedObject;
+    //[SerializeField] private MaxKiloton kiloton;
+    [SerializeField] private GameObject barImage;
+    float currentVelocity = 0f;
 
     void Awake()
     {
         bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+        bomp.GetComponent<BompExplode>().explodeCount += BarCount;
         kill = kill == null ? this : kill;
     }
 
@@ -30,5 +36,15 @@ public class Kill : MonoBehaviour
         killCount?.Invoke(fillAmount);
         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
     }
+
+    private void BarCount(int objCount)
+    {
+        fillAmount2 = ((float)objCount / maxObj );
+        
+        LeanTween.scaleX(barImage, fillAmount2,1);
+
+
+    }
+  
 
 }

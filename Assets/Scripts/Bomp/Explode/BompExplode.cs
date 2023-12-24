@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Vector3 = System.Numerics.Vector3;
+using UnityEngine.UI;
 
 public class BompExplode : ExplodeCalculate
 {
     [SerializeField] private CityExplodeParticle cityExplodeParticle;
     [SerializeField] private MaxKiloton maxKiloton;
+    [SerializeField] private Image explodeBar;
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
     public event Action explodeBefor;
@@ -137,8 +139,10 @@ public class BompExplode : ExplodeCalculate
             }
         }
 
-
+        explodeBar.gameObject.SetActive(true);
         explodeCount?.Invoke(cityCount);
+       
+        
 
     }
      

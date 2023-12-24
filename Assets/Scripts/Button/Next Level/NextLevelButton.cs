@@ -42,15 +42,20 @@ public class NextLevelButton : MonoBehaviour
         {
             SceneManager.LoadScene(9);
         }
-        if(Kill.kill.destroyedObject == Kill.kill.maxObj)
+        if(KiloTonCalculate.kiloTonCalculate.KiloTon <500)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        if(Kill.kill.destroyedObject != Kill.kill.maxObj)
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= 500)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
+            SceneManager.LoadScene(5);
         }
-          
+
+        //if(Kill.kill.destroyedObject != Kill.kill.maxObj)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
+        //}
+
     }
 
     public void NextLevel()
