@@ -7,7 +7,6 @@ using DG.Tweening;
 public class NextLevelButton : MonoBehaviour
 {
     public static NextLevelButton nextLevelButton;
-    
     [SerializeField] private Transform moneyParticlePosition;
     private RectTransform rectTransform;
     [SerializeField] private MaxKiloton maxKiloton;
@@ -28,7 +27,6 @@ public class NextLevelButton : MonoBehaviour
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
         rectTransform = GetComponent<RectTransform>();
-        
     }
 
     private IEnumerator NextLevelParticle()

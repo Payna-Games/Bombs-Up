@@ -11,7 +11,6 @@ public class MoneyManager : TextPrint
 
     public static MoneyManager moneyManager;
     [SerializeField] private TextMeshProUGUI nextLevelMoney;
-    [SerializeField] private TextMeshProUGUI getText;
     [SerializeField] private Multiplier multiplier;
     public bool buttonClicked;
     public int roundedNumber;
@@ -47,15 +46,13 @@ public class MoneyManager : TextPrint
         {
             roundedNumber = (int)Math.Round(otherMoney);
             nextLevelMoney.text = roundedNumber.ToString();
-             getText.text = "Get "+ "$"+roundedNumber.ToString();
             //StartCoroutine(CounterPrint(roundedNumber));
-            // Debug.Log("Increase else");
+           // Debug.Log("Increase else");
         }
         else if (multiplier.adsClicked)
         {
             roundedNumber = (int)Math.Round(otherMoney);
             nextLevelMoney.text = "$" +multiplier.reward.ToString();
-            getText.text = "$" + multiplier.reward.ToString();
         }
             ButtonPrint(totalMoney);
         PlayerPrefs.SetString(transform.name, totalMoney.ToString());
