@@ -69,16 +69,25 @@ public class Kill : MonoBehaviour
     {
         if (fillControl)
         {
-            fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-            barFilledImage.fillAmount += fill;
-            if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2)
+            if (explodeBar != null)
             {
+                explodeBar.gameObject.SetActive(true);
+                explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+                    barFilledImage.fillAmount += fill;
+                    if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2)
+                    {
 
-                fillControl = false;
-                StartCoroutine(CloseBar());
+                        fillControl = false;
+                        StartCoroutine(CloseBar());
 
+
+                    }
+                });
 
             }
+           
         }
         
 
@@ -88,21 +97,15 @@ public class Kill : MonoBehaviour
 
     private IEnumerator CloseBar()
     {
-        yield return new WaitForSeconds(0.5f);
         
-            if (explodeBar != null)
-            {
-                explodeBar.gameObject.SetActive(true);
-                explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
-                {
-                    explodeBar.rectTransform.DOScale(Vector3.zero, 0.4f)
-                        .SetEase(Ease.Linear);
-                    
-                });
+        
+            
+        
+        yield return new WaitForSeconds(2f);
+        explodeBar.rectTransform.DOScale(Vector3.zero, 0.4f)
+            .SetEase(Ease.Linear);
 
-
-            }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         barImage.SetActive(false);
 
