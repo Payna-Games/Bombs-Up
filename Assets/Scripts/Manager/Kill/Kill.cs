@@ -3,11 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DentedPixel;
 using System.Collections;
+using DG.Tweening;
 
 public class Kill : MonoBehaviour
 {
     [SerializeField] private GameObject barImage;
     [SerializeField] private Image barFilledImage;
+    [SerializeField] private Image explodeBar;
+    
     public static Kill kill;
     
     public Transform bomp;
@@ -18,7 +21,7 @@ public class Kill : MonoBehaviour
     public float moneyIncrease;
     public event Action<float> killCount;
     public float destroyedObject;
-
+    private Vector3 explodeBarScale;
     private float fill;
 
     private bool fillControl;
@@ -30,6 +33,8 @@ public class Kill : MonoBehaviour
         bomp.GetComponent<BompExplode>().explodeCount += BarCount;
        
         kill = kill == null ? this : kill;
+        explodeBarScale = explodeBar.rectTransform.localScale;
+        explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
 
     }
 
@@ -50,7 +55,9 @@ public class Kill : MonoBehaviour
         fillAmount2 = ((float)objCount / maxObj );
         fillControl = true;
 
+       
 
+            
 
 
 
@@ -81,12 +88,24 @@ public class Kill : MonoBehaviour
 
     private IEnumerator CloseBar()
     {
-        yield return new WaitForSeconds(3f);
-        if (barImage != null)
-        {
-            barImage.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        
+            if (explodeBar != null)
+            {
+                explodeBar.gameObject.SetActive(true);
+                explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    explodeBar.rectTransform.DOScale(Vector3.zero, 0.4f)
+                        .SetEase(Ease.Linear);
+                    
+                });
 
-        }
+
+            }
+        yield return new WaitForSeconds(0.5f);
+
+        barImage.SetActive(false);
+
 
     }
 }

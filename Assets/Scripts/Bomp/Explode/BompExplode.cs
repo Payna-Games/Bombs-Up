@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Vector3 = System.Numerics.Vector3;
+
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class BompExplode : ExplodeCalculate
 {
@@ -15,7 +16,7 @@ public class BompExplode : ExplodeCalculate
     public event Action explodeBefor;
     public int cityCount = 0;
     public List<GameObject> checkList;
-
+    public RectTransform explodeFillBar;
     public CameraVibration cameraVibration;
 
     public float explosionForce = 13f;
@@ -23,8 +24,8 @@ public class BompExplode : ExplodeCalculate
     private bool hasCollided = false;
 
     public bool onVibrator = true;
-    
 
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided && (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")))
@@ -141,11 +142,13 @@ public class BompExplode : ExplodeCalculate
 
         if (explodeBar != null)
         {
+
             explodeBar.gameObject.SetActive(true);
+
+            explodeFillBar.DOScale(new Vector3(1, 0.78f, 0.78f), 0.4f).SetEase(Ease.Linear);
+            explodeCount?.Invoke(cityCount);
+
         }
-        explodeCount?.Invoke(cityCount);
-       
-        
 
     }
      
