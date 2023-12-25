@@ -23,7 +23,7 @@ public class BompExplode : ExplodeCalculate
     private bool hasCollided = false;
 
     public bool onVibrator = true;
-    public List<GameObject> buildigs;
+    
 
     private void OnCollisionEnter(Collision collision)
     {
