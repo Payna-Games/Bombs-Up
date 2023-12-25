@@ -21,6 +21,7 @@ public class RocketParticleControl : MonoBehaviour
         bompExplode = transform.parent.GetComponent<BompExplode>();
         drop = transform.parent.GetComponent<Drop>();
         drop.windPlay += Drop_windPlay;
+        drop.windPlay += RocketStartSmoke;
         drop.windPlay += Drop_Effect1;
         if (bompExplode != null)
         {
