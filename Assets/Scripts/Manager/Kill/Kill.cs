@@ -6,7 +6,10 @@ using System.Collections;
 
 public class Kill : MonoBehaviour
 {
+    [SerializeField] private GameObject barImage;
+    [SerializeField] private Image barFilledImage;
     public static Kill kill;
+    
     public Transform bomp;
     public int maxObj;
     public float fillAmount;
@@ -15,15 +18,19 @@ public class Kill : MonoBehaviour
     public float moneyIncrease;
     public event Action<float> killCount;
     public float destroyedObject;
-    //[SerializeField] private MaxKiloton kiloton;
-    [SerializeField] private GameObject barImage;
-    float currentVelocity = 0f;
+
+    private float fill;
+
+    private bool fillControl;
+    private float tolerance = 0.05f;
 
     void Awake()
     {
         bomp.GetComponent<BompExplode>().explodeCount += KillCount;
         bomp.GetComponent<BompExplode>().explodeCount += BarCount;
+       
         kill = kill == null ? this : kill;
+
     }
 
     private void KillCount(int objCount)
@@ -41,24 +48,45 @@ public class Kill : MonoBehaviour
     private void BarCount(int objCount)
     {
         fillAmount2 = ((float)objCount / maxObj );
-        Transform barFilledTransform = barImage.transform.GetChild(0);
-        GameObject barFilledImage = barFilledTransform.gameObject;
+        fillControl = true;
 
-        LeanTween.scaleX(barFilledImage, fillAmount2,1.5f);
-        StartCoroutine(CloseBar());
+
+
+
+
 
 
     }
-    private  IEnumerator CloseBar()
+   
+    private void Update()
+    {
+        if (fillControl)
+        {
+            fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+            barFilledImage.fillAmount += fill;
+            if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2)
+            {
+
+                fillControl = false;
+                StartCoroutine(CloseBar());
+
+
+            }
+        }
+        
+
+     
+        
+    }
+
+    private IEnumerator CloseBar()
     {
         yield return new WaitForSeconds(3f);
-        if(barImage != null)
+        if (barImage != null)
         {
             barImage.SetActive(false);
 
         }
-        
-    }
-  
 
+    }
 }
