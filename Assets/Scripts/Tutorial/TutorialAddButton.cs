@@ -35,8 +35,9 @@ public class TutorialAddButton : MonoBehaviour
                 .OnComplete(() => rectTransform.DOAnchorPos(targetPosition2, moveDuration)
                 .OnComplete(()=>conditionMet = true ));            
         }
-        else if (SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount > 2)// && !conditionMet)
+        else if (SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount > 2 && !conditionMet)
         {
+            
             mask.SetActive(false);
         }
     }

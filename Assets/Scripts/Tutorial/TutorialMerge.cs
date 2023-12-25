@@ -23,8 +23,8 @@ public class TutorialMerge : MonoBehaviour
         mergeBomp = false;
         part1.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         part2.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
-        part1Pos = new Vector3(-92, 829, 0);
-        part2Pos = new Vector3(-285, 829, 0);
+        part1Pos = new Vector3(25, 320, 0);
+        part2Pos = new Vector3(-185, 320, 0);
         bompBody = new Vector3(-275, 1195, 0);
     }
 
