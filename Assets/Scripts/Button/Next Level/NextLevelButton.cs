@@ -7,6 +7,7 @@ using DG.Tweening;
 public class NextLevelButton : MonoBehaviour
 {
     public static NextLevelButton nextLevelButton;
+    
     [SerializeField] private Transform moneyParticlePosition;
     private RectTransform rectTransform;
     [SerializeField] private MaxKiloton maxKiloton;
@@ -27,6 +28,7 @@ public class NextLevelButton : MonoBehaviour
         clicked = false;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
         rectTransform = GetComponent<RectTransform>();
+        
     }
 
     private IEnumerator NextLevelParticle()
@@ -67,11 +69,11 @@ public class NextLevelButton : MonoBehaviour
 
         if (!clicked)
         {
-             
-            rectTransform.DOScale(Vector3.one * 2.4f, 0.4f).SetEase(Ease.OutQuad)
+            Vector3 firstscale = transform.localScale;
+            rectTransform.DOScale(new Vector3(1.1f, 3.8f, 1), 0.4f).SetEase(Ease.OutQuad)
                        .OnComplete(() =>
                        {
-                           rectTransform.DOScale(Vector3.one * 3.3f, 0.4f)
+                           rectTransform.DOScale(firstscale, 0.4f)
                                .SetEase(Ease.OutBounce);
                        });
 
@@ -90,7 +92,7 @@ public class NextLevelButton : MonoBehaviour
             MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); 
 
             ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
-            moneyParticle.Play();
+            
             clicked = true;
         }
 
