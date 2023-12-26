@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using DentedPixel;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Kill : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Kill : MonoBehaviour
     [SerializeField] private Image barFilledImage;
     [SerializeField] private Image explodeBar;
     [SerializeField] private MaxKiloton maxKiloton;
+    [SerializeField] private Image[] citysBarImage;
 
     public static Kill kill;
     
@@ -73,6 +75,18 @@ public class Kill : MonoBehaviour
             if (explodeBar != null)
             {
                 explodeBar.gameObject.SetActive(true);
+                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings -5)
+                {
+                    citysBarImage[0].gameObject.SetActive(true);
+                    citysBarImage[1].gameObject.SetActive(false);
+                }
+                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    citysBarImage[1].gameObject.SetActive(true);
+                    citysBarImage[0].gameObject.SetActive(false);
+                    citysBarImage[3].gameObject.SetActive(true);
+                    citysBarImage[2].gameObject.SetActive(false);
+                }
                 explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
                 {
                     fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
