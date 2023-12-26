@@ -18,7 +18,7 @@ public class LensActivate : MonoBehaviour
 
     private IEnumerator LensActiveTime()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         transform.GetChild(0).gameObject.SetActive(true);
         
     }

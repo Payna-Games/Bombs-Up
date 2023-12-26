@@ -10,7 +10,7 @@ public class BompExplode : ExplodeCalculate
 {
     [SerializeField] private CityExplodeParticle cityExplodeParticle;
     [SerializeField] private MaxKiloton maxKiloton;
-    [SerializeField] private Image explodeBar;
+    
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
     public event Action explodeBefor;
@@ -128,7 +128,7 @@ public class BompExplode : ExplodeCalculate
             {
                 if (obj.GetComponent<Rigidbody>() != null)
                 {
-                    //Debug.Log("büyük patlama");
+                    
                     cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
                     obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,600f, 10, ForceMode.Impulse);
@@ -140,15 +140,10 @@ public class BompExplode : ExplodeCalculate
             }
         }
 
-        if (explodeBar != null)
-        {
-
-            explodeBar.gameObject.SetActive(true);
-
-            explodeFillBar.DOScale(new Vector3(1, 0.78f, 0.78f), 0.4f).SetEase(Ease.Linear);
+        
             explodeCount?.Invoke(cityCount);
 
-        }
+        
 
     }
      
