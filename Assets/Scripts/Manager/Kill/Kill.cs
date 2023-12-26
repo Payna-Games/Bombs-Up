@@ -33,7 +33,7 @@ public class Kill : MonoBehaviour
         bomp.GetComponent<BompExplode>().explodeCount += BarCount;
        
         kill = kill == null ? this : kill;
-        //explodeBarScale = explodeBar.rectTransform.localScale;
+        explodeBarScale = explodeBar.rectTransform.localScale;
         explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
 
     }
