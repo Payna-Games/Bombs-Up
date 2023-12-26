@@ -10,7 +10,8 @@ public class Kill : MonoBehaviour
     [SerializeField] private GameObject barImage;
     [SerializeField] private Image barFilledImage;
     [SerializeField] private Image explodeBar;
-    
+    [SerializeField] private MaxKiloton maxKiloton;
+
     public static Kill kill;
     
     public Transform bomp;
@@ -41,7 +42,7 @@ public class Kill : MonoBehaviour
     private void KillCount(int objCount)
     {
         destroyedObject = objCount;
-        fillAmount = ((float)objCount / maxObj);
+        fillAmount = (KiloTonCalculate.kiloTonCalculate.KiloTon / maxKiloton.maxKiloton);
 
         transform.GetComponent<Image>().fillAmount = Mathf.Lerp(0, fillAmount,1);
         //Debug.Log("bar y�zdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
