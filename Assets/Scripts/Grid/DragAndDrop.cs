@@ -78,14 +78,15 @@ public class DragAndDrop : MonoBehaviour
             }
             else
                 PrevPos();
+        }        
+        if (colliders.Length == 1)
+        {
+            PrevPos();
         }
         if (Sell.sell.mouseUp)
         {
             SellObject();
-        }
-        if (colliders.Length == 1)
-        {
-            PrevPos();
+            SellImage.sellImage.TriggerExit();
         }
     }
 
@@ -152,6 +153,7 @@ public class DragAndDrop : MonoBehaviour
             }
         }
         PrevPos();
+        SlotAddButton.slotAddButton.ButtonActive();
     }
     private void ReserObject(GameObject gameObject)
     {
@@ -160,14 +162,15 @@ public class DragAndDrop : MonoBehaviour
             Vibrator.Vibrate();
             Vibrator.Vibrate(200);
         }
-        Vector3 bompParticPos = new Vector3(gameObject.transform.position.x + 2.29f, gameObject.transform.position.y - 4.38f, gameObject.transform.position.z - 1.5f);
-        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.identity);
+        Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
+        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
         particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
         particleRocketMerge.Play();
         gameObject.transform.parent.GetComponent<KiloTonCalculate>().Calculate();
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();
         this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
+        
     }
 
     private void LowerObjLevel(int level)

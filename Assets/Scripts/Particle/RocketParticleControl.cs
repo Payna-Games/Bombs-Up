@@ -21,7 +21,6 @@ public class RocketParticleControl : MonoBehaviour
         bompExplode = transform.parent.GetComponent<BompExplode>();
         drop = transform.parent.GetComponent<Drop>();
         drop.windPlay += Drop_windPlay;
-        drop.windPlay += RocketStartSmoke;
         drop.windPlay += Drop_Effect1;
         if (bompExplode != null)
         {
@@ -69,17 +68,17 @@ public class RocketParticleControl : MonoBehaviour
         particleFire.GetComponent<ParticleSystem>().Play();
     }
 
-    public void RocketStartSmoke()
-    {
-        transform.GetChild(2).gameObject.SetActive(true);
-        transform.GetChild(2).GetComponent<ParticleSystem>().Play();
-        StartCoroutine(StartSmokeCoroutine());
-    }
-    private IEnumerator StartSmokeCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-        transform.GetChild(2).gameObject.SetActive(false);
-    }
+    //public void RocketStartSmoke()                                                ///////Roket altýndaki ateþlenince 
+    //{
+    //    transform.GetChild(2).gameObject.SetActive(true);                         /////// çýkan 
+    //    transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
+    //    StartCoroutine(StartSmokeCoroutine());
+    //}
+    //private IEnumerator StartSmokeCoroutine()
+    //{
+    //    yield return new WaitForSeconds(3f);                                     ///////  duman 
+    //    transform.GetChild(2).gameObject.SetActive(false);                        ///// kodu
+    //}
 
     private void Update()
     {

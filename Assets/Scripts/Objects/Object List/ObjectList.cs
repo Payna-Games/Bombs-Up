@@ -32,7 +32,7 @@ public class ObjectList : MonoBehaviour
             item.SetActive(false);
         }
 
-        for(int i=0; i<8; i++)
+        for(int i=0; i<9; i++)
         {
             GridList.gridListManager.gridList[i].GetComponent<SaveObj>().Save();
         }

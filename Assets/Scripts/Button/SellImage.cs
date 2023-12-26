@@ -5,19 +5,26 @@ using UnityEngine;
 
 public class SellImage : MonoBehaviour
 {
+    public static SellImage sellImage;
     Vector3 originalScale;
     private void Start()
     {
+        sellImage = sellImage == null ? this : sellImage;
         originalScale = transform.localScale;
     }
     private void OnTriggerEnter(Collider other)
-    {Sell.sell.mouseUp = true;
+    {
+        Sell.sell.mouseUp = true;
         transform.DOScale(originalScale * 0.85f, 1.0f);
-        
+
     }
     private void OnTriggerExit(Collider other)
-    {Sell.sell.mouseUp = false;
+    {
+        TriggerExit();
+    }
+    public void TriggerExit()
+    {
+        Sell.sell.mouseUp = false;
         transform.DOScale(originalScale, 1.0f);
-        
     }
 }
