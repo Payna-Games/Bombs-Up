@@ -6,6 +6,7 @@ using DG.Tweening;
 public class TutorialMerge : MonoBehaviour
 {
     public RectTransform rectTransform;
+    public Transform mainBomb;
     public List<GameObject> masks;
     public float moveDuration = 1.0f;
     public Transform part1;
@@ -55,6 +56,11 @@ public class TutorialMerge : MonoBehaviour
             rectTransform.DOAnchorPos(bompBody, moveDuration)
                 .OnComplete(() => rectTransform.DOAnchorPos(part2Pos, moveDuration)
                 .OnComplete(() => conditionMet = true));
+        }
+
+        if (mainBomb.GetChild(1).GetComponent<ObjectLevel>().objectLevel >= 1) 
+        {
+            masks[0].SetActive(false);
         }
 
     }
