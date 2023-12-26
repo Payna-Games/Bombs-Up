@@ -52,7 +52,7 @@ public class FollwChange : MonoBehaviour
 
     private IEnumerator CameraChangeWaitTime()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         // SwitchCamera(1);
         animator.Play("FreeLook");
 
