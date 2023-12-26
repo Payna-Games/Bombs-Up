@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
+  m_IndirectSpecularColor: {r: 0.32639533, g: 0.43710884, b: 0.94075364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 0}
+  mainBomb: {fileID: 0}
   masks:
   - {fileID: 0}
   - {fileID: 0}
@@ -14156,6 +14157,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2798904277301081185}
+    - target: {fileID: 777906084610909973, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 97.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366867816635696454, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1963634842893891895, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: maxKiloton
       value: 
@@ -14288,6 +14297,10 @@ PrefabInstance:
       propertyPath: follwChange
       value: 
       objectReference: {fileID: 57219602}
+    - target: {fileID: 8447184651041316242, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8585877739796707383, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: bomp
       value: 

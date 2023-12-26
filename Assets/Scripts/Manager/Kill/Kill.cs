@@ -44,10 +44,7 @@ public class Kill : MonoBehaviour
     private void KillCount(int objCount)
     {
         destroyedObject = objCount;
-        fillAmount = (KiloTonCalculate.kiloTonCalculate.KiloTon / maxKiloton.maxKiloton);
-
-        transform.GetComponent<Image>().fillAmount = Mathf.Lerp(0, fillAmount,1);
-        //Debug.Log("bar y�zdesi " + transform.GetComponent<Image>().fillAmount + " " + objCount + " " + maxObj);
+        fillAmount = ((float)objCount / maxObj);
 
         killCount?.Invoke(fillAmount);
         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
