@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.2680482, g: 0.069811285, b: 1, a: 1}
+  m_FogColor: {r: 0.6313726, g: 0.53333336, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.0022
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.26741496, g: 0.44968325, b: 0.99766225, a: 1}
+  m_IndirectSpecularColor: {r: 0.278694, g: 0.66667956, b: 0.99766773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -326,7 +326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6279506, y: 0.105013415, z: 0.08605191, w: 0.76631933}
+  m_LocalRotation: {x: -0.6279506, y: 0.10501332, z: 0.086051814, w: 0.7663194}
   m_LocalPosition: {x: -49.7, y: -919, z: -161.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 0}
+  mainBomb: {fileID: 0}
   masks:
   - {fileID: 0}
   - {fileID: 0}
@@ -2348,7 +2349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.024076
+      value: -2.024077
       objectReference: {fileID: 0}
     - target: {fileID: 443920094007315923, guid: 1e09db9fc9373428682efc7004722dab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13861,6 +13862,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2798904277301081185}
+    - target: {fileID: 1366867816635696454, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1963634842893891895, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: maxKiloton
       value: 

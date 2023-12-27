@@ -37,10 +37,10 @@ public class Drop : MonoBehaviour
         transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
             {
                 LensActive();
-                windPlay?.Invoke();
+                
                 camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
                 StartCoroutine(MoveCamera());
-                rotateComplete = true;
+                
 
             });
         //});
@@ -56,6 +56,7 @@ public class Drop : MonoBehaviour
 
     private IEnumerator MoveCamera()
     {
+        Debug.Log("kamera başlangıç");
         for (int i = 0; i < 100; i++)
         {
             camera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset += new Vector3(0, 0.08f, 0.042f);
@@ -63,6 +64,9 @@ public class Drop : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
 
         }
+        Debug.Log("Camera bitiş");
+        windPlay?.Invoke();
+        rotateComplete = true;
     }
 
 
