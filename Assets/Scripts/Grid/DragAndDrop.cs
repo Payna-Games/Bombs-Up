@@ -160,7 +160,7 @@ public class DragAndDrop : MonoBehaviour
         if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
-            Vibrator.Vibrate(200);
+            Vibrator.Vibrate(75);
         }
         Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
         ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
@@ -205,7 +205,7 @@ public class DragAndDrop : MonoBehaviour
         if (VibratorManager.vibratorManager.mainVibrator)
         {
             Vibrator.Vibrate();
-            Vibrator.Vibrate(200);
+            Vibrator.Vibrate(75);
         }
     }
 
