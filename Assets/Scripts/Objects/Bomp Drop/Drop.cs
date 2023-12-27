@@ -11,6 +11,8 @@ public class Drop : MonoBehaviour
 
     public event Action windPlay;
 
+    public GameObject swipeMove;
+
     public List<GameObject> Lens;
 
     private Rigidbody rb;
@@ -41,6 +43,7 @@ public class Drop : MonoBehaviour
                 camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
                 StartCoroutine(MoveCamera());
                 
+        
 
             });
         //});
@@ -56,6 +59,7 @@ public class Drop : MonoBehaviour
 
     private IEnumerator MoveCamera()
     {
+        swipeMove.SetActive(false);
         Debug.Log("kamera başlangıç");
         for (int i = 0; i < 100; i++)
         {
@@ -64,7 +68,8 @@ public class Drop : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
 
         }
-        Debug.Log("Camera bitiş");
+        
+        swipeMove.SetActive(true);
         windPlay?.Invoke();
         rotateComplete = true;
     }
