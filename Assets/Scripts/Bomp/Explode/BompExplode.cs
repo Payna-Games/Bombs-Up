@@ -131,7 +131,7 @@ public class BompExplode : ExplodeCalculate
                     
                     cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
-                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,600f, 10, ForceMode.Impulse);
+                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,250, 10, ForceMode.Impulse);
                    
 
 
