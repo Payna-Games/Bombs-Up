@@ -121,7 +121,7 @@ public class BompExplode : ExplodeCalculate
         }
         else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=Kill.kill.maxObj)
         {
-            Explode2(400);
+            Explode2(250);
             
             GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("Pieces");
             foreach (GameObject obj in objectsWithTag2)
