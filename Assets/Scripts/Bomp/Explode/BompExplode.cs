@@ -9,7 +9,7 @@ using DG.Tweening;
 public class BompExplode : ExplodeCalculate
 {
     [SerializeField] private CityExplodeParticle cityExplodeParticle;
-    [SerializeField] private MaxKiloton maxKiloton;
+    
     
     public event Action<GameObject> explode;
     public event Action<int> explodeCount;
@@ -101,7 +101,7 @@ public class BompExplode : ExplodeCalculate
         
 
 
-        if (KiloTonCalculate.kiloTonCalculate.KiloTon < maxKiloton.maxKiloton)
+        if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
         {
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
 
@@ -119,7 +119,7 @@ public class BompExplode : ExplodeCalculate
                 }
             }
         }
-        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= maxKiloton.maxKiloton)
+        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=Kill.kill.maxObj)
         {
             Explode2(400);
             

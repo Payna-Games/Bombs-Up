@@ -11,7 +11,6 @@ public class Kill : MonoBehaviour
     [SerializeField] private GameObject barImage;
     [SerializeField] private Image barFilledImage;
     [SerializeField] private Image explodeBar;
-    [SerializeField] private MaxKiloton maxKiloton;
     [SerializeField] private Image[] citysBarImage;
 
     public static Kill kill;
@@ -19,7 +18,7 @@ public class Kill : MonoBehaviour
     public Transform bomp;
     public int maxObj;
     public float fillAmount;
-    public float fillAmount2;
+    private float fillAmount2;
     public EnoughMoney IncomeScript;
     public float moneyIncrease;
     public event Action<float> killCount;
@@ -28,6 +27,8 @@ public class Kill : MonoBehaviour
     private float fill;
 
     private bool fillControl;
+    private bool setActiveControl;
+
     private float tolerance = 0.05f;
 
     void Awake()
@@ -46,14 +47,19 @@ public class Kill : MonoBehaviour
         destroyedObject = objCount;
         fillAmount = ((float)objCount / maxObj);
 
-        killCount?.Invoke(fillAmount);
+        
+      killCount?.Invoke(fillAmount);
         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
     }
 
     private void BarCount(int objCount)
     {
-        fillAmount2 = ((float)objCount / maxObj );
+        destroyedObject = objCount;
+        fillAmount2 = ((float) KiloTonCalculate.kiloTonCalculate.KiloTon / Kill.kill.maxObj );
+        Debug.Log("fillAmount2 " + fillAmount2);
+        setActiveControl = true;
         fillControl = true;
+      
 
        
 
@@ -66,29 +72,37 @@ public class Kill : MonoBehaviour
     }
    
     private void Update()
+
     {
+        if(setActiveControl)
+        {
+            explodeBar.gameObject.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
+            {
+                citysBarImage[0].gameObject.SetActive(true);
+                citysBarImage[1].gameObject.SetActive(false);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
+            {
+                citysBarImage[1].gameObject.SetActive(true);
+                citysBarImage[0].gameObject.SetActive(false);
+                citysBarImage[3].gameObject.SetActive(true);
+                citysBarImage[2].gameObject.SetActive(false);
+            }
+            setActiveControl = false;
+        }
+        
         if (fillControl)
         {
             if (explodeBar != null)
             {
-                explodeBar.gameObject.SetActive(true);
-                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings -5)
-                {
-                    citysBarImage[0].gameObject.SetActive(true);
-                    citysBarImage[1].gameObject.SetActive(false);
-                }
-                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
-                {
-                    citysBarImage[1].gameObject.SetActive(true);
-                    citysBarImage[0].gameObject.SetActive(false);
-                    citysBarImage[3].gameObject.SetActive(true);
-                    citysBarImage[2].gameObject.SetActive(false);
-                }
+               
                 explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
                 {
-                    fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-                    barFilledImage.fillAmount += fill;
-                    if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2)
+                    //fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+                    // barFilledImage.fillAmount = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+                    Fill();
+                    if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
                     {
 
                         fillControl = false;
@@ -122,5 +136,9 @@ public class Kill : MonoBehaviour
         barImage.SetActive(false);
 
 
+    }
+    private void Fill()
+    {
+        barFilledImage.fillAmount += 0.07f * Time.deltaTime; 
     }
 }
