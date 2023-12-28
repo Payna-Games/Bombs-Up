@@ -46,8 +46,22 @@ public class MoneyManager : TextPrint
         if(!multiplier.adsClicked )
         {
             roundedNumber = (int)Math.Round(otherMoney);
+            double getTextRounded = otherMoney / 1000;
+            string numberAsString = getTextRounded.ToString();
+            int index = numberAsString.IndexOf(',') + 2;
+            string result = numberAsString.Substring(0, index);
+
             nextLevelMoney.text = roundedNumber.ToString();
-            getText.text = "Get " + "$" + roundedNumber.ToString();
+            if (otherMoney >= 1000)
+            {
+                getText.text = "Get " + "$" + result+ "k";
+            }
+            else 
+            {
+                getText.text = "Get " + "$" + roundedNumber.ToString() + "k";
+            }
+            
+
             //StartCoroutine(CounterPrint(roundedNumber));
             // Debug.Log("Increase else");
         }

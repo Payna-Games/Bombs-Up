@@ -139,6 +139,6 @@ public class Kill : MonoBehaviour
     }
     private void Fill()
     {
-        barFilledImage.fillAmount += 0.07f * Time.deltaTime; 
+        barFilledImage.fillAmount += 0.35f * Time.deltaTime; 
     }
 }
