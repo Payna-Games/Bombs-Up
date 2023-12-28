@@ -74,13 +74,15 @@ public class DragAndDrop : MonoBehaviour
             else
                 PrevPos();
         }
-        if (Sell.sell.IsOnImage)
-        {
-            SellObject();
-        }
         if (colliders.Length == 1)
         {
             PrevPos();
+        }
+        if (Sell.sell.mouseUp)
+        {
+            SellObject();
+            Sell.sell.SelObj();
+            SellImage.sellImage.TriggerExit();
         }
     }
 

@@ -5,10 +5,11 @@ using UnityEngine;
 public class ObjectList : MonoBehaviour
 {
     public static ObjectList objectList;
+    public GameObject DragObjectNow;
 
     public List<GameObject> head;
     public List<GameObject> body;
-    public List<GameObject> motor;
+    public List<GameObject> motor; 
 
     public GameObject DragObject;
     public bool gameObjectsFalse;
