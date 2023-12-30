@@ -5,7 +5,7 @@ using DentedPixel;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-
+using YsoCorp.GameUtils;
 public class Kill : MonoBehaviour
 {
     [SerializeField] private GameObject barImage;
@@ -33,12 +33,25 @@ public class Kill : MonoBehaviour
 
     void Awake()
     {
-        bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-        bomp.GetComponent<BompExplode>().explodeCount += BarCount;
-       
-        kill = kill == null ? this : kill;
-        explodeBarScale = explodeBar.rectTransform.localScale;
-        explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+        
+
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+            kill = kill == null ? this : kill;
+           
+            
+        }
+        else
+        {
+            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+            kill = kill == null ? this : kill;
+
+            bomp.GetComponent<BompExplode>().explodeCount += BarCount;
+            explodeBarScale = explodeBar.rectTransform.localScale;
+            explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+        }
+           
 
     }
 
@@ -59,62 +72,61 @@ public class Kill : MonoBehaviour
         Debug.Log("fillAmount2 " + fillAmount2);
         setActiveControl = true;
         fillControl = true;
-      
-
-       
-
-            
-
-
-
-
-
+     
     }
    
     private void Update()
 
     {
-        if(setActiveControl)
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
-            explodeBar.gameObject.SetActive(true);
-            if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
-            {
-                citysBarImage[0].gameObject.SetActive(true);
-                citysBarImage[1].gameObject.SetActive(false);
-            }
-            else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
-            {
-                citysBarImage[1].gameObject.SetActive(true);
-                citysBarImage[0].gameObject.SetActive(false);
-                citysBarImage[3].gameObject.SetActive(true);
-                citysBarImage[2].gameObject.SetActive(false);
-            }
-            setActiveControl = false;
+            Debug.Log("oldVersion");
         }
-        
-        if (fillControl)
+        else
         {
-            if (explodeBar != null)
+            if (setActiveControl)
             {
-               
-                explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
+                explodeBar.gameObject.SetActive(true);
+                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
                 {
-                    //fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-                    // barFilledImage.fillAmount = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-                    Fill();
-                    if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
+                    citysBarImage[0].gameObject.SetActive(true);
+                    citysBarImage[1].gameObject.SetActive(false);
+                }
+                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    citysBarImage[1].gameObject.SetActive(true);
+                    citysBarImage[0].gameObject.SetActive(false);
+                    citysBarImage[3].gameObject.SetActive(true);
+                    citysBarImage[2].gameObject.SetActive(false);
+                }
+                setActiveControl = false;
+            }
+
+            if (fillControl)
+            {
+                if (explodeBar != null)
+                {
+
+                    explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
                     {
+                        //fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+                        // barFilledImage.fillAmount = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
+                        Fill();
+                        if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
+                        {
 
-                        fillControl = false;
-                        StartCoroutine(CloseBar());
+                            fillControl = false;
+                            StartCoroutine(CloseBar());
 
 
-                    }
-                });
+                        }
+                    });
+
+                }
 
             }
-           
         }
+
         
 
      

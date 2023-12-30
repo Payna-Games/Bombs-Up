@@ -5,6 +5,7 @@ using System;
 
 using UnityEngine.UI;
 using DG.Tweening;
+using YsoCorp.GameUtils;
 
 public class BompExplode : ExplodeCalculate
 {
@@ -16,7 +17,6 @@ public class BompExplode : ExplodeCalculate
     public event Action explodeBefor;
     public int cityCount = 0;
     public List<GameObject> checkList;
-    public RectTransform explodeFillBar;
     public CameraVibration cameraVibration;
 
     public float explosionForce = 13f;
@@ -97,11 +97,7 @@ public class BompExplode : ExplodeCalculate
     IEnumerator Wait3()
     {
         yield return new WaitForSeconds(0.2f);
-        Explode2(explosionRadius);
-        
-
-
-        if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
 
@@ -112,40 +108,68 @@ public class BompExplode : ExplodeCalculate
                     cityCount++;
                     Vector3 explodeDirection = new Vector3(0, 1, 0);
                     obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
-                   
-
-
 
                 }
             }
+            //Debug.Log("objectswithtag: " + objectsWithTag.Length);
+            explodeCount?.Invoke(cityCount);
         }
-        else if (KiloTonCalculate.kiloTonCalculate.KiloTon >=Kill.kill.maxObj)
+        else
         {
-            Explode2(250);
-            
-            GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("Pieces");
-            foreach (GameObject obj in objectsWithTag2)
+            Explode2(explosionRadius);
+
+
+
+            if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
             {
-                if (obj.GetComponent<Rigidbody>() != null)
+                GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
+
+                foreach (GameObject obj in objectsWithTag)
                 {
-                    
-                    cityCount++;
-                    Vector3 explodeDirection = new Vector3(0, 1, 0);
-                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position,250, 10, ForceMode.Impulse);
-                   
+                    if (obj.GetComponent<Rigidbody>() != null)
+                    {
+                        cityCount++;
+                        Vector3 explodeDirection = new Vector3(0, 1, 0);
+                        obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
 
 
 
+
+                    }
                 }
             }
-        }
+            else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= Kill.kill.maxObj)
+            {
+                Explode2(250);
 
-        
+                GameObject[] objectsWithTag2 = GameObject.FindGameObjectsWithTag("Pieces");
+                foreach (GameObject obj in objectsWithTag2)
+                {
+                    if (obj.GetComponent<Rigidbody>() != null)
+                    {
+
+                        cityCount++;
+                        Vector3 explodeDirection = new Vector3(0, 1, 0);
+                        obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, 250, 10, ForceMode.Impulse);
+
+
+
+
+                    }
+                }
+            }
+
+
             explodeCount?.Invoke(cityCount);
 
-        
 
+
+
+
+        }
     }
+    
+   
      
 
       
