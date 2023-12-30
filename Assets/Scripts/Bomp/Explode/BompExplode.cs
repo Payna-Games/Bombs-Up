@@ -111,6 +111,7 @@ public class BompExplode : ExplodeCalculate
         yield return new WaitForSeconds(0.2f);
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
+            Explode2(explosionRadius);
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
 
             foreach (GameObject obj in objectsWithTag)
@@ -126,7 +127,7 @@ public class BompExplode : ExplodeCalculate
             //Debug.Log("objectswithtag: " + objectsWithTag.Length);
             explodeCount?.Invoke(cityCount);
         }
-        else
+        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             Explode2(explosionRadius);
 

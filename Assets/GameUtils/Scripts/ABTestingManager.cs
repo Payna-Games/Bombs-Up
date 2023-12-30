@@ -21,6 +21,7 @@ namespace YsoCorp {
                 if (this.ycManager.ycConfig.ABDebugLog) {
                     Debug.Log("[AB Testing] : " + this.GetPlayerSample());
                 }
+                
             }
 
             public bool ABSamplesContain(string[] abSamples, string test) {

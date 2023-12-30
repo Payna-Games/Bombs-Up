@@ -33,20 +33,20 @@ public class Kill : MonoBehaviour
 
     void Awake()
     {
-        
+        kill = kill == null ? this : kill;
 
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-            kill = kill == null ? this : kill;
+            
             
            
             
         }
-        else
+        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-            kill = kill == null ? this : kill;
+            
 
             bomp.GetComponent<BompExplode>().explodeCount += BarCount;
             explodeBarScale = explodeBar.rectTransform.localScale;
@@ -81,7 +81,7 @@ public class Kill : MonoBehaviour
     {
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
-            Debug.Log("oldVersion");
+           // Debug.Log("oldVersion");
         }
         else
         {
