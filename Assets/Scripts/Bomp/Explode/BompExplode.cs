@@ -25,7 +25,19 @@ public class BompExplode : ExplodeCalculate
 
     public bool onVibrator = true;
 
-    
+    private void Start()
+    {
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            Debug.Log("OLD");
+        }
+        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            Debug.Log("NEW");
+        }
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided && (collision.gameObject.CompareTag("City") || collision.gameObject.CompareTag("Ground")))

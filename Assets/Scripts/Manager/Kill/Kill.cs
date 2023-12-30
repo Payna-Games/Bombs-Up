@@ -39,6 +39,7 @@ public class Kill : MonoBehaviour
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
             kill = kill == null ? this : kill;
+            
            
             
         }
