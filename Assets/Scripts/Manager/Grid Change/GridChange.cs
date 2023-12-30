@@ -13,6 +13,7 @@ public class GridChange : MonoBehaviour
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             grid4x2.SetActive(true);
+            grid3x3.SetActive(false);
             GridList.gridListManager.gridList.Clear();
             for (int i = 1; i < grid4x2.transform.childCount; i++)  // 4x2 de ilk eleman grid hücresi deðil o sebeple 0 deðil 1den baþladý döngü
             {
@@ -22,6 +23,7 @@ public class GridChange : MonoBehaviour
         else
         {
             grid3x3.SetActive(true);
+            grid4x2.SetActive(false);
             GridList.gridListManager.gridList.Clear();
             for (int i = 0; i < grid3x3.transform.childCount-1; i++)  // 3x3 de son eleman grid hücresi deðil o sebeple -1 koydum bitiþ deðerine
             {
