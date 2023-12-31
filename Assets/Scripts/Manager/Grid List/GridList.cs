@@ -10,6 +10,10 @@ public class GridList : MonoBehaviour
 
     private void Awake()
     {
+        Singleton();
+    }
+    public void Singleton()
+    {
         gridListManager = gridListManager == null ? this : gridListManager;
     }
 }
