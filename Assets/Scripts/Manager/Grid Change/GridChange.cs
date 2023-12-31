@@ -27,7 +27,7 @@ public class GridChange : MonoBehaviour
             GridList.gridListManager.gridList.Clear();
             for (int i = 0; i < grid3x3.transform.childCount-1; i++)  // 3x3 de son eleman grid hücresi deðil o sebeple -1 koydum bitiþ deðerine
             {
-                GridList.gridListManager.gridList.Add(grid4x2.transform.GetChild(i).gameObject);
+                GridList.gridListManager.gridList.Add(grid3x3.transform.GetChild(i).gameObject);
             }
         }
     }
