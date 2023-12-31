@@ -48,7 +48,7 @@ public class MoneyManager : TextPrint
             roundedNumber = (int)Math.Round(otherMoney);
             double getTextRounded = otherMoney / 1000;
             string numberAsString = getTextRounded.ToString();
-            int index = numberAsString.IndexOf(',') + 2;
+            int index = numberAsString.IndexOf(',') + 4;
             string result = numberAsString.Substring(0, index);
 
             nextLevelMoney.text = roundedNumber.ToString();

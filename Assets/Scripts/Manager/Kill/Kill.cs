@@ -83,7 +83,7 @@ public class Kill : MonoBehaviour
         {
            // Debug.Log("oldVersion");
         }
-        else
+        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             if (setActiveControl)
             {
