@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using YsoCorp.GameUtils;
 
 public class LevelEndPanel : MonoBehaviour
 {
@@ -38,7 +39,17 @@ public class LevelEndPanel : MonoBehaviour
     }
     IEnumerator Wait(GameObject activePanel)
     {
-        yield return new WaitForSeconds(5);
+       if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            yield return new WaitForSeconds(5f);
+        }
+        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            yield return new WaitForSeconds(0.7f);
+        }
+
+
+
         activePanel.SetActive(true);
         ParticleSystem confet = Instantiate(GameAssets.i.effects[1], panelObjects[0].position, Quaternion.identity);
         confet.Play();

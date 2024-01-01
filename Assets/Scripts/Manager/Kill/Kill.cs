@@ -60,9 +60,11 @@ public class Kill : MonoBehaviour
     {
         destroyedObject = objCount;
         fillAmount = ((float)objCount / maxObj);
-
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            killCount?.Invoke(fillAmount);
+        }
         
-      killCount?.Invoke(fillAmount);
         MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
     }
 
@@ -147,6 +149,7 @@ public class Kill : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         barImage.SetActive(false);
+        killCount?.Invoke(fillAmount);
 
 
     }

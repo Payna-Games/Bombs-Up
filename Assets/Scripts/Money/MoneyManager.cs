@@ -58,7 +58,7 @@ public class MoneyManager : TextPrint
             }
             else 
             {
-                getText.text = "Get " + "$" + roundedNumber.ToString() + "k";
+                getText.text = "Get " + "$" + roundedNumber.ToString();
             }
             
 
