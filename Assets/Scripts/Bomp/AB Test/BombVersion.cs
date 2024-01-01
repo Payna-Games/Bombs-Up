@@ -42,5 +42,9 @@ public class BombVersion : MonoBehaviour
             transform.GetChild(2).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, -0.05f);
             transform.GetChild(2).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
         }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+
+        }
     }
 }
