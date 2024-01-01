@@ -32,15 +32,15 @@ public class BombVersion : MonoBehaviour
             transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, -0.07f);
             transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
 
-            transform.GetChild(1).GetChild(8).localPosition = new Vector3(2.15f, 0, 0);
-            transform.GetChild(0).GetChild(8).localRotation = Quaternion.Euler(8, 0, 0);
-            transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(-1.104f, 0.07f, 0.136f);
-            transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(8, 180, 0);
+            transform.GetChild(1).GetChild(8).localPosition = new Vector3(-2.3f, 0, 0);
+            transform.GetChild(1).GetChild(8).localRotation = Quaternion.Euler(8, 0, 0);
+            transform.GetChild(1).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(-1.104f, 0.07f, 0.136f);
+            transform.GetChild(1).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(8, 180, 0);
 
             transform.GetChild(2).GetChild(8).localPosition = new Vector3(0.91f, -2.33f, 0);
-            transform.GetChild(0).GetChild(8).localRotation = Quaternion.Euler(8, 180, 0);
-            transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, -0.05f);
-            transform.GetChild(0).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
+            transform.GetChild(2).GetChild(8).localRotation = Quaternion.Euler(8, 180, 0);
+            transform.GetChild(2).GetChild(8).GetChild(0).GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, -0.05f);
+            transform.GetChild(2).GetChild(8).GetChild(0).GetComponent<RectTransform>().localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 }
