@@ -74,8 +74,9 @@ public class LevelEndPanel : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         starCount.StarCountt();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         panelObjects[3].transform.GetComponent<CanvasGroup>().DOFade(1, 1).From(0);
+        NextLevelButton.nextLevelButton.clicked = false;
 
     }
     IEnumerator MoneyBtScaleAnim()

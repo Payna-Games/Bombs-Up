@@ -15,7 +15,7 @@ public class NextLevelButton : MonoBehaviour
 
 
     // [SerializeField]  private Transform moneyParticlePosition;
-    private bool clicked;
+    public bool clicked;
     public EnoughMoney IncomeScript;
     private bool _ads = false;
 
@@ -26,7 +26,7 @@ public class NextLevelButton : MonoBehaviour
 
     private void Start()
     {
-        clicked = false;
+        clicked = true ;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
         rectTransform = GetComponent<RectTransform>();
         
@@ -114,7 +114,7 @@ public class NextLevelButton : MonoBehaviour
 
             ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
             
-            clicked = true;
+            //clicked = true;
         }
 
 

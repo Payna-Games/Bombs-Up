@@ -26,6 +26,7 @@ public class Kill : MonoBehaviour
     private Vector3 explodeBarScale;
     private float fill;
 
+    private bool animationActivated = false;
     private bool fillControl;
     private bool setActiveControl;
 
@@ -50,7 +51,8 @@ public class Kill : MonoBehaviour
 
             bomp.GetComponent<BompExplode>().explodeCount += BarCount;
             explodeBarScale = explodeBar.rectTransform.localScale;
-            explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+            
+            
         }
            
 
@@ -87,9 +89,13 @@ public class Kill : MonoBehaviour
         }
         if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
-            if (setActiveControl)
+            if (setActiveControl && explodeBar != null)
             {
                 explodeBar.gameObject.SetActive(true);
+                explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+                OpenBar();
+                
+                barFilledImage.fillAmount = 0;
                 if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
                 {
                     citysBarImage[0].gameObject.SetActive(true);
@@ -105,35 +111,43 @@ public class Kill : MonoBehaviour
                 setActiveControl = false;
             }
 
-            if (fillControl)
+
+
+            
+            if (animationActivated && fillControl)
             {
-                if (explodeBar != null)
+                Fill();
+                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
                 {
-
-                    explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
-                    {
-                        //fill = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-                        // barFilledImage.fillAmount = Mathf.Lerp(0, fillAmount2, Time.deltaTime * 1f);
-                        Fill();
-                        if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
-                        {
-
-                            fillControl = false;
-                            StartCoroutine(CloseBar());
-
-
-                        }
-                    });
-
+                    StartCoroutine(CloseBar());
+                    
+                    fillControl = false;
                 }
 
             }
+
         }
-
         
 
-     
+    }
+
+
+
+
+
+
+
+
+
+    private void OpenBar()
+    {
         
+        explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
+
+        {
+            animationActivated = true;
+            fillControl = true;
+        });
     }
 
     private IEnumerator CloseBar()
@@ -149,12 +163,13 @@ public class Kill : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         barImage.SetActive(false);
-        killCount?.Invoke(fillAmount);
+        killCount?.Invoke(fillAmount2);
 
 
     }
     private void Fill()
     {
-        barFilledImage.fillAmount += 0.35f * Time.deltaTime; 
+        barFilledImage.fillAmount += 0.35f * Time.deltaTime;
+        
     }
 }
