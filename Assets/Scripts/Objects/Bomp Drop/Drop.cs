@@ -61,7 +61,7 @@ public class Drop : MonoBehaviour
     {
         swipeMove.SetActive(false);
         Debug.Log("kamera başlangıç");
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 1; i++)
         {
             camera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset += new Vector3(0, 0.08f, 0.042f);
 
