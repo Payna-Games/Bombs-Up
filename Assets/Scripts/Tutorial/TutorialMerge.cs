@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using YsoCorp.GameUtils;
 
 public class TutorialMerge : MonoBehaviour
 {
@@ -24,8 +25,17 @@ public class TutorialMerge : MonoBehaviour
         mergeBomp = false;
         part1.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         part2.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
-        part1Pos = new Vector3(-92, 829, 0);
-        part2Pos = new Vector3(-285, 829, 0);
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            part1Pos = new Vector3(0, 350, 0);
+            part2Pos = new Vector3(-200, 350, 0);
+        }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            part1Pos = new Vector3(-92, 829, 0);
+            part2Pos = new Vector3(-285, 829, 0);
+        }
+
         bompBody = new Vector3(-275, 1195, 0);
     }
 
@@ -35,6 +45,14 @@ public class TutorialMerge : MonoBehaviour
         if (part2.gameObject.activeSelf && conditionMet && mergePart)
         {
             masks[0].SetActive(true);
+            if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+            {
+                masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0);
+            }
+            else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+            {
+
+            }
 
             conditionMet = false;
             rectTransform.DOAnchorPos(part2Pos, moveDuration)
@@ -58,7 +76,7 @@ public class TutorialMerge : MonoBehaviour
                 .OnComplete(() => conditionMet = true));
         }
 
-        if (mainBomb.GetChild(1).GetComponent<ObjectLevel>().objectLevel >= 1) 
+        if (mainBomb.GetChild(1).GetComponent<ObjectLevel>().objectLevel >= 1)
         {
             masks[0].SetActive(false);
         }
