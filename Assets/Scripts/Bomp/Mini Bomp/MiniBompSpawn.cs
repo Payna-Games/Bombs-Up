@@ -10,7 +10,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     public Drop dropCs2;
     private bool isSpawn;
     [SerializeField] private GameObject miniBombParent;
-    
+
     //açılar
     private float x1 = -180;
     private float x = -182f;
@@ -18,8 +18,8 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     private float z = 0f;
     private void Start()
     {
-        
-        follwChange.changeCamera += SpawnStop;        
+
+        follwChange.changeCamera += SpawnStop;
         if (dropCs2 != null)
         {
             dropCs2.windPlay += SpawnStart;
@@ -36,36 +36,42 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     }
     private IEnumerator Spawn()
     {
-       // if(!LastLensAfter.lastLensAfter.lastLensPassed)
-      //  {
-            while (true)
-            {
-                yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
-                MiniBompList.miniBompList.miniBomp[0].SetActive(true);
-               // Recoil();
-                MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
-                MiniBompList.miniBompList.miniBomp.RemoveAt(0);
-            
-                if (!isSpawn)
-                    break;
+        // if(!LastLensAfter.lastLensAfter.lastLensPassed)
+        //  {
+        while (true)
+        {
+            if (!isSpawn)
+                break;
+            yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
+            MiniBompList.miniBompList.miniBomp[0].SetActive(true);
+            // Recoil();
+            MiniBompList.miniBompList.miniBomp[0].transform.position = transform.position;
+            MiniBompList.miniBompList.miniBomp.RemoveAt(0);
 
-            }
-      //  }   
+
+
+        }
+        //  }   
     }
     public void SpawnStart()
     {
-       
+
         isSpawn = true;
         StartCoroutine(Spawn());
     }
     private void SpawnStop()
     {
         isSpawn = false;
-        miniBombParent.SetActive(false);
+        if (miniBombParent != null)
+        {
+            miniBombParent.SetActive(false);
+            follwChange.changeCamera -= SpawnStop;
+        }
+
     }
 
     //private void Recoil()
-    
+
     //{
     //    Quaternion firstRotation = Quaternion.Euler(x1, y, );
     //    Quaternion recoil = Quaternion.Euler(x, y, z);
