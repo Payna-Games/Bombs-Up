@@ -19,12 +19,16 @@ public class Sell : MonoBehaviour
     {
         if (mouseUp)
         {
-            IsOnImage = false;
-            ObjectList.objectList.DragObjectNow = null;
-            MoneyManager.moneyManager.buttonClicked = true;
-            MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
+            SellObj();
         }
 
+    }
+    public void SellObj()
+    {
+        IsOnImage = false;
+        ObjectList.objectList.DragObjectNow = null;
+        MoneyManager.moneyManager.buttonClicked = true;
+        MoneyManager.moneyManager.InreaseTotalMoney((float)(addButton.GetComponent<EnoughMoney>().enough * 0.75f));
     }
     public void OnPointEnter()
     {

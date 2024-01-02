@@ -86,6 +86,7 @@ public class DragAndDrop : MonoBehaviour
         if (Sell.sell.mouseUp)
         {
             SellObject();
+            Sell.sell.SellObj();
             SellImage.sellImage.TriggerExit();
         }
     }
