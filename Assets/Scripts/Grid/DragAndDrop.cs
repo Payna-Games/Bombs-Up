@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YsoCorp.GameUtils;
 
 public class DragAndDrop : MonoBehaviour
 {
@@ -78,7 +79,7 @@ public class DragAndDrop : MonoBehaviour
             }
             else
                 PrevPos();
-        }        
+        }
         if (colliders.Length == 1)
         {
             PrevPos();
@@ -163,15 +164,25 @@ public class DragAndDrop : MonoBehaviour
             Vibrator.Vibrate();
             Vibrator.Vibrate(75);
         }
-        Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
-        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
-        particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
-        particleRocketMerge.Play();
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
+            ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
+            RocketMergeOld.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+            RocketMergeOld.Play();
+        }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
+            ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
+            particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+            particleRocketMerge.Play();
+        }
         gameObject.transform.parent.GetComponent<KiloTonCalculate>().Calculate();
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();
         this.transform.GetComponent<ObjectLevel>().objectLevel = 0;
-        
+
     }
 
     private void LowerObjLevel(int level)

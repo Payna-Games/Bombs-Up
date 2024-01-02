@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using YsoCorp.GameUtils;
 
 public class RocketParticleControl : MonoBehaviour
 {
@@ -68,17 +69,22 @@ public class RocketParticleControl : MonoBehaviour
         particleFire.GetComponent<ParticleSystem>().Play();
     }
 
-    //public void RocketStartSmoke()                                                ///////Roket altýndaki ateþlenince 
-    //{
-    //    transform.GetChild(2).gameObject.SetActive(true);                         /////// çýkan 
-    //    transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
-    //    StartCoroutine(StartSmokeCoroutine());
-    //}
-    //private IEnumerator StartSmokeCoroutine()
-    //{
-    //    yield return new WaitForSeconds(3f);                                     ///////  duman 
-    //    transform.GetChild(2).gameObject.SetActive(false);                        ///// kodu
-    //}
+    public void RocketStartSmoke()                                                ///////Roket altýndaki ateþlenince 
+    {
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+ transform.GetChild(2).gameObject.SetActive(true);                         /////// çýkan 
+        transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
+        StartCoroutine(StartSmokeCoroutine());
+        }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("new")) {}
+       
+    }
+    private IEnumerator StartSmokeCoroutine()
+    {
+        yield return new WaitForSeconds(3f);                                     ///////  duman 
+        transform.GetChild(2).gameObject.SetActive(false);                        ///// kodu
+    }
 
     private void Update()
     {
