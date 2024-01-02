@@ -7,7 +7,7 @@ public class SwipeSetFalse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Invoke("SwipeFalse",2f);
     }
 
     // Update is called once per frame
@@ -18,13 +18,18 @@ public class SwipeSetFalse : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
-                KiloTonCalculate.kiloTonCalculate.gameObject.GetComponent<BombLeftRight>().bombSpeed = 35;
-                gameObject.SetActive(false);
+                SwipeFalse();
             }
         }
         else
         {
             KiloTonCalculate.kiloTonCalculate.gameObject.GetComponent<BombLeftRight>().bombSpeed = 15;
         }
+    }
+
+    private void SwipeFalse()
+    {
+        KiloTonCalculate.kiloTonCalculate.gameObject.GetComponent<BombLeftRight>().bombSpeed = 35;
+        gameObject.SetActive(false);
     }
 }
