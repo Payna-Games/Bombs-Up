@@ -9,6 +9,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     private Drop dropCs;
     public Drop dropCs2;
     private bool isSpawn;
+    [SerializeField] private GameObject miniBombParent;
     
     //açılar
     private float x1 = -180;
@@ -47,6 +48,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
             
                 if (!isSpawn)
                     break;
+
             }
       //  }   
     }
@@ -59,6 +61,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     private void SpawnStop()
     {
         isSpawn = false;
+        miniBombParent.SetActive(false);
     }
 
     //private void Recoil()
