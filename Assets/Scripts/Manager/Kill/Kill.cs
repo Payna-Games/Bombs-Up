@@ -117,7 +117,7 @@ public class Kill : MonoBehaviour
             if (animationActivated && fillControl)
             {
                 Fill();
-                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2)
+                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2 || barFilledImage.fillAmount ==1)
                 {
                     StartCoroutine(CloseBar());
                     
