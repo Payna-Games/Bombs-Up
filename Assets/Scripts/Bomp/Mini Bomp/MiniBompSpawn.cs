@@ -35,8 +35,8 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     }
     private IEnumerator Spawn()
     {
-        if(!LastLensAfter.lastLensAfter.lastLensPassed)
-        {
+       // if(!LastLensAfter.lastLensAfter.lastLensPassed)
+      //  {
             while (true)
             {
                 yield return new WaitForSeconds(MiniBompManager.miniBompManager.spawnSpeed);
@@ -48,7 +48,7 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
                 if (!isSpawn)
                     break;
             }
-        }   
+      //  }   
     }
     public void SpawnStart()
     {
