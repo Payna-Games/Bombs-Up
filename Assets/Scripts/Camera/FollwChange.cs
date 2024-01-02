@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System;
+using YsoCorp.GameUtils;
 
 public class FollwChange : MonoBehaviour
 {
@@ -52,7 +53,17 @@ public class FollwChange : MonoBehaviour
 
     private IEnumerator CameraChangeWaitTime()
     {
-        yield return new WaitForSeconds(1f);
+        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            yield return new WaitForSeconds(3f);
+        }
+
+
+        
         // SwitchCamera(1);
         animator.Play("FreeLook");
 
