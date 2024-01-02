@@ -7,7 +7,7 @@ public class SwipeSetFalse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("SwipeFalse",2f);
+        Invoke(nameof(SwipeFalse),2f);
     }
 
     // Update is called once per frame
