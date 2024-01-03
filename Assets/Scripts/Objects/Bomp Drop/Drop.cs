@@ -62,7 +62,17 @@ public class Drop : MonoBehaviour
                 StartCoroutine(MoveCamera());
             });
         }
+        else
+        {
+            transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
+            transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
+            {
+                LensActive();
 
+                camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+                StartCoroutine(MoveCamera());
+            });
+        }
     }
 
     private void LensActive()
