@@ -45,7 +45,7 @@ public class Kill : MonoBehaviour
            
             
         }
-        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        else if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
             
@@ -54,6 +54,14 @@ public class Kill : MonoBehaviour
             explodeBarScale = explodeBar.rectTransform.localScale;
             
             
+        }
+        else
+        {
+            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+            
+
+            bomp.GetComponent<BompExplode>().explodeCount += BarCount;
+            explodeBarScale = explodeBar.rectTransform.localScale;
         }
            
 
@@ -96,7 +104,7 @@ public class Kill : MonoBehaviour
         {
            // Debug.Log("oldVersion");
         }
-        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        else if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             if (setActiveControl && explodeBar != null)
             {
@@ -136,14 +144,51 @@ public class Kill : MonoBehaviour
             }
 
         }
-        
+        else
+        {
+            if (setActiveControl && explodeBar != null)
+            {
+                explodeBar.gameObject.SetActive(true);
+                explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+                OpenBar();
+                
+                barFilledImage.fillAmount = 0;
+                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    citysBarImage[0].gameObject.SetActive(true);
+                    citysBarImage[1].gameObject.SetActive(false);
+                }
+                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    citysBarImage[1].gameObject.SetActive(true);
+                    citysBarImage[0].gameObject.SetActive(false);
+                    citysBarImage[3].gameObject.SetActive(true);
+                    citysBarImage[2].gameObject.SetActive(false);
+                }
+                setActiveControl = false;
+            }
+
+
+
+            
+            if (animationActivated && fillControl)
+            {
+                Fill();
+                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2 || barFilledImage.fillAmount ==1)
+                {
+                    StartCoroutine(CloseBar());
+                    
+                    fillControl = false;
+                }
+
+            }
+        }
 
     }
 
 
 
-
-
+    
 
 
 

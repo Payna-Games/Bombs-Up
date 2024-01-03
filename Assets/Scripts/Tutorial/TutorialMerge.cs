@@ -35,6 +35,11 @@ public class TutorialMerge : MonoBehaviour
             part1Pos = new Vector3(-92, 829, 0);
             part2Pos = new Vector3(-285, 829, 0);
         }
+        else
+        {
+            part1Pos = new Vector3(-92, 829, 0);
+            part2Pos = new Vector3(-285, 829, 0);
+        }
 
         bompBody = new Vector3(-275, 1195, 0);
     }
@@ -52,6 +57,10 @@ public class TutorialMerge : MonoBehaviour
             else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
             {
 
+            }
+            else
+            {
+                
             }
 
             conditionMet = false;

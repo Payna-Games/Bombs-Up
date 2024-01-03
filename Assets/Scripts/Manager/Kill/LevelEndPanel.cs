@@ -43,7 +43,11 @@ public class LevelEndPanel : MonoBehaviour
         {
             yield return new WaitForSeconds(5f);
         }
-        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        {
+            yield return new WaitForSeconds(0.7f);
+        }
+        else
         {
             yield return new WaitForSeconds(0.7f);
         }

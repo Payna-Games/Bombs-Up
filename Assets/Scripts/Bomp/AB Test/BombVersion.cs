@@ -9,8 +9,8 @@ public class BombVersion : MonoBehaviour
     {
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
-            transform.parent.position = new Vector3(-1.81f, 5, 25.3f);      // parent objenin pos ayarý,
-            transform.parent.rotation = Quaternion.Euler(0, 0, 0);  // parent objenin pos ayarý,
+            transform.parent.position = new Vector3(-1.81f, 5, 25.3f);      // parent objenin pos ayarÄ±,
+            transform.parent.rotation = Quaternion.Euler(0, 0, 0);  // parent objenin pos ayarÄ±,
 
             transform.localPosition = new Vector3(0, 2, 0);
             transform.rotation = Quaternion.Euler(- 20, 180, 0);
@@ -45,6 +45,10 @@ public class BombVersion : MonoBehaviour
         else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
 
+        }
+        else
+        {
+            
         }
     }
 }

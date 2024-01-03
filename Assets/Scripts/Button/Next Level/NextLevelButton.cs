@@ -56,7 +56,7 @@ public class NextLevelButton : MonoBehaviour
                 SceneManager.LoadScene(11);
             }
         }
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             yield return new WaitForSeconds(1.5f);
             if (!PlayerPrefs.HasKey("LevelCount"))
@@ -72,7 +72,28 @@ public class NextLevelButton : MonoBehaviour
             else
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+            if (!PlayerPrefs.HasKey("LevelCount"))
+                PlayerPrefs.SetInt("LevelCount", 1);
+            else
+                PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
+            Debug.Log("courutine else");
+
+            if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(11);
+            }
+            if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= Kill.kill.maxObj)
+            {
+                SceneManager.LoadScene(11);
+            }
+        }
         
 
         //if(Kill.kill.destroyedObject != Kill.kill.maxObj)

@@ -69,11 +69,11 @@ public class RocketParticleControl : MonoBehaviour
         particleFire.GetComponent<ParticleSystem>().Play();
     }
 
-    public void RocketStartSmoke()                                                ///////Roket altýndaki ateþlenince 
+    public void RocketStartSmoke()                                                ///////Roket altÄ±ndaki ateÅŸlenince 
     {
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
- transform.GetChild(2).gameObject.SetActive(true);                         /////// çýkan 
+ transform.GetChild(2).gameObject.SetActive(true);                         /////// Ã§Ä±kan 
         transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
         StartCoroutine(StartSmokeCoroutine());
         }
