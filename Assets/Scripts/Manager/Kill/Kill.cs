@@ -6,6 +6,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 using YsoCorp.GameUtils;
+using UnityEngine.SceneManagement;
 public class Kill : MonoBehaviour
 {
     [SerializeField] private GameObject barImage;
@@ -67,7 +68,15 @@ public class Kill : MonoBehaviour
             killCount?.Invoke(fillAmount);
         }
         
-        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount); // 6.25 olan sabit 5 idi çeyreği kadar fazlalaştırıldı
+       if(SceneManager.GetActiveScene().buildIndex<= SceneManager.sceneCountInBuildSettings - 5)
+        {
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
+        }
+        else if(SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
+            {
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount* 1.8f);
+
+        }
     }
 
     private void BarCount(int objCount)

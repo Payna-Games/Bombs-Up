@@ -45,7 +45,7 @@ public class NextLevelButton : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
             {
-                SceneManager.LoadScene(9);
+                SceneManager.LoadScene(11);
             }
             if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
             {
@@ -53,7 +53,7 @@ public class NextLevelButton : MonoBehaviour
             }
             else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= Kill.kill.maxObj)
             {
-                SceneManager.LoadScene(10);
+                SceneManager.LoadScene(11);
             }
         }
         if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
@@ -103,14 +103,30 @@ public class NextLevelButton : MonoBehaviour
                
                 MoneyManager.moneyManager.buttonClicked = true;
 
-                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
+                if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
+                }
+                else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
+                {
+                    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount * 1.8f);
+
+                }
 
                 StartCoroutine(NextLevelParticle());
 
               // transform.GetChild(0).gameObject.SetActive(false);
                
             });
-            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount); 
+            if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
+            {
+                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
+            {
+                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount * 1.8f);
+
+            }
 
             ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
             
