@@ -22,7 +22,8 @@ public class GridChange : MonoBehaviour
                 GridList.gridListManager.gridList.Add(grid3x3.transform.GetChild(i).gameObject);
             }
         }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+
+        else
         {
             grid4x2.SetActive(true);
             grid3x3.SetActive(false);
@@ -32,15 +33,5 @@ public class GridChange : MonoBehaviour
                 GridList.gridListManager.gridList.Add(grid4x2.transform.GetChild(i).gameObject);
             }
         }
-        else
-        {
-            grid3x3.SetActive(true);
-            grid4x2.SetActive(false);
-            GridList.gridListManager.gridList.Clear();
-            for (int i = 0; i < grid3x3.transform.childCount - 1; i++)  // 3x3 de son eleman grid hücresi değil o sebeple -1 koydum bitiş değerine
-            {
-                GridList.gridListManager.gridList.Add(grid3x3.transform.GetChild(i).gameObject);
-            }
-        }
     }
-}
+}    

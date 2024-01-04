@@ -25,20 +25,16 @@ public class TutorialMerge : MonoBehaviour
         mergeBomp = false;
         part1.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         part2.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            part1Pos = new Vector3(0, 350, 0);
-            part2Pos = new Vector3(-200, 350, 0);
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        
+        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             part1Pos = new Vector3(-92, 829, 0);
             part2Pos = new Vector3(-285, 829, 0);
         }
         else
         {
-            part1Pos = new Vector3(-92, 829, 0);
-            part2Pos = new Vector3(-285, 829, 0);
+            part1Pos = new Vector3(0, 350, 0);
+            part2Pos = new Vector3(-200, 350, 0);
         }
 
         bompBody = new Vector3(-275, 1195, 0);

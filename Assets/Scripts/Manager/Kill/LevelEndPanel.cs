@@ -39,17 +39,15 @@ public class LevelEndPanel : MonoBehaviour
     }
     IEnumerator Wait(GameObject activePanel)
     {
-       if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            yield return new WaitForSeconds(5f);
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+         
+        
+        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             yield return new WaitForSeconds(0.7f);
         }
         else
         {
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(5f);
         }
 
 

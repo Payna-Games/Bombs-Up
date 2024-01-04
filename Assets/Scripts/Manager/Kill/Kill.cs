@@ -37,15 +37,8 @@ public class Kill : MonoBehaviour
     {
         kill = kill == null ? this : kill;
 
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-            
-            
-           
-            
-        }
-        else if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+      
+        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
             
@@ -58,10 +51,6 @@ public class Kill : MonoBehaviour
         else
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-            
-
-            bomp.GetComponent<BompExplode>().explodeCount += BarCount;
-            explodeBarScale = explodeBar.rectTransform.localScale;
         }
            
 
