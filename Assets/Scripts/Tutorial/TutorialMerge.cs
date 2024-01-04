@@ -46,17 +46,14 @@ public class TutorialMerge : MonoBehaviour
         if (part2.gameObject.activeSelf && conditionMet && mergePart)
         {
             masks[0].SetActive(true);
-            if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-            {
-                masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0);
-            }
-            else if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+            
+            if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
             {
 
             }
             else
             {
-                
+                masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0); 
             }
 
             conditionMet = false;

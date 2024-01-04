@@ -60,20 +60,25 @@ public class Kill : MonoBehaviour
     {
         destroyedObject = objCount;
         fillAmount = ((float)objCount / maxObj);
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        
+        if((YCManager.instance.abTestingManager.IsPlayerSample("new")))
+        {
+            
+            if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
+            {
+                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
+            {
+                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount * 1.8f);
+
+            }
+        }
+        else 
         {
             killCount?.Invoke(fillAmount);
         }
-        
-       if(SceneManager.GetActiveScene().buildIndex<= SceneManager.sceneCountInBuildSettings - 5)
-        {
-            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
-        }
-        else if(SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
-            {
-            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount* 1.8f);
 
-        }
     }
 
     private void BarCount(int objCount)
@@ -89,11 +94,8 @@ public class Kill : MonoBehaviour
     private void Update()
 
     {
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-           // Debug.Log("oldVersion");
-        }
-        else if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        
+         if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
         {
             if (setActiveControl && explodeBar != null)
             {
@@ -132,45 +134,15 @@ public class Kill : MonoBehaviour
 
             }
 
-        }
+         }
         else
         {
-            if (setActiveControl && explodeBar != null)
-            {
-                explodeBar.gameObject.SetActive(true);
-                explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
-                OpenBar();
-                
-                barFilledImage.fillAmount = 0;
-                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
-                {
-                    citysBarImage[0].gameObject.SetActive(true);
-                    citysBarImage[1].gameObject.SetActive(false);
-                }
-                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
-                {
-                    citysBarImage[1].gameObject.SetActive(true);
-                    citysBarImage[0].gameObject.SetActive(false);
-                    citysBarImage[3].gameObject.SetActive(true);
-                    citysBarImage[2].gameObject.SetActive(false);
-                }
-                setActiveControl = false;
-            }
+           
 
 
 
-            
-            if (animationActivated && fillControl)
-            {
-                Fill();
-                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2 || barFilledImage.fillAmount ==1)
-                {
-                    StartCoroutine(CloseBar());
-                    
-                    fillControl = false;
-                }
 
-            }
+        
         }
 
     }
