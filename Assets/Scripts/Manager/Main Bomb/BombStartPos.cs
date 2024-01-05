@@ -17,8 +17,8 @@ public class BombStartPos : MonoBehaviour
                 transform.position = new Vector3(2.7f, 6.4f, 23.4f);
             }
         }
-       
-        else
+
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
           
         }

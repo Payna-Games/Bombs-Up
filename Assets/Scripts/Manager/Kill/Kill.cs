@@ -48,7 +48,7 @@ public class Kill : MonoBehaviour
             
             
         }
-        else
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
         }
@@ -74,7 +74,7 @@ public class Kill : MonoBehaviour
 
             }
         }
-        else 
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             killCount?.Invoke(fillAmount);
         }
@@ -135,7 +135,7 @@ public class Kill : MonoBehaviour
             }
 
          }
-        else
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
            
 

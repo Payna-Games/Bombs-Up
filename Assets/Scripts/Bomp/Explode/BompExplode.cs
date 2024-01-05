@@ -156,7 +156,7 @@ public class BompExplode : ExplodeCalculate
 
 
         }
-        else 
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             Explode2(explosionRadius);
             GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");

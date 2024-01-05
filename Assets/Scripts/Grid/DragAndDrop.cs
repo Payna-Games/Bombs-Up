@@ -172,7 +172,7 @@ public class DragAndDrop : MonoBehaviour
             particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
             particleRocketMerge.Play();
         }
-        else
+        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
             ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
