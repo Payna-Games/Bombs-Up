@@ -23,7 +23,7 @@ public class GridChange : MonoBehaviour
             }
         }
 
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else
         {
             grid4x2.SetActive(true);
             grid3x3.SetActive(false);

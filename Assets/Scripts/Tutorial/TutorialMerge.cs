@@ -31,7 +31,7 @@ public class TutorialMerge : MonoBehaviour
             part1Pos = new Vector3(-92, 829, 0);
             part2Pos = new Vector3(-285, 829, 0);
         }
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else
         {
             part1Pos = new Vector3(0, 350, 0);
             part2Pos = new Vector3(-200, 350, 0);
@@ -51,7 +51,7 @@ public class TutorialMerge : MonoBehaviour
             {
 
             }
-            if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+            else
             {
                 masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0); 
             }

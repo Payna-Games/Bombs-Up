@@ -73,7 +73,7 @@ public class RocketParticleControl : MonoBehaviour
     {
        
         if (YCManager.instance.abTestingManager.IsPlayerSample("new")) {}
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else
         {
             transform.GetChild(2).gameObject.SetActive(true);                         /////// çıkan 
             transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 

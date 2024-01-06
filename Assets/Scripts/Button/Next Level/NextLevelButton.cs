@@ -57,7 +57,7 @@ public class NextLevelButton : MonoBehaviour
             }
         }
 
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else
         {
             yield return new WaitForSeconds(1.5f);
             if (!PlayerPrefs.HasKey("LevelCount"))

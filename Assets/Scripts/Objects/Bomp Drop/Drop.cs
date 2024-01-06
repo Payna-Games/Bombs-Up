@@ -45,7 +45,7 @@ public class Drop : MonoBehaviour
                 StartCoroutine(MoveCamera());
             });
         }
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else
         {
             Vector3 targetPosition = transform.position + Vector3.up * 5f;
             transform.DOMove(targetPosition, 2f).OnComplete(() =>
