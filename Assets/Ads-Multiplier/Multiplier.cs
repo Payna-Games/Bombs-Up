@@ -38,7 +38,7 @@ public class Multiplier : MonoBehaviour
             }
             else
             {
-                rewardToShowText.text = "$" + reward.ToString();
+                rewardToShowText.text = "Claim " + "\n  $" + reward.ToString();
 
             }
             

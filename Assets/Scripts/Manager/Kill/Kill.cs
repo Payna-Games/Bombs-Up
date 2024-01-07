@@ -81,10 +81,12 @@ public class Kill : MonoBehaviour
         else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
             killCount?.Invoke(fillAmount);
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
         }
         else 
         {
             killCount?.Invoke(fillAmount);
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
         }
 
     }
@@ -143,7 +145,9 @@ public class Kill : MonoBehaviour
             }
 
          }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old")) { }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+        }
         else 
         {
            
