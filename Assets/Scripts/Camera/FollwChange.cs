@@ -57,7 +57,10 @@ public class FollwChange : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            yield return new WaitForSeconds(3f);
+        }
         else
         {
             yield return new WaitForSeconds(3f);

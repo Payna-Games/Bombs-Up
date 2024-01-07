@@ -56,6 +56,22 @@ public class NextLevelButton : MonoBehaviour
                 SceneManager.LoadScene(11);
             }
         }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            yield return new WaitForSeconds(1.5f);
+            if (!PlayerPrefs.HasKey("LevelCount"))
+                PlayerPrefs.SetInt("LevelCount", 1);
+            else
+                PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
+            Debug.Log("courutine else");
+
+            if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(9);
+            }
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
 
         else
         {

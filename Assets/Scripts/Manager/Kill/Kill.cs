@@ -48,6 +48,10 @@ public class Kill : MonoBehaviour
             
             
         }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+        }
         else
         {
             bomp.GetComponent<BompExplode>().explodeCount += KillCount;
@@ -73,6 +77,10 @@ public class Kill : MonoBehaviour
                 MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount * 1.8f);
 
             }
+        }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            killCount?.Invoke(fillAmount);
         }
         else 
         {
@@ -135,6 +143,7 @@ public class Kill : MonoBehaviour
             }
 
          }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old")) { }
         else 
         {
            

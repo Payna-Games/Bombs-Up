@@ -156,6 +156,24 @@ public class BompExplode : ExplodeCalculate
 
 
         }
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        {
+            Explode2(explosionRadius);
+            GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Pieces");
+
+            foreach (GameObject obj in objectsWithTag)
+            {
+                if (obj.GetComponent<Rigidbody>() != null)
+                {
+                    cityCount++;
+                    Vector3 explodeDirection = new Vector3(0, 1, 0);
+                    obj.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 10, ForceMode.Impulse);
+
+                }
+            }
+            //Debug.Log("objectswithtag: " + objectsWithTag.Length);
+            explodeCount?.Invoke(cityCount);
+        }
         else
         {
             Explode2(explosionRadius);

@@ -18,9 +18,10 @@ public class BombStartPos : MonoBehaviour
             }
         }
 
-        if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
         {
           
         }
+        else { }
     }
 }
