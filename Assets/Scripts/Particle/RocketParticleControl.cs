@@ -72,19 +72,19 @@ public class RocketParticleControl : MonoBehaviour
     public void RocketStartSmoke()                                                ///////Roket altındaki ateşlenince 
     {
        
-        if (YCManager.instance.abTestingManager.IsPlayerSample("new")) {}
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            transform.GetChild(2).gameObject.SetActive(true);                         /////// çıkan 
-            transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
-            StartCoroutine(StartSmokeCoroutine());
-        }
-        else
-        {
-            transform.GetChild(2).gameObject.SetActive(true);                         /////// çıkan 
-            transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
-            StartCoroutine(StartSmokeCoroutine());
-        }
+        //if (YCManager.instance.abTestingManager.IsPlayerSample("new")) {}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    transform.GetChild(2).gameObject.SetActive(true);                         /////// çıkan 
+        //    transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
+        //    StartCoroutine(StartSmokeCoroutine());
+        //}
+        //else
+        //{
+        //    transform.GetChild(2).gameObject.SetActive(true);                         /////// çıkan 
+        //    transform.GetChild(2).GetComponent<ParticleSystem>().Play();             ///////  beyaz 
+        //    StartCoroutine(StartSmokeCoroutine());
+        //}
        
     }
     private IEnumerator StartSmokeCoroutine()

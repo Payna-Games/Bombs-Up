@@ -15,7 +15,7 @@ public class Kill : MonoBehaviour
     [SerializeField] private Image[] citysBarImage;
 
     public static Kill kill;
-    
+
     public Transform bomp;
     public int maxObj;
     public float fillAmount;
@@ -37,26 +37,26 @@ public class Kill : MonoBehaviour
     {
         kill = kill == null ? this : kill;
 
-      
-        if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        {
-            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-            
 
-            bomp.GetComponent<BompExplode>().explodeCount += BarCount;
-            explodeBarScale = explodeBar.rectTransform.localScale;
-            
-            
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-        }
-        else
-        {
-            bomp.GetComponent<BompExplode>().explodeCount += KillCount;
-        }
-           
+        //if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        //{
+        bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+
+
+        bomp.GetComponent<BompExplode>().explodeCount += BarCount;
+        explodeBarScale = explodeBar.rectTransform.localScale;
+
+
+        //}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+        //}
+        //else
+        //{
+        //    bomp.GetComponent<BompExplode>().explodeCount += KillCount;
+        //}
+
 
     }
 
@@ -64,112 +64,112 @@ public class Kill : MonoBehaviour
     {
         destroyedObject = objCount;
         fillAmount = ((float)objCount / maxObj);
-        
-        if((YCManager.instance.abTestingManager.IsPlayerSample("new")))
-        {
-            
-            if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
-            {
-                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
-            }
-            else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
-            {
-                MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount * 1.8f);
 
-            }
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //if((YCManager.instance.abTestingManager.IsPlayerSample("new")))
+        //{
+
+        if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
         {
-            killCount?.Invoke(fillAmount);
             MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
         }
-        else 
+        else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
         {
-            killCount?.Invoke(fillAmount);
-            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
+            MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount * 1.8f);
+
         }
+        //}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    killCount?.Invoke(fillAmount);
+        //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
+        //}
+        //else 
+        //{
+        //    killCount?.Invoke(fillAmount);
+        //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * fillAmount);
+        //}
 
     }
 
     private void BarCount(int objCount)
     {
         destroyedObject = objCount;
-        fillAmount2 = ((float) KiloTonCalculate.kiloTonCalculate.KiloTon / Kill.kill.maxObj );
+        fillAmount2 = ((float)KiloTonCalculate.kiloTonCalculate.KiloTon / Kill.kill.maxObj);
         Debug.Log("fillAmount2 " + fillAmount2);
         setActiveControl = true;
         fillControl = true;
-     
+
     }
-   
+
     private void Update()
 
     {
-        
-         if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+
+        // if(YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        //{
+        if (setActiveControl && explodeBar != null)
         {
-            if (setActiveControl && explodeBar != null)
+            explodeBar.gameObject.SetActive(true);
+            explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
+            OpenBar();
+
+            barFilledImage.fillAmount = 0;
+            if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
             {
-                explodeBar.gameObject.SetActive(true);
-                explodeBar.rectTransform.localScale = new Vector3(0, 0, 0);
-                OpenBar();
-                
-                barFilledImage.fillAmount = 0;
-                if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 5)
-                {
-                    citysBarImage[0].gameObject.SetActive(true);
-                    citysBarImage[1].gameObject.SetActive(false);
-                }
-                else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
-                {
-                    citysBarImage[1].gameObject.SetActive(true);
-                    citysBarImage[0].gameObject.SetActive(false);
-                    citysBarImage[3].gameObject.SetActive(true);
-                    citysBarImage[2].gameObject.SetActive(false);
-                }
-                setActiveControl = false;
+                citysBarImage[0].gameObject.SetActive(true);
+                citysBarImage[1].gameObject.SetActive(false);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex >= SceneManager.sceneCountInBuildSettings - 5)
+            {
+                citysBarImage[1].gameObject.SetActive(true);
+                citysBarImage[0].gameObject.SetActive(false);
+                citysBarImage[3].gameObject.SetActive(true);
+                citysBarImage[2].gameObject.SetActive(false);
+            }
+            setActiveControl = false;
+        }
+
+
+
+
+        if (animationActivated && fillControl)
+        {
+            Fill();
+            if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2 || barFilledImage.fillAmount == 1)
+            {
+                StartCoroutine(CloseBar());
+
+                fillControl = false;
             }
 
-
-
-            
-            if (animationActivated && fillControl)
-            {
-                Fill();
-                if (barFilledImage.fillAmount >= (1 - tolerance) * fillAmount2 && barFilledImage.fillAmount <= (1 + tolerance) * fillAmount2 || barFilledImage.fillAmount ==1)
-                {
-                    StartCoroutine(CloseBar());
-                    
-                    fillControl = false;
-                }
-
-            }
-
-         }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
         }
-        else 
-        {
-           
+
+        //}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //}
+        //else 
+        //{
 
 
 
 
-        
-        }
+
+
+        //}
 
     }
 
 
 
-    
+
 
 
 
 
     private void OpenBar()
     {
-        
+
         explodeBar.rectTransform.DOScale(explodeBarScale, 0.4f).SetEase(Ease.Linear).OnComplete(() =>
 
         {
@@ -180,10 +180,10 @@ public class Kill : MonoBehaviour
 
     private IEnumerator CloseBar()
     {
-        
-        
-            
-        
+
+
+
+
         yield return new WaitForSeconds(2f);
         explodeBar.rectTransform.DOScale(Vector3.zero, 0.4f)
             .SetEase(Ease.Linear);
@@ -198,6 +198,6 @@ public class Kill : MonoBehaviour
     private void Fill()
     {
         barFilledImage.fillAmount += 0.35f * Time.deltaTime;
-        
+
     }
 }

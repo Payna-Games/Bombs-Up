@@ -53,21 +53,21 @@ public class FollwChange : MonoBehaviour
 
     private IEnumerator CameraChangeWaitTime()
     {
-        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        {
-            yield return new WaitForSeconds(1f);
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            yield return new WaitForSeconds(3f);
-        }
-        else
-        {
-            yield return new WaitForSeconds(3f);
-        }
+        //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        //{
+        yield return new WaitForSeconds(1f);
+        //}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    yield return new WaitForSeconds(3f);
+        //}
+        //else
+        //{
+        //yield return new WaitForSeconds(3f);
+        //}
 
 
-        
+
         // SwitchCamera(1);
         animator.Play("FreeLook");
 

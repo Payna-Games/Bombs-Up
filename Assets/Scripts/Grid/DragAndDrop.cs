@@ -164,28 +164,28 @@ public class DragAndDrop : MonoBehaviour
             Vibrator.Vibrate();
             Vibrator.Vibrate(75);
         }
-       
-        if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        {
-            Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
-            ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
-            particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
-            particleRocketMerge.Play();
-        }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        {
-            Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
-            ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
-            RocketMergeOld.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
-            RocketMergeOld.Play();
-        }
-        else 
-        {
-            Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
-            ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
-            RocketMergeOld.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
-            RocketMergeOld.Play();
-        }
+
+        //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        //{
+        Vector3 bompParticPos = new Vector3(gameObject.transform.position.x - 2.3f, gameObject.transform.position.y + 0.88f, gameObject.transform.position.z - 5f);
+        ParticleSystem particleRocketMerge = Instantiate(rocketMergeParticle, bompParticPos, Quaternion.Euler(0, 0, -90));
+        particleRocketMerge.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+        particleRocketMerge.Play();
+        //}
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
+        //    ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
+        //    RocketMergeOld.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+        //    RocketMergeOld.Play();
+        //}
+        //else 
+        //{
+        //Vector3 particPosOld = new Vector3(0.49f, 7.8797f, 20.30f);
+        //ParticleSystem RocketMergeOld = Instantiate(rocketMergeParticle, particPosOld, Quaternion.Euler(20, 0, 0));
+        //RocketMergeOld.gameObject.transform.localScale = new Vector3(4f, 4f, 4f);
+        //RocketMergeOld.Play();
+        //}
         gameObject.transform.parent.GetComponent<KiloTonCalculate>().Calculate();
         gameObject.GetComponent<ObjectLevel>().SetFalse();
         gameObject.GetComponent<ObjectLevel>().SetTrue();

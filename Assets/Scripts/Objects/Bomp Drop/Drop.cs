@@ -33,54 +33,54 @@ public class Drop : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints.None;
         //rb.useGravity = true;
-        
-         if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-         {
-            transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
-            transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
-            {
-                LensActive();
 
-                camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
-                StartCoroutine(MoveCamera());
-            });
-         }
-        else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        // if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
+        // {
+        transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
+        transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
         {
-            Vector3 targetPosition = transform.position + Vector3.up * 5f;
-            transform.DOMove(targetPosition, 2f).OnComplete(() =>
-            {
-                transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
-                transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
-                {
-                    LensActive();
+            LensActive();
 
-                    camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
-                    StartCoroutine(MoveCamera());
+            camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+            StartCoroutine(MoveCamera());
+        });
+        // }
+        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
+        //{
+        //    Vector3 targetPosition = transform.position + Vector3.up * 5f;
+        //    transform.DOMove(targetPosition, 2f).OnComplete(() =>
+        //    {
+        //        transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
+        //        transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
+        //        {
+        //            LensActive();
 
-
-
-                });
-            });
-        }
-        else
-        {
-            Vector3 targetPosition = transform.position + Vector3.up * 5f;
-            transform.DOMove(targetPosition, 2f).OnComplete(() =>
-            {
-                transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
-                transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
-                {
-                    LensActive();
-
-                    camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
-                    StartCoroutine(MoveCamera());
+        //            camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        //            StartCoroutine(MoveCamera());
 
 
 
-                });
-            });
-        }
+        //        });
+        //    });
+        //}
+        //else
+        //{
+        //Vector3 targetPosition = transform.position + Vector3.up * 5f;
+        //    transform.DOMove(targetPosition, 2f).OnComplete(() =>
+        //    {
+        //        transform.DOMove(new Vector3(-3, 6.4f, 23.4f), rotationDuration);
+        //        transform.DORotate(new Vector3(0f, 0f, -180f), rotationDuration).OnComplete(() =>
+        //        {
+        //            LensActive();
+
+        //            camera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+        //            StartCoroutine(MoveCamera());
+
+
+
+        //        });
+        //    });
+        //}
     }
 
     private void LensActive()
