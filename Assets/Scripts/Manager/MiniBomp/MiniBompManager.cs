@@ -6,7 +6,7 @@ using UnityEngine;
 public class MiniBompManager : MonoBehaviour
 {
     public static MiniBompManager miniBompManager;
-    
+
 
     public int speed;
     public float spawnSpeed;
@@ -21,11 +21,26 @@ public class MiniBompManager : MonoBehaviour
 
     private void Start()
     {
-        
-            spawnSpeed = 0.70f;
-            speed = 80;
+        if (PlayerPrefs.HasKey("Range"))
+            range = PlayerPrefs.GetInt("Range");
+        else
             range = 120;
-            //spawnSpeed = Mathf.Clamp(spawnSpeed, 0.2f, 1.5f);
-      
+        if (PlayerPrefs.HasKey("Rate"))
+            spawnSpeed = PlayerPrefs.GetFloat("Rate");
+        else
+            spawnSpeed = 0.70f;
+
+        speed = 80;
+
+    }
+    public void RangePlus()
+    {
+        range += 1;
+        PlayerPrefs.SetInt("Range", range);
+    }
+    public void RatePlus()
+    {
+        spawnSpeed -= 0.02f;
+        PlayerPrefs.SetFloat("Rate", spawnSpeed);
     }
 }
