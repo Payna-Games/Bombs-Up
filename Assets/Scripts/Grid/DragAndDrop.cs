@@ -159,11 +159,11 @@ public class DragAndDrop : MonoBehaviour
     }
     private void ReserObject(GameObject gameObject)
     {
-        if (VibratorManager.vibratorManager.mainVibrator)
-        {
-            Vibrator.Vibrate();
-            Vibrator.Vibrate(75);
-        }
+        // if (VibratorManager.vibratorManager.mainVibrator)
+        // {
+        //     Vibrator.Vibrate();
+        //     Vibrator.Vibrate(75);
+        // }
 
         //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
         //{
@@ -222,11 +222,11 @@ public class DragAndDrop : MonoBehaviour
         }
         else
             PrevPos();
-        if (VibratorManager.vibratorManager.mainVibrator)
-        {
-            Vibrator.Vibrate();
-            Vibrator.Vibrate(75);
-        }
+        // if (VibratorManager.vibratorManager.mainVibrator)
+        // {
+        //     Vibrator.Vibrate();
+        //     Vibrator.Vibrate(75);
+        // }
     }
 
     public void PrevPos()

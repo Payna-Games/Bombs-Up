@@ -8,18 +8,12 @@ public class BombLeftRight : MonoBehaviour
 {
     [SerializeField] private float swipeSpeed = 0.1f;
     [SerializeField] private float maxDistanceRight;
-    //[SerializeField] private float maxDistanceLeft;
     public float bombSpeed = 5f;
 
-    // [SerializeField] private Vector3 forceDirection;
-    //[SerializeField] private float forceMagnitude = 10.0f;
-
-    private Touch touch;
-    private Drop drop;
     [SerializeField] private float damping = 5f;
     private GameObject kilotonCanvas;
     [SerializeField] private bool downOpen;
-
+    private Drop drop;
     private void Awake()
     {
         transform.parent.position = new Vector3(-1.81f, 5, 25.3f);
@@ -28,72 +22,71 @@ public class BombLeftRight : MonoBehaviour
 
     private void Start()
     {
-        drop = GetComponent<Drop>();
+        
+           
+        
+
         swipeSpeed = 0.2f;
         bombSpeed = 35f;
-
-
-
-
+        drop = GetComponent<Drop>();
     }
 
-    private void Update()
-    {
-        if (drop.rotateComplete)
-        {
-            Vector3 move = new Vector3(0, bombSpeed * Time.deltaTime, 0);
-            transform.Translate(move);
+private void Update()
+{
+    if (drop.rotateComplete) {
+        Vector3 move = new Vector3(0, bombSpeed * Time.deltaTime, 0);
+        transform.Translate(move);
 
-            if (Input.touchCount > 0)
-            {
-                touch = Input.GetTouch(0);
-                {
-                    if (touch.phase == TouchPhase.Moved)
-                    {
-                        float targetX = transform.position.x + touch.deltaPosition.x * -swipeSpeed;
-                        targetX = Mathf.Clamp(targetX, maxDistanceRight, 18);
+        if (Input.GetMouseButton(0)) { // Fare tıklanmışsa
+            Vector3 mousePosition = Input.mousePosition; // Fare pozisyonu alın
+            Debug.Log($"Mouse Position: {mousePosition.x}");
 
-                        // Damping uygulayarak objeyi hedef konuma hareket ettirin
-                        SmoothMove(targetX);
-                    }
-                }
-            }
+            // Fare pozisyonunu ekranın genişliğine göre normalize et
+            float normalizedX = mousePosition.x / Screen.width;
 
+            // Ekranın sağ ve sol sınırlarını 18 ve -18 arasında bir aralığa yerleştir
+            // Eğer fare sağa kayarsa bomba sağa, sola kayarsa sola gitmeli
+            float targetX = Mathf.Lerp(18, -18, normalizedX); // Bu şekilde yön düzeltildi
+
+            // Damping uygulayarak hedef konuma hareket ettirin
+            SmoothMove(targetX);
         }
-
-        if (LastLensAfter.lastLensAfter.lastLensPassed)
-        {
-            Transform parentTransform = transform.parent;
-            kilotonCanvas.SetActive(false);
-            swipeSpeed = 0f;
-            parentTransform.position = new Vector3(0, 0, 0);
-            transform.position = new Vector3(0, transform.position.y, 0);
-
-            if (downOpen)
-            {
-                bombSpeed = 80f;
-            }
-            else if (!downOpen)
-            {
-                bombSpeed = 0f;
-            }
-            MiniBompManager.miniBompManager.spawnSpeed = 0;
-
-        }
-
-
     }
-    private void SmoothMove(float targetX)
+
+    // Bomba bitiş kısmı kontrolü
+    if (LastLensAfter.lastLensAfter.lastLensPassed)
     {
-        // Mevcut konumu alın
-        Vector3 currentPosition = transform.position;
+        Transform parentTransform = transform.parent;
+        kilotonCanvas.SetActive(false);
+        swipeSpeed = 0f;
+        parentTransform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, transform.position.y, 0);
 
-        // Damping uygulayarak hedef konuma doğru yumuşak bir şekilde hareket ettirin
-        Vector3 smoothedPosition = Vector3.Lerp(currentPosition, new Vector3(targetX, currentPosition.y, currentPosition.z), Time.deltaTime * damping);
-
-        // Yeni konumu ayarlayın
-        transform.position = smoothedPosition;
+        if (downOpen)
+        {
+            bombSpeed = 80f;
+        }
+        else if (!downOpen)
+        {
+            bombSpeed = 0f;
+        }
+        MiniBompManager.miniBompManager.spawnSpeed = 0;
     }
+}
+
+// SmoothMove fonksiyonu, yumuşak hareket sağlamak için
+private void SmoothMove(float targetX)
+{
+    // Mevcut konumu al
+    Vector3 currentPosition = transform.position;
+
+    // Hedef pozisyona doğru yumuşak hareket uygulayalım
+    Vector3 smoothedPosition = Vector3.Lerp(currentPosition, new Vector3(targetX, currentPosition.y, currentPosition.z), Time.deltaTime * damping);
+    Debug.Log("mouse hareket etmesi gerek");
+
+    // Yeni pozisyonu ayarla
+    transform.position = smoothedPosition;
+}
 
 
 }

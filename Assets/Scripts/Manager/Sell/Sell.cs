@@ -35,11 +35,11 @@ public class Sell : MonoBehaviour
         if (ObjectList.objectList.DragObjectNow != null)
         {
             IsOnImage = true;
-            if (VibratorManager.vibratorManager.mainVibrator)
-            {
-                Vibrator.Vibrate();
-                Vibrator.Vibrate(75);
-            }
+            // if (VibratorManager.vibratorManager.mainVibrator)
+            // {
+            //     Vibrator.Vibrate();
+            //     Vibrator.Vibrate(75);
+            // }
         }
     }
 }
