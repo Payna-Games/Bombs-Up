@@ -5,7 +5,7 @@ using DentedPixel;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using YsoCorp.GameUtils;
+
 using UnityEngine.SceneManagement;
 public class Kill : MonoBehaviour
 {
@@ -144,19 +144,7 @@ public class Kill : MonoBehaviour
 
         }
 
-        //}
-        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        //{
-        //}
-        //else 
-        //{
-
-
-
-
-
-
-        //}
+   
 
     }
 

@@ -73,7 +73,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
             GetComponent<Button>().onClick.RemoveAllListeners();
-            GetComponent<Button>().onClick.AddListener(AdsFalse);
+            
             StartCoroutine(RotateContinuously());
         }
         //else
@@ -102,12 +102,12 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         if (gameObject.name == "Add Button" && clickCount > 4)
         {
-            increasePrice = 140;    //eski deðer 70 => 12.12.23
+            increasePrice = 140;    //eski deï¿½er 70 => 12.12.23
             return (int)(increasePrice * clickCount);
         }
         if (gameObject.name == "Income" && clickCount > 1)
         {
-            increasePrice = 800;    //eski deðer 400 => 12.12.23
+            increasePrice = 800;    //eski deï¿½er 400 => 12.12.23
             return (int)(increasePrice * clickCount);
         }
         return startPrice + (int)(increasePrice * clickCount);
@@ -116,27 +116,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         PlayerPrefs.SetInt(transform.name, clickCount - 1);
     }
-    private void AdsFalse()
-    {
-
-        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-((bool ok) =>
-{
-    if (ok)
-    {
-        if (transform.name == "Add Button")
-        {
-            SlotAddButton.slotAddButton.ObjectLocalize();
-        }
-        else if (transform.name == "Income")
-        {
-            clickCount += 1;
-        }
-
-        Debug.Log("Button Ads");
-    }
-});
-    }
+  
     IEnumerator RotateContinuously()
     {
         while (true)

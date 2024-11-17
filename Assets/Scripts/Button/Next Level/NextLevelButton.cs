@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
-using YsoCorp.GameUtils;
+
 
 public class NextLevelButton : MonoBehaviour
 {
@@ -102,7 +102,7 @@ public class NextLevelButton : MonoBehaviour
     {
 
         _ads = true;
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
+      
 
         if (!clicked)
         {
@@ -114,39 +114,7 @@ public class NextLevelButton : MonoBehaviour
                                .SetEase(Ease.OutBounce);
                        });
 
-            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
-            (() => {
-
-                //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-                //{
-                    MoneyManager.moneyManager.buttonClicked = true;
-
-                    if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
-                    {
-                        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-                    }
-                    else if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCountInBuildSettings - 5)
-                    {
-                        MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount * 1.8f);
-
-                    }
-
-                   
-                //}
-                //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-                //{
-                //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-                //}
-                //else
-                //{
-                //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-                //}
-                    StartCoroutine(NextLevelParticle());
-
-
-                // transform.GetChild(0).gameObject.SetActive(false);
-
-            });
+           
             //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
             //{
                 if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
@@ -179,7 +147,7 @@ public class NextLevelButton : MonoBehaviour
     public void NextLevelReward()
     {
         _ads = true;
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
+     
         StartCoroutine(NextLevelParticle());
        
     }

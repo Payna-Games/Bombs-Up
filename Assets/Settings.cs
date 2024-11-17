@@ -5,9 +5,5 @@ using UnityEngine;
 public class Settings : MonoBehaviour
 {
     
-    public void SettingButton()
-    {
-        YsoCorp.GameUtils.YCManager.instance.settingManager.Show();
-      
-    }
+   
 }

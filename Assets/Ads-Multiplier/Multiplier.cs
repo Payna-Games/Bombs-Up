@@ -65,17 +65,8 @@ public class Multiplier : MonoBehaviour
 
     public void GetReward()
     {
-        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-((bool ok) => {
-    if (ok)
-    {
-        MoneyManager.moneyManager.buttonClicked = true;
-        adsClicked = true;
-        MoneyManager.moneyManager.InreaseTotalMoney(reward);
-        
-        //Debug.Log("GetReward");
-    }
-});
+       
+
         MoneyParticle();
         NextLevelButton.nextLevelButton.NextLevelReward();
     }
