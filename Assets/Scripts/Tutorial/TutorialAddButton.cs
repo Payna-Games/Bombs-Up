@@ -8,8 +8,8 @@ public class TutorialAddButton : MonoBehaviour
     public RectTransform rectTransform;
     public GameObject mask;
     public GameObject incomeButton;
-    public Vector3 targetPosition;
-    public Vector3 targetPosition2; 
+    [SerializeField] private RectTransform targetPosition;
+    [SerializeField] private RectTransform targetPosition2; 
     public float moveDuration = 1.0f;
     public bool conditionMet = true;
 
@@ -19,8 +19,7 @@ public class TutorialAddButton : MonoBehaviour
         ClickCount.clickCount.GetComponent<Button>().interactable = false;
         
         Transform addBottonPos = SlotAddButton.slotAddButton.transform;
-        targetPosition = new Vector3(-6, 105,0);
-        targetPosition2 = new Vector3(-6, 140, 0);
+        
         
     }
     private void Update()
@@ -31,8 +30,8 @@ public class TutorialAddButton : MonoBehaviour
             incomeButton.GetComponent<EnoughMoney>().CanInteract = false;
             conditionMet = false;
             mask.SetActive(true);
-            rectTransform.DOAnchorPos(targetPosition, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(targetPosition2, moveDuration)
+            rectTransform.DOAnchorPos(targetPosition.anchoredPosition, moveDuration)
+                .OnComplete(() => rectTransform.DOAnchorPos(targetPosition2.anchoredPosition, moveDuration)
                 .OnComplete(()=>conditionMet = true ));            
         }
         else if (SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount > 2)// && !conditionMet)

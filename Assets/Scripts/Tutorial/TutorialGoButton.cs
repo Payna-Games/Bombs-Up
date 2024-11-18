@@ -6,14 +6,15 @@ using DG.Tweening;
 
 public class TutorialGoButton : MonoBehaviour
 {
-    public RectTransform rectTransform;
+    public RectTransform handRect;
     public GameObject masks;
     public GameObject part1;
     public GameObject part2;
     bool isAnimLoop;
+    [SerializeField] private RectTransform goPos1;
+    [SerializeField] private RectTransform goPos2;
 
-    Vector3 pos1;
-    Vector3 pos2;
+   
     bool isEnd;
     bool one;
 
@@ -26,8 +27,7 @@ public class TutorialGoButton : MonoBehaviour
         isAnimLoop = false;
         part1.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
         part2.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
-        pos1 = new Vector3(-280, 175, 0);
-        pos2 = new Vector3(-280, 140, 0);
+      
 
     }
 
@@ -49,8 +49,8 @@ public class TutorialGoButton : MonoBehaviour
         {
             isAnimLoop = false;
             ClickCount.clickCount.GetComponent<Button>().interactable = true;
-            rectTransform.DOAnchorPos(pos1, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(pos2, moveDuration)
+            handRect.DOAnchorPos(goPos1.anchoredPosition, moveDuration)
+                .OnComplete(() => handRect.DOAnchorPos(goPos2.anchoredPosition, moveDuration)
                 .OnComplete(() => isAnimLoop = true));
         }
         if (ClickCount.clickCount.goClickCount >0)
