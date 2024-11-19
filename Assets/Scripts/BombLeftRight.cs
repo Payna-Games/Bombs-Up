@@ -1,24 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BombLeftRight : MonoBehaviour
 {
     [SerializeField] private float swipeSpeed = 0.1f;
-    [SerializeField] private float maxDistanceRight;
-    //[SerializeField] private float maxDistanceLeft;
+    [SerializeField] private float maxDistanceRight = 18f; // Sağ sınır
+    [SerializeField] private float maxDistanceLeft = -18f; // Sol sınır
     public float bombSpeed = 5f;
 
-    // [SerializeField] private Vector3 forceDirection;
-    //[SerializeField] private float forceMagnitude = 10.0f;
-
-    private Touch touch;
     private Drop drop;
     [SerializeField] private float damping = 5f;
     private GameObject kilotonCanvas;
     [SerializeField] private bool downOpen;
+
+    private float initialMouseX; // Mouse'un ilk X pozisyonu
+    private float initialPositionX; // Bombanın ilk X pozisyonu
 
     private void Awake()
     {
@@ -31,34 +29,38 @@ public class BombLeftRight : MonoBehaviour
         drop = GetComponent<Drop>();
         swipeSpeed = 0.2f;
         bombSpeed = 35f;
-
-
-
-
     }
 
     private void Update()
     {
         if (drop.rotateComplete)
         {
+            // Bombanın dikey hareketi
             Vector3 move = new Vector3(0, bombSpeed * Time.deltaTime, 0);
             transform.Translate(move);
 
-            if (Input.touchCount > 0)
+            // Mouse sol tuşa basılıysa
+            if (Input.GetMouseButton(0)) 
             {
-                touch = Input.GetTouch(0);
+                // Mouse'un ilk pozisyonunu kaydet
+                if (initialMouseX == 0)
                 {
-                    if (touch.phase == TouchPhase.Moved)
-                    {
-                        float targetX = transform.position.x + touch.deltaPosition.x * -swipeSpeed;
-                        targetX = Mathf.Clamp(targetX, maxDistanceRight, 18);
-
-                        // Damping uygulayarak objeyi hedef konuma hareket ettirin
-                        SmoothMove(targetX);
-                    }
+                    initialMouseX = Input.mousePosition.x;
+                    initialPositionX = transform.position.x;
                 }
-            }
 
+                // Mouse hareketine göre delta hesapla
+                float deltaX = (Input.mousePosition.x - initialMouseX) * swipeSpeed;
+
+                // Yeni X pozisyonunu hesapla
+                float targetX = initialPositionX + deltaX;
+                
+                // X pozisyonunu sınırla (hem sağ hem sol sınır)
+                targetX = Mathf.Clamp(targetX, maxDistanceLeft, maxDistanceRight);
+
+                // Yumuşak hareket için SmoothMove kullanımı
+                SmoothMove(targetX);
+            }
         }
 
         if (LastLensAfter.lastLensAfter.lastLensPassed)
@@ -78,11 +80,9 @@ public class BombLeftRight : MonoBehaviour
                 bombSpeed = 0f;
             }
             MiniBompManager.miniBompManager.spawnSpeed = 0;
-
         }
-
-
     }
+
     private void SmoothMove(float targetX)
     {
         // Mevcut konumu alın
@@ -94,6 +94,4 @@ public class BombLeftRight : MonoBehaviour
         // Yeni konumu ayarlayın
         transform.position = smoothedPosition;
     }
-
-
 }
