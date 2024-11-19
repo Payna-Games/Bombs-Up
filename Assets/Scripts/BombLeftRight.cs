@@ -5,18 +5,23 @@ using UnityEngine;
 
 public class BombLeftRight : MonoBehaviour
 {
-    [SerializeField] private float swipeSpeed = 0.1f;
-    [SerializeField] private float maxDistanceRight = 18f; // Sağ sınır
-    [SerializeField] private float maxDistanceLeft = -18f; // Sol sınır
     public float bombSpeed = 5f;
 
     private Drop drop;
-    [SerializeField] private float damping = 5f;
     private GameObject kilotonCanvas;
     [SerializeField] private bool downOpen;
 
-    private float initialMouseX; // Mouse'un ilk X pozisyonu
     private float initialPositionX; // Bombanın ilk X pozisyonu
+    private float lastMouseX; // Son tıklanan mouse X pozisyonu
+
+    [Header("Movement Limits")]
+    [SerializeField] private float minX = -5f;  // Sol sınır
+    [SerializeField] private float maxX = 5f;   // Sağ sınır
+
+    [Header("Damping")]
+    [SerializeField] private float damping = 10f;  // Damping değeri
+
+    private Vector3 velocity = Vector3.zero; // Bombanın hızını kontrol etmek için kullanılan vektör
 
     private void Awake()
     {
@@ -27,8 +32,8 @@ public class BombLeftRight : MonoBehaviour
     private void Start()
     {
         drop = GetComponent<Drop>();
-        swipeSpeed = 0.2f;
         bombSpeed = 35f;
+        initialPositionX = transform.position.x;  // Bomba başlangıç pozisyonu
     }
 
     private void Update()
@@ -39,27 +44,37 @@ public class BombLeftRight : MonoBehaviour
             Vector3 move = new Vector3(0, bombSpeed * Time.deltaTime, 0);
             transform.Translate(move);
 
-            // Mouse sol tuşa basılıysa
-            if (Input.GetMouseButton(0)) 
+            // Mouse hareketini izleme
+            if (Input.GetMouseButton(0))  // Mouse'a tıklanırsa hareket etsin
             {
-                // Mouse'un ilk pozisyonunu kaydet
-                if (initialMouseX == 0)
+                // Mouse'un yatay pozisyonunu alıyoruz
+                float mouseX = Input.mousePosition.x;
+
+                // Ekranda tıklama olduğu anda son tıklanan pozisyonu kaydediyoruz
+                if (lastMouseX == 0)
                 {
-                    initialMouseX = Input.mousePosition.x;
-                    initialPositionX = transform.position.x;
+                    lastMouseX = mouseX;
                 }
 
-                // Mouse hareketine göre delta hesapla
-                float deltaX = (Input.mousePosition.x - initialMouseX) * swipeSpeed;
+                // Mouse'un yatay hareketini takip et (ters hareketi düzeltmek için işareti düzelt)
+                float deltaX = lastMouseX - mouseX;
 
-                // Yeni X pozisyonunu hesapla
-                float targetX = initialPositionX + deltaX;
+                // Bombayı X ekseninde kaydırıyoruz, deltaX'in çarpanını küçük yaparak kayma hızını yavaşlatıyoruz
+                float targetX = transform.position.x + deltaX * 0.1f;
+
+                // X pozisyonunu sınırlarla kısıtla
+                targetX = Mathf.Clamp(targetX, minX, maxX);
+
+                // Bombanın yeni pozisyonunu yumuşatarak ayarlıyoruz (Damping uygulandı)
+                transform.position = Vector3.SmoothDamp(transform.position, new Vector3(targetX, transform.position.y, transform.position.z), ref velocity, damping * Time.deltaTime);
                 
-                // X pozisyonunu sınırla (hem sağ hem sol sınır)
-                targetX = Mathf.Clamp(targetX, maxDistanceLeft, maxDistanceRight);
-
-                // Yumuşak hareket için SmoothMove kullanımı
-                SmoothMove(targetX);
+                // Son tıklanan pozisyonu güncelle
+                lastMouseX = mouseX;
+            }
+            else
+            {
+                // Eğer mouse tıklaması bitmişse, tıklanan pozisyonu sıfırla
+                lastMouseX = 0;
             }
         }
 
@@ -67,7 +82,7 @@ public class BombLeftRight : MonoBehaviour
         {
             Transform parentTransform = transform.parent;
             kilotonCanvas.SetActive(false);
-            swipeSpeed = 0f;
+            bombSpeed = 0f;
             parentTransform.position = new Vector3(0, 0, 0);
             transform.position = new Vector3(0, transform.position.y, 0);
 
@@ -81,17 +96,5 @@ public class BombLeftRight : MonoBehaviour
             }
             MiniBompManager.miniBompManager.spawnSpeed = 0;
         }
-    }
-
-    private void SmoothMove(float targetX)
-    {
-        // Mevcut konumu alın
-        Vector3 currentPosition = transform.position;
-
-        // Damping uygulayarak hedef konuma doğru yumuşak bir şekilde hareket ettirin
-        Vector3 smoothedPosition = Vector3.Lerp(currentPosition, new Vector3(targetX, currentPosition.y, currentPosition.z), Time.deltaTime * damping);
-
-        // Yeni konumu ayarlayın
-        transform.position = smoothedPosition;
     }
 }
