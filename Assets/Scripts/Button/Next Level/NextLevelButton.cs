@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
-using YsoCorp.GameUtils;
+//using YsoCorp.GameUtils;
 
 public class NextLevelButton : MonoBehaviour
 {
@@ -102,7 +102,7 @@ public class NextLevelButton : MonoBehaviour
     {
 
         _ads = true;
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
 
         if (!clicked)
         {
@@ -114,8 +114,8 @@ public class NextLevelButton : MonoBehaviour
                                .SetEase(Ease.OutBounce);
                        });
 
-            YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
-            (() => {
+           // YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
+            // (() => {
 
                 //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
                 //{
@@ -146,7 +146,7 @@ public class NextLevelButton : MonoBehaviour
 
                 // transform.GetChild(0).gameObject.SetActive(false);
 
-            });
+           // });
             //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
             //{
                 if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
@@ -179,7 +179,7 @@ public class NextLevelButton : MonoBehaviour
     public void NextLevelReward()
     {
         _ads = true;
-        YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
+        //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
         StartCoroutine(NextLevelParticle());
        
     }

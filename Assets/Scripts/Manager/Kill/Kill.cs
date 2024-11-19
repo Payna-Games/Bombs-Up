@@ -5,7 +5,7 @@ using DentedPixel;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
-using YsoCorp.GameUtils;
+
 using UnityEngine.SceneManagement;
 public class Kill : MonoBehaviour
 {

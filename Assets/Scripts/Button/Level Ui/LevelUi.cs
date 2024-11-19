@@ -8,7 +8,7 @@ public class LevelUi : MonoBehaviour
     void Start()
     {
 
-        YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("LevelCount"));
+        //YsoCorp.GameUtils.YCManager.instance.OnGameStarted(PlayerPrefs.GetInt("LevelCount"));
         if (SceneManager.GetActiveScene().name.Contains("Tutorial"))
         {
             GetComponent<TextMeshProUGUI>().text = "Tutorial";

@@ -102,12 +102,12 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         if (gameObject.name == "Add Button" && clickCount > 4)
         {
-            increasePrice = 140;    //eski deðer 70 => 12.12.23
+            increasePrice = 140;    //eski deï¿½er 70 => 12.12.23
             return (int)(increasePrice * clickCount);
         }
         if (gameObject.name == "Income" && clickCount > 1)
         {
-            increasePrice = 800;    //eski deðer 400 => 12.12.23
+            increasePrice = 800;    //eski deï¿½er 400 => 12.12.23
             return (int)(increasePrice * clickCount);
         }
         return startPrice + (int)(increasePrice * clickCount);
@@ -119,11 +119,11 @@ public class EnoughMoney : TextPrint, IButtonPrice
     private void AdsFalse()
     {
 
-        YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-((bool ok) =>
-{
-    if (ok)
-    {
+//         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
+// ((bool ok) =>
+// {
+    // if (ok)
+ 
         if (transform.name == "Add Button")
         {
             SlotAddButton.slotAddButton.ObjectLocalize();
@@ -134,8 +134,8 @@ public class EnoughMoney : TextPrint, IButtonPrice
         }
 
         Debug.Log("Button Ads");
-    }
-});
+    
+// });
     }
     IEnumerator RotateContinuously()
     {
