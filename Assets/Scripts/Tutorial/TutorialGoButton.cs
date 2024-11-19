@@ -12,12 +12,13 @@ public class TutorialGoButton : MonoBehaviour
     public GameObject part2;
     bool isAnimLoop;
 
-    Vector3 pos1;
-    Vector3 pos2;
+    [SerializeField] private RectTransform pos1;
+
     bool isEnd;
     bool one;
 
     float moveDuration = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,20 +27,16 @@ public class TutorialGoButton : MonoBehaviour
         isAnimLoop = false;
         part1.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
         part2.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
-        pos1 = new Vector3(-280, 175, 0);
-        pos2 = new Vector3(-280, 140, 0);
-
     }
 
     private void TutorialGoButton_tutorialBompMerge(int level)
     {
-        if (one && level ==1)
+        if (one && level == 1)
         {
             isAnimLoop = true;
             masks.gameObject.SetActive(true);
             one = false;
         }
-
     }
 
     // Update is called once per frame
@@ -49,11 +46,16 @@ public class TutorialGoButton : MonoBehaviour
         {
             isAnimLoop = false;
             ClickCount.clickCount.GetComponent<Button>().interactable = true;
-            rectTransform.DOAnchorPos(pos1, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(pos2, moveDuration)
-                .OnComplete(() => isAnimLoop = true));
+
+            // Correct the Vector3 type to UnityEngine.Vector3
+            Vector3 pos2 = new Vector3(pos1.position.x, pos1.position.y + 10, pos1.position.z);
+
+            // Move to pos1 and then to pos2
+            rectTransform.DOMove(pos1.position, moveDuration)
+                .OnComplete(() => rectTransform.DOMove(pos2, moveDuration)
+                    .OnComplete(() => isAnimLoop = true));
         }
-        if (ClickCount.clickCount.goClickCount >0)
+        if (ClickCount.clickCount.goClickCount > 0)
         {
             masks.gameObject.SetActive(false);
             transform.gameObject.SetActive(false);

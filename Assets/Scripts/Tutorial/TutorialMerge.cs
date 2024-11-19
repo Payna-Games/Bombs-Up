@@ -12,9 +12,9 @@ public class TutorialMerge : MonoBehaviour
     public float moveDuration = 1.0f;
     public Transform part1;
     public Transform part2;
-    private Vector3 bompBody;
-    private Vector3 part1Pos;
-    private Vector3 part2Pos;
+    [SerializeField] private RectTransform  bompBody;
+    [SerializeField] private RectTransform part1Pos;
+    [SerializeField] private RectTransform part2Pos;
     private bool conditionMet;
     public bool mergePart;
     public bool mergeBomp;
@@ -26,23 +26,9 @@ public class TutorialMerge : MonoBehaviour
         part1.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         part2.GetComponent<DragAndDrop>().tutorialMerge += LoopAnimEnd;
         
-        //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        //{
-            part1Pos = new Vector3(-92, 829, 0);
-            part2Pos = new Vector3(-285, 829, 0);
-        //}
-        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        //{
-        //    part1Pos = new Vector3(0, 350, 0);
-        //    part2Pos = new Vector3(-200, 350, 0);
-        //}
-        //else
-        //{
-        //    part1Pos = new Vector3(0, 350, 0);
-        //    part2Pos = new Vector3(-200, 350, 0);
-        //}
+       
 
-        bompBody = new Vector3(-275, 1195, 0);
+        
     }
 
     // Update is called once per frame
@@ -52,38 +38,26 @@ public class TutorialMerge : MonoBehaviour
         {
             masks[0].SetActive(true);
             
-            //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-            //{
-
-            //}
-            //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-            //{
-            //    masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0);
-            //}
-            //else
-            //{
-            //    masks[0].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(97, -428, 0); 
-            //}
-
+        
             conditionMet = false;
-            rectTransform.DOAnchorPos(part2Pos, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(part1Pos, moveDuration)
+            rectTransform.DOMove(part2Pos.position, moveDuration)
+                .OnComplete(() => rectTransform.DOMove(part1Pos.position, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
         else if (part1.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
             masks[0].SetActive(false);
             conditionMet = false;
-            rectTransform.DOAnchorPos(bompBody, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(part1Pos, moveDuration)
+            rectTransform.DOMove(bompBody.position, moveDuration)
+                .OnComplete(() => rectTransform.DOMove(part2Pos.position, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
         else if (part2.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
             masks[0].SetActive(false);
             conditionMet = false;
-            rectTransform.DOAnchorPos(bompBody, moveDuration)
-                .OnComplete(() => rectTransform.DOAnchorPos(part2Pos, moveDuration)
+            rectTransform.DOMove(bompBody.position, moveDuration)
+                .OnComplete(() => rectTransform.DOMove(part1Pos.position, moveDuration)
                 .OnComplete(() => conditionMet = true));
         }
 
