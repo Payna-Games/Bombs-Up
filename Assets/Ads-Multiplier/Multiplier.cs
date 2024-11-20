@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using YG;
+
 
 public class Multiplier : MonoBehaviour
 {
@@ -13,7 +15,8 @@ public class Multiplier : MonoBehaviour
     [SerializeField] private Transform moneyParticlePosition;
     public bool adsClicked;
 
-
+    private void OnEnable() => YandexGame.RewardVideoEvent+= Rewarded; 
+    private void OnDisable() => YandexGame.RewardVideoEvent-= Rewarded;                                                            
     private void Start()
     {
         
@@ -65,21 +68,35 @@ public class Multiplier : MonoBehaviour
 
     public void GetReward()
     {
-//         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-// ((bool ok) => {
-//     if (ok)
-//     {
+
         MoneyManager.moneyManager.buttonClicked = true;
         adsClicked = true;
         MoneyManager.moneyManager.InreaseTotalMoney(reward);
         MoneyParticle();
         NextLevelButton.nextLevelButton.NextLevelReward();
-        //Debug.Log("GetReward");
+        Debug.Log("GetReward");
     }
-// });
-       
-   
 
+    // Subscribed reward granting method
+    void Rewarded(int id) 
+    { 
+        // If ID = 1, grant "+100 coins"
+        if (id == 0)
+        {
+            GetReward();
+            
+        }
+        // // If ID = 2, grant "+weapons".
+        //  else if (id == 2)
+        //  {
+        //      AddWeapon();
+        //  }
+        
+    }
+    public void ExampleOpenRewardAd(int id)
+    {
+        YandexGame.RewVideoShow(id);
+    }
     public void MoneyParticle()
     {
         ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;

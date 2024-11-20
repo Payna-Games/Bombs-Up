@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
-//using YsoCorp.GameUtils;
+using YG;
+
 
 public class NextLevelButton : MonoBehaviour
 {
@@ -34,8 +35,7 @@ public class NextLevelButton : MonoBehaviour
 
     private IEnumerator NextLevelParticle()
     {
-        //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        //{
+       
             yield return new WaitForSeconds(1.5f);
             if (!PlayerPrefs.HasKey("LevelCount"))
                 PlayerPrefs.SetInt("LevelCount", 1);
@@ -45,33 +45,20 @@ public class NextLevelButton : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
             {
+                YandexGame.FullscreenShow();
                 SceneManager.LoadScene(11);
             }
             if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
             {
+                YandexGame.FullscreenShow();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= Kill.kill.maxObj)
             {
+                YandexGame.FullscreenShow();
                 SceneManager.LoadScene(11);
             }
-        //}
-        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        //{
-        //    yield return new WaitForSeconds(1.5f);
-        //    if (!PlayerPrefs.HasKey("LevelCount"))
-        //        PlayerPrefs.SetInt("LevelCount", 1);
-        //    else
-        //        PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
-        //    Debug.Log("courutine else");
-
-        //    if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
-        //    {
-        //        SceneManager.LoadScene(9);
-        //    }
-        //    else
-        //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //}
+        
 
         //else
         //{
@@ -114,11 +101,7 @@ public class NextLevelButton : MonoBehaviour
                                .SetEase(Ease.OutBounce);
                        });
 
-           // YsoCorp.GameUtils.YCManager.instance.adsManager.ShowInterstitial
-            // (() => {
-
-                //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-                //{
+         
                     MoneyManager.moneyManager.buttonClicked = true;
 
                     if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
@@ -131,24 +114,12 @@ public class NextLevelButton : MonoBehaviour
 
                     }
 
-                   
-                //}
-                //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-                //{
-                //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-                //}
-                //else
-                //{
-                //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-                //}
+                  
+               
                     StartCoroutine(NextLevelParticle());
 
 
-                // transform.GetChild(0).gameObject.SetActive(false);
-
-           // });
-            //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-            //{
+               
                 if (SceneManager.GetActiveScene().buildIndex <= SceneManager.sceneCountInBuildSettings - 5)
                 {
                     MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
@@ -158,15 +129,7 @@ public class NextLevelButton : MonoBehaviour
                     MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount * 1.8f);
 
                 }
-            //}
-            //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-            //{
-            //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-            //}
-            //else
-            //{
-            //    MoneyManager.moneyManager.InreaseTotalMoney(IncomeScript.clickCount * 300 * 17f * Kill.kill.fillAmount);
-            //}
+           
 
 
             ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;

@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 1920
+  defaultScreenHeightWeb: 1080
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   m_SpriteBatchVertexThreshold: 300
@@ -101,7 +101,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -838,9 +838,10 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: YC_IOS14_SUPPORT;tenjin_applovin_enabled
+    Android: 
     Server: 
     Standalone: YC_IOS14_SUPPORT;YG_PLUGIN_YANDEX_GAME
+    WebGL: YG_PLUGIN_YANDEX_GAME
     iPhone: YC_IOS14_SUPPORT;tenjin_applovin_enabled
   additionalCompilerArguments: {}
   platformArchitecture: {}
