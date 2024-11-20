@@ -18,7 +18,7 @@ public class NextLevelButton : MonoBehaviour
     // [SerializeField]  private Transform moneyParticlePosition;
     public bool clicked;
     public EnoughMoney IncomeScript;
-    private bool _ads = false;
+    //private bool _ads = false;
 
     private void Awake()
     {
@@ -88,7 +88,7 @@ public class NextLevelButton : MonoBehaviour
     public void NextLevel()
     {
 
-        _ads = true;
+        //_ads = true;
         //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
 
         if (!clicked)
@@ -141,7 +141,7 @@ public class NextLevelButton : MonoBehaviour
     }
     public void NextLevelReward()
     {
-        _ads = true;
+       // _ads = true;
         //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
         StartCoroutine(NextLevelParticle());
        

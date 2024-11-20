@@ -11,11 +11,8 @@ public class MiniBompSpawn : MonoBehaviour      // kodun new bomps�n head�na
     private bool isSpawn;
     [SerializeField] private GameObject miniBombParent;
 
-    //açılar
-    private float x1 = -180;
-    private float x = -182f;
-    private float y = 180f;
-    private float z = 0f;
+    
+   
     private void Start()
     {
 

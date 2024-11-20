@@ -19,7 +19,7 @@ public static class Vibrator
         }
         else
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
         }
     }
     public static void Cancel()

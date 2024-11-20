@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5305888277349157704}
   - component: {fileID: 7300068444694662860}
   - component: {fileID: 7603181959155609542}
-  - component: {fileID: 4836402063657671308}
   - component: {fileID: 383016068938411686}
   - component: {fileID: 7865757834230047296}
   - component: {fileID: 6786808718276731375}
@@ -127,44 +126,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7300068444694662860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7865757834230047296}
-        m_TargetAssemblyTypeName: ButtonScale, Assembly-CSharp
-        m_MethodName: Scale
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4836402063657671308}
-        m_TargetAssemblyTypeName: BtnVibrator, Assembly-CSharp
-        m_MethodName: ButtonVibrator
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4836402063657671308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139551523525019477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6769d9768dc8a458a8f70430fd213f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onVibrator: 1
+      m_Calls: []
 --- !u!114 &383016068938411686
 MonoBehaviour:
   m_ObjectHideFlags: 0

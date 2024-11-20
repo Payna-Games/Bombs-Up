@@ -43,11 +43,11 @@ public class BompExplode : ExplodeCalculate
             hasCollided = true;
             cameraVibration.StartVibration();
             StartCoroutine(Wait2(0.2f));
-            if (VibratorManager.vibratorManager.mainVibrator)
-            {
-                Vibrator.Vibrate();
-                Vibrator.Vibrate(75);
-            }
+            // if (VibratorManager.vibratorManager.mainVibrator)
+            // {
+            //     Vibrator.Vibrate();
+            //     Vibrator.Vibrate(75);
+            // }
         }
     }
 

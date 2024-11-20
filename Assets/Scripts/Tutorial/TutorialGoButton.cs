@@ -14,7 +14,7 @@ public class TutorialGoButton : MonoBehaviour
 
     [SerializeField] private RectTransform pos1;
 
-    bool isEnd;
+   // bool isEnd;
     bool one;
 
     float moveDuration = 1.0f;
@@ -23,7 +23,7 @@ public class TutorialGoButton : MonoBehaviour
     void Start()
     {
         one = true;
-        isEnd = false;
+        //isEnd = false;
         isAnimLoop = false;
         part1.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
         part2.GetComponent<DragAndDrop>().tutorialBompMerge += TutorialGoButton_tutorialBompMerge;
@@ -59,12 +59,12 @@ public class TutorialGoButton : MonoBehaviour
         {
             masks.gameObject.SetActive(false);
             transform.gameObject.SetActive(false);
-            isEnd = false;
+          //  isEnd = false;
         }
     }
 
     public void HandActiveFasle()
     {
-        isEnd = true;
+      //  isEnd = true;
     }
 }

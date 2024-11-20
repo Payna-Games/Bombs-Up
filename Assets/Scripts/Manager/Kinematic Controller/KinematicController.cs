@@ -8,7 +8,7 @@ public class KinematicController : MonoBehaviour
 
     private bool conditionMet = false;
     private int repeatCount = 5;
-    private float repeatInterval = 0.5f;
+
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class KinematicController : MonoBehaviour
             yield return new WaitForSeconds(1);
             SetKinematicForAllRigidbodies(true);
 
-            // Belirli bir süre aralýðý beklemek için yield kullan
+            // Belirli bir sï¿½re aralï¿½ï¿½ï¿½ beklemek iï¿½in yield kullan
             
         }
     }
@@ -46,11 +46,11 @@ public class KinematicController : MonoBehaviour
         GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Pieces");
         foreach (GameObject obj in taggedObjects)
         {
-            // GameObject'in üzerinde Rigidbody bileþeni var mý kontrol et
+            // GameObject'in ï¿½zerinde Rigidbody bileï¿½eni var mï¿½ kontrol et
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                // Rigidbody'nin "isKinematic" özelliðini belirli deðere ayarla
+                // Rigidbody'nin "isKinematic" ï¿½zelliï¿½ini belirli deï¿½ere ayarla
                 rb.isKinematic = isKinematic;
             }
         }

@@ -10,7 +10,7 @@ public class Damage : MonoBehaviour
 {
     public static Damage damage;
 
-    public event Action FireColor;
+    
 
     public int addKiloTon;
 
