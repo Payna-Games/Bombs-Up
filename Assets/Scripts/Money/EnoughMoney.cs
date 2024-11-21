@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using System.Collections;
+using YG;
 
 public class EnoughMoney : TextPrint, IButtonPrice
 {
@@ -36,7 +37,8 @@ public class EnoughMoney : TextPrint, IButtonPrice
 
         button.onClick.AddListener(NewPrice);
     }
-
+    private void OnEnable() => YandexGame.RewardVideoEvent+= Rewarded; 
+    
     // Update is called once per frame
     void Update()
     {
@@ -73,7 +75,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
             GetComponent<Button>().onClick.RemoveAllListeners();
-            GetComponent<Button>().onClick.AddListener(AdsFalse);
+            GetComponent<Button>().onClick.AddListener(() => Rewarded(0));
             StartCoroutine(RotateContinuously());
         }
         //else
@@ -88,8 +90,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
     {
         enough = CalculatePrice(startPrice, increasePrice, clickCount);
         ButtonPrint(enough);
-        //Vibrator.Vibrate();
-        //Vibrator.Vibrate(200);
+      
         clickCount += 1;
     }
 
@@ -115,14 +116,29 @@ public class EnoughMoney : TextPrint, IButtonPrice
     private void OnDisable()
     {
         PlayerPrefs.SetInt(transform.name, clickCount - 1);
+        YandexGame.RewardVideoEvent-= Rewarded;        
+    }
+
+   private void Rewarded(int id) 
+    { 
+        
+        if (id == 0)
+        {
+            AdsFalse();
+            Debug.Log("reklma gösterilecek");
+
+        }
+        
+        
+    }
+    public void ExampleOpenRewardAd(int id)
+    {
+        YandexGame.RewVideoShow(id);
     }
     private void AdsFalse()
     {
 
-//         YsoCorp.GameUtils.YCManager.instance.adsManager.ShowRewarded
-// ((bool ok) =>
-// {
-    // if (ok)
+
  
         if (transform.name == "Add Button")
         {
@@ -135,7 +151,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
 
         Debug.Log("Button Ads");
     
-// });
+
     }
     IEnumerator RotateContinuously()
     {

@@ -43,7 +43,7 @@ public class MoneyManager : TextPrint
             totalMoney += (long)otherMoney;
            // Debug.Log("Increase if");
         }
-        if(!multiplier.adsClicked )
+       if(!multiplier.adsClicked )
         {
             roundedNumber = (int)Math.Round(otherMoney);
             double getTextRounded = otherMoney / 1000;

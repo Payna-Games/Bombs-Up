@@ -15,10 +15,7 @@ public class SlotAddButton : MonoBehaviour
     {
         ButtonActive();
     }
-    private void OnEnable()
-    {
-        
-    }
+   
     private int currentObjectType;
     public void ObjectLocalize()
     {
@@ -57,7 +54,7 @@ public class SlotAddButton : MonoBehaviour
         switch (currentObjectType)
         {
             case 1:
-                foreach (GameObject itemType in ObjectList.objectList.head) //itemType gridde tutulan objeyi göstermektedir
+                foreach (GameObject itemType in ObjectList.objectList.head) //itemType gridde tutulan objeyi gï¿½stermektedir
                 {
                     if (!itemType.activeSelf)
                     {
