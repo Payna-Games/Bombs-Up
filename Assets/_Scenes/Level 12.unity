@@ -388,7 +388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72404768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.61307955, y: 0.19971253, z: 0.16400526, w: 0.74655926}
+  m_LocalRotation: {x: -0.6130795, y: 0.19971253, z: 0.16400528, w: 0.74655926}
   m_LocalPosition: {x: -112, y: -1130.1, z: -178.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1040,10 +1040,10 @@ MonoBehaviour:
   rectTransform: {fileID: 0}
   mask: {fileID: 0}
   incomeButton: {fileID: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  targetPosition2: {x: 0, y: 0, z: 0}
+  targetPosition: {fileID: 0}
   moveDuration: 1
   conditionMet: 0
+  uiCamera: {fileID: 0}
 --- !u!212 &861935964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1131,6 +1131,9 @@ MonoBehaviour:
   moveDuration: 1
   part1: {fileID: 8775773936099409963}
   part2: {fileID: 8775773936531947862}
+  bompBody: {fileID: 0}
+  part1Pos: {fileID: 0}
+  part2Pos: {fileID: 0}
   mergePart: 0
   mergeBomp: 0
 --- !u!114 &861935967
@@ -1149,6 +1152,7 @@ MonoBehaviour:
   masks: {fileID: 0}
   part1: {fileID: 6960001834158021390}
   part2: {fileID: 6960001833859701363}
+  pos1: {fileID: 0}
 --- !u!114 &861935968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13904,6 +13908,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2798904277301081185}
     - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[9].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1193219118}
@@ -13932,6 +13944,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 861935967}
     - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Target
+      value: 
+      objectReference: {fileID: 1897093897326480290}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[9].m_Target
       value: 
       objectReference: {fileID: 57219602}
@@ -13942,6 +13958,22 @@ PrefabInstance:
     - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
       value: RocketStartSmoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_MethodName
+      value: TextPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[9].m_MethodName
+      value: SwitchCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_TargetAssemblyTypeName
+      value: KilotonPos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090231227110878029, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[9].m_TargetAssemblyTypeName
+      value: FollwChange, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2895126219175124556, guid: 70a6d38ce503c6145a4209a3d37efebe, type: 3}
       propertyPath: m_Pivot.x

@@ -75,7 +75,7 @@ public class EnoughMoney : TextPrint, IButtonPrice
             GetComponent<Button>().onClick.RemoveListener(NewPrice);
             GetComponent<Button>().onClick.RemoveListener(DecreaseMoney);
             GetComponent<Button>().onClick.RemoveAllListeners();
-            GetComponent<Button>().onClick.AddListener(() => Rewarded(0));
+            GetComponent<Button>().onClick.AddListener(() => ExampleOpenRewardAd(0));
             StartCoroutine(RotateContinuously());
         }
         //else
