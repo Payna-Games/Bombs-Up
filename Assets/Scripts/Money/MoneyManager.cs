@@ -54,11 +54,11 @@ public class MoneyManager : TextPrint
             nextLevelMoney.text = roundedNumber.ToString();
             if (otherMoney >= 1000)
             {
-                getText.text = "Get " + "$" + result+ "k";
+                getText.text =  "$" + result+ "k";
             }
             else 
             {
-                getText.text = "Get " + "$" + roundedNumber.ToString();
+                getText.text =  "$" + roundedNumber.ToString();
             }
             
 

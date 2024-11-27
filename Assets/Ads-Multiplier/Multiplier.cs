@@ -37,11 +37,11 @@ public class Multiplier : MonoBehaviour
             {
                 double roundedText = Math.Round(reward/ 1000, 0);
                 
-                rewardToShowText.text ="Claim "+  "\n  $" + roundedText.ToString() + "k";
+                rewardToShowText.text =" $" + roundedText.ToString() + "k";
             }
             else
             {
-                rewardToShowText.text = "Claim " + "\n  $" + reward.ToString();
+                rewardToShowText.text = "  $" + reward.ToString();
 
             }
             
@@ -74,7 +74,7 @@ public class Multiplier : MonoBehaviour
         MoneyManager.moneyManager.InreaseTotalMoney(reward);
         MoneyParticle();
         NextLevelButton.nextLevelButton.NextLevelReward();
-        Debug.Log("GetReward");
+        
     }
 
     // Subscribed reward granting method
