@@ -195,7 +195,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5ca27169a7b74b469b744fd23e0d57b, type: 2}
+  - {fileID: 2100000, guid: 627a741d9662be54caadc1d67b6ba2c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -278,7 +278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f956ae46b7618347a5ed6c24dfa9446, type: 2}
+  - {fileID: 2100000, guid: 23e168d3b1c8f754dbfac91edaf5f47d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 1239415575434717267}
   - component: {fileID: 3033162548509693883}
   - component: {fileID: 5439114384791300475}
-  - component: {fileID: -185668544896494170}
   - component: {fileID: 7023812428483490284}
   m_Layer: 0
   m_Name: FireRangeLens 1
@@ -376,25 +375,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-185668544896494170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741037611129115418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf7549ee4e71164db733751a88c4eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addFireRange: -5
-  fireRangeText: {fileID: 4689004307781069603}
-  particleTransform: {fileID: 3463373817259182924}
-  myRenderer: {fileID: 8460369458873884763}
-  greenMaterial: {fileID: 2100000, guid: 627a741d9662be54caadc1d67b6ba2c4, type: 2}
-  maxRange: 200
-  minRange: 60
 --- !u!114 &7023812428483490284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,15 +414,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6850424481447205777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.71}
-  m_LocalScale: {x: 1.0707, y: 1.0707, z: 1.0707}
+  m_LocalPosition: {x: 0, y: 0, z: -1.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7233156471437773140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.69, y: -1.88}
+  m_AnchoredPosition: {x: -0.14, y: -3.23}
   m_SizeDelta: {x: 16.4413, y: 13.2424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4558672227924732951
@@ -473,7 +453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -5
+  m_text: +7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
   m_sharedMaterial: {fileID: 2872833445011172122, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
@@ -500,13 +480,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -569,15 +549,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6980271874714172597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7}
-  m_LocalScale: {x: 0.91161, y: 0.91161, z: 0.91161}
+  m_LocalPosition: {x: 0, y: 0, z: -1.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7233156471437773140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.01, y: 1.5}
+  m_AnchoredPosition: {x: 0.1583, y: 0.7}
   m_SizeDelta: {x: 16.4413, y: 13.2424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5567336947250783037
@@ -635,8 +615,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2.96
+  m_fontSizeBase: 2.96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -671,7 +651,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.16015768, z: 0, w: 3.0171258}
+  m_margin: {x: 0, y: 0.16015768, z: 0, w: 5.211014}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -53,7 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addFireRange: 0
   fireRangeText: {fileID: 661053080731946673}
-  waterParticle: {fileID: 19882516, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
   particleTransform: {fileID: 3470784896002778571}
 --- !u!114 &87523030620188678
 MonoBehaviour:
@@ -286,6 +285,7 @@ GameObject:
   - component: {fileID: 3644938268800309808}
   - component: {fileID: 1060227925322824983}
   - component: {fileID: 6682273750505141615}
+  - component: {fileID: 4256552766508060694}
   m_Layer: 5
   m_Name: FireRange
   m_TagString: Untagged
@@ -409,6 +409,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4256552766508060694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615705551034508929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 6682273750505141615}
+  uniqueFontTMP: {fileID: 11400000, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0414\u0438\u0430\u043F\u0430\u0437\u043E\u043D \u043E\u0433\u043D\u044F"
+  en: Fire Range
+  tr: "At\u0131\u015F Menzili"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &6716746962865806130
 GameObject:
   m_ObjectHideFlags: 0

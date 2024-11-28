@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 8990971801518036450}
   - component: {fileID: 3635168538149755780}
   - component: {fileID: 5320551819001564973}
+  - component: {fileID: 7039044295906425627}
   m_Layer: 5
   m_Name: DamageText
   m_TagString: Untagged
@@ -300,6 +301,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7039044295906425627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756915387712488375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 5320551819001564973}
+  uniqueFontTMP: {fileID: 11400000, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0432\u044B\u0448\u0435!"
+  en: Level Up!
+  tr: Seviye Atla!
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/19 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &3805071726714050869
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,13 +812,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112c4781ef4d7eb459e193afb8950dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterParticle: {fileID: 19882516, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
   particleTransform: {fileID: 1511368952115592175}
   rocketImage: {fileID: 6049613829198761817}
   fillAmountValue: 0.2
   initialScale: 0.25
   targetScale: 0.3
   duration: 0.3
+  addBombLens: 0
 --- !u!114 &-2686221143795217461
 MonoBehaviour:
   m_ObjectHideFlags: 0

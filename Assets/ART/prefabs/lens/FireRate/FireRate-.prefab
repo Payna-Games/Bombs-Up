@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 2195446419725623339}
   - component: {fileID: 4109556356515286599}
   - component: {fileID: 4470437974628071221}
+  - component: {fileID: 244807465101765349}
   m_Layer: 5
   m_Name: FireRateText
   m_TagString: Untagged
@@ -403,6 +404,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &244807465101765349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435351429761531826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 4470437974628071221}
+  uniqueFontTMP: {fileID: 11400000, guid: b5748234b5e4ecb4c8daf2bd39b833f3, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u043E\u0433\u043D\u044F"
+  en: Fire Rate
+  tr: "At\u0131\u015F H\u0131z\u0131"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/19 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &5646528913448264442
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,9 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adfb40cb50dd3642b878aa3569e39e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addFireRate: -5
+  addFireRate: -2
   fireRateText: {fileID: 7340751070156742595}
-  waterParticle: {fileID: 19882516, guid: e91e4045ff720a04b936e2d9e5df0dc4, type: 3}
   particleTransform: {fileID: 6719862310822611758}
   myRenderer: {fileID: 3275279808645639767}
   greenMaterial: {fileID: 2100000, guid: 627a741d9662be54caadc1d67b6ba2c4, type: 2}
