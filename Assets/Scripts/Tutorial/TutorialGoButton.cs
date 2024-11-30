@@ -7,7 +7,7 @@ using DG.Tweening;
 public class TutorialGoButton : MonoBehaviour
 {
     public RectTransform rectTransform;
-    public GameObject masks;
+  //  public GameObject masks;
     public GameObject part1;
     public GameObject part2;
     bool isAnimLoop;
@@ -34,7 +34,7 @@ public class TutorialGoButton : MonoBehaviour
         if (one && level == 1)
         {
             isAnimLoop = true;
-            masks.gameObject.SetActive(true);
+           // masks.gameObject.SetActive(true);
             one = false;
         }
     }
@@ -57,7 +57,7 @@ public class TutorialGoButton : MonoBehaviour
         }
         if (ClickCount.clickCount.goClickCount > 0)
         {
-            masks.gameObject.SetActive(false);
+          //  masks.gameObject.SetActive(false);
             transform.gameObject.SetActive(false);
           //  isEnd = false;
         }

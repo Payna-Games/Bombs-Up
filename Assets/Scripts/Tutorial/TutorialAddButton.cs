@@ -2,27 +2,29 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using YG;
 public class TutorialAddButton : MonoBehaviour
 {
     public RectTransform rectTransform;
     public GameObject mask;
+    [SerializeField] private GameObject mobileMask;
     public GameObject incomeButton;
     [SerializeField] private RectTransform targetPosition;
-    private RectTransform targetPosition2; 
     public float moveDuration = 1.0f;
-    public bool conditionMet = true;
+    
     private Vector3 screenPosition;
-    [SerializeField] private Camera uiCamera; 
+    [SerializeField] private Camera uiCamera;
+    private Tween moveTween;
+    
     private void Start()
     {
-        conditionMet = true;
+        StartInitialMove();
         ClickCount.clickCount.GetComponent<Button>().interactable = false;
         
-        Transform addBottonPos = SlotAddButton.slotAddButton.transform;
+   
       
-        Debug.Log(screenPosition + ":Screen Position");
-       
+      //  Debug.Log(screenPosition + ":Screen Position");
+ 
     }
     
     private void Update()
@@ -31,27 +33,43 @@ public class TutorialAddButton : MonoBehaviour
         int clickCount = SlotAddButton.slotAddButton.transform.GetComponent<EnoughMoney>().clickCount;
 
         // When click count is less than or equal to 2 and condition is met
-        if (clickCount <= 2 && conditionMet)
+        if (clickCount <= 2 )
         {
             incomeButton.GetComponent<EnoughMoney>().CanInteract = false;
-            conditionMet = false;
-            mask.SetActive(true);
-
-          
-            rectTransform.DOMove(targetPosition.position, moveDuration)
-                .OnComplete(() => 
-                {
-                 
-                    Vector3 targetPosition2 = new Vector3(targetPosition.position.x, targetPosition.position.y + 10f, targetPosition.position.z);
-                    rectTransform.DOMove(targetPosition2, moveDuration)
-                        .OnComplete(() => conditionMet = true);
-                });
+            
         }
         else if (clickCount > 2)
         {
             mask.SetActive(false);
+            StopHandAnimation();
         }
     }
+    private void StartHandAnimation(Vector3 upPositionn)
+    {
+        // Aşağı pozisyon
+        Vector3 upPosition = new Vector3(upPositionn.x, upPositionn.y +5f,upPositionn.z);
 
-
+        // Yukarı-aşağı animasyonu başlat
+        moveTween= rectTransform.DOMove(upPosition, moveDuration)
+            .SetLoops(-1, LoopType.Yoyo) // Sonsuz döngüde git-gel
+            .SetEase(Ease.Linear);
+    } 
+    private void StartInitialMove()
+    {
+        
+        Vector3 downPosition = new Vector3(targetPosition.position.x, targetPosition.position.y+10f , targetPosition.position.z);
+       // mask.transform.position =  new Vector3(targetPosition.position.x, targetPosition.position.y+7f , targetPosition.position.z);
+        mask.SetActive(true);
+        
+        rectTransform.DOMove(downPosition, moveDuration)
+            .OnComplete(() => StartHandAnimation(downPosition));
+    }
+    private void StopHandAnimation()
+    {
+        if (moveTween != null)
+        {
+            moveTween.Kill(); // Animasyonu durdur
+        }
+    }
+   
 }

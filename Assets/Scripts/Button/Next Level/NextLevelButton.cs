@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 using YG;
 
 
@@ -12,6 +13,7 @@ public class NextLevelButton : MonoBehaviour
     
     [SerializeField] private Transform moneyParticlePosition;
     private RectTransform rectTransform;
+     
     
 
 
@@ -23,12 +25,14 @@ public class NextLevelButton : MonoBehaviour
     private void Awake()
     {
         nextLevelButton = nextLevelButton == null ? this : nextLevelButton;
+        
     }
 
     private void Start()
     {
         clicked = true ;
         //IncomeScript = GameObject.Find("Income").GetComponent<EnoughMoney>();
+        
         rectTransform = GetComponent<RectTransform>();
         
     }
@@ -47,41 +51,26 @@ public class NextLevelButton : MonoBehaviour
             {
                 YandexGame.FullscreenShow();
                 SceneManager.LoadScene(11);
+             
+               
             }
             if (KiloTonCalculate.kiloTonCalculate.KiloTon < Kill.kill.maxObj)
             {
                 YandexGame.FullscreenShow();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    
+                
             }
             else if (KiloTonCalculate.kiloTonCalculate.KiloTon >= Kill.kill.maxObj)
             {
                 YandexGame.FullscreenShow();
                 SceneManager.LoadScene(11);
+     
+               
             }
         
 
-        //else
-        //{
-        //    yield return new WaitForSeconds(1.5f);
-        //    if (!PlayerPrefs.HasKey("LevelCount"))
-        //        PlayerPrefs.SetInt("LevelCount", 1);
-        //    else
-        //        PlayerPrefs.SetInt("LevelCount", PlayerPrefs.GetInt("LevelCount") + 1);
-        //    Debug.Log("courutine else");
-
-        //    if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings)
-        //    {
-        //        SceneManager.LoadScene(9);
-        //    }
-        //    else
-        //        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //}
-        
-
-        //if(Kill.kill.destroyedObject != Kill.kill.maxObj)
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
-        //}
+     
 
     }
 

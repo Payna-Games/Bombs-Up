@@ -2126,10 +2126,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 0}
   mask: {fileID: 0}
+  mobileMask: {fileID: 0}
   incomeButton: {fileID: 0}
   targetPosition: {fileID: 0}
   moveDuration: 1
-  conditionMet: 0
   uiCamera: {fileID: 0}
 --- !u!212 &861935964
 SpriteRenderer:
@@ -2236,7 +2236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 0}
-  masks: {fileID: 0}
   part1: {fileID: 6960001834158021390}
   part2: {fileID: 6960001833859701363}
   pos1: {fileID: 0}
@@ -20831,7 +20830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7259916754901360813, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -154
+      value: -203.9
       objectReference: {fileID: 0}
     - target: {fileID: 7259916754901360813, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20868,6 +20867,10 @@ PrefabInstance:
     - target: {fileID: 8678929089541783037, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
       propertyPath: m_Name
       value: FireRate+
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679705698974645713, guid: d9040abdae4e8534ea8f0493a77712d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

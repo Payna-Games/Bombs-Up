@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using YG;
 
 
 public class TutorialMerge : MonoBehaviour
@@ -36,7 +37,7 @@ public class TutorialMerge : MonoBehaviour
     {
         if (part2.gameObject.activeSelf && conditionMet && mergePart)
         {
-            masks[0].SetActive(true);
+           // masks[0].SetActive(true);
             
         
             conditionMet = false;
@@ -46,7 +47,8 @@ public class TutorialMerge : MonoBehaviour
         }
         else if (part1.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
-            masks[0].SetActive(false);
+          
+           // masks[0].SetActive(false);
             conditionMet = false;
             rectTransform.DOMove(bompBody.position, moveDuration)
                 .OnComplete(() => rectTransform.DOMove(part2Pos.position, moveDuration)
@@ -54,7 +56,8 @@ public class TutorialMerge : MonoBehaviour
         }
         else if (part2.GetComponent<ObjectLevel>().objectLevel == 1 && mergeBomp && conditionMet)
         {
-            masks[0].SetActive(false);
+          
+          //  masks[0].SetActive(false);
             conditionMet = false;
             rectTransform.DOMove(bompBody.position, moveDuration)
                 .OnComplete(() => rectTransform.DOMove(part1Pos.position, moveDuration)
@@ -63,7 +66,7 @@ public class TutorialMerge : MonoBehaviour
 
         if (mainBomb.GetChild(1).GetComponent<ObjectLevel>().objectLevel >= 1)
         {
-            masks[0].SetActive(false);
+           // masks[0].SetActive(false);
         }
 
     }
