@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KTonText : MonoBehaviour
 {
-    public FollwChange follwChange;
+    
     [SerializeField] private TextMeshProUGUI text;
 
     private void Start()

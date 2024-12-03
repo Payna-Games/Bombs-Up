@@ -51,6 +51,7 @@ public class Multiplier : MonoBehaviour
 
     public void StopHandAnim()
     {
+        
         if (reward >= 1000)
         {
             double roundedText = Math.Round(reward / 1000, 1);
@@ -62,8 +63,10 @@ public class Multiplier : MonoBehaviour
             rewardToShowText.text = "$" + reward.ToString();
 
         }
+       
         //handAnim.StopPlayback();
         handAnim.enabled = false;
+        
     }
 
     public void GetReward()
@@ -71,9 +74,11 @@ public class Multiplier : MonoBehaviour
 
         MoneyManager.moneyManager.buttonClicked = true;
         adsClicked = true;
+        
         MoneyManager.moneyManager.InreaseTotalMoney(reward);
-        MoneyParticle();
-        NextLevelButton.nextLevelButton.NextLevelReward();
+        NextLevelButton.nextLevelButton.clicked = true;
+     //   MoneyParticle();
+       // NextLevelButton.nextLevelButton.NextLevelReward();
         
     }
 
@@ -81,9 +86,10 @@ public class Multiplier : MonoBehaviour
     void Rewarded(int id) 
     { 
         // If ID = 1, grant "+100 coins"
-        if (id == 0)
+        if (id == 0 && !adsClicked && !NextLevelButton.nextLevelButton.clicked)
         {
             GetReward();
+            MoneyParticle();
             
         }
         // // If ID = 2, grant "+weapons".
@@ -95,7 +101,11 @@ public class Multiplier : MonoBehaviour
     }
     public void ExampleOpenRewardAd(int id)
     {
-        YandexGame.RewVideoShow(id);
+        if (!adsClicked && !NextLevelButton.nextLevelButton.clicked)
+        {
+            YandexGame.RewVideoShow(id);
+        }
+       
     }
     public void MoneyParticle()
     {

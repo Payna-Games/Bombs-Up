@@ -24,36 +24,23 @@ public class LevelEndPanel : MonoBehaviour
         moneyButtonScale = moneyButtonTrans.localScale;
 
     }
-
+    public void OpenNextButton()
+    {
+        panelObjects[4].gameObject.SetActive(true);
+    }
     public void NextLevel(float obj)
     {
-        // if (obj >= 0.01f)
-        // {
-        //     StartCoroutine(Wait(objList[0]));
-        // }
-        // else
-        // {
-        //     StartCoroutine(Wait(objList[1]));
-        // }
+      
         StartCoroutine(Wait(objList[0]));
     }
     IEnumerator Wait(GameObject activePanel)
     {
          
         
-        //if (YCManager.instance.abTestingManager.IsPlayerSample("new"))
-        //{
+       
             yield return new WaitForSeconds(0.7f);
-        //}
+        
 
-        //else if (YCManager.instance.abTestingManager.IsPlayerSample("old"))
-        //{
-        //    yield return new WaitForSeconds(5f);
-        //}
-        //else 
-        //{
-        //    yield return new WaitForSeconds(5f);
-        //}
 
 
 
@@ -84,6 +71,7 @@ public class LevelEndPanel : MonoBehaviour
         yield return new WaitForSeconds(2f);
         panelObjects[3].transform.GetComponent<CanvasGroup>().DOFade(1, 1).From(0);
         NextLevelButton.nextLevelButton.clicked = false;
+        
 
     }
     IEnumerator MoneyBtScaleAnim()
@@ -99,4 +87,5 @@ public class LevelEndPanel : MonoBehaviour
 
         }
     }
+  
 }

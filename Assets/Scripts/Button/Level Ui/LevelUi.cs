@@ -16,7 +16,7 @@ public class LevelUi : MonoBehaviour
         }
         else
         {
-            GetComponent<TextMeshProUGUI>().text = "Lvl " + (PlayerPrefs.GetInt("LevelCount"));
+            GetComponent<TextMeshProUGUI>().text =  (PlayerPrefs.GetInt("LevelCount").ToString());
             PlayerPrefs.SetInt(transform.parent.name, SceneManager.GetActiveScene().buildIndex);
         }      
     }

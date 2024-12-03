@@ -13,6 +13,7 @@ public class NextLevelButton : MonoBehaviour
     
     [SerializeField] private Transform moneyParticlePosition;
     private RectTransform rectTransform;
+    [SerializeField] private Multiplier multiplier;
      
     
 
@@ -37,10 +38,10 @@ public class NextLevelButton : MonoBehaviour
         
     }
 
-    private IEnumerator NextLevelParticle()
+    private void NextLevelParticle()
     {
        
-            yield return new WaitForSeconds(1.5f);
+           
             if (!PlayerPrefs.HasKey("LevelCount"))
                 PlayerPrefs.SetInt("LevelCount", 1);
             else
@@ -74,12 +75,12 @@ public class NextLevelButton : MonoBehaviour
 
     }
 
-    public void NextLevel()
+    public void NoThanksButton()
     {
 
         
 
-        if (!clicked)
+        if (!clicked && !multiplier.adsClicked )
         {
             Vector3 firstscale = transform.localScale;
             rectTransform.DOScale(new Vector3(1.1f, 3.8f, 1), 0.4f).SetEase(Ease.OutQuad)
@@ -102,9 +103,9 @@ public class NextLevelButton : MonoBehaviour
 
                     }
 
+            
+                    multiplier.MoneyParticle();
                   
-               
-                    StartCoroutine(NextLevelParticle());
 
 
                
@@ -120,25 +121,27 @@ public class NextLevelButton : MonoBehaviour
            
 
 
-            ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
+           // ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
             
-            //clicked = true;
+            clicked = true;
         }
 
 
     }
-    public void NextLevelReward()
+    // public void NextLevelReward()
+    // {
+    //    // _ads = true;
+    //     //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
+    //    // StartCoroutine(NextLevelParticle());
+    //    
+    // }
+
+    public void NextLevel()
     {
-       // _ads = true;
-        //YsoCorp.GameUtils.YCManager.instance.OnGameFinished(_ads);
-        StartCoroutine(NextLevelParticle());
-       
+       NextLevelParticle();
+      
     }
+
     
-    //public void MoneyParticle()
-    //{
-    //    ParticleSystem moneyParticle = Instantiate(GameAssets.i.effects[6], moneyParticlePosition.position, Quaternion.identity); ;
-    //    moneyParticle.Play();
-    //}
 
 }
